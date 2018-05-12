@@ -1,9 +1,15 @@
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -11,22 +17,32 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.converter.DateStringConverter;
 
+import java.awt.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class App extends Application {
 
     private Stage window;
+    private final int HEIGHT = 600;
+    private final int WIDTH = 1000;
     private Scene scene;
     private GridPane topMenuContainer;
+    private VBox centerLogViewerContainer;
+    private VBox filtersContainer;
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
     private Button setDatesBtn;
     private TextField startTimeTxtFld;
     private TextField endTimeTxtFld;
-    public SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private TableView logTable;
+    private ObservableList<Log> logs = FXCollections.observableArrayList();
+    private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     public static void main(String[] args) {
         launch(args);
@@ -37,11 +53,12 @@ public class App extends Application {
 
         window = primaryStage;
         window.setTitle("Sisense Log Reader");
-        window.setMinWidth(500);
-        window.setMinHeight(300);
+        window.setMinWidth(WIDTH);
+        window.setMinHeight(HEIGHT);
 
         BorderPane rootLayout = new BorderPane();
 
+        // Top Menu
         topMenuContainer = new GridPane();
         topMenuContainer.setHgap(10);
         topMenuContainer.setVgap(2);
@@ -104,11 +121,92 @@ public class App extends Application {
         endTimeTxtFld.setPromptText("HH:mm");
         topMenuContainer.add(endTimeTxtFld, 1, 2 );
 
+        // Center
+        centerLogViewerContainer = new VBox(0);
+        logTable = new TableView();
+        TableColumn timeColumn = new TableColumn("Time");
+        TableColumn verbosityColumn = new TableColumn("Verbosity");
+        TableColumn componentColumn = new TableColumn("Component");
+        TableColumn detailsColumn = new TableColumn("Details");
+        logs.add(iisNodeLogParse());
+
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Log, Date>("time"));
+        verbosityColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("verbosity"));
+        componentColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("component"));
+        detailsColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("details"));
+
+
+        logTable.setItems(logs);
+        logTable.getColumns().addAll(timeColumn, verbosityColumn, componentColumn, detailsColumn);
+        centerLogViewerContainer.getChildren().add(logTable);
+//
+//        logTable.setRowFactory(row -> new TableRow<Log>() {
+//            @Override
+//            protected void updateItem(Log item, boolean empty) {
+//                super.updateItem(item, empty);
+//
+//                if (item.getVerbosity().equals("ERROR")){
+//                    setStyle("-fx-background-color: tomato;");
+//                }
+//            }
+//        });
+
+        // Left
+        filtersContainer = new VBox(10);
+        filtersContainer.setPadding(new Insets(15));
+        CheckBox verbosityFilterCkBx = new CheckBox("Verbosity");
+        CheckBox componentFilterChBx = new CheckBox("Component");
+        CheckBox detailsSeachFilterChBx = new CheckBox("Details");
+        filtersContainer.getChildren().addAll(verbosityFilterCkBx, componentFilterChBx, detailsSeachFilterChBx);
+
         // UI binding
         rootLayout.setTop(topMenuContainer);
-        scene = new Scene(rootLayout, 500, 400);
+        rootLayout.setCenter(centerLogViewerContainer);
+        rootLayout.setLeft(filtersContainer);
+
+        scene = new Scene(rootLayout, WIDTH, HEIGHT);
         window.setScene(scene);
         window.show();
 
+//        iisNodeLogParse();
+
+    }
+
+    private Log iisNodeLogParse(){
+
+        String log = "14.916 [2018/05/10 19:40:54.608] [19688],[ERROR] [logstash-activity-reporter]: [unable to parse file - narration, error - SyntaxError: Invalid or unexpected token]";
+        Log l = new Log();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+        Pattern pattern = Pattern.compile("\\[(.*?)\\]");
+        Matcher matcher = pattern.matcher(log);
+
+        int i = 0;
+        while (matcher.find()){
+
+            switch (i){
+                case 0:
+                    try {
+                        System.out.println(matcher.group(1));
+                        l.setTime(sdf.parse(matcher.group(1)));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 2:
+                    l.setVerbosity(matcher.group(1));
+                    break;
+                case 3:
+                    l.setComponent(matcher.group(1));
+                    break;
+                case 4:
+                    l.setDetails(matcher.group(1));
+                    break;
+                default:
+                    break;
+            }
+            i++;
+        }
+        System.out.println(l.toString());
+        return l;
     }
 }
