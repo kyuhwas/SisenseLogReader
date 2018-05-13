@@ -1,7 +1,8 @@
 import java.util.Date;
 
-public class Log {
+public class Log{
 
+    private String source;
     private Date time;
     private String verbosity;
     private String component;
@@ -10,7 +11,8 @@ public class Log {
     public Log() {
     }
 
-    public Log(Date time, String verbosity, String component, String details) {
+    public Log(String source, Date time, String verbosity, String component, String details) {
+        this.source = source;
         this.time = time;
         this.verbosity = verbosity;
         this.component = component;
@@ -57,5 +59,13 @@ public class Log {
                 ", component='" + component + '\'' +
                 ", details='" + details + '\'' +
                 '}';
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 }
