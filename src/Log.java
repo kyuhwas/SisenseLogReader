@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Log{
@@ -24,7 +26,9 @@ public class Log{
     }
 
     public void setTime(Date time) {
+
         this.time = time;
+
     }
 
     public String getVerbosity() {
