@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class Log{
+public class Log  implements Comparable<Log>{
 
     private String source;
     private Date time;
@@ -71,5 +71,11 @@ public class Log{
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+
+    @Override
+    public int compareTo(Log o) {
+        return getTime().compareTo(o.getTime());
     }
 }

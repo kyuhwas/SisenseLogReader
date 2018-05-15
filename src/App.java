@@ -20,6 +20,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -29,7 +30,7 @@ import java.util.stream.Stream;
 
 public class App extends Application {
 
-    TableView logTable;
+    private TableView logTable;
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
     private Date startTime;
@@ -321,6 +322,9 @@ public class App extends Application {
                             logs.addAll(iisNodeLogParse(l));
                         }
                     }
+
+                    // sorts logs
+                    Collections.sort(logs);
 
                     logTable.getItems().addAll(logs);
                 }
