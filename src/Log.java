@@ -76,6 +76,8 @@ public class Log  implements Comparable<Log>{
 
     @Override
     public int compareTo(Log o) {
+        if (getTime() == null || o.getTime() == null)
+            return 0;
         return getTime().compareTo(o.getTime());
     }
 }
