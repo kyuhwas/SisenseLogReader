@@ -111,10 +111,6 @@ public class App extends Application {
         }
 
         files.removeAll(filesToRemove);
-
-        for (Path p : files){
-            System.out.println(p.getFileName().toString());
-        }
         return files;
     }
 
@@ -160,6 +156,10 @@ public class App extends Application {
 
         l.setSource("IISNode");
         int i = 0;
+//        if (!matcher.matches()){
+//            l = null;
+//            return l;
+//        }
         while (matcher.find()){
 
             switch (i){
@@ -276,6 +276,19 @@ public class App extends Application {
         }
     }
 
+    private void removeEmptyLogs(List<Log> list){
+
+        List<Log> logsToRemove = new ArrayList<>();
+
+        for (Log log : list){
+            if (log.getTime() == null){
+                logsToRemove.add(log);
+            }
+        }
+
+        list.removeAll(logsToRemove);
+    }
+
     private GridPane initializeDateMenu(){
         GridPane topMenuContainer = new GridPane();
         topMenuContainer.setHgap(10);
@@ -322,6 +335,8 @@ public class App extends Application {
                             logs.addAll(iisNodeLogParse(l));
                         }
                     }
+
+                    removeEmptyLogs(logs);
 
                     // sorts logs
                     Collections.sort(logs);
