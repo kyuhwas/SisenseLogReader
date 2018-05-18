@@ -1,3 +1,5 @@
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -72,7 +74,6 @@ public class Log  implements Comparable<Log>{
     public void setSource(String source) {
         this.source = source;
     }
-
 
     @Override
     public int compareTo(Log o) {

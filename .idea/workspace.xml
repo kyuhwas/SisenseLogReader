@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42c68390-d28f-498c-90b2-e0b67048447b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Log.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\kobbi.gal.CORP\IdeaProjects\SisenseLogReader\.idea\shelf/" />
@@ -15,50 +15,85 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="226" column="5" lean-forward="true" selection-start-line="226" selection-start-column="5" selection-end-line="226" selection-end-column="5" />
-              <folding>
-                <element signature="method#start#0;class#App#0" />
-                <element signature="method#loadUI#0;class#App#0" />
-                <element signature="method#fileList#0;class#App#0" />
-                <element signature="method#readFileLines#0;class#App#0" />
-                <element signature="method#iisNodeLogParse#0;class#App#0" />
-                <element signature="method#ecsLogParser#0;class#App#0" />
-                <element signature="method#prismWebLogParser#0;class#App#0" />
-                <element signature="method#getFileExtension#0;class#App#0" />
-                <element signature="method#removeEmptyLogs#0;class#App#0" />
-                <element signature="method#initializeDateMenu#0;class#App#0" />
-                <element signature="method#initializeLogTable#0;class#App#0" />
-                <element signature="method#initializeFilters#0;class#App#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Log.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Log.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="62" column="52" lean-forward="true" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
-              <folding>
-                <element signature="e#1553#1554#0" expanded="true" />
-                <element signature="e#1589#1590#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/App.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="269">
+                  <caret line="280" column="18" selection-start-line="280" selection-start-column="18" selection-end-line="280" selection-end-column="18" />
+                  <folding>
+                    <element signature="method#fileList#0;class#App#0" />
+                    <element signature="method#readFileLines#0;class#App#0" />
+                    <element signature="method#iisNodeLogParse#0;class#App#0" />
+                    <element signature="method#ecsLogParser#0;class#App#0" />
+                    <element signature="method#prismWebLogParser#0;class#App#0" />
+                    <element signature="method#getFileExtension#0;class#App#0" />
+                    <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+                    <element signature="method#start#0;class#App#0" />
+                    <element signature="method#loadUI#0;class#App#0" />
+                    <element signature="method#initializeDateMenu#0;class#App#0" />
+                    <element signature="method#initializeLogTable#0;class#App#0" />
+                    <element signature="method#initializeFilters#0;class#App#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Log.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Log.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="136">
+                  <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#682#683#0" expanded="true" />
+                    <element signature="e#709#710#0" expanded="true" />
+                    <element signature="method#setTime#0;class#Log#0" />
+                    <element signature="method#toString#0;class#Log#0" />
+                    <element signature="e#1553#1554#0" expanded="true" />
+                    <element signature="e#1589#1590#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/App.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="188">
+                  <caret line="59" column="24" lean-forward="true" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
+                  <folding>
+                    <element signature="method#readFileLines#0;class#App#0" />
+                    <element signature="method#iisNodeLogParse#0;class#App#0" />
+                    <element signature="method#ecsLogParser#0;class#App#0" />
+                    <element signature="method#prismWebLogParser#0;class#App#0" />
+                    <element signature="method#getFileExtension#0;class#App#0" />
+                    <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+                    <element signature="method#start#0;class#App#0" />
+                    <element signature="method#loadUI#0;class#App#0" />
+                    <element signature="method#initializeDateMenu#0;class#App#0" />
+                    <element signature="method#initializeLogTable#0;class#App#0" />
+                    <element signature="method#initializeFilters#0;class#App#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>fileList</find>
       <find>please set</find>
       <find>println</find>
+      <find>removeEmptyLogs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -196,11 +231,11 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.329235" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14370291" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39959225" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39959225" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -219,7 +254,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/App.java</url>
+          <line>280</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="11" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -228,15 +271,14 @@
         <state relative-caret-position="1190">
           <caret line="303" column="17" lean-forward="true" selection-start-line="303" selection-start-column="17" selection-end-line="303" selection-end-column="17" />
           <folding>
-            <element signature="method#start#0;class#App#0" />
-            <element signature="method#loadUI#0;class#App#0" />
-            <element signature="method#fileList#0;class#App#0" />
             <element signature="method#readFileLines#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
             <element signature="method#getFileExtension#0;class#App#0" />
-            <element signature="method#removeEmptyLogs#0;class#App#0" />
+            <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+            <element signature="method#start#0;class#App#0" />
+            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
@@ -249,6 +291,10 @@
         <state relative-caret-position="986">
           <caret line="78" column="48" lean-forward="true" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
           <folding>
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="method#setTime#0;class#Log#0" />
+            <element signature="method#toString#0;class#Log#0" />
             <element signature="e#1553#1554#0" expanded="true" />
             <element signature="e#1589#1590#0" expanded="true" />
           </folding>
@@ -260,15 +306,14 @@
         <state relative-caret-position="3420">
           <caret line="289" selection-start-line="289" selection-end-line="289" />
           <folding>
-            <element signature="method#start#0;class#App#0" />
-            <element signature="method#loadUI#0;class#App#0" />
-            <element signature="method#fileList#0;class#App#0" />
             <element signature="method#readFileLines#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
             <element signature="method#getFileExtension#0;class#App#0" />
-            <element signature="method#removeEmptyLogs#0;class#App#0" />
+            <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+            <element signature="method#start#0;class#App#0" />
+            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
@@ -281,6 +326,10 @@
         <state relative-caret-position="180">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="method#setTime#0;class#Log#0" />
+            <element signature="method#toString#0;class#Log#0" />
             <element signature="e#1553#1554#0" expanded="true" />
             <element signature="e#1589#1590#0" expanded="true" />
           </folding>
@@ -313,9 +362,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Log.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="62" column="52" lean-forward="true" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
+        <state relative-caret-position="136">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="method#setTime#0;class#Log#0" />
+            <element signature="method#toString#0;class#Log#0" />
             <element signature="e#1553#1554#0" expanded="true" />
             <element signature="e#1589#1590#0" expanded="true" />
           </folding>
@@ -324,18 +377,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="226" column="5" lean-forward="true" selection-start-line="226" selection-start-column="5" selection-end-line="226" selection-end-column="5" />
+        <state relative-caret-position="188">
+          <caret line="59" column="24" lean-forward="true" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
           <folding>
-            <element signature="method#start#0;class#App#0" />
-            <element signature="method#loadUI#0;class#App#0" />
-            <element signature="method#fileList#0;class#App#0" />
             <element signature="method#readFileLines#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
             <element signature="method#getFileExtension#0;class#App#0" />
-            <element signature="method#removeEmptyLogs#0;class#App#0" />
+            <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+            <element signature="method#start#0;class#App#0" />
+            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="method#initializeFilters#0;class#App#0" />

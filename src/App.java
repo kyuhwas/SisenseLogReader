@@ -41,7 +41,7 @@ public class App extends Application {
     private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     private final Path IIS_NODE_PATH = Paths.get("C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\");
-    private final Path IIS_NODE_LOGS_PATH = Paths.get("C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\LAP-IL-KOBBIG-24036-stdout-1525977954610.txt");
+//    private final Path IIS_NODE_LOGS_PATH = Paths.get("C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\LAP-IL-KOBBIG-24036-stdout-1525977954610.txt");
     private final Path ECS_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\ECS.log");
     private final Path PRISMWEB_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\PrismWebServer.log");
 
@@ -52,35 +52,6 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) {
-
-            loadUI(primaryStage);
-
-    }
-
-    private void loadUI(Stage primaryStage){
-
-        Stage window = primaryStage;
-        window.setTitle("Sisense Log Reader");
-        int WIDTH = 1400;
-        window.setMinWidth(WIDTH);
-        int HEIGHT = 600;
-        window.setMinHeight(HEIGHT);
-
-        BorderPane rootLayout = new BorderPane();
-
-        // UI binding
-        rootLayout.setTop(initializeDateMenu());
-        rootLayout.setCenter(initializeLogTable());
-        rootLayout.setLeft(initializeFilters());
-
-        Scene scene = new Scene(rootLayout, WIDTH, HEIGHT);
-        window.setScene(scene);
-        window.show();
-
     }
 
     private List<Path> fileList(Path path, Date start, Date end){
@@ -118,22 +89,9 @@ public class App extends Application {
 
         List<String> lines;
 
-//        if (log.trim().startsWith("at") || log.startsWith("]") || log.startsWith("A")){
-//            return null;
-//        }
-//        if (log.startsWith("Exception") || log.trim().startsWith("at") || log.startsWith("Sisense") || log.startsWith("System")){
-//            return null;
-//        }
-
         try(Stream<String> stream = Files.lines(path)) {
 
             lines = stream.filter(line -> !line.isEmpty())
-//                    .filter(line -> !line.trim().startsWith("at"))
-//                    .filter(line -> !line.startsWith("]"))
-//                    .filter(line -> !line.startsWith("A"))
-//                    .filter(line -> !line.startsWith("Exception"))
-//                    .filter(line -> !line.startsWith("Sisense"))
-//                    .filter(line -> !line.startsWith("System"))
                     .collect(Collectors.toList());
             stream.close();
             return lines;
@@ -147,6 +105,7 @@ public class App extends Application {
         }
     }
 
+    // Log Parsers
     private Log iisNodeLogParse(String log){
 
         Log l = new Log();
@@ -167,7 +126,7 @@ public class App extends Application {
                     try {
                         l.setTime(sdf.parse(matcher.group(1)));
                     } catch (ParseException e) {
-                        System.out.println(log);
+
                     }
                     break;
                 case 2:
@@ -185,7 +144,6 @@ public class App extends Application {
         return l;
     }
 
-    // TODO Handle null
     private Log ecsLogParser(String log){
 
         if (log.trim().startsWith("at") || log.startsWith("]") || log.startsWith("A")){
@@ -208,7 +166,6 @@ public class App extends Application {
                     try {
                         l.setTime(sdf.parse(matcher.group(1)));
                     } catch (ParseException e) {
-                        System.out.println(log + " unable to parse");
                     }
                     break;
                 case 3:
@@ -226,7 +183,6 @@ public class App extends Application {
          return l;
     }
 
-    // TODO Handle null
     private Log prismWebLogParser(String log){
 
         if (log.startsWith("Exception") || log.trim().startsWith("at") || log.startsWith("Sisense") || log.startsWith("System")){
@@ -267,6 +223,7 @@ public class App extends Application {
         return l;
     }
 
+    // Miscellaneous methods
     private String getFileExtension(File file) {
         String name = file.getName();
         try {
@@ -276,17 +233,104 @@ public class App extends Application {
         }
     }
 
-    private void removeEmptyLogs(List<Log> list){
+    private void removeEmptyOutOfRangeLogs(List<Log> list, Date startTime, Date endTime){
 
         List<Log> logsToRemove = new ArrayList<>();
 
         for (Log log : list){
-            if (log.getTime() == null){
+            if (log.getTime() == null || log.getTime().before(startTime) || log.getTime().after(endTime)){
                 logsToRemove.add(log);
             }
         }
 
         list.removeAll(logsToRemove);
+    }
+
+    // Event handlers
+    private void handleSubmit(){
+
+        try {
+
+            startTime = sdt.parse(startDatePicker.getValue() + " " + startTimeTxtFld.getText());
+            endTime = sdt.parse(endDatePicker.getValue() + " " + endTimeTxtFld.getText());
+
+            if (startTime.after(endTime)){
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid range", ButtonType.OK);
+                startTimeTxtFld.setText("");
+                startTime = null;
+                endTime = null;
+                endTimeTxtFld.setText("");
+                alert.showAndWait();
+            }
+            else {
+
+
+                if (logTable.getItems().size() > 0){
+                    logTable.getItems().clear();
+                    logs.clear();
+                }
+
+
+                for (Path p : fileList(IIS_NODE_PATH, startTime, endTime)){
+                    for (String l : readFileLines(p)){
+                        logs.addAll(iisNodeLogParse(l));
+                    }
+                }
+
+                // TODO check why ECS fls returns null values
+//                for (Path p : fileList(ECS_LOGS_PATH, startTime, endTime)){
+//                    for (String l : readFileLines(p)){
+//                        logs.addAll(ecsLogParser(l));
+//                    }
+//                }
+
+                removeEmptyOutOfRangeLogs(logs, startTime, endTime);
+
+                // sorts logs
+                Collections.sort(logs);
+
+                logTable.getItems().addAll(logs);
+            }
+
+        }
+        catch (NullPointerException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please set both dates", ButtonType.OK);
+            alert.showAndWait();
+        }
+        catch (ParseException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect time syntax", ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    // UI
+    @Override
+    public void start(Stage primaryStage) {
+
+        loadUI(primaryStage);
+
+    }
+
+    private void loadUI(Stage primaryStage){
+
+        Stage window = primaryStage;
+        window.setTitle("Sisense Log Reader");
+        int WIDTH = 1400;
+        window.setMinWidth(WIDTH);
+        int HEIGHT = 600;
+        window.setMinHeight(HEIGHT);
+
+        BorderPane rootLayout = new BorderPane();
+
+        // UI binding
+        rootLayout.setTop(initializeDateMenu());
+        rootLayout.setCenter(initializeLogTable());
+        rootLayout.setLeft(initializeFilters());
+
+        Scene scene = new Scene(rootLayout, WIDTH, HEIGHT);
+        window.setScene(scene);
+        window.show();
+
     }
 
     private GridPane initializeDateMenu(){
@@ -312,48 +356,7 @@ public class App extends Application {
         endDatePicker.setPromptText("MM/DD/YYYY");
         topMenuContainer.add(endDatePicker, 1,1);
         Button setDatesBtn = new Button("Submit");
-        setDatesBtn.setOnAction(event -> {
-
-            try {
-
-                startTime = sdt.parse(startDatePicker.getValue() + " " + startTimeTxtFld.getText());
-                endTime = sdt.parse(endDatePicker.getValue() + " " + endTimeTxtFld.getText());
-
-                if (startTime.after(endTime)){
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid range", ButtonType.OK);
-                    startTimeTxtFld.setText("");
-                    startTime = null;
-                    endTime = null;
-                    endTimeTxtFld.setText("");
-                    alert.showAndWait();
-                }
-                else {
-
-                    List<Path> files = fileList(IIS_NODE_PATH, startTime, endTime);
-                    for (Path p : files){
-                        for (String l : readFileLines(p)){
-                            logs.addAll(iisNodeLogParse(l));
-                        }
-                    }
-
-                    removeEmptyLogs(logs);
-
-                    // sorts logs
-                    Collections.sort(logs);
-
-                    logTable.getItems().addAll(logs);
-                }
-
-            }
-            catch (NullPointerException e){
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Please set both dates", ButtonType.OK);
-                alert.showAndWait();
-            }
-            catch (ParseException e){
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect time syntax", ButtonType.OK);
-                alert.showAndWait();
-            }
-        });
+        setDatesBtn.setOnAction(event ->  handleSubmit());
 
         startTimeTxtFld = new TextField();
         startTimeTxtFld.setPromptText("HH:mm");
@@ -381,47 +384,18 @@ public class App extends Application {
         TableColumn verbosityColumn = new TableColumn("Verbosity");
         TableColumn componentColumn = new TableColumn("Component");
         TableColumn detailsColumn = new TableColumn("Details");
-        detailsColumn.setSortable(false);
-        verbosityColumn.setSortable(false);
-        componentColumn.setSortable(false);
         sourceColumn.setSortable(false);
+        timeColumn.setMinWidth(185);
+        verbosityColumn.setSortable(false);
+        verbosityColumn.setMinWidth(60);
+        componentColumn.setSortable(false);
+        detailsColumn.setSortable(false);
 
         sourceColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("source"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<Log, Date>("time"));
         verbosityColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("verbosity"));
         componentColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("component"));
         detailsColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("details"));
-
-        // TODO read each file in path
-        // TODO filter files according to start and end date
-//        for (String l : readFileLines(IIS_NODE_LOGS_PATH)){
-//            logs.addAll(iisNodeLogParse(l));
-//        }
-//        logTable.setItems(logs);
-
-        // Add logs to table
-//        for (String l : readFileLines(IIS_NODE_LOGS_PATH)) {
-//
-//            logs.add(iisNodeLogParse(l));
-//
-//        }
-
-//        for (String l : readFileLines(ECS_LOGS_PATH)){
-//
-//            if (ecsLogParser(l) != null) logs.add(ecsLogParser(l));
-//
-//        }
-//
-//        for (String l : readFileLines(PRISMWEB_LOGS_PATH)){
-//
-//            if (prismWebLogParser(l) != null) logs.add(prismWebLogParser(l));
-//
-//        }
-
-        // TODO add sort of column by date
-        // logs.sort();
-
-
         logTable.getColumns().addAll(sourceColumn, timeColumn, verbosityColumn, componentColumn, detailsColumn);
 
         centerLogViewerContainer.getChildren().add(logTable);
