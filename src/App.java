@@ -9,6 +9,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -328,6 +330,7 @@ public class App extends Application {
         rootLayout.setLeft(initializeFilters());
 
         Scene scene = new Scene(rootLayout, WIDTH, HEIGHT);
+        scene.getStylesheets().add("style.css");
         window.setScene(scene);
         window.show();
 
@@ -342,8 +345,10 @@ public class App extends Application {
 
         // Row 1 - Labels
         Label startTimeLabel = new Label("Start");
+        startTimeLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
         topMenuContainer.add(startTimeLabel, 0, 0);
         Label endTimeLabel = new Label("End");
+        endTimeLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
         topMenuContainer.add(endTimeLabel, 1, 0);
 
         // Row 2 - DatePickers  and Submit
@@ -397,6 +402,8 @@ public class App extends Application {
         componentColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("component"));
         detailsColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("details"));
         logTable.getColumns().addAll(sourceColumn, timeColumn, verbosityColumn, componentColumn, detailsColumn);
+//        logTable.setPadding(new Insets(0,10,0,0));
+
 
         centerLogViewerContainer.getChildren().add(logTable);
 
@@ -407,6 +414,7 @@ public class App extends Application {
         VBox filtersContainer = new VBox(10);
         filtersContainer.setPadding(new Insets(15));
         Label filtersLabel = new Label("Filters");
+        filtersLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
         CheckBox sourceFilterCkBz = new CheckBox("Source");
         CheckBox verbosityFilterCkBx = new CheckBox("Verbosity");
         CheckBox componentFilterChBx = new CheckBox("Component");
