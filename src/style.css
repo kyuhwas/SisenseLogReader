@@ -3,3 +3,9 @@
     -fx-background-color: "#FFD700"
 
 }
+
+.button{
+
+    -fx-background-radius: 10;
+
+}
