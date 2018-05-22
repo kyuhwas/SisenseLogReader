@@ -44,7 +44,8 @@ public class App extends Application {
 
     private final Path IIS_NODE_PATH = Paths.get("C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\");
 //    private final Path IIS_NODE_LOGS_PATH = Paths.get("C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\LAP-IL-KOBBIG-24036-stdout-1525977954610.txt");
-    private final Path ECS_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\ECS.log");
+//    private final Path ECS_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\");
+    private final Path ECS_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\ECS.log.1");
     private final Path PRISMWEB_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\PrismWebServer.log");
 
     // MAC
@@ -53,6 +54,7 @@ public class App extends Application {
 //    private final Path PRISMWEB_LOGS_PATH = Paths.get("/Users/kobbigal/Downloads/sample_logs/PrismWebServer.log");
 
     public static void main(String[] args) {
+        System.out.println(javafx.scene.text.Font.getFamilies());
         launch(args);
     }
 
@@ -146,6 +148,7 @@ public class App extends Application {
         return l;
     }
 
+    // TODO read file first line and last line and check if time interval is relevant
     private Log ecsLogParser(String log){
 
         if (log.trim().startsWith("at") || log.startsWith("]") || log.startsWith("A")){
@@ -167,7 +170,7 @@ public class App extends Application {
                 case 0:
                     try {
                         l.setTime(sdf.parse(matcher.group(1)));
-                    } catch (ParseException e) {
+                    } catch (ParseException ignored) {
                     }
                     break;
                 case 3:
@@ -253,8 +256,19 @@ public class App extends Application {
 
         try {
 
-            startTime = sdt.parse(startDatePicker.getValue() + " " + startTimeTxtFld.getText());
-            endTime = sdt.parse(endDatePicker.getValue() + " " + endTimeTxtFld.getText());
+            if (!startDatePicker.getValue().toString().equals("") &&
+                    !startTimeTxtFld.getText().equals("") &&
+                    !endDatePicker.getValue().toString().equals("") &&
+                    !endTimeTxtFld.getText().equals("")){
+
+                startTime = sdt.parse(startDatePicker.getValue() + " " + startTimeTxtFld.getText());
+                endTime = sdt.parse(endDatePicker.getValue() + " " + endTimeTxtFld.getText());
+
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Please set both dates", ButtonType.OK);
+                alert.showAndWait();
+            }
 
             if (startTime.after(endTime)){
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid range", ButtonType.OK);
@@ -266,12 +280,10 @@ public class App extends Application {
             }
             else {
 
-
                 if (logTable.getItems().size() > 0){
                     logTable.getItems().clear();
                     logs.clear();
                 }
-
 
                 for (Path p : fileList(IIS_NODE_PATH, startTime, endTime)){
                     for (String l : readFileLines(p)){
@@ -285,6 +297,9 @@ public class App extends Application {
 //                        logs.addAll(ecsLogParser(l));
 //                    }
 //                }
+                for (String l : readFileLines(ECS_LOGS_PATH)) {
+                    logs.addAll(ecsLogParser(l));
+                }
 
                 removeEmptyOutOfRangeLogs(logs, startTime, endTime);
 
@@ -295,9 +310,8 @@ public class App extends Application {
             }
 
         }
-        catch (NullPointerException e){
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please set both dates", ButtonType.OK);
-            alert.showAndWait();
+        catch (NullPointerException ignored){
+
         }
         catch (ParseException e){
             Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect time syntax", ButtonType.OK);
@@ -345,10 +359,10 @@ public class App extends Application {
 
         // Row 1 - Labels
         Label startTimeLabel = new Label("Start");
-        startTimeLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        startTimeLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
         topMenuContainer.add(startTimeLabel, 0, 0);
         Label endTimeLabel = new Label("End");
-        endTimeLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        endTimeLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
         topMenuContainer.add(endTimeLabel, 1, 0);
 
         // Row 2 - DatePickers  and Submit
@@ -414,7 +428,7 @@ public class App extends Application {
         VBox filtersContainer = new VBox(10);
         filtersContainer.setPadding(new Insets(15));
         Label filtersLabel = new Label("Filters");
-        filtersLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        filtersLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
         CheckBox sourceFilterCkBz = new CheckBox("Source");
         CheckBox verbosityFilterCkBx = new CheckBox("Verbosity");
         CheckBox componentFilterChBx = new CheckBox("Component");
