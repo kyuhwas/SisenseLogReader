@@ -54,7 +54,6 @@ public class App extends Application {
 //    private final Path PRISMWEB_LOGS_PATH = Paths.get("/Users/kobbigal/Downloads/sample_logs/PrismWebServer.log");
 
     public static void main(String[] args) {
-        System.out.println(javafx.scene.text.Font.getFamilies());
         launch(args);
     }
 
@@ -256,10 +255,10 @@ public class App extends Application {
 
         try {
 
-            if (!startDatePicker.getValue().toString().equals("") &&
-                    !startTimeTxtFld.getText().equals("") &&
-                    !endDatePicker.getValue().toString().equals("") &&
-                    !endTimeTxtFld.getText().equals("")){
+            if  (   startDatePicker.getValue() != null &&
+                    startTimeTxtFld.getText() != null &&
+                    endDatePicker.getValue() != null &&
+                    endTimeTxtFld.getText() != null){
 
                 startTime = sdt.parse(startDatePicker.getValue() + " " + startTimeTxtFld.getText());
                 endTime = sdt.parse(endDatePicker.getValue() + " " + endTimeTxtFld.getText());
@@ -279,6 +278,8 @@ public class App extends Application {
                 alert.showAndWait();
             }
             else {
+
+                ProgressBarScene.display();
 
                 if (logTable.getItems().size() > 0){
                     logTable.getItems().clear();
