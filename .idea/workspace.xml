@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42c68390-d28f-498c-90b2-e0b67048447b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SisenseLogReader/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SisenseLogReader/Test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,8 +21,8 @@
           <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/App.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="633">
-                  <caret line="465" column="70" lean-forward="true" selection-start-line="465" selection-start-column="70" selection-end-line="465" selection-end-column="70" />
+                <state relative-caret-position="-340">
+                  <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
                   <folding>
                     <element signature="e#2086#2092#0" />
                     <element signature="method#start#0;class#App#0" />
@@ -35,14 +31,16 @@
                     <element signature="method#initializeLogTable#0;class#App#0" />
                     <element signature="e#4908#4917#0" />
                     <element signature="method#initializeFilters#0;class#App#0" />
-                    <element signature="method#fileList#0;class#App#0" />
-                    <element signature="method#readFileLines#0;class#App#0" />
+                    <element signature="e#6839#6870#0" />
+                    <element signature="e#8266#10185#0" />
+                    <element signature="method#iisNodeLogs#0;class#App#0" />
+                    <element signature="method#prismWebLogs#0;class#App#0" />
                     <element signature="method#iisNodeLogParse#0;class#App#0" />
                     <element signature="e#9106#9140#0" />
                     <element signature="method#ecsLogParser#0;class#App#0" />
                     <element signature="method#prismWebLogParser#0;class#App#0" />
-                    <element signature="method#getFileExtension#0;class#App#0" />
-                    <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+                    <element signature="e#17656#17666#0" />
+                    <element signature="method#handleSubmit#0;class#App#0" />
                   </folding>
                 </state>
               </provider>
@@ -51,8 +49,17 @@
           <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Test.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="867">
-                  <caret line="81" column="5" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="81" selection-end-column="5" />
+                <state relative-caret-position="459">
+                  <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+                  <folding>
+                    <element signature="method#main#0;class#Test#0" />
+                    <element signature="e#816#871#0" />
+                    <element signature="method#ecsLogParser#0;class#Test#0" />
+                    <element signature="method#iisNodeLogs#0;class#Test#0" />
+                    <element signature="method#iisNodeLogParse#0;class#Test#0" />
+                    <element signature="e#4286#4320#0" />
+                    <element signature="method#prismWebLogs#0;class#Test#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -99,8 +106,17 @@
           <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Test.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="664">
-                  <caret line="111" column="42" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+                <state relative-caret-position="406">
+                  <caret line="207" column="4" selection-start-line="207" selection-start-column="4" selection-end-line="251" selection-end-column="5" />
+                  <folding>
+                    <element signature="method#ecsLogs#0;class#Test#0" />
+                    <element signature="method#ecsLogParser#0;class#Test#0" />
+                    <element signature="method#iisNodeLogs#0;class#Test#0" />
+                    <element signature="method#iisNodeLogParse#0;class#Test#0" />
+                    <element signature="e#4215#4249#0" />
+                    <element signature="method#prismWebLogs#0;class#Test#0" />
+                    <element signature="method#prismWebLogParser#0;class#Test#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -279,7 +295,7 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50277776" side_tool="true" weight="0.329235" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36391437" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36391437" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49722221" weight="0.329235" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
@@ -325,14 +341,16 @@
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="method#fileList#0;class#App#0" />
-            <element signature="method#readFileLines#0;class#App#0" />
+            <element signature="e#6839#6870#0" />
+            <element signature="e#8266#10185#0" />
+            <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#getFileExtension#0;class#App#0" />
-            <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+            <element signature="e#17656#17666#0" />
+            <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -358,6 +376,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="method#main#0;class#Test#0" />
+            <element signature="e#816#871#0" />
+            <element signature="method#ecsLogParser#0;class#Test#0" />
+            <element signature="method#iisNodeLogs#0;class#Test#0" />
+            <element signature="method#iisNodeLogParse#0;class#Test#0" />
+            <element signature="e#4286#4320#0" />
+            <element signature="method#prismWebLogs#0;class#Test#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -373,14 +400,16 @@
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="method#fileList#0;class#App#0" />
-            <element signature="method#readFileLines#0;class#App#0" />
+            <element signature="e#6839#6870#0" />
+            <element signature="e#8266#10185#0" />
+            <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#getFileExtension#0;class#App#0" />
-            <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+            <element signature="e#17656#17666#0" />
+            <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -413,14 +442,16 @@
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="method#fileList#0;class#App#0" />
-            <element signature="method#readFileLines#0;class#App#0" />
+            <element signature="e#6839#6870#0" />
+            <element signature="e#8266#10185#0" />
+            <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#getFileExtension#0;class#App#0" />
-            <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+            <element signature="e#17656#17666#0" />
+            <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -443,14 +474,16 @@
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="method#fileList#0;class#App#0" />
-            <element signature="method#readFileLines#0;class#App#0" />
+            <element signature="e#6839#6870#0" />
+            <element signature="e#8266#10185#0" />
+            <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#getFileExtension#0;class#App#0" />
-            <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+            <element signature="e#17656#17666#0" />
+            <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -474,14 +507,16 @@
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="method#fileList#0;class#App#0" />
-            <element signature="method#readFileLines#0;class#App#0" />
+            <element signature="e#6839#6870#0" />
+            <element signature="e#8266#10185#0" />
+            <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#getFileExtension#0;class#App#0" />
-            <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+            <element signature="e#17656#17666#0" />
+            <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -527,15 +562,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="81" column="5" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="81" selection-end-column="5" />
+        <state relative-caret-position="459">
+          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+          <folding>
+            <element signature="method#main#0;class#Test#0" />
+            <element signature="e#816#871#0" />
+            <element signature="method#ecsLogParser#0;class#Test#0" />
+            <element signature="method#iisNodeLogs#0;class#Test#0" />
+            <element signature="method#iisNodeLogParse#0;class#Test#0" />
+            <element signature="e#4286#4320#0" />
+            <element signature="method#prismWebLogs#0;class#Test#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="465" column="70" lean-forward="true" selection-start-line="465" selection-start-column="70" selection-end-line="465" selection-end-column="70" />
+        <state relative-caret-position="-340">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
@@ -544,14 +588,16 @@
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="method#fileList#0;class#App#0" />
-            <element signature="method#readFileLines#0;class#App#0" />
+            <element signature="e#6839#6870#0" />
+            <element signature="e#8266#10185#0" />
+            <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#getFileExtension#0;class#App#0" />
-            <element signature="method#removeEmptyOutOfRangeLogs#0;class#App#0" />
+            <element signature="e#17656#17666#0" />
+            <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
       </provider>

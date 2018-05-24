@@ -43,11 +43,10 @@ public class App extends Application {
     private ObservableList<Log> logs = FXCollections.observableArrayList();
     private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
-    private final Path IIS_NODE_PATH = Paths.get("C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\");
-//    private final Path IIS_NODE_LOGS_PATH = Paths.get("C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\LAP-IL-KOBBIG-24036-stdout-1525977954610.txt");
-//    private final Path ECS_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\");
-    private final Path ECS_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\ECS.log.1");
-    private final Path PRISMWEB_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\PrismWebServer.log");
+    // TODO menu item to configure log paths
+    private final String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
+    private final String IIS_NODE_LOGS_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\LAP-IL-KOBBIG-24036-stdout-1525977954610.txt";
+    private final String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\PrismWebServer.log";
 
     // MAC
 //    private final Path IIS_NODE_LOGS_PATH = Paths.get("/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/LAP-IL-KOBBIG-24036-stdout-1526003706085.txt");
@@ -177,36 +176,37 @@ public class App extends Application {
         return filtersContainer;
     }
 
-    private List<Path> fileList(Path path, Date start, Date end){
-
-        List<Path> files = new ArrayList<>();
-        List<Path> filesToRemove = new ArrayList<>();
-        File[] fls = new File(path.normalize().toString()).listFiles();
-        for (File file : fls){
-            if (file.isFile() && (getFileExtension(file).equalsIgnoreCase("txt") || getFileExtension(file).equalsIgnoreCase("log") )){
-                files.add(file.toPath());
-            }
-        }
-
-        for (Path p : files){
-            try {
-                BasicFileAttributes attributes = Files.readAttributes(p, BasicFileAttributes.class);
-                Date created = new Date(attributes.creationTime().toMillis());
-                Date modified = new Date(attributes.lastModifiedTime().toMillis());
-
-                if (!created.after(start) || !modified.before(end)){
-                    filesToRemove.add(p);
-                }
-
-            } catch (IOException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE);
-                alert.showAndWait();
-            }
-        }
-
-        files.removeAll(filesToRemove);
-        return files;
-    }
+    // Modified date isn't accurate
+//    private List<Path> fileList(Path path, Date start, Date end){
+//
+//        List<Path> files = new ArrayList<>();
+//        List<Path> filesToRemove = new ArrayList<>();
+//        File[] fls = new File(path.normalize().toString()).listFiles();
+//        for (File file : fls){
+//            if (file.isFile() && (getFileExtension(file).equalsIgnoreCase("txt") || getFileExtension(file).equalsIgnoreCase("log") )){
+//                files.add(file.toPath());
+//            }
+//        }
+//
+//        for (Path p : files){
+//            try {
+//                BasicFileAttributes attributes = Files.readAttributes(p, BasicFileAttributes.class);
+//                Date created = new Date(attributes.creationTime().toMillis());
+//                Date modified = new Date(attributes.lastModifiedTime().toMillis());
+//
+//                if (!created.after(start) || !modified.before(end)){
+//                    filesToRemove.add(p);
+//                }
+//
+//            } catch (IOException e) {
+//                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE);
+//                alert.showAndWait();
+//            }
+//        }
+//
+//        files.removeAll(filesToRemove);
+//        return files;
+//    }
 
     private List<Log> ecsLogs() {
 
@@ -227,7 +227,7 @@ public class App extends Application {
                             .filter(line -> Character.isDigit(line.charAt(0)))
                             .collect(Collectors.toList());
 
-                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
+//                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
                     allLogLines.addAll(logLines);
 
                 } catch (IOException e) {
@@ -257,28 +257,120 @@ public class App extends Application {
         return logs;
     }
 
-    private List<String> readFileLines(Path path){
+    private List<Log> iisNodeLogs(){
 
-        List<String> lines;
+        List<Log> logs = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+        File[] fls = new File(Paths.get(IIS_NODE_PATH).normalize().toString()).listFiles();
+        List<String> allLogLines = new ArrayList<>();
+        List<String> currentLogLines;
 
-        try(Stream<String> stream = Files.lines(path)) {
+        for (File f : fls){
 
-            lines = stream.filter(line -> !line.isEmpty())
-                    .collect(Collectors.toList());
-            stream.close();
-            return lines;
+            if(f.getName().contains("txt")){
+                try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)) {
 
-        } catch (IOException e) {
+                    currentLogLines = stream.filter(line -> !line.isEmpty())
+                            .filter(line  -> Character.isDigit(line.charAt(0)))
+                            .collect(Collectors.toList());
 
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot read file " + path, ButtonType.CLOSE);
-            alert.showAndWait();
-            return null;
+                    allLogLines.addAll(currentLogLines);
 
+                } catch (IOException e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
+                    alert.showAndWait();
+                }
+            }
         }
+
+        for (String logStr: allLogLines){
+
+            Log log = iisNodeLogParse(logStr);
+
+            // Check if log time is in selected range
+            try {
+                if (log.getTime() != null){
+                    if (log.getTime().after(startTime) && log.getTime().before(endTime)) logs.add(log);
+                }
+            }
+            catch (NullPointerException ignored){
+            }
+        }
+        System.out.println("Number of IISlogs from range: " + logs.size());
+        return logs;
+
     }
 
+    private List<Log> prismWebLogs(){
+
+        List<Log> logs = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+        File[] fls = new File(Paths.get("C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\").normalize().toString()).listFiles();
+        List<String> allLogLines = new ArrayList<>();
+        List<String> logLines;
+
+        for (File f : fls){
+            if (f.getName().contains("PrismWebServer") && !f.getName().contains("Error") && !f.getName().contains("WhiteBox")){
+                System.out.println(f.getName());
+
+                try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)){
+
+                    logLines = stream.filter(line -> !line.isEmpty())
+                            .filter(line -> Character.isDigit(line.charAt(0)))
+                            .collect(Collectors.toList());
+
+//                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
+                    allLogLines.addAll(logLines);
+
+                } catch (IOException e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
+                    alert.showAndWait();
+                }
+            }
+        }
+
+        for (String logStr: allLogLines){
+
+            Log log = prismWebLogParser(logStr);
+
+            // Check if log time is in selected range
+            try {
+                if (log.getTime() != null){
+                    if (log.getTime().after(startTime) && log.getTime().before(endTime)) logs.add(log);
+                }
+            }
+            catch (NullPointerException e){
+                System.out.println("couldn't read log");
+            }
+        }
+
+        System.out.println("Number of logs added from PrismWeb: " + logs.size());
+        return logs;
+
+    }
+
+//    private List<String> readFileLines(Path path){
+//
+//        List<String> lines;
+//
+//        try(Stream<String> stream = Files.lines(path)) {
+//
+//            lines = stream.filter(line -> !line.isEmpty())
+//                    .collect(Collectors.toList());
+//            stream.close();
+//            return lines;
+//
+//        } catch (IOException e) {
+//
+//            Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot read file " + path, ButtonType.CLOSE);
+//            alert.showAndWait();
+//            return null;
+//
+//        }
+//    }
+
     // Log Parsers
-    private Log iisNodeLogParse(String log){
+    private static Log iisNodeLogParse(String log){
 
         Log l = new Log();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
@@ -397,27 +489,27 @@ public class App extends Application {
     }
 
     // Helpers
-    private String getFileExtension(File file) {
-        String name = file.getName();
-        try {
-            return name.substring(name.lastIndexOf(".") + 1);
-        } catch (Exception e) {
-            return "";
-        }
-    }
+//    private String getFileExtension(File file) {
+//        String name = file.getName();
+//        try {
+//            return name.substring(name.lastIndexOf(".") + 1);
+//        } catch (Exception e) {
+//            return "";
+//        }
+//    }
 
-    private void removeEmptyOutOfRangeLogs(List<Log> list, Date startTime, Date endTime){
-
-        List<Log> logsToRemove = new ArrayList<>();
-
-        for (Log log : list){
-            if (log.getTime() == null || log.getTime().before(startTime) || log.getTime().after(endTime)){
-                logsToRemove.add(log);
-            }
-        }
-
-        list.removeAll(logsToRemove);
-    }
+//    private void removeEmptyOutOfRangeLogs(List<Log> list, Date startTime, Date endTime){
+//
+//        List<Log> logsToRemove = new ArrayList<>();
+//
+//        for (Log log : list){
+//            if (log.getTime() == null || log.getTime().before(startTime) || log.getTime().after(endTime)){
+//                logsToRemove.add(log);
+//            }
+//        }
+//
+//        list.removeAll(logsToRemove);
+//    }
 
     // Event handlers
     private void handleSubmit(){
@@ -455,19 +547,15 @@ public class App extends Application {
                     logs.clear();
                 }
 
-//                for (Path p : fileList(IIS_NODE_PATH, startTime, endTime)){
-//                    for (String l : readFileLines(p)){
-//                        logs.addAll(iisNodeLogParse(l));
-//                    }
-//                }
-
+                // add logs
+                logs.addAll(iisNodeLogs());
+                logs.addAll(prismWebLogs());
                 logs.addAll(ecsLogs());
-
-//                removeEmptyOutOfRangeLogs(logs, startTime, endTime);
 
                 // sorts logs
                 Collections.sort(logs);
 
+                // update UI
                 logTable.getItems().addAll(logs);
             }
 
