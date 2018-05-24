@@ -1,3 +1,4 @@
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -9,6 +10,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,59 +22,66 @@ public class Test {
 
 
     public static void main(String[] args) {
+        Date startDate = new Date();
+        Date endDate = new Date();
 
-        File[] fls = new File(Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\").normalize().toString()).listFiles();
+        startDate.setTime(1508774481000L);
+        endDate.setTime(1514044881000L);
+
+        List<Log> logs = ecsLogs(startDate, endDate);
+        System.out.println("Number of logs to add to UI: " + logs.size());
+
+    }
+
+    private static List<Log> ecsLogs(Date start, Date end) {
+
+        List<Log> logs = new ArrayList<>();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
-        Pattern pattern = Pattern.compile("\\[(.*?)]");
-
+        File[] fls = new File(Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\").normalize().toString()).listFiles();
+        List<String> allLogLines = new ArrayList<>();
+        List<String> logLines;
 
         for (File f : fls) {
             if (f.getName().contains("ECS.log")) {
-                Path path = Paths.get(f.getAbsolutePath());
-                System.out.println(path.normalize().toString());
 
-                List<String> lines;
+                // Open read stream for each file
+                try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)) {
 
-                try(Stream<String> stream = Files.lines(path, StandardCharsets.ISO_8859_1)) {
-
-                    lines = stream
-                            .filter(line -> !line.isEmpty())
+                    // Filter log lines for empty and without dates
+                    logLines = stream.filter(line -> !line.isEmpty())
                             .filter(line -> Character.isDigit(line.charAt(0)))
                             .collect(Collectors.toList());
 
-//                    System.out.println(lines.toArray()[0].toString());
-                    Matcher matcher = pattern.matcher(lines.toArray()[0].toString());
-
-                    int i = 0;
-                    while (matcher.find()){
-
-                        System.out.println(matcher.group(1));
-
-                    }
-
-//                    System.out.println("First line:");
-//                    System.out.println(sdf.parse(matcher.group(1)));
-//                    System.out.println(lines.toArray()[0].toString());
-//
-//                    System.out.println("Last line:");
-//                    System.out.println(lines.toArray()[lines.size()-1].toString());
+                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
+                    allLogLines.addAll(logLines);
 
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
+                    alert.showAndWait();
                 }
-// catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
             }
         }
-    }
-}
 
+//        System.out.println("Total number of logs: " + allLogLines.size());
 
-/*
-if (log.trim().startsWith("at") || log.startsWith("]") || log.startsWith("A")){
-            return null;
+        for (String logStr: allLogLines){
+
+            Log log = ecsLogParser(logStr);
+
+            // Check if log time is in selected range
+            try {
+                if (log.getTime() != null){
+                    if (log.getTime().after(start) && log.getTime().before(end)) logs.add(log);
+                }
+            }
+            catch (NullPointerException e){
+                System.out.println("couldn't read log");
+            }
         }
+        return logs;
+    }
+
+    private static Log ecsLogParser(String log){
 
         Log l = new Log();
 
@@ -88,7 +98,8 @@ if (log.trim().startsWith("at") || log.startsWith("]") || log.startsWith("A")){
                 case 0:
                     try {
                         l.setTime(sdf.parse(matcher.group(1)));
-                    } catch (ParseException ignored) {
+                    } catch (ParseException e) {
+                        System.out.println(e.getMessage());
                     }
                     break;
                 case 3:
@@ -101,7 +112,10 @@ if (log.trim().startsWith("at") || log.startsWith("]") || log.startsWith("A")){
                     l.setDetails(matcher.group(1));
                     break;
             }
-        i++;
+            i++;
         }
-         return l;
- */
+
+        return l;
+    }
+
+}

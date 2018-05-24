@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -57,270 +58,7 @@ public class App extends Application {
         launch(args);
     }
 
-    private List<Path> fileList(Path path, Date start, Date end){
-
-        List<Path> files = new ArrayList<>();
-        List<Path> filesToRemove = new ArrayList<>();
-        File[] fls = new File(path.normalize().toString()).listFiles();
-        for (File file : fls){
-            if (file.isFile() && (getFileExtension(file).equalsIgnoreCase("txt") || getFileExtension(file).equalsIgnoreCase("log") )){
-                files.add(file.toPath());
-            }
-        }
-
-        for (Path p : files){
-            try {
-                BasicFileAttributes attributes = Files.readAttributes(p, BasicFileAttributes.class);
-                Date created = new Date(attributes.creationTime().toMillis());
-                Date modified = new Date(attributes.lastModifiedTime().toMillis());
-
-                if (!created.after(start) || !modified.before(end)){
-                    filesToRemove.add(p);
-                }
-
-            } catch (IOException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE);
-                alert.showAndWait();
-            }
-        }
-
-        files.removeAll(filesToRemove);
-        return files;
-    }
-
-    private List<String> readFileLines(Path path){
-
-        List<String> lines;
-
-        try(Stream<String> stream = Files.lines(path)) {
-
-            lines = stream.filter(line -> !line.isEmpty())
-                    .collect(Collectors.toList());
-            stream.close();
-            return lines;
-
-        } catch (IOException e) {
-
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot read file " + path, ButtonType.CLOSE);
-            alert.showAndWait();
-            return null;
-
-        }
-    }
-
-    // Log Parsers
-    private Log iisNodeLogParse(String log){
-
-        Log l = new Log();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
-        Pattern pattern = Pattern.compile("\\[(.*?)]");
-        Matcher matcher = pattern.matcher(log);
-
-        l.setSource("IISNode");
-        int i = 0;
-//        if (!matcher.matches()){
-//            l = null;
-//            return l;
-//        }
-        while (matcher.find()){
-
-            switch (i){
-                case 0:
-                    try {
-                        l.setTime(sdf.parse(matcher.group(1)));
-                    } catch (ParseException e) {
-
-                    }
-                    break;
-                case 2:
-                    l.setVerbosity(matcher.group(1));
-                    break;
-                case 3:
-                    l.setComponent(matcher.group(1));
-                    break;
-                case 4:
-                    l.setDetails(matcher.group(1));
-                    break;
-            }
-            i++;
-        }
-        return l;
-    }
-
-    // TODO read file first line and last line and check if time interval is relevant
-    private Log ecsLogParser(String log){
-
-        if (log.trim().startsWith("at") || log.startsWith("]") || log.startsWith("A")){
-            return null;
-        }
-
-        Log l = new Log();
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
-
-        Pattern pattern = Pattern.compile("\\[(.*?)]");
-        Matcher matcher = pattern.matcher(log);
-
-        int i = 0;
-
-        while (matcher.find()){
-            l.setSource("ECS");
-            switch (i){
-                case 0:
-                    try {
-                        l.setTime(sdf.parse(matcher.group(1)));
-                    } catch (ParseException ignored) {
-                    }
-                    break;
-                case 3:
-                    l.setVerbosity(matcher.group(1));
-                    break;
-                case 4:
-                    l.setComponent(matcher.group(1));
-                    break;
-                case 5:
-                    l.setDetails(matcher.group(1));
-                    break;
-            }
-        i++;
-        }
-         return l;
-    }
-
-    private Log prismWebLogParser(String log){
-
-        if (log.startsWith("Exception") || log.trim().startsWith("at") || log.startsWith("Sisense") || log.startsWith("System")){
-            return null;
-        }
-
-        Log l = new Log();
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
-        Pattern pattern = Pattern.compile("\\[(.*?)]");
-        Matcher matcher = pattern.matcher(log);
-
-        l.setSource("PrismWeb");
-        int i = 0;
-        while (matcher.find()){
-
-            switch (i){
-                case 0:
-                    try {
-                        l.setTime(sdf.parse(matcher.group(1)));
-                    } catch (ParseException e) {
-                        System.out.println(log);
-                        return null;
-                    }
-                    break;
-                case 3:
-                    l.setVerbosity(matcher.group(1));
-                    break;
-                case 4:
-                    l.setComponent(matcher.group(1));
-                    break;
-                case 5:
-                    l.setDetails(matcher.group(1));
-                    break;
-            }
-            i++;
-        }
-        return l;
-    }
-
-    // Miscellaneous methods
-    private String getFileExtension(File file) {
-        String name = file.getName();
-        try {
-            return name.substring(name.lastIndexOf(".") + 1);
-        } catch (Exception e) {
-            return "";
-        }
-    }
-
-    private void removeEmptyOutOfRangeLogs(List<Log> list, Date startTime, Date endTime){
-
-        List<Log> logsToRemove = new ArrayList<>();
-
-        for (Log log : list){
-            if (log.getTime() == null || log.getTime().before(startTime) || log.getTime().after(endTime)){
-                logsToRemove.add(log);
-            }
-        }
-
-        list.removeAll(logsToRemove);
-    }
-
-    // Event handlers
-    private void handleSubmit(){
-
-        try {
-
-            if  (   startDatePicker.getValue() != null &&
-                    startTimeTxtFld.getText() != null &&
-                    endDatePicker.getValue() != null &&
-                    endTimeTxtFld.getText() != null){
-
-                startTime = sdt.parse(startDatePicker.getValue() + " " + startTimeTxtFld.getText());
-                endTime = sdt.parse(endDatePicker.getValue() + " " + endTimeTxtFld.getText());
-
-            }
-            else{
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Please set both dates", ButtonType.OK);
-                alert.showAndWait();
-            }
-
-            if (startTime.after(endTime)){
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid range", ButtonType.OK);
-                startTimeTxtFld.setText("");
-                startTime = null;
-                endTime = null;
-                endTimeTxtFld.setText("");
-                alert.showAndWait();
-            }
-            else {
-
-                ProgressBarScene.display();
-
-                if (logTable.getItems().size() > 0){
-                    logTable.getItems().clear();
-                    logs.clear();
-                }
-
-                for (Path p : fileList(IIS_NODE_PATH, startTime, endTime)){
-                    for (String l : readFileLines(p)){
-                        logs.addAll(iisNodeLogParse(l));
-                    }
-                }
-
-                // TODO check why ECS fls returns null values
-//                for (Path p : fileList(ECS_LOGS_PATH, startTime, endTime)){
-//                    for (String l : readFileLines(p)){
-//                        logs.addAll(ecsLogParser(l));
-//                    }
-//                }
-                for (String l : readFileLines(ECS_LOGS_PATH)) {
-                    logs.addAll(ecsLogParser(l));
-                }
-
-                removeEmptyOutOfRangeLogs(logs, startTime, endTime);
-
-                // sorts logs
-                Collections.sort(logs);
-
-                logTable.getItems().addAll(logs);
-            }
-
-        }
-        catch (NullPointerException ignored){
-
-        }
-        catch (ParseException e){
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect time syntax", ButtonType.OK);
-            alert.showAndWait();
-        }
-    }
-
-    // UI
+    //   UI
     @Override
     public void start(Stage primaryStage) {
 
@@ -438,4 +176,309 @@ public class App extends Application {
 
         return filtersContainer;
     }
+
+    private List<Path> fileList(Path path, Date start, Date end){
+
+        List<Path> files = new ArrayList<>();
+        List<Path> filesToRemove = new ArrayList<>();
+        File[] fls = new File(path.normalize().toString()).listFiles();
+        for (File file : fls){
+            if (file.isFile() && (getFileExtension(file).equalsIgnoreCase("txt") || getFileExtension(file).equalsIgnoreCase("log") )){
+                files.add(file.toPath());
+            }
+        }
+
+        for (Path p : files){
+            try {
+                BasicFileAttributes attributes = Files.readAttributes(p, BasicFileAttributes.class);
+                Date created = new Date(attributes.creationTime().toMillis());
+                Date modified = new Date(attributes.lastModifiedTime().toMillis());
+
+                if (!created.after(start) || !modified.before(end)){
+                    filesToRemove.add(p);
+                }
+
+            } catch (IOException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE);
+                alert.showAndWait();
+            }
+        }
+
+        files.removeAll(filesToRemove);
+        return files;
+    }
+
+    private List<Log> ecsLogs() {
+
+        List<Log> logs = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+        File[] fls = new File(Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\").normalize().toString()).listFiles();
+        List<String> allLogLines = new ArrayList<>();
+        List<String> logLines;
+
+        for (File f : fls) {
+            if (f.getName().contains("ECS.log")) {
+
+                // Open read stream for each file
+                try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)) {
+
+                    // Filter log lines for empty and without dates
+                    logLines = stream.filter(line -> !line.isEmpty())
+                            .filter(line -> Character.isDigit(line.charAt(0)))
+                            .collect(Collectors.toList());
+
+                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
+                    allLogLines.addAll(logLines);
+
+                } catch (IOException e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
+                    alert.showAndWait();
+                }
+            }
+        }
+
+//        System.out.println("Total number of ECS logs: " + allLogLines.size());
+
+        for (String logStr: allLogLines){
+
+            Log log = ecsLogParser(logStr);
+
+            // Check if log time is in selected range and filter empty detail logs
+            try {
+                if (log.getTime() != null && !log.getDetails().isEmpty()){
+                    if (log.getTime().after(startTime) && log.getTime().before(endTime)) logs.add(log);
+                }
+            }
+            catch (NullPointerException ignored){
+            }
+        }
+
+        System.out.println("Total number of ECS logs: " + logs.size());
+        return logs;
+    }
+
+    private List<String> readFileLines(Path path){
+
+        List<String> lines;
+
+        try(Stream<String> stream = Files.lines(path)) {
+
+            lines = stream.filter(line -> !line.isEmpty())
+                    .collect(Collectors.toList());
+            stream.close();
+            return lines;
+
+        } catch (IOException e) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot read file " + path, ButtonType.CLOSE);
+            alert.showAndWait();
+            return null;
+
+        }
+    }
+
+    // Log Parsers
+    private Log iisNodeLogParse(String log){
+
+        Log l = new Log();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+        Pattern pattern = Pattern.compile("\\[(.*?)]");
+        Matcher matcher = pattern.matcher(log);
+
+        l.setSource("IISNode");
+        int i = 0;
+//        if (!matcher.matches()){
+//            l = null;
+//            return l;
+//        }
+        while (matcher.find()){
+
+            switch (i){
+                case 0:
+                    try {
+                        l.setTime(sdf.parse(matcher.group(1)));
+                    } catch (ParseException e) {
+
+                    }
+                    break;
+                case 2:
+                    l.setVerbosity(matcher.group(1));
+                    break;
+                case 3:
+                    l.setComponent(matcher.group(1));
+                    break;
+                case 4:
+                    l.setDetails(matcher.group(1));
+                    break;
+            }
+            i++;
+        }
+        return l;
+    }
+
+    // TODO read file first line and last line and check if time interval is relevant
+    private static Log ecsLogParser(String log){
+
+        if (log.trim().startsWith("at") || log.startsWith("]") || log.startsWith("A")){
+            return null;
+        }
+
+        Log l = new Log();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+
+        Pattern pattern = Pattern.compile("\\[(.*?)]");
+        Matcher matcher = pattern.matcher(log);
+
+        int i = 0;
+
+        while (matcher.find()){
+            l.setSource("ECS");
+            switch (i){
+                case 0:
+                    try {
+                        l.setTime(sdf.parse(matcher.group(1)));
+                    } catch (ParseException ignored) {
+                    }
+                    break;
+                case 3:
+                    l.setVerbosity(matcher.group(1));
+                    break;
+                case 4:
+                    l.setComponent(matcher.group(1));
+                    break;
+                case 5:
+                    l.setDetails(matcher.group(1));
+                    break;
+            }
+        i++;
+        }
+         return l;
+    }
+
+    private Log prismWebLogParser(String log){
+
+        if (log.startsWith("Exception") || log.trim().startsWith("at") || log.startsWith("Sisense") || log.startsWith("System")){
+            return null;
+        }
+
+        Log l = new Log();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+        Pattern pattern = Pattern.compile("\\[(.*?)]");
+        Matcher matcher = pattern.matcher(log);
+
+        l.setSource("PrismWeb");
+        int i = 0;
+        while (matcher.find()){
+
+            switch (i){
+                case 0:
+                    try {
+                        l.setTime(sdf.parse(matcher.group(1)));
+                    } catch (ParseException e) {
+                        System.out.println(log);
+                        return null;
+                    }
+                    break;
+                case 3:
+                    l.setVerbosity(matcher.group(1));
+                    break;
+                case 4:
+                    l.setComponent(matcher.group(1));
+                    break;
+                case 5:
+                    l.setDetails(matcher.group(1));
+                    break;
+            }
+            i++;
+        }
+        return l;
+    }
+
+    // Helpers
+    private String getFileExtension(File file) {
+        String name = file.getName();
+        try {
+            return name.substring(name.lastIndexOf(".") + 1);
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    private void removeEmptyOutOfRangeLogs(List<Log> list, Date startTime, Date endTime){
+
+        List<Log> logsToRemove = new ArrayList<>();
+
+        for (Log log : list){
+            if (log.getTime() == null || log.getTime().before(startTime) || log.getTime().after(endTime)){
+                logsToRemove.add(log);
+            }
+        }
+
+        list.removeAll(logsToRemove);
+    }
+
+    // Event handlers
+    private void handleSubmit(){
+
+        try {
+
+            if  (   startDatePicker.getValue() != null &&
+                    startTimeTxtFld.getText() != null &&
+                    endDatePicker.getValue() != null &&
+                    endTimeTxtFld.getText() != null){
+
+                startTime = sdt.parse(startDatePicker.getValue() + " " + startTimeTxtFld.getText());
+                endTime = sdt.parse(endDatePicker.getValue() + " " + endTimeTxtFld.getText());
+
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Please set both dates", ButtonType.OK);
+                alert.showAndWait();
+            }
+
+            if (startTime.after(endTime)){
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid range", ButtonType.OK);
+                startTimeTxtFld.setText("");
+                startTime = null;
+                endTime = null;
+                endTimeTxtFld.setText("");
+                alert.showAndWait();
+            }
+            else {
+
+//                ProgressBarScene.display();
+
+                if (logTable.getItems().size() > 0){
+                    logTable.getItems().clear();
+                    logs.clear();
+                }
+
+//                for (Path p : fileList(IIS_NODE_PATH, startTime, endTime)){
+//                    for (String l : readFileLines(p)){
+//                        logs.addAll(iisNodeLogParse(l));
+//                    }
+//                }
+
+                logs.addAll(ecsLogs());
+
+//                removeEmptyOutOfRangeLogs(logs, startTime, endTime);
+
+                // sorts logs
+                Collections.sort(logs);
+
+                logTable.getItems().addAll(logs);
+            }
+
+        }
+        catch (NullPointerException ignored){
+
+        }
+        catch (ParseException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect time syntax", ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
 }

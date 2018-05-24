@@ -15,6 +15,10 @@ public class Log  implements Comparable<Log>{
     public Log() {
     }
 
+    public Log(String source){
+        this.source = source;
+    }
+
     public Log(String source, Date time, String verbosity, String component, String details) {
         this.source = source;
         this.time = time;
