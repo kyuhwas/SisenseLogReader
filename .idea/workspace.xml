@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SisenseLogReader:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="42c68390-d28f-498c-90b2-e0b67048447b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
-    </list>
+    <list default="true" id="42c68390-d28f-498c-90b2-e0b67048447b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,115 +17,88 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/App.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-340">
-                  <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-                  <folding>
-                    <element signature="e#2086#2092#0" />
-                    <element signature="method#start#0;class#App#0" />
-                    <element signature="method#loadUI#0;class#App#0" />
-                    <element signature="method#initializeDateMenu#0;class#App#0" />
-                    <element signature="method#initializeLogTable#0;class#App#0" />
-                    <element signature="e#4908#4917#0" />
-                    <element signature="method#initializeFilters#0;class#App#0" />
-                    <element signature="e#6839#6870#0" />
-                    <element signature="e#8266#10185#0" />
-                    <element signature="method#iisNodeLogs#0;class#App#0" />
-                    <element signature="method#prismWebLogs#0;class#App#0" />
-                    <element signature="method#iisNodeLogParse#0;class#App#0" />
-                    <element signature="e#9106#9140#0" />
-                    <element signature="method#ecsLogParser#0;class#App#0" />
-                    <element signature="method#prismWebLogParser#0;class#App#0" />
-                    <element signature="e#17656#17666#0" />
-                    <element signature="method#handleSubmit#0;class#App#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Test.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-                  <folding>
-                    <element signature="method#main#0;class#Test#0" />
-                    <element signature="e#816#871#0" />
-                    <element signature="method#ecsLogParser#0;class#Test#0" />
-                    <element signature="method#iisNodeLogs#0;class#Test#0" />
-                    <element signature="method#iisNodeLogParse#0;class#Test#0" />
-                    <element signature="e#4286#4320#0" />
-                    <element signature="method#prismWebLogs#0;class#Test#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Log.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Log.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="353">
-                  <caret line="30" selection-start-line="30" selection-end-line="30" />
-                  <folding>
-                    <element signature="e#400#401#0" expanded="true" />
-                    <element signature="e#435#436#0" expanded="true" />
-                    <element signature="e#682#683#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ProgressBarScene.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ProgressBarScene.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/style.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Test.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="406">
-                  <caret line="207" column="4" selection-start-line="207" selection-start-column="4" selection-end-line="251" selection-end-column="5" />
-                  <folding>
-                    <element signature="method#ecsLogs#0;class#Test#0" />
-                    <element signature="method#ecsLogParser#0;class#Test#0" />
-                    <element signature="method#iisNodeLogs#0;class#Test#0" />
-                    <element signature="method#iisNodeLogParse#0;class#Test#0" />
-                    <element signature="e#4215#4249#0" />
-                    <element signature="method#prismWebLogs#0;class#Test#0" />
-                    <element signature="method#prismWebLogParser#0;class#Test#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="331" column="41" lean-forward="true" selection-start-line="331" selection-start-column="41" selection-end-line="331" selection-end-column="41" />
+              <folding>
+                <element signature="e#2086#2092#0" />
+                <element signature="method#start#0;class#App#0" />
+                <element signature="method#loadUI#0;class#App#0" />
+                <element signature="method#initializeDateMenu#0;class#App#0" />
+                <element signature="method#initializeLogTable#0;class#App#0" />
+                <element signature="e#4908#4917#0" />
+                <element signature="method#initializeFilters#0;class#App#0" />
+                <element signature="e#6839#6870#0" />
+                <element signature="e#8266#10185#0" />
+                <element signature="method#iisNodeLogs#0;class#App#0" />
+                <element signature="method#iisNodeLogParse#0;class#App#0" />
+                <element signature="e#9106#9140#0" />
+                <element signature="method#ecsLogParser#0;class#App#0" />
+                <element signature="method#prismWebLogParser#0;class#App#0" />
+                <element signature="e#17656#17666#0" />
+                <element signature="method#handleSubmit#0;class#App#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+              <folding>
+                <element signature="method#main#0;class#Test#0" />
+                <element signature="e#816#871#0" />
+                <element signature="method#ecsLogParser#0;class#Test#0" />
+                <element signature="method#iisNodeLogs#0;class#Test#0" />
+                <element signature="method#iisNodeLogParse#0;class#Test#0" />
+                <element signature="e#4286#4320#0" />
+                <element signature="method#prismWebLogs#0;class#Test#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Log.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Log.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="e#400#401#0" expanded="true" />
+                <element signature="e#435#436#0" expanded="true" />
+                <element signature="e#682#683#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProgressBarScene.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ProgressBarScene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -195,6 +170,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunDashboard">
@@ -344,7 +322,6 @@
             <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
-            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
@@ -403,7 +380,6 @@
             <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
-            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
@@ -445,7 +421,6 @@
             <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
-            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
@@ -477,7 +452,6 @@
             <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
-            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
@@ -510,7 +484,6 @@
             <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
-            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
@@ -578,8 +551,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="252">
+          <caret line="331" column="41" lean-forward="true" selection-start-line="331" selection-start-column="41" selection-end-line="331" selection-end-column="41" />
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
@@ -591,7 +564,6 @@
             <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
-            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
@@ -605,9 +577,81 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>SisenseLogReader:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>SisenseLogReader</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
