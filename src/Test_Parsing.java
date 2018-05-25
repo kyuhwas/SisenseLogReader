@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Test {
+public class Test_Parsing {
 
 
     public static void main(String[] args) {

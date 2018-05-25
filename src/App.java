@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Service;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -43,6 +44,7 @@ public class App extends Application {
     private TextField endTimeTxtFld;
     private ObservableList<Log> logs = FXCollections.observableArrayList();
     private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private Service<Void> backgroundThread;
 
     // TODO menu item to configure log paths
     private final String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
@@ -88,7 +90,6 @@ public class App extends Application {
         scene.getStylesheets().add("style.css");
         window.setScene(scene);
         window.show();
-
     }
 
     private GridPane initializeDateMenu(){
@@ -267,7 +268,7 @@ public class App extends Application {
             catch (NullPointerException ignored){
             }
         }
-        System.out.println("Number of IISlogs from range: " + logs.size());
+        System.out.println("Total number of IISNode logs: " + logs.size());
         return logs;
 
     }
@@ -275,27 +276,27 @@ public class App extends Application {
     private List<Log> prismWebLogs(){
 
         List<Log> logs = new ArrayList<>();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
         File[] fls = new File(Paths.get("C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\").normalize().toString()).listFiles();
         List<String> allLogLines = new ArrayList<>();
         List<String> logLines;
 
-        for (File f : fls){
-            if (f.getName().contains("PrismWebServer") && !f.getName().contains("Error") && !f.getName().contains("WhiteBox")){
-                System.out.println(f.getName());
+        if (fls != null) {
+            for (File f : fls){
+                if (f.getName().contains("PrismWebServer") && !f.getName().contains("Error") && !f.getName().contains("WhiteBox")){
 
-                try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)){
+                    try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)){
 
-                    logLines = stream.filter(line -> !line.isEmpty())
-                            .filter(line -> Character.isDigit(line.charAt(0)))
-                            .collect(Collectors.toList());
+                        logLines = stream.filter(line -> !line.isEmpty())
+                                .filter(line -> Character.isDigit(line.charAt(0)))
+                                .collect(Collectors.toList());
 
-//                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
-                    allLogLines.addAll(logLines);
+    //                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
+                        allLogLines.addAll(logLines);
 
-                } catch (IOException e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
-                    alert.showAndWait();
+                    } catch (IOException e) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
+                        alert.showAndWait();
+                    }
                 }
             }
         }
@@ -315,7 +316,7 @@ public class App extends Application {
             }
         }
 
-        System.out.println("Number of logs added from PrismWeb: " + logs.size());
+        System.out.println("Total number of PrismWeb logs: " + logs.size());
         return logs;
 
     }
@@ -474,18 +475,21 @@ public class App extends Application {
                     logs.clear();
                 }
 
-                // add logs
-                logs.addAll(iisNodeLogs());
-                logs.addAll(prismWebLogs());
-                logs.addAll(ecsLogs());
+                new Thread(() -> {
 
-                // sorts logs
-                Collections.sort(logs);
+                    // add logs
+                    logs.addAll(iisNodeLogs());
+                    logs.addAll(prismWebLogs());
+                    logs.addAll(ecsLogs());
 
-                // update UI
-                logTable.getItems().addAll(logs);
+                    // sorts logs
+                    Collections.sort(logs);
+
+                    // update UI
+                    logTable.getItems().addAll(logs);
+                }).start();
+
             }
-
         }
         catch (NullPointerException ignored){
 

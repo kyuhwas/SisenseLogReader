@@ -7,8 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42c68390-d28f-498c-90b2-e0b67048447b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SisenseLogReader/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/Test.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test_Parsing.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -21,14 +24,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="71" column="125" lean-forward="true" selection-start-line="71" selection-start-column="125" selection-end-line="71" selection-end-column="125" />
+            <state relative-caret-position="270">
+              <caret line="482" column="43" lean-forward="true" selection-start-line="482" selection-start-column="43" selection-end-line="482" selection-end-column="43" />
               <folding>
                 <element signature="e#2086#2092#0" />
                 <element signature="method#start#0;class#App#0" />
+                <element signature="method#loadUI#0;class#App#0" />
                 <element signature="method#initializeDateMenu#0;class#App#0" />
                 <element signature="method#initializeLogTable#0;class#App#0" />
                 <element signature="e#4908#4917#0" />
@@ -40,24 +44,38 @@
                 <element signature="e#9106#9140#0" />
                 <element signature="method#ecsLogParser#0;class#App#0" />
                 <element signature="method#prismWebLogParser#0;class#App#0" />
-                <element signature="method#handleSubmit#0;class#App#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Test.java">
+      <file leaf-file-name="Test_Parsing.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Test_Parsing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="26" column="85" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="85" />
+            <state relative-caret-position="289">
+              <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
               <folding>
                 <element signature="method#ecsLogs#0;class#Test#0" />
-                <element signature="method#ecsLogParser#0;class#Test#0" />
                 <element signature="method#iisNodeLogs#0;class#Test#0" />
                 <element signature="method#iisNodeLogParse#0;class#Test#0" />
                 <element signature="e#4286#4320#0" />
                 <element signature="method#prismWebLogs#0;class#Test#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test_ProgressBar.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Test_ProgressBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="71" column="45" lean-forward="true" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#653#654#0" expanded="true" />
+                <element signature="e#693#694#0" expanded="true" />
+                <element signature="e#2987#3337#0" expanded="true" />
+                <element signature="e#3336#3337#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,6 +149,9 @@
         <option value="$PROJECT_DIR$/src/Log.java" />
         <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/App.java" />
+        <option value="$PROJECT_DIR$/src/tests/Test_Parsing.java" />
+        <option value="$PROJECT_DIR$/src/Test_Parsing.java" />
+        <option value="$PROJECT_DIR$/src/Test_ProgressBar.java" />
       </list>
     </option>
   </component>
@@ -167,6 +188,12 @@
               <item name="SisenseLogReader" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SisenseLogReader" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Test_ProgressBar.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -200,14 +227,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Application.Test_ProgressBar">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="SisenseLogReader" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
+    <configuration name="Test_Parsing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tests.Test_Parsing" />
+      <module name="SisenseLogReader" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="Test_ProgressBar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test_ProgressBar" />
       <module name="SisenseLogReader" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -254,12 +286,14 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.Test_Parsing" />
+      <item itemvalue="Application.Test_ProgressBar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test_ProgressBar" />
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Test_Parsing" />
       </list>
     </recent_temporary>
   </component>
@@ -288,7 +322,7 @@
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36391437" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49722221" weight="0.329235" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32925585" />
       <window_info id="Designer" order="6" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32992464" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32925585" />
@@ -316,7 +350,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -327,6 +361,7 @@
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
+            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
@@ -338,7 +373,6 @@
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -360,13 +394,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/Test_Parsing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="method#ecsLogs#0;class#Test#0" />
-            <element signature="method#ecsLogParser#0;class#Test#0" />
             <element signature="method#iisNodeLogs#0;class#Test#0" />
             <element signature="method#iisNodeLogParse#0;class#Test#0" />
             <element signature="e#4286#4320#0" />
@@ -382,6 +415,7 @@
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
+            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
@@ -393,7 +427,6 @@
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -421,6 +454,7 @@
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
+            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
@@ -432,7 +466,6 @@
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -450,6 +483,7 @@
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
+            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
@@ -461,7 +495,6 @@
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -480,6 +513,7 @@
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
+            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
@@ -491,7 +525,6 @@
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -538,28 +571,14 @@
     <entry file="file://$PROJECT_DIR$/res/60x60bb.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="26" column="85" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="85" />
-          <folding>
-            <element signature="method#ecsLogs#0;class#Test#0" />
-            <element signature="method#ecsLogParser#0;class#Test#0" />
-            <element signature="method#iisNodeLogs#0;class#Test#0" />
-            <element signature="method#iisNodeLogParse#0;class#Test#0" />
-            <element signature="e#4286#4320#0" />
-            <element signature="method#prismWebLogs#0;class#Test#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="71" column="125" lean-forward="true" selection-start-line="71" selection-start-column="125" selection-end-line="71" selection-end-column="125" />
+        <state relative-caret-position="270">
+          <caret line="482" column="43" lean-forward="true" selection-start-line="482" selection-start-column="43" selection-end-line="482" selection-end-column="43" />
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
+            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
@@ -571,7 +590,34 @@
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="method#handleSubmit#0;class#App#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test_Parsing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+          <folding>
+            <element signature="method#ecsLogs#0;class#Test#0" />
+            <element signature="method#iisNodeLogs#0;class#Test#0" />
+            <element signature="method#iisNodeLogParse#0;class#Test#0" />
+            <element signature="e#4286#4320#0" />
+            <element signature="method#prismWebLogs#0;class#Test#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test_ProgressBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="71" column="45" lean-forward="true" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#693#694#0" expanded="true" />
+            <element signature="e#2987#3337#0" expanded="true" />
+            <element signature="e#3336#3337#0" expanded="true" />
           </folding>
         </state>
       </provider>
