@@ -6,7 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42c68390-d28f-498c-90b2-e0b67048447b" name="Default" comment="" />
+    <list default="true" id="42c68390-d28f-498c-90b2-e0b67048447b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,24 +24,22 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="331" column="41" lean-forward="true" selection-start-line="331" selection-start-column="41" selection-end-line="331" selection-end-column="41" />
+            <state relative-caret-position="220">
+              <caret line="71" column="125" lean-forward="true" selection-start-line="71" selection-start-column="125" selection-end-line="71" selection-end-column="125" />
               <folding>
                 <element signature="e#2086#2092#0" />
                 <element signature="method#start#0;class#App#0" />
-                <element signature="method#loadUI#0;class#App#0" />
                 <element signature="method#initializeDateMenu#0;class#App#0" />
                 <element signature="method#initializeLogTable#0;class#App#0" />
                 <element signature="e#4908#4917#0" />
                 <element signature="method#initializeFilters#0;class#App#0" />
-                <element signature="e#6839#6870#0" />
                 <element signature="e#8266#10185#0" />
                 <element signature="method#iisNodeLogs#0;class#App#0" />
+                <element signature="method#prismWebLogs#0;class#App#0" />
                 <element signature="method#iisNodeLogParse#0;class#App#0" />
                 <element signature="e#9106#9140#0" />
                 <element signature="method#ecsLogParser#0;class#App#0" />
                 <element signature="method#prismWebLogParser#0;class#App#0" />
-                <element signature="e#17656#17666#0" />
                 <element signature="method#handleSubmit#0;class#App#0" />
               </folding>
             </state>
@@ -48,11 +49,10 @@
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+            <state relative-caret-position="136">
+              <caret line="26" column="85" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="85" />
               <folding>
-                <element signature="method#main#0;class#Test#0" />
-                <element signature="e#816#871#0" />
+                <element signature="method#ecsLogs#0;class#Test#0" />
                 <element signature="method#ecsLogParser#0;class#Test#0" />
                 <element signature="method#iisNodeLogs#0;class#Test#0" />
                 <element signature="method#iisNodeLogParse#0;class#Test#0" />
@@ -160,6 +160,11 @@
             <path>
               <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
               <item name="SisenseLogReader" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SisenseLogReader" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -174,6 +179,14 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kobbi.gal.CORP\IdeaProjects\SisenseLogReader\res" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kobbi.gal.CORP\IdeaProjects\SisenseLogReader\res" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -269,30 +282,30 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329235" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3282365" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50277776" side_tool="true" weight="0.329235" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3282365" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50277776" side_tool="true" weight="0.329235" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36391437" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49722221" weight="0.329235" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49722221" weight="0.329235" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
+      <window_info id="Designer" order="6" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32992464" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32925585" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39959225" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info id="Image Layers" order="2" />
+      <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info id="Capture Tool" order="4" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -303,7 +316,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -314,19 +327,17 @@
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
-            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="e#17656#17666#0" />
             <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
@@ -354,8 +365,7 @@
         <state relative-caret-position="510">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
-            <element signature="method#main#0;class#Test#0" />
-            <element signature="e#816#871#0" />
+            <element signature="method#ecsLogs#0;class#Test#0" />
             <element signature="method#ecsLogParser#0;class#Test#0" />
             <element signature="method#iisNodeLogs#0;class#Test#0" />
             <element signature="method#iisNodeLogParse#0;class#Test#0" />
@@ -372,19 +382,17 @@
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
-            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="e#17656#17666#0" />
             <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
@@ -413,19 +421,17 @@
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
-            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="e#17656#17666#0" />
             <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
@@ -444,19 +450,17 @@
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
-            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="e#17656#17666#0" />
             <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
@@ -476,19 +480,17 @@
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
-            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="e#17656#17666#0" />
             <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>
@@ -533,13 +535,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/60x60bb.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+        <state relative-caret-position="136">
+          <caret line="26" column="85" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="85" />
           <folding>
-            <element signature="method#main#0;class#Test#0" />
-            <element signature="e#816#871#0" />
+            <element signature="method#ecsLogs#0;class#Test#0" />
             <element signature="method#ecsLogParser#0;class#Test#0" />
             <element signature="method#iisNodeLogs#0;class#Test#0" />
             <element signature="method#iisNodeLogParse#0;class#Test#0" />
@@ -551,24 +555,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="331" column="41" lean-forward="true" selection-start-line="331" selection-start-column="41" selection-end-line="331" selection-end-column="41" />
+        <state relative-caret-position="220">
+          <caret line="71" column="125" lean-forward="true" selection-start-line="71" selection-start-column="125" selection-end-line="71" selection-end-column="125" />
           <folding>
             <element signature="e#2086#2092#0" />
             <element signature="method#start#0;class#App#0" />
-            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="method#initializeLogTable#0;class#App#0" />
             <element signature="e#4908#4917#0" />
             <element signature="method#initializeFilters#0;class#App#0" />
-            <element signature="e#6839#6870#0" />
             <element signature="e#8266#10185#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="e#9106#9140#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="e#17656#17666#0" />
             <element signature="method#handleSubmit#0;class#App#0" />
           </folding>
         </state>

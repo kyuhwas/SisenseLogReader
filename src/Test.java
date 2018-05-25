@@ -22,17 +22,21 @@ public class Test {
 
 
     public static void main(String[] args) {
-        Date startDate = new Date();
-        Date endDate = new Date();
 
-        startDate.setTime(1508774481000L);
-        endDate.setTime(1514044881000L);
+//        System.out.println(System.getProperty("user.dir"));
+        Path logoPath = Paths.get(System.getProperty("user.dir"),"res","60x60bb.jpg");
+        System.out.println(logoPath);
+//        Date startDate = new Date();
+//        Date endDate = new Date();
+//
+//        startDate.setTime(1508774481000L);
+//        endDate.setTime(1514044881000L);
 
 //        List<Log> logs = ecsLogs(startDate, endDate);
 //        System.out.println("Number of logs to add to UI: " + logs.size());
 //        iisNodeLogs(startDate, endDate);
 
-        prismWebLogs(startDate, endDate);
+//        prismWebLogs(startDate, endDate);
 
     }
 

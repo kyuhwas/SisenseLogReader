@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -68,6 +69,8 @@ public class App extends Application {
     private void loadUI(Stage primaryStage){
 
         Stage window = primaryStage;
+        window.getIcons().add(new Image("file:"+String.valueOf(Paths.get(System.getProperty("user.dir"),"res","logo.png"))));
+
         window.setTitle("Sisense Log Reader");
         int WIDTH = 1400;
         window.setMinWidth(WIDTH);
@@ -175,38 +178,6 @@ public class App extends Application {
 
         return filtersContainer;
     }
-
-    // Modified date isn't accurate
-//    private List<Path> fileList(Path path, Date start, Date end){
-//
-//        List<Path> files = new ArrayList<>();
-//        List<Path> filesToRemove = new ArrayList<>();
-//        File[] fls = new File(path.normalize().toString()).listFiles();
-//        for (File file : fls){
-//            if (file.isFile() && (getFileExtension(file).equalsIgnoreCase("txt") || getFileExtension(file).equalsIgnoreCase("log") )){
-//                files.add(file.toPath());
-//            }
-//        }
-//
-//        for (Path p : files){
-//            try {
-//                BasicFileAttributes attributes = Files.readAttributes(p, BasicFileAttributes.class);
-//                Date created = new Date(attributes.creationTime().toMillis());
-//                Date modified = new Date(attributes.lastModifiedTime().toMillis());
-//
-//                if (!created.after(start) || !modified.before(end)){
-//                    filesToRemove.add(p);
-//                }
-//
-//            } catch (IOException e) {
-//                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE);
-//                alert.showAndWait();
-//            }
-//        }
-//
-//        files.removeAll(filesToRemove);
-//        return files;
-//    }
 
     private List<Log> ecsLogs() {
 
@@ -349,26 +320,6 @@ public class App extends Application {
 
     }
 
-//    private List<String> readFileLines(Path path){
-//
-//        List<String> lines;
-//
-//        try(Stream<String> stream = Files.lines(path)) {
-//
-//            lines = stream.filter(line -> !line.isEmpty())
-//                    .collect(Collectors.toList());
-//            stream.close();
-//            return lines;
-//
-//        } catch (IOException e) {
-//
-//            Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot read file " + path, ButtonType.CLOSE);
-//            alert.showAndWait();
-//            return null;
-//
-//        }
-//    }
-
     // Log Parsers
     private static Log iisNodeLogParse(String log){
 
@@ -408,7 +359,6 @@ public class App extends Application {
         return l;
     }
 
-    // TODO read file first line and last line and check if time interval is relevant
     private static Log ecsLogParser(String log){
 
         if (log.trim().startsWith("at") || log.startsWith("]") || log.startsWith("A")){
@@ -487,29 +437,6 @@ public class App extends Application {
         }
         return l;
     }
-
-    // Helpers
-//    private String getFileExtension(File file) {
-//        String name = file.getName();
-//        try {
-//            return name.substring(name.lastIndexOf(".") + 1);
-//        } catch (Exception e) {
-//            return "";
-//        }
-//    }
-
-//    private void removeEmptyOutOfRangeLogs(List<Log> list, Date startTime, Date endTime){
-//
-//        List<Log> logsToRemove = new ArrayList<>();
-//
-//        for (Log log : list){
-//            if (log.getTime() == null || log.getTime().before(startTime) || log.getTime().after(endTime)){
-//                logsToRemove.add(log);
-//            }
-//        }
-//
-//        list.removeAll(logsToRemove);
-//    }
 
     // Event handlers
     private void handleSubmit(){
