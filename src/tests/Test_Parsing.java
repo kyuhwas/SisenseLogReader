@@ -1,7 +1,8 @@
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+package tests;
+
+import classes.Log;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -32,7 +33,7 @@ public class Test_Parsing {
 //        startDate.setTime(1508774481000L);
 //        endDate.setTime(1514044881000L);
 
-//        List<Log> logs = ecsLogs(startDate, endDate);
+//        List<classes.Log> logs = ecsLogs(startDate, endDate);
 //        System.out.println("Number of logs to add to UI: " + logs.size());
 //        iisNodeLogs(startDate, endDate);
 

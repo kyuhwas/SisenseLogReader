@@ -1,3 +1,6 @@
+package tests;
+
+import classes.Log;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -55,7 +58,7 @@ public class Test_Filters extends Application{
 
         Stage window = primaryStage;
 
-        window.setTitle("Sisense Log Reader");
+        window.setTitle("Sisense classes.Log Reader");
         int WIDTH = 1400;
         window.setMinWidth(WIDTH);
         int HEIGHT = 600;
@@ -67,7 +70,7 @@ public class Test_Filters extends Application{
         rootLayout.setTop(initializeDateMenu());
 
         Scene scene = new Scene(rootLayout, WIDTH, HEIGHT);
-        scene.getStylesheets().add("style.css");
+        scene.getStylesheets().add("style/style.css");
         window.setScene(scene);
         window.show();
 
@@ -273,7 +276,7 @@ public class Test_Filters extends Application{
             else {
 
                 // TODO add progressBar
-                /*ProgressBarScene.display();*/
+                /*tests.ProgressBarScene.display();*/
 
                 if (logTable.getItems().size() > 0){
                     logTable.getItems().clear();

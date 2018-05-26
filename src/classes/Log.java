@@ -1,7 +1,5 @@
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+package classes;
+
 import java.util.Date;
 
 public class Log  implements Comparable<Log>{
@@ -63,7 +61,7 @@ public class Log  implements Comparable<Log>{
 
     @Override
     public String toString() {
-        return "Log{" +
+        return "classes.Log{" +
                 "time=" + time +
                 ", verbosity='" + verbosity + '\'' +
                 ", component='" + component + '\'' +

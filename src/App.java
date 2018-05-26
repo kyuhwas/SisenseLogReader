@@ -1,7 +1,7 @@
+import classes.Log;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Service;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -14,15 +14,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -59,6 +55,9 @@ public class App extends Application {
     private final String IIS_NODE_PATH = "/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/";
     private final String ECS_LOG_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismServerLogs/";
     private final String PRISMWEB_LOGS_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismWebServer/";
+    private final String IMAGE_URL = "file:" + String.valueOf(Paths.get(System.getProperty("user.dir"),"res","logo.png"));
+    private final int WINDOW_WIDTH = 1400;
+    private final int WINDOW_HEIGHT = 600;
 
     public static void main(String[] args) {
         launch(args);
@@ -67,21 +66,16 @@ public class App extends Application {
     //   UI
     @Override
     public void start(Stage primaryStage) {
-
         loadUI(primaryStage);
-
     }
 
     private void loadUI(Stage primaryStage){
 
         Stage window = primaryStage;
-        window.getIcons().add(new Image("file:"+String.valueOf(Paths.get(System.getProperty("user.dir"),"res","logo.png"))));
-
+        window.getIcons().add(new Image(IMAGE_URL));
         window.setTitle("Sisense Log Reader");
-        int WIDTH = 1400;
-        window.setMinWidth(WIDTH);
-        int HEIGHT = 600;
-        window.setMinHeight(HEIGHT);
+        window.setMinWidth(WINDOW_WIDTH);
+        window.setMinHeight(WINDOW_HEIGHT);
 
         BorderPane rootLayout = new BorderPane();
 
@@ -90,8 +84,8 @@ public class App extends Application {
         rootLayout.setCenter(initializeLogTable());
         rootLayout.setLeft(initializeFilters());
 
-        Scene scene = new Scene(rootLayout, WIDTH, HEIGHT);
-        scene.getStylesheets().add("style.css");
+        Scene scene = new Scene(rootLayout, WINDOW_WIDTH, WINDOW_HEIGHT);
+        scene.getStylesheets().add("style/style.css");
         window.setScene(scene);
         window.show();
     }
@@ -150,11 +144,13 @@ public class App extends Application {
         TableColumn componentColumn = new TableColumn("Component");
         TableColumn detailsColumn = new TableColumn("Details");
         sourceColumn.setSortable(false);
-        timeColumn.setMinWidth(185);
+        timeColumn.setMinWidth(190);
         verbosityColumn.setSortable(false);
         verbosityColumn.setMinWidth(60);
         componentColumn.setSortable(false);
+        componentColumn.setMinWidth(200);
         detailsColumn.setSortable(false);
+        detailsColumn.setMinWidth(400);
 
         sourceColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("source"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<Log, Date>("time"));
@@ -162,8 +158,6 @@ public class App extends Application {
         componentColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("component"));
         detailsColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("details"));
         logTable.getColumns().addAll(sourceColumn, timeColumn, verbosityColumn, componentColumn, detailsColumn);
-//        logTable.setPadding(new Insets(0,10,0,0));
-
 
         centerLogViewerContainer.getChildren().add(logTable);
 
@@ -208,6 +202,13 @@ public class App extends Application {
         detailsSeachFilterChBx.setFont(Font.font("Agency FB", 15));
         detailsSeachFilterChBx.setOnAction(e -> addDetailsTextBox(detailsSeachFilterChBx.isSelected(), filtersContainer.getChildren().indexOf(e.getSource())));
 
+
+        // TODO: 5/26/18 Enable when search returns values
+        sourceFilterCkBz.setDisable(true);
+        verbosityFilterCkBx.setDisable(true);
+        componentFilterChBx.setDisable(true);
+        detailsSeachFilterChBx.setDisable(true);
+
         filtersContainer.getChildren().addAll(filtersLabel, sourceFilterCkBz, verbosityFilterCkBx,componentFilterChBx, detailsSeachFilterChBx);
 
         return filtersContainer;
@@ -221,23 +222,25 @@ public class App extends Application {
         List<String> allLogLines = new ArrayList<>();
         List<String> logLines;
 
-        for (File f : fls) {
-            if (f.getName().contains("ECS.log")) {
+        if (fls != null) {
+            for (File f : fls) {
+                if (f.getName().contains("ECS.log")) {
 
-                // Open read stream for each file
-                try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)) {
+                    // Open read stream for each file
+                    try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)) {
 
-                    // Filter log lines for empty and without dates
-                    logLines = stream.filter(line -> !line.isEmpty())
-                            .filter(line -> Character.isDigit(line.charAt(0)))
-                            .collect(Collectors.toList());
+                        // Filter log lines for empty and without dates
+                        logLines = stream.filter(line -> !line.isEmpty())
+                                .filter(line -> Character.isDigit(line.charAt(0)))
+                                .collect(Collectors.toList());
 
-//                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
-                    allLogLines.addAll(logLines);
+    //                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
+                        allLogLines.addAll(logLines);
 
-                } catch (IOException e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
-                    alert.showAndWait();
+                    } catch (IOException e) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
+                        alert.showAndWait();
+                    }
                 }
             }
         }
@@ -250,7 +253,7 @@ public class App extends Application {
 
             // Check if log time is in selected range and filter empty detail logs
             try {
-                if (log.getTime() != null && !log.getDetails().isEmpty()){
+                if (log != null && log.getTime() != null && !log.getDetails().isEmpty()) {
                     if (log.getTime().after(startTime) && log.getTime().before(endTime)) logs.add(log);
                 }
             }
@@ -265,25 +268,26 @@ public class App extends Application {
     private List<Log> iisNodeLogs(){
 
         List<Log> logs = new ArrayList<>();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
         File[] fls = new File(Paths.get(IIS_NODE_PATH).normalize().toString()).listFiles();
         List<String> allLogLines = new ArrayList<>();
         List<String> currentLogLines;
 
-        for (File f : fls){
+        if (fls != null) {
+            for (File f : fls){
 
-            if(f.getName().contains("txt")){
-                try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)) {
+                if(f.getName().contains("txt")){
+                    try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)) {
 
-                    currentLogLines = stream.filter(line -> !line.isEmpty())
-                            .filter(line  -> Character.isDigit(line.charAt(0)))
-                            .collect(Collectors.toList());
+                        currentLogLines = stream.filter(line -> !line.isEmpty())
+                                .filter(line  -> Character.isDigit(line.charAt(0)))
+                                .collect(Collectors.toList());
 
-                    allLogLines.addAll(currentLogLines);
+                        allLogLines.addAll(currentLogLines);
 
-                } catch (IOException e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
-                    alert.showAndWait();
+                    } catch (IOException e) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
+                        alert.showAndWait();
+                    }
                 }
             }
         }
@@ -340,7 +344,7 @@ public class App extends Application {
 
             // Check if log time is in selected range
             try {
-                if (log.getTime() != null){
+                if (log != null && log.getTime() != null) {
                     if (log.getTime().after(startTime) && log.getTime().before(endTime)) logs.add(log);
                 }
             }
@@ -354,7 +358,7 @@ public class App extends Application {
 
     }
 
-    // Log Parsers
+    // classes.Log Parsers
     private static Log iisNodeLogParse(String log){
 
         Log l = new Log();
@@ -374,7 +378,7 @@ public class App extends Application {
                 case 0:
                     try {
                         l.setTime(sdf.parse(matcher.group(1)));
-                    } catch (ParseException e) {
+                    } catch (ParseException ignored) {
 
                     }
                     break;
@@ -502,7 +506,7 @@ public class App extends Application {
             else {
 
                 // TODO add progressBar
-                /*ProgressBarScene.display();*/
+                /*tests.ProgressBarScene.display();*/
 
                 if (logTable.getItems().size() > 0){
                     logTable.getItems().clear();
