@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,17 +45,17 @@ public class App extends Application {
     private TextField endTimeTxtFld;
     private ObservableList<Log> logs = FXCollections.observableArrayList();
     private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    private Service<Void> backgroundThread;
 
     // TODO menu item to configure log paths
-    private final String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
-    private final String IIS_NODE_LOGS_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\LAP-IL-KOBBIG-24036-stdout-1525977954610.txt";
-    private final String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\PrismWebServer.log";
+    // WINDOWS
+//    private final String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
+//    private final String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\";
+//    private final String ECS_LOG_PATH = "C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\";
 
     // MAC
-//    private final Path IIS_NODE_LOGS_PATH = Paths.get("/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/LAP-IL-KOBBIG-24036-stdout-1526003706085.txt");
-//    private final Path ECS_LOGS_PATH = Paths.get("/Users/kobbigal/Downloads/sample_logs/ECS.log");
-//    private final Path PRISMWEB_LOGS_PATH = Paths.get("/Users/kobbigal/Downloads/sample_logs/PrismWebServer.log");
+    private final String IIS_NODE_PATH = "/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/";
+    private final String ECS_LOG_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismServerLogs/";
+    private final String PRISMWEB_LOGS_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismWebServer/";
 
     public static void main(String[] args) {
         launch(args);
@@ -184,7 +185,7 @@ public class App extends Application {
 
         List<Log> logs = new ArrayList<>();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
-        File[] fls = new File(Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\").normalize().toString()).listFiles();
+        File[] fls = new File(Paths.get(ECS_LOG_PATH).normalize().toString()).listFiles();
         List<String> allLogLines = new ArrayList<>();
         List<String> logLines;
 
@@ -276,7 +277,7 @@ public class App extends Application {
     private List<Log> prismWebLogs(){
 
         List<Log> logs = new ArrayList<>();
-        File[] fls = new File(Paths.get("C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\").normalize().toString()).listFiles();
+        File[] fls = new File(Paths.get(PRISMWEB_LOGS_PATH).normalize().toString()).listFiles();
         List<String> allLogLines = new ArrayList<>();
         List<String> logLines;
 
@@ -468,7 +469,8 @@ public class App extends Application {
             }
             else {
 
-//                ProgressBarScene.display();
+                // TODO add progressBar
+                /*ProgressBarScene.display();*/
 
                 if (logTable.getItems().size() > 0){
                     logTable.getItems().clear();
@@ -482,12 +484,26 @@ public class App extends Application {
                     logs.addAll(prismWebLogs());
                     logs.addAll(ecsLogs());
 
-                    // sorts logs
                     Collections.sort(logs);
-
-                    // update UI
                     logTable.getItems().addAll(logs);
+
+                    // TODO add alert when no logs returned
+
+//                    if (logs.size() > 0){
+//                        // sorts logs
+//                        Collections.sort(logs);
+//
+//                        // update UI
+//                        logTable.getItems().addAll(logs);
+//                    }
+//                    else {
+//                        Alert alert = new Alert(Alert.AlertType.INFORMATION, "No logs found for selected dates\nPlease select new dats", ButtonType.OK);
+//                        alert.showAndWait();
+//                    }
+
                 }).start();
+
+//                logTable.setColumnResizePolicy(param -> true);
 
             }
         }
