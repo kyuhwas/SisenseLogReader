@@ -6,17 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/App.java" line="65" mnemonic="0" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.java" line="68" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42c68390-d28f-498c-90b2-e0b67048447b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/SisenseLogReader_jar.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/App.class" afterPath="$PROJECT_DIR$/out/production/SisenseLogReader/App.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/Test_ProgressBar$1.class" afterPath="$PROJECT_DIR$/out/production/SisenseLogReader/Test_ProgressBar$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/Test_ProgressBar$2.class" afterPath="$PROJECT_DIR$/out/production/SisenseLogReader/Test_ProgressBar$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/Test_ProgressBar.class" afterPath="$PROJECT_DIR$/out/production/SisenseLogReader/Test_ProgressBar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.java" afterPath="$PROJECT_DIR$/src/App.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test_Filters.java" afterPath="$PROJECT_DIR$/src/Test_Filters.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -29,53 +24,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="55" column="4" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="57" selection-end-column="102" />
+            <state relative-caret-position="159">
+              <caret line="394" column="0" lean-forward="true" selection-start-line="394" selection-start-column="0" selection-end-line="394" selection-end-column="0" />
               <folding>
-                <element signature="e#1564#1604#0" expanded="false" />
-                <element signature="e#2269#2270#0" expanded="true" />
-                <element signature="e#2297#2298#0" expanded="true" />
+                <element signature="e#1677#1717#0" expanded="false" />
+                <element signature="method#start#0;class#App#0" expanded="false" />
+                <element signature="method#loadUI#0;class#App#0" expanded="false" />
                 <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
                 <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+                <element signature="e#4906#4915#0" expanded="false" />
                 <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
                 <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
                 <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
                 <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
                 <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-                <element signature="e#12694#12728#0" expanded="false" />
+                <element signature="e#14390#14424#0" expanded="false" />
                 <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
                 <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
                 <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-                <element signature="e#17058#17934#0" expanded="false" />
-                <element signature="e#17360#17399#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test_Filters.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Test_Filters.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="83" column="33" lean-forward="true" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
-              <folding>
-                <element signature="e#3127#3130#0" expanded="false" />
-                <element signature="method#filterOptionsMenu#0;class#Test_Filters#0" expanded="false" />
-                <element signature="e#5256#5265#0" expanded="false" />
-                <element signature="method#initializeDateMenu#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#handleSubmit#0;class#Test_Filters#0" expanded="false" />
-                <element signature="e#9638#10514#0" expanded="false" />
-                <element signature="e#9940#9979#0" expanded="false" />
-                <element signature="method#iisNodeLogParse#0;class#Test_Filters#0" expanded="false" />
-                <element signature="e#11173#11207#0" expanded="false" />
-                <element signature="method#ecsLogParser#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#prismWebLogParser#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#ecsLogs#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#iisNodeLogs#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#prismWebLogs#0;class#Test_Filters#0" expanded="false" />
+                <element signature="e#18754#19630#0" expanded="false" />
+                <element signature="e#19056#19095#0" expanded="false" />
+                <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+                <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+                <element signature="e#21011#21387#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -123,6 +97,7 @@
       <find>submit</find>
       <find>println</find>
       <find>fileList</find>
+      <find>addFilterOptions</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,9 +117,9 @@
         <option value="$PROJECT_DIR$/src/tests/Test_Parsing.java" />
         <option value="$PROJECT_DIR$/src/Test_Parsing.java" />
         <option value="$PROJECT_DIR$/src/Test_ProgressBar.java" />
-        <option value="$PROJECT_DIR$/src/App.java" />
         <option value="$PROJECT_DIR$/src/style.css" />
         <option value="$PROJECT_DIR$/src/Test_Filters.java" />
+        <option value="$PROJECT_DIR$/src/App.java" />
       </list>
     </option>
   </component>
@@ -198,10 +173,11 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kobbi.gal.CORP\IdeaProjects\SisenseLogReader\res" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
       <recent name="C:\Users\kobbi.gal.CORP\IdeaProjects\SisenseLogReader\res" />
     </key>
   </component>
@@ -217,7 +193,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test_Filters">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="App" />
@@ -343,8 +319,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.Test_Filters" />
-        <item index="1" class="java.lang.String" itemvalue="Application.App" />
+        <item index="0" class="java.lang.String" itemvalue="Application.App" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Test_Filters" />
         <item index="2" class="java.lang.String" itemvalue="Application.Test_ProgressBar" />
         <item index="3" class="java.lang.String" itemvalue="Application.Test_Parsing" />
       </list>
@@ -416,22 +392,26 @@
         <state relative-caret-position="255">
           <caret line="55" column="4" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="57" selection-end-column="102" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -459,15 +439,18 @@
         <state relative-caret-position="690">
           <caret line="77" column="31" lean-forward="false" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
           <folding>
-            <element signature="e#3127#3130#0" expanded="false" />
-            <element signature="method#filterOptionsMenu#0;class#Test_Filters#0" expanded="false" />
-            <element signature="e#5256#5265#0" expanded="false" />
+            <element signature="method#start#0;class#Test_Filters#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#Test_Filters#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#Test_Filters#0" expanded="false" />
+            <element signature="e#5912#6288#0" expanded="false" />
+            <element signature="method#initializeLogTable#0;class#Test_Filters#0" expanded="false" />
+            <element signature="e#6646#6655#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#Test_Filters#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#Test_Filters#0" expanded="false" />
-            <element signature="e#9638#10514#0" expanded="false" />
-            <element signature="e#9940#9979#0" expanded="false" />
+            <element signature="e#11028#11904#0" expanded="false" />
+            <element signature="e#11330#11369#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#Test_Filters#0" expanded="false" />
-            <element signature="e#11173#11207#0" expanded="false" />
+            <element signature="e#12563#12597#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#Test_Filters#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#Test_Filters#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#Test_Filters#0" expanded="false" />
@@ -482,22 +465,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -525,22 +512,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -568,22 +559,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -611,22 +606,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -644,22 +643,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -677,22 +680,26 @@
         <state relative-caret-position="3420">
           <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -761,22 +768,26 @@
         <state relative-caret-position="15">
           <caret line="66" column="41" lean-forward="false" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -786,22 +797,26 @@
         <state relative-caret-position="4573">
           <caret line="269" column="85" lean-forward="true" selection-start-line="269" selection-start-column="85" selection-end-line="269" selection-end-column="85" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -829,22 +844,26 @@
         <state relative-caret-position="612">
           <caret line="66" column="41" lean-forward="true" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -871,22 +890,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -903,22 +926,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -935,22 +962,26 @@
         <state relative-caret-position="3420">
           <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
           <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
             <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
             <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -992,50 +1023,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="55" column="4" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="57" selection-end-column="102" />
-          <folding>
-            <element signature="e#1564#1604#0" expanded="false" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#12694#12728#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
-            <element signature="e#17058#17934#0" expanded="false" />
-            <element signature="e#17360#17399#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Test_Filters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="83" column="33" lean-forward="true" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
+        <state relative-caret-position="639">
+          <caret line="116" column="5" lean-forward="true" selection-start-line="75" selection-start-column="4" selection-end-line="116" selection-end-column="5" />
           <folding>
-            <element signature="e#3127#3130#0" expanded="false" />
-            <element signature="method#filterOptionsMenu#0;class#Test_Filters#0" expanded="false" />
-            <element signature="e#5256#5265#0" expanded="false" />
+            <element signature="method#start#0;class#Test_Filters#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#Test_Filters#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#Test_Filters#0" expanded="false" />
+            <element signature="e#5912#6288#0" expanded="false" />
+            <element signature="method#initializeLogTable#0;class#Test_Filters#0" expanded="false" />
+            <element signature="e#6646#6655#0" expanded="false" />
             <element signature="method#initializeDateMenu#0;class#Test_Filters#0" expanded="false" />
             <element signature="method#handleSubmit#0;class#Test_Filters#0" expanded="false" />
-            <element signature="e#9638#10514#0" expanded="false" />
-            <element signature="e#9940#9979#0" expanded="false" />
+            <element signature="e#11028#11904#0" expanded="false" />
+            <element signature="e#11330#11369#0" expanded="false" />
             <element signature="method#iisNodeLogParse#0;class#Test_Filters#0" expanded="false" />
-            <element signature="e#11173#11207#0" expanded="false" />
+            <element signature="e#12563#12597#0" expanded="false" />
             <element signature="method#ecsLogParser#0;class#Test_Filters#0" expanded="false" />
             <element signature="method#prismWebLogParser#0;class#Test_Filters#0" expanded="false" />
             <element signature="method#ecsLogs#0;class#Test_Filters#0" expanded="false" />
             <element signature="method#iisNodeLogs#0;class#Test_Filters#0" expanded="false" />
             <element signature="method#prismWebLogs#0;class#Test_Filters#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="394" column="0" lean-forward="true" selection-start-line="394" selection-start-column="0" selection-end-line="394" selection-end-column="0" />
+          <folding>
+            <element signature="e#1677#1717#0" expanded="false" />
+            <element signature="method#start#0;class#App#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" expanded="false" />
+            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
+            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
+            <element signature="e#4906#4915#0" expanded="false" />
+            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
+            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
+            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
+            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
+            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
+            <element signature="e#14390#14424#0" expanded="false" />
+            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
+            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
+            <element signature="method#handleSubmit#0;class#App#0" expanded="false" />
+            <element signature="e#18754#19630#0" expanded="false" />
+            <element signature="e#19056#19095#0" expanded="false" />
+            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
+            <element signature="e#21011#21387#0" expanded="false" />
           </folding>
         </state>
       </provider>

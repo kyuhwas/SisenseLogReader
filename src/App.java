@@ -36,6 +36,9 @@ import java.util.stream.Stream;
 
 public class App extends Application {
 
+    private VBox filtersContainer;
+    private VBox filterOptionsContainer;
+    private VBox searchBoxContainer;
     private TableView logTable;
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
@@ -168,14 +171,43 @@ public class App extends Application {
     }
 
     private VBox initializeFilters(){
-        VBox filtersContainer = new VBox(10);
+        filtersContainer = new VBox(10);
         filtersContainer.setPadding(new Insets(15));
         Label filtersLabel = new Label("Filters");
         filtersLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
         CheckBox sourceFilterCkBz = new CheckBox("Source");
+        sourceFilterCkBz.setFont(Font.font("Agency FB", 15));
+
+        // TODO use loaded Logs, filter for unique values then create ArrayList with values
+        List<String> sourceOptions = new ArrayList<>();
+        sourceOptions.add("ECS");
+        sourceOptions.add("IISNode");
+        sourceOptions.add("PrismWebServer");
+        sourceFilterCkBz.setOnAction(e -> addFilterOptions(sourceFilterCkBz.isSelected(), sourceOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+
+        List<String> verbosityOptions = new ArrayList<>();
+        verbosityOptions.add("INFO");
+        verbosityOptions.add("ERROR");
+        verbosityOptions.add("WARNING");
+        verbosityOptions.add("TRACE");
+
         CheckBox verbosityFilterCkBx = new CheckBox("Verbosity");
+        verbosityFilterCkBx.setFont(Font.font("Agency FB", 15));
+        verbosityFilterCkBx.setOnAction(e -> addFilterOptions(verbosityFilterCkBx.isSelected(), verbosityOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+
+        List<String> componentOptions = new ArrayList<>();
+        componentOptions.add("comp1");
+        componentOptions.add("comp2");
+        componentOptions.add("comp3");
+
         CheckBox componentFilterChBx = new CheckBox("Component");
+        componentFilterChBx.setFont(Font.font("Agency FB", 15));
+        componentFilterChBx.setOnAction(e -> addFilterOptions(componentFilterChBx.isSelected(), componentOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+
         CheckBox detailsSeachFilterChBx = new CheckBox("Details");
+        detailsSeachFilterChBx.setFont(Font.font("Agency FB", 15));
+        detailsSeachFilterChBx.setOnAction(e -> addDetailsTextBox(detailsSeachFilterChBx.isSelected(), filtersContainer.getChildren().indexOf(e.getSource())));
+
         filtersContainer.getChildren().addAll(filtersLabel, sourceFilterCkBz, verbosityFilterCkBx,componentFilterChBx, detailsSeachFilterChBx);
 
         return filtersContainer;
@@ -513,6 +545,56 @@ public class App extends Application {
         catch (ParseException e){
             Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect time syntax", ButtonType.OK);
             alert.showAndWait();
+        }
+    }
+
+    private void addFilterOptions(boolean isSelected, List<String> values, int index){
+
+        if (isSelected){
+            filterOptionsContainer = new VBox(1);
+            filterOptionsContainer.setPadding(new Insets(0, 0, 0, 15));
+
+            for (String option : values) {
+                CheckBox sourceChkBox = new CheckBox(option);
+                filterOptionsContainer.getChildren().add(sourceChkBox);
+            }
+            filtersContainer.getChildren().add(index+1, filterOptionsContainer);
+        }
+        else {
+
+            filtersContainer.getChildren().remove(filterOptionsContainer);
+
+        }
+
+    }
+
+    private void addDetailsTextBox(boolean isSelected, int index){
+
+        if (isSelected){
+
+            searchBoxContainer = new VBox(5);
+            searchBoxContainer.setPadding(new Insets(0,0,0,15));
+
+            TextField searchField = new TextField();
+            searchField.setPromptText("e.g. finished initializing");
+
+            Button submit = new Button("Search");
+            submit.setOnAction(e -> {
+                if (!searchField.getText().isEmpty()){
+                    System.out.println("Searched for " + searchField.getText());
+                }
+                else {
+                    Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter text to search for", ButtonType.OK);
+                    alert.showAndWait();
+                }
+            });
+
+            searchBoxContainer.getChildren().addAll(searchField, submit);
+            filtersContainer.getChildren().add(index + 1, searchBoxContainer);
+        }
+
+        else {
+            filtersContainer.getChildren().remove(searchBoxContainer);
         }
     }
 
