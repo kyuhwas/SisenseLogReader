@@ -1,5 +1,6 @@
 import classes.Log;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -34,16 +35,22 @@ public class App extends Application {
 
     private VBox filtersContainer;
     private VBox filterOptionsContainer;
+    private VBox componentSearchboxContainer;
     private VBox searchBoxContainer;
-    private TableView logTable;
+    private TableView<Log> logTable;
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
     private Date startTime;
     private Date endTime;
     private TextField startTimeTxtFld;
     private TextField endTimeTxtFld;
-    private ObservableList<Log> logs = FXCollections.observableArrayList();
     private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private ObservableList<Log> logs = FXCollections.observableArrayList();
+    private CheckBox sourceFilterCkBz;
+    private CheckBox verbosityFilterCkBx;
+    private CheckBox componentFilterChBx;
+    private CheckBox detailsSeachFilterChBx;
+    private Thread backgroundThread;
 
     // TODO menu item to configure log paths
     // WINDOWS
@@ -169,15 +176,18 @@ public class App extends Application {
         filtersContainer.setPadding(new Insets(15));
         Label filtersLabel = new Label("Filters");
         filtersLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
-        CheckBox sourceFilterCkBz = new CheckBox("Source");
-        sourceFilterCkBz.setFont(Font.font("Agency FB", 15));
 
+        sourceFilterCkBz = new CheckBox("Source");
+        sourceFilterCkBz.setFont(Font.font("Agency FB", 15));
         // TODO use loaded Logs, filter for unique values then create ArrayList with values
         List<String> sourceOptions = new ArrayList<>();
         sourceOptions.add("ECS");
         sourceOptions.add("IISNode");
         sourceOptions.add("PrismWebServer");
+
+        sourceFilterCkBz.setDisable(true);
         sourceFilterCkBz.setOnAction(e -> addFilterOptions(sourceFilterCkBz.isSelected(), sourceOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+
 
         List<String> verbosityOptions = new ArrayList<>();
         verbosityOptions.add("INFO");
@@ -185,29 +195,20 @@ public class App extends Application {
         verbosityOptions.add("WARNING");
         verbosityOptions.add("TRACE");
 
-        CheckBox verbosityFilterCkBx = new CheckBox("Verbosity");
+        verbosityFilterCkBx = new CheckBox("Verbosity");
+        verbosityFilterCkBx.setDisable(true);
         verbosityFilterCkBx.setFont(Font.font("Agency FB", 15));
         verbosityFilterCkBx.setOnAction(e -> addFilterOptions(verbosityFilterCkBx.isSelected(), verbosityOptions, filtersContainer.getChildren().indexOf(e.getSource())));
 
-        List<String> componentOptions = new ArrayList<>();
-        componentOptions.add("comp1");
-        componentOptions.add("comp2");
-        componentOptions.add("comp3");
-
-        CheckBox componentFilterChBx = new CheckBox("Component");
+        componentFilterChBx = new CheckBox("Component");
+        componentFilterChBx.setDisable(true);
         componentFilterChBx.setFont(Font.font("Agency FB", 15));
-        componentFilterChBx.setOnAction(e -> addFilterOptions(componentFilterChBx.isSelected(), componentOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+        componentFilterChBx.setOnAction(e -> addComponentTextBox(componentFilterChBx.isSelected(), filtersContainer.getChildren().indexOf(e.getSource())));
 
-        CheckBox detailsSeachFilterChBx = new CheckBox("Details");
+        detailsSeachFilterChBx = new CheckBox("Details");
+        detailsSeachFilterChBx.setDisable(true);
         detailsSeachFilterChBx.setFont(Font.font("Agency FB", 15));
         detailsSeachFilterChBx.setOnAction(e -> addDetailsTextBox(detailsSeachFilterChBx.isSelected(), filtersContainer.getChildren().indexOf(e.getSource())));
-
-
-        // TODO: 5/26/18 Enable when search returns values
-        sourceFilterCkBz.setDisable(true);
-        verbosityFilterCkBx.setDisable(true);
-        componentFilterChBx.setDisable(true);
-        detailsSeachFilterChBx.setDisable(true);
 
         filtersContainer.getChildren().addAll(filtersLabel, sourceFilterCkBz, verbosityFilterCkBx,componentFilterChBx, detailsSeachFilterChBx);
 
@@ -513,31 +514,26 @@ public class App extends Application {
                     logs.clear();
                 }
 
-                new Thread(() -> {
+                backgroundThread = new Thread(() -> {
 
-                    // add logs
                     logs.addAll(iisNodeLogs());
                     logs.addAll(prismWebLogs());
                     logs.addAll(ecsLogs());
-
                     Collections.sort(logs);
                     logTable.getItems().addAll(logs);
 
-                    // TODO add alert when no logs returned
+                    Platform.runLater(() -> {
+                        sourceFilterCkBz.setDisable(false);
+                        verbosityFilterCkBx.setDisable(false);
+                        componentFilterChBx.setDisable(false);
+                        detailsSeachFilterChBx.setDisable(false);
+                    });
 
-//                    if (logs.size() > 0){
-//                        // sorts logs
-//                        Collections.sort(logs);
-//
-//                        // update UI
-//                        logTable.getItems().addAll(logs);
-//                    }
-//                    else {
-//                        Alert alert = new Alert(Alert.AlertType.INFORMATION, "No logs found for selected dates\nPlease select new dats", ButtonType.OK);
-//                        alert.showAndWait();
-//                    }
+                });
 
-                }).start();
+                backgroundThread.setDaemon(true);
+                backgroundThread.start();
+
 
 //                logTable.setColumnResizePolicy(param -> true);
 
@@ -568,6 +564,37 @@ public class App extends Application {
 
             filtersContainer.getChildren().remove(filterOptionsContainer);
 
+        }
+
+    }
+
+    private void addComponentTextBox(boolean isSelected, int index){
+
+        if (isSelected){
+
+            componentSearchboxContainer = new VBox(5);
+            componentSearchboxContainer.setPadding(new Insets(0,0,0,15));
+
+            TextField searchField = new TextField();
+            searchField.setPromptText("e.g. Application.ElastiCubeManager");
+
+            Button submit = new Button("Search");
+            submit.setOnAction(event -> {
+                if (!searchField.getText().isEmpty()){
+                    System.out.println("Searched for component " + searchField.getText());
+                }
+                else {
+                    Alert alert  = new Alert(Alert.AlertType.WARNING, "Please enter text to search for", ButtonType.OK);
+                    alert.showAndWait();
+                }
+            });
+
+            componentSearchboxContainer.getChildren().addAll(searchField, submit);
+            filtersContainer.getChildren().add(index + 1, componentSearchboxContainer);
+        }
+
+        else {
+            filtersContainer.getChildren().remove(componentSearchboxContainer);
         }
 
     }

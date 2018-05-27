@@ -2,6 +2,7 @@ package tests;
 
 import classes.Log;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -36,8 +37,9 @@ public class Test_Filters extends Application{
 
     private VBox filtersContainer;
     private VBox filterOptionsContainer;
+    private VBox componentSearchboxContainer;
     private VBox searchBoxContainer;
-    private TableView logTable;
+    private TableView<Log> logTable;
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
     private Date startTime;
@@ -46,9 +48,14 @@ public class Test_Filters extends Application{
     private TextField endTimeTxtFld;
     private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private ObservableList<Log> logs = FXCollections.observableArrayList();
+    private CheckBox sourceFilterCkBz;
+    private CheckBox verbosityFilterCkBx;
+    private CheckBox componentFilterChBx;
+    private CheckBox detailsSeachFilterChBx;
     private final String IIS_NODE_PATH = "/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/";
     private final String ECS_LOG_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismServerLogs/";
     private final String PRISMWEB_LOGS_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismWebServer/";
+    private Thread backgroundThread;
 
     public static void main(String[] args) {
         launch(args);
@@ -81,15 +88,18 @@ public class Test_Filters extends Application{
         filtersContainer.setPadding(new Insets(15));
         Label filtersLabel = new Label("Filters");
         filtersLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
-        CheckBox sourceFilterCkBz = new CheckBox("Source");
-        sourceFilterCkBz.setFont(Font.font("Agency FB", 15));
 
+        sourceFilterCkBz = new CheckBox("Source");
+        sourceFilterCkBz.setFont(Font.font("Agency FB", 15));
         // TODO use loaded Logs, filter for unique values then create ArrayList with values
         List<String> sourceOptions = new ArrayList<>();
         sourceOptions.add("ECS");
         sourceOptions.add("IISNode");
         sourceOptions.add("PrismWebServer");
+
+        sourceFilterCkBz.setDisable(true);
         sourceFilterCkBz.setOnAction(e -> addFilterOptions(sourceFilterCkBz.isSelected(), sourceOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+
 
         List<String> verbosityOptions = new ArrayList<>();
         verbosityOptions.add("INFO");
@@ -97,20 +107,18 @@ public class Test_Filters extends Application{
         verbosityOptions.add("WARNING");
         verbosityOptions.add("TRACE");
 
-        CheckBox verbosityFilterCkBx = new CheckBox("Verbosity");
+        verbosityFilterCkBx = new CheckBox("Verbosity");
+        verbosityFilterCkBx.setDisable(true);
         verbosityFilterCkBx.setFont(Font.font("Agency FB", 15));
         verbosityFilterCkBx.setOnAction(e -> addFilterOptions(verbosityFilterCkBx.isSelected(), verbosityOptions, filtersContainer.getChildren().indexOf(e.getSource())));
 
-        List<String> componentOptions = new ArrayList<>();
-        componentOptions.add("comp1");
-        componentOptions.add("comp2");
-        componentOptions.add("comp3");
-
-        CheckBox componentFilterChBx = new CheckBox("Component");
+        componentFilterChBx = new CheckBox("Component");
+        componentFilterChBx.setDisable(true);
         componentFilterChBx.setFont(Font.font("Agency FB", 15));
-        componentFilterChBx.setOnAction(e -> addFilterOptions(componentFilterChBx.isSelected(), componentOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+        componentFilterChBx.setOnAction(e -> addComponentTextBox(componentFilterChBx.isSelected(), filtersContainer.getChildren().indexOf(e.getSource())));
 
-        CheckBox detailsSeachFilterChBx = new CheckBox("Details");
+        detailsSeachFilterChBx = new CheckBox("Details");
+        detailsSeachFilterChBx.setDisable(true);
         detailsSeachFilterChBx.setFont(Font.font("Agency FB", 15));
         detailsSeachFilterChBx.setOnAction(e -> addDetailsTextBox(detailsSeachFilterChBx.isSelected(), filtersContainer.getChildren().indexOf(e.getSource())));
 
@@ -139,9 +147,38 @@ public class Test_Filters extends Application{
 
     }
 
+    private void addComponentTextBox(boolean isSelected, int index){
+
+        if (isSelected){
+
+            componentSearchboxContainer = new VBox(5);
+            componentSearchboxContainer.setPadding(new Insets(0,0,0,15));
+
+            TextField searchField = new TextField();
+            searchField.setPromptText("e.g. Application.ElastiCubeManager");
+
+            Button submit = new Button("Search");
+            submit.setOnAction(event -> {
+                if (!searchField.getText().isEmpty()){
+                    System.out.println("Searched for component " + searchField.getText());
+                }
+                else {
+                    Alert alert  = new Alert(Alert.AlertType.WARNING, "Please enter text to search for", ButtonType.OK);
+                    alert.showAndWait();
+                }
+            });
+
+            componentSearchboxContainer.getChildren().addAll(searchField, submit);
+            filtersContainer.getChildren().add(index + 1, componentSearchboxContainer);
+        }
+
+        else {
+            filtersContainer.getChildren().remove(componentSearchboxContainer);
+        }
+
+    }
+
     private void addDetailsTextBox(boolean isSelected, int index){
-
-
 
         if (isSelected){
 
@@ -167,7 +204,6 @@ public class Test_Filters extends Application{
         }
 
         else {
-            System.out.println("Test");
             filtersContainer.getChildren().remove(searchBoxContainer);
         }
     }
@@ -178,14 +214,14 @@ public class Test_Filters extends Application{
         // Create table
         VBox centerLogViewerContainer = new VBox(0);
         centerLogViewerContainer.setPadding(new Insets(0,0,0,30));
-        logTable = new TableView();
+        logTable = new TableView<>();
 
         // Add columns
-        TableColumn sourceColumn = new TableColumn("Source");
-        TableColumn timeColumn = new TableColumn("Time");
-        TableColumn verbosityColumn = new TableColumn("Verbosity");
-        TableColumn componentColumn = new TableColumn("Component");
-        TableColumn detailsColumn = new TableColumn("Details");
+        TableColumn<Log, String> sourceColumn = new TableColumn<Log, String>("Source");
+        TableColumn<Log, Date> timeColumn = new TableColumn<>("Time");
+        TableColumn<Log, String> verbosityColumn = new TableColumn<>("Verbosity");
+        TableColumn<Log, String> componentColumn = new TableColumn<>("Component");
+        TableColumn<Log, String> detailsColumn = new TableColumn<Log, String>("Details");
         sourceColumn.setSortable(false);
         timeColumn.setMinWidth(185);
         verbosityColumn.setSortable(false);
@@ -283,31 +319,26 @@ public class Test_Filters extends Application{
                     logs.clear();
                 }
 
-                new Thread(() -> {
+                backgroundThread = new Thread(() -> {
 
-                    // add logs
                     logs.addAll(iisNodeLogs());
                     logs.addAll(prismWebLogs());
                     logs.addAll(ecsLogs());
-
                     Collections.sort(logs);
                     logTable.getItems().addAll(logs);
 
-                    // TODO add alert when no logs returned
+                    Platform.runLater(() -> {
+                        sourceFilterCkBz.setDisable(false);
+                        verbosityFilterCkBx.setDisable(false);
+                        componentFilterChBx.setDisable(false);;
+                        detailsSeachFilterChBx.setDisable(false);;
+                    });
 
-//                    if (logs.size() > 0){
-//                        // sorts logs
-//                        Collections.sort(logs);
-//
-//                        // update UI
-//                        logTable.getItems().addAll(logs);
-//                    }
-//                    else {
-//                        Alert alert = new Alert(Alert.AlertType.INFORMATION, "No logs found for selected dates\nPlease select new dats", ButtonType.OK);
-//                        alert.showAndWait();
-//                    }
+                });
 
-                }).start();
+                backgroundThread.setDaemon(true);
+                backgroundThread.start();
+
 
 //                logTable.setColumnResizePolicy(param -> true);
 
@@ -496,20 +527,22 @@ public class Test_Filters extends Application{
         List<String> allLogLines = new ArrayList<>();
         List<String> currentLogLines;
 
-        for (File f : fls){
+        if (fls != null) {
+            for (File f : fls){
 
-            if(f.getName().contains("txt")){
-                try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)) {
+                if(f.getName().contains("txt")){
+                    try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)) {
 
-                    currentLogLines = stream.filter(line -> !line.isEmpty())
-                            .filter(line  -> Character.isDigit(line.charAt(0)))
-                            .collect(Collectors.toList());
+                        currentLogLines = stream.filter(line -> !line.isEmpty())
+                                .filter(line  -> Character.isDigit(line.charAt(0)))
+                                .collect(Collectors.toList());
 
-                    allLogLines.addAll(currentLogLines);
+                        allLogLines.addAll(currentLogLines);
 
-                } catch (IOException e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
-                    alert.showAndWait();
+                    } catch (IOException e) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "Can't open file " + f.getName() + " for reading", ButtonType.CLOSE);
+                        alert.showAndWait();
+                    }
                 }
             }
         }
