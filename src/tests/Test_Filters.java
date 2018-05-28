@@ -53,6 +53,7 @@ public class Test_Filters extends Application{
     private final String ECS_LOG_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismServerLogs/";
     private final String PRISMWEB_LOGS_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismWebServer/";
     private Thread backgroundThread;
+    private Set<String> verbositySet;
 
     public static void main(String[] args) {
         launch(args);
@@ -89,7 +90,7 @@ public class Test_Filters extends Application{
         sourceFilterCkBz = new CheckBox("Source");
         sourceFilterCkBz.setFont(Font.font("Agency FB", 15));
         // TODO use loaded Logs, filter for unique values then create ArrayList with values
-        List<String> sourceOptions = new ArrayList<>();
+        Set<String> sourceOptions = new HashSet<>();
         sourceOptions.add("ECS");
         sourceOptions.add("IISNode");
         sourceOptions.add("PrismWebServer");
@@ -97,17 +98,10 @@ public class Test_Filters extends Application{
         sourceFilterCkBz.setDisable(true);
         sourceFilterCkBz.setOnAction(e -> addFilterOptions(sourceFilterCkBz.isSelected(), sourceOptions, filtersContainer.getChildren().indexOf(e.getSource())));
 
-
-        List<String> verbosityOptions = new ArrayList<>();
-        verbosityOptions.add("INFO");
-        verbosityOptions.add("ERROR");
-        verbosityOptions.add("WARNING");
-        verbosityOptions.add("TRACE");
-
         verbosityFilterCkBx = new CheckBox("Verbosity");
         verbosityFilterCkBx.setDisable(true);
         verbosityFilterCkBx.setFont(Font.font("Agency FB", 15));
-        verbosityFilterCkBx.setOnAction(e -> addFilterOptions(verbosityFilterCkBx.isSelected(), verbosityOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+        verbosityFilterCkBx.setOnAction(e -> addFilterOptions(verbosityFilterCkBx.isSelected(), verbositySet, filtersContainer.getChildren().indexOf(e.getSource())));
 
         componentFilterChBx = new CheckBox("Component");
         componentFilterChBx.setDisable(true);
@@ -124,7 +118,7 @@ public class Test_Filters extends Application{
         return filtersContainer;
     }
 
-    private void addFilterOptions(boolean isSelected, List<String> values, int index){
+    private void addFilterOptions(boolean isSelected, Set<String> values, int index){
 
             if (isSelected){
                 filterOptionsContainer = new VBox(1);
@@ -141,11 +135,10 @@ public class Test_Filters extends Application{
                 filtersContainer.getChildren().remove(filterOptionsContainer);
 
             }
-
     }
 
     // TODO: 5/27/18 For each value returned from set, create checkbox
-    private static Set<String> verbositySet(List<Log> logs){
+    private static Set<String> verbositySetValues(List<Log> logs){
 
         List<String> list = new ArrayList<>();
 
@@ -509,7 +502,6 @@ public class Test_Filters extends Application{
             }
         }
 
-//        System.out.println("Total number of ECS logs: " + allLogLines.size());
 
         for (String logStr: allLogLines){
 
@@ -517,13 +509,15 @@ public class Test_Filters extends Application{
 
             // Check if log time is in selected range and filter empty detail logs
             try {
-                if (log.getTime() != null && !log.getDetails().isEmpty()){
+                if (log != null && log.getTime() != null && !log.getDetails().isEmpty()) {
                     if (log.getTime().after(startTime) && log.getTime().before(endTime)) logs.add(log);
                 }
             }
             catch (NullPointerException ignored){
             }
         }
+
+        verbositySet = verbositySetValues(logs);
 
         System.out.println("Total number of ECS logs: " + logs.size());
         return logs;
@@ -622,4 +616,5 @@ public class Test_Filters extends Application{
         return logs;
 
     }
+
 }
