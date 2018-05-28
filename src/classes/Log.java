@@ -2,7 +2,7 @@ package classes;
 
 import java.util.Date;
 
-public class Log  implements Comparable<Log>{
+public class Log implements Comparable<Log>{
 
     private String source;
     private Date time;
@@ -83,4 +83,5 @@ public class Log  implements Comparable<Log>{
             return 0;
         return getTime().compareTo(o.getTime());
     }
+
 }

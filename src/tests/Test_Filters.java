@@ -24,10 +24,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -144,6 +141,22 @@ public class Test_Filters extends Application{
                 filtersContainer.getChildren().remove(filterOptionsContainer);
 
             }
+
+    }
+
+    // TODO: 5/27/18 For each value returned from set, create checkbox
+    private static Set<String> verbositySet(List<Log> logs){
+
+        List<String> list = new ArrayList<>();
+
+        for (Log l : logs) {
+            list.add(l.getVerbosity());
+        }
+
+        Set<String> set = new HashSet<>(list);
+        System.out.println(set);
+
+        return set;
 
     }
 
@@ -338,9 +351,6 @@ public class Test_Filters extends Application{
 
                 backgroundThread.setDaemon(true);
                 backgroundThread.start();
-
-
-//                logTable.setColumnResizePolicy(param -> true);
 
             }
         }
