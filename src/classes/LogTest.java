@@ -5,7 +5,7 @@ import javafx.beans.property.StringProperty;
 
 import java.util.Date;
 
-public class Log implements Comparable<Log>{
+public class LogTest implements Comparable<LogTest>{
 
     private StringProperty source;
     private Date time;
@@ -13,7 +13,7 @@ public class Log implements Comparable<Log>{
     private StringProperty component;
     private StringProperty details;
 
-    public Log() {
+    public LogTest() {
     }
 
     public String getSource() {
@@ -77,7 +77,7 @@ public class Log implements Comparable<Log>{
     }
 
     @Override
-    public int compareTo(Log o) {
+    public int compareTo(LogTest o) {
         if (getTime() == null || o.getTime() == null)
             return 0;
         return getTime().compareTo(o.getTime());

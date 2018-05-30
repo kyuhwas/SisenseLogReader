@@ -12,7 +12,9 @@
     <list default="true" id="42c68390-d28f-498c-90b2-e0b67048447b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/Test_Filters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/Test_Filters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/UniqueValuesForFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/UniqueValuesForFilter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -28,16 +30,14 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="49" column="31" lean-forward="true" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+            <state relative-caret-position="253">
+              <caret line="99" column="5" lean-forward="true" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
               <folding>
-                <element signature="e#2702#2703#0" expanded="true" />
-                <element signature="e#2730#2731#0" expanded="true" />
-                <element signature="e#2801#2802#0" expanded="true" />
-                <element signature="e#2837#2838#0" expanded="true" />
                 <element signature="e#2902#3581#0" />
+                <element signature="e#3587#5141#0" />
                 <element signature="e#5147#6676#0" />
                 <element signature="e#5190#5199#0" />
+                <element signature="method#initializeFilters#0;class#App#0" />
                 <element signature="e#8930#10989#0" />
                 <element signature="e#10995#12601#0" />
                 <element signature="e#12607#14465#0" />
@@ -45,6 +45,8 @@
                 <element signature="e#14810#14844#0" />
                 <element signature="e#15564#16648#0" />
                 <element signature="e#16654#17861#0" />
+                <element signature="e#17867#20221#0" />
+                <element signature="e#19853#20077#0" />
                 <element signature="e#20227#20849#0" />
                 <element signature="e#20855#21977#0" />
                 <element signature="e#21289#21680#0" />
@@ -59,11 +61,11 @@
       <file leaf-file-name="Test_Filters.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tests/Test_Filters.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="559" column="5" lean-forward="true" selection-start-line="481" selection-start-column="4" selection-end-line="559" selection-end-column="5" />
+            <state relative-caret-position="527">
+              <caret line="539" column="41" lean-forward="true" selection-start-line="539" selection-start-column="41" selection-end-line="539" selection-end-column="41" />
               <folding>
                 <element signature="method#loadUI#0;class#App#0" />
-                <element signature="method#initializeLogTable#0;class#App#0" />
+                <element signature="method#initializeDateMenu#0;class#App#0" />
                 <element signature="e#5186#5195#0" />
                 <element signature="method#initializeFilters#0;class#Test_Filters#0" />
                 <element signature="method#ecsLogs#0;class#App#0" />
@@ -73,6 +75,9 @@
                 <element signature="e#14532#14566#0" />
                 <element signature="method#ecsLogParser#0;class#App#0" />
                 <element signature="method#prismWebLogParser#0;class#App#0" />
+                <element signature="e#20100#20167#0" />
+                <element signature="method#addFilterOptions#0;class#Test_Filters#0" />
+                <element signature="e#20594#20789#0" />
                 <element signature="method#addComponentTextBox#0;class#App#0" />
                 <element signature="e#21089#21480#0" />
                 <element signature="method#addDetailsTextBox#0;class#App#0" />
@@ -83,11 +88,43 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="LogTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/classes/LogTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="628">
+              <caret line="81" column="21" lean-forward="true" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#373#374#0" expanded="true" />
+                <element signature="e#408#409#0" expanded="true" />
+                <element signature="e#527#528#0" expanded="true" />
+                <element signature="e#566#567#0" expanded="true" />
+                <element signature="e#595#596#0" expanded="true" />
+                <element signature="e#622#623#0" expanded="true" />
+                <element signature="e#660#661#0" expanded="true" />
+                <element signature="e#692#693#0" expanded="true" />
+                <element signature="e#728#729#0" expanded="true" />
+                <element signature="e#766#767#0" expanded="true" />
+                <element signature="e#897#898#0" expanded="true" />
+                <element signature="e#942#943#0" expanded="true" />
+                <element signature="e#978#979#0" expanded="true" />
+                <element signature="e#1016#1017#0" expanded="true" />
+                <element signature="e#1147#1148#0" expanded="true" />
+                <element signature="e#1192#1193#0" expanded="true" />
+                <element signature="e#1226#1227#0" expanded="true" />
+                <element signature="e#1262#1263#0" expanded="true" />
+                <element signature="e#1385#1386#0" expanded="true" />
+                <element signature="e#1426#1427#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="UniqueValuesForFilter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tests/UniqueValuesForFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+            <state relative-caret-position="355">
+              <caret line="35" column="67" lean-forward="true" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,8 +135,31 @@
       <file leaf-file-name="Log.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/Log.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1105">
-              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="204">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#285#286#0" expanded="true" />
+                <element signature="e#330#331#0" expanded="true" />
+                <element signature="e#528#529#0" expanded="true" />
+                <element signature="e#572#573#0" expanded="true" />
+                <element signature="e#601#602#0" expanded="true" />
+                <element signature="e#628#629#0" expanded="true" />
+                <element signature="e#666#667#0" expanded="true" />
+                <element signature="e#698#699#0" expanded="true" />
+                <element signature="e#734#735#0" expanded="true" />
+                <element signature="e#782#783#0" expanded="true" />
+                <element signature="e#1001#1002#0" expanded="true" />
+                <element signature="e#1051#1052#0" expanded="true" />
+                <element signature="e#1087#1088#0" expanded="true" />
+                <element signature="e#1135#1136#0" expanded="true" />
+                <element signature="e#1354#1355#0" expanded="true" />
+                <element signature="e#1404#1405#0" expanded="true" />
+                <element signature="e#1438#1439#0" expanded="true" />
+                <element signature="e#1484#1485#0" expanded="true" />
+                <element signature="e#1689#1690#0" expanded="true" />
+                <element signature="e#1735#1736#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,6 +208,9 @@
       <find>backgroundThread</find>
       <find>verbosity</find>
       <find>setDatesBtn</find>
+      <find>filtered</find>
+      <find>logTable.setItems(logs);</find>
+      <find>setDatesBtn.setDisable(true);</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -173,10 +236,11 @@
         <option value="$PROJECT_DIR$/src/tests/Indicators.java" />
         <option value="$PROJECT_DIR$/src/tests/UpdateProgessTes.java" />
         <option value="$PROJECT_DIR$/src/tests/UpdateProgessTest.java" />
-        <option value="$PROJECT_DIR$/src/classes/Log.java" />
-        <option value="$PROJECT_DIR$/src/tests/UniqueValuesForFilter.java" />
+        <option value="$PROJECT_DIR$/src/classes/LogTest.java" />
         <option value="$PROJECT_DIR$/src/tests/Test_Filters.java" />
+        <option value="$PROJECT_DIR$/src/classes/Log.java" />
         <option value="$PROJECT_DIR$/src/App.java" />
+        <option value="$PROJECT_DIR$/src/tests/UniqueValuesForFilter.java" />
       </list>
     </option>
   </component>
@@ -259,7 +323,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test_Filters">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="SisenseLogReader" />
@@ -353,8 +417,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test_Filters" />
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.Test_Filters" />
         <item itemvalue="Application.UniqueValuesForFilter" />
         <item itemvalue="Application.UpdateProgessTest" />
         <item itemvalue="Application.Indicators" />
@@ -389,15 +453,16 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329235" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.329235" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3282365" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50277776" side_tool="true" weight="0.329235" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49722221" weight="0.329235" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3282365" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3282365" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3282365" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2497309" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497309" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3282365" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -412,7 +477,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329235" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -427,7 +491,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java" />
     <entry file="file://$PROJECT_DIR$/src/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -439,13 +502,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#2702#2703#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
             <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
             <element signature="e#5147#6676#0" />
             <element signature="e#5190#5199#0" />
+            <element signature="method#initializeFilters#0;class#App#0" />
             <element signature="e#8930#10989#0" />
             <element signature="e#10995#12601#0" />
             <element signature="e#12607#14465#0" />
@@ -453,6 +514,8 @@
             <element signature="e#14810#14844#0" />
             <element signature="e#15564#16648#0" />
             <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#19853#20077#0" />
             <element signature="e#20227#20849#0" />
             <element signature="e#20855#21977#0" />
             <element signature="e#21289#21680#0" />
@@ -475,13 +538,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#2702#2703#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
             <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
             <element signature="e#5147#6676#0" />
             <element signature="e#5190#5199#0" />
+            <element signature="method#initializeFilters#0;class#App#0" />
             <element signature="e#8930#10989#0" />
             <element signature="e#10995#12601#0" />
             <element signature="e#12607#14465#0" />
@@ -489,6 +550,8 @@
             <element signature="e#14810#14844#0" />
             <element signature="e#15564#16648#0" />
             <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#19853#20077#0" />
             <element signature="e#20227#20849#0" />
             <element signature="e#20855#21977#0" />
             <element signature="e#21289#21680#0" />
@@ -510,13 +573,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#2702#2703#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
             <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
             <element signature="e#5147#6676#0" />
             <element signature="e#5190#5199#0" />
+            <element signature="method#initializeFilters#0;class#App#0" />
             <element signature="e#8930#10989#0" />
             <element signature="e#10995#12601#0" />
             <element signature="e#12607#14465#0" />
@@ -524,6 +585,8 @@
             <element signature="e#14810#14844#0" />
             <element signature="e#15564#16648#0" />
             <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#19853#20077#0" />
             <element signature="e#20227#20849#0" />
             <element signature="e#20855#21977#0" />
             <element signature="e#21289#21680#0" />
@@ -546,13 +609,11 @@
         <state relative-caret-position="3420">
           <caret line="289" selection-start-line="289" selection-end-line="289" />
           <folding>
-            <element signature="e#2702#2703#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
             <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
             <element signature="e#5147#6676#0" />
             <element signature="e#5190#5199#0" />
+            <element signature="method#initializeFilters#0;class#App#0" />
             <element signature="e#8930#10989#0" />
             <element signature="e#10995#12601#0" />
             <element signature="e#12607#14465#0" />
@@ -560,6 +621,8 @@
             <element signature="e#14810#14844#0" />
             <element signature="e#15564#16648#0" />
             <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#19853#20077#0" />
             <element signature="e#20227#20849#0" />
             <element signature="e#20855#21977#0" />
             <element signature="e#21289#21680#0" />
@@ -600,13 +663,11 @@
         <state relative-caret-position="15">
           <caret line="66" column="41" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
           <folding>
-            <element signature="e#2702#2703#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
             <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
             <element signature="e#5147#6676#0" />
             <element signature="e#5190#5199#0" />
+            <element signature="method#initializeFilters#0;class#App#0" />
             <element signature="e#8930#10989#0" />
             <element signature="e#10995#12601#0" />
             <element signature="e#12607#14465#0" />
@@ -614,6 +675,8 @@
             <element signature="e#14810#14844#0" />
             <element signature="e#15564#16648#0" />
             <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#19853#20077#0" />
             <element signature="e#20227#20849#0" />
             <element signature="e#20855#21977#0" />
             <element signature="e#21289#21680#0" />
@@ -629,13 +692,11 @@
         <state relative-caret-position="4573">
           <caret line="269" column="85" lean-forward="true" selection-start-line="269" selection-start-column="85" selection-end-line="269" selection-end-column="85" />
           <folding>
-            <element signature="e#2702#2703#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
             <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
             <element signature="e#5147#6676#0" />
             <element signature="e#5190#5199#0" />
+            <element signature="method#initializeFilters#0;class#App#0" />
             <element signature="e#8930#10989#0" />
             <element signature="e#10995#12601#0" />
             <element signature="e#12607#14465#0" />
@@ -643,6 +704,8 @@
             <element signature="e#14810#14844#0" />
             <element signature="e#15564#16648#0" />
             <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#19853#20077#0" />
             <element signature="e#20227#20849#0" />
             <element signature="e#20855#21977#0" />
             <element signature="e#21289#21680#0" />
@@ -667,13 +730,11 @@
         <state relative-caret-position="612">
           <caret line="66" column="41" lean-forward="true" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
           <folding>
-            <element signature="e#2702#2703#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
             <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
             <element signature="e#5147#6676#0" />
             <element signature="e#5190#5199#0" />
+            <element signature="method#initializeFilters#0;class#App#0" />
             <element signature="e#8930#10989#0" />
             <element signature="e#10995#12601#0" />
             <element signature="e#12607#14465#0" />
@@ -681,6 +742,8 @@
             <element signature="e#14810#14844#0" />
             <element signature="e#15564#16648#0" />
             <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#19853#20077#0" />
             <element signature="e#20227#20849#0" />
             <element signature="e#20855#21977#0" />
             <element signature="e#21289#21680#0" />
@@ -703,13 +766,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#2702#2703#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
             <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
             <element signature="e#5147#6676#0" />
             <element signature="e#5190#5199#0" />
+            <element signature="method#initializeFilters#0;class#App#0" />
             <element signature="e#8930#10989#0" />
             <element signature="e#10995#12601#0" />
             <element signature="e#12607#14465#0" />
@@ -717,6 +778,8 @@
             <element signature="e#14810#14844#0" />
             <element signature="e#15564#16648#0" />
             <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#19853#20077#0" />
             <element signature="e#20227#20849#0" />
             <element signature="e#20855#21977#0" />
             <element signature="e#21289#21680#0" />
@@ -738,13 +801,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#2702#2703#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
             <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
             <element signature="e#5147#6676#0" />
             <element signature="e#5190#5199#0" />
+            <element signature="method#initializeFilters#0;class#App#0" />
             <element signature="e#8930#10989#0" />
             <element signature="e#10995#12601#0" />
             <element signature="e#12607#14465#0" />
@@ -752,6 +813,8 @@
             <element signature="e#14810#14844#0" />
             <element signature="e#15564#16648#0" />
             <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#19853#20077#0" />
             <element signature="e#20227#20849#0" />
             <element signature="e#20855#21977#0" />
             <element signature="e#21289#21680#0" />
@@ -774,13 +837,11 @@
         <state relative-caret-position="3420">
           <caret line="289" selection-start-line="289" selection-end-line="289" />
           <folding>
-            <element signature="e#2702#2703#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
             <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
             <element signature="e#5147#6676#0" />
             <element signature="e#5190#5199#0" />
+            <element signature="method#initializeFilters#0;class#App#0" />
             <element signature="e#8930#10989#0" />
             <element signature="e#10995#12601#0" />
             <element signature="e#12607#14465#0" />
@@ -788,6 +849,8 @@
             <element signature="e#14810#14844#0" />
             <element signature="e#15564#16648#0" />
             <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#19853#20077#0" />
             <element signature="e#20227#20849#0" />
             <element signature="e#20855#21977#0" />
             <element signature="e#21289#21680#0" />
@@ -869,23 +932,6 @@
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/application/Platform.java" />
-    <entry file="file://$PROJECT_DIR$/src/classes/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/UniqueValuesForFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/event/EventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -893,13 +939,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#528#529#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#782#783#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+            <element signature="e#1051#1052#0" expanded="true" />
+            <element signature="e#1087#1088#0" expanded="true" />
+            <element signature="e#1135#1136#0" expanded="true" />
+            <element signature="e#1354#1355#0" expanded="true" />
+            <element signature="e#1404#1405#0" expanded="true" />
+            <element signature="e#1438#1439#0" expanded="true" />
+            <element signature="e#1484#1485#0" expanded="true" />
+            <element signature="e#1689#1690#0" expanded="true" />
+            <element signature="e#1735#1736#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/LogTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="81" column="21" lean-forward="true" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#408#409#0" expanded="true" />
+            <element signature="e#527#528#0" expanded="true" />
+            <element signature="e#566#567#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#622#623#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+            <element signature="e#692#693#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#897#898#0" expanded="true" />
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
+            <element signature="e#1016#1017#0" expanded="true" />
+            <element signature="e#1147#1148#0" expanded="true" />
+            <element signature="e#1192#1193#0" expanded="true" />
+            <element signature="e#1226#1227#0" expanded="true" />
+            <element signature="e#1262#1263#0" expanded="true" />
+            <element signature="e#1385#1386#0" expanded="true" />
+            <element signature="e#1426#1427#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/Test_Filters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="559" column="5" lean-forward="true" selection-start-line="481" selection-start-column="4" selection-end-line="559" selection-end-column="5" />
+        <state relative-caret-position="527">
+          <caret line="539" column="41" lean-forward="true" selection-start-line="539" selection-start-column="41" selection-end-line="539" selection-end-column="41" />
           <folding>
             <element signature="method#loadUI#0;class#App#0" />
-            <element signature="method#initializeLogTable#0;class#App#0" />
+            <element signature="method#initializeDateMenu#0;class#App#0" />
             <element signature="e#5186#5195#0" />
             <element signature="method#initializeFilters#0;class#Test_Filters#0" />
             <element signature="method#ecsLogs#0;class#App#0" />
@@ -909,6 +1015,9 @@
             <element signature="e#14532#14566#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
+            <element signature="e#20100#20167#0" />
+            <element signature="method#addFilterOptions#0;class#Test_Filters#0" />
+            <element signature="e#20594#20789#0" />
             <element signature="method#addComponentTextBox#0;class#App#0" />
             <element signature="e#21089#21480#0" />
             <element signature="method#addDetailsTextBox#0;class#App#0" />
@@ -918,18 +1027,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/UniqueValuesForFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="35" column="67" lean-forward="true" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="49" column="31" lean-forward="true" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+        <state relative-caret-position="253">
+          <caret line="99" column="5" lean-forward="true" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
           <folding>
-            <element signature="e#2702#2703#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
             <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
             <element signature="e#5147#6676#0" />
             <element signature="e#5190#5199#0" />
+            <element signature="method#initializeFilters#0;class#App#0" />
             <element signature="e#8930#10989#0" />
             <element signature="e#10995#12601#0" />
             <element signature="e#12607#14465#0" />
@@ -937,6 +1054,8 @@
             <element signature="e#14810#14844#0" />
             <element signature="e#15564#16648#0" />
             <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#19853#20077#0" />
             <element signature="e#20227#20849#0" />
             <element signature="e#20855#21977#0" />
             <element signature="e#21289#21680#0" />

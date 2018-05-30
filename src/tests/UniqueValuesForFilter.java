@@ -35,9 +35,9 @@ public class UniqueValuesForFilter {
             int randomSource = random.nextInt(sources.size());
             int randomVerbosity = random.nextInt(verbosity.size());
 
-            Log l = new Log(sources.get(randomSource), randomDate, verbosity.get(randomVerbosity), "component" + i, "details " + i);
+            //Log l = new Log(sources.get(randomSource), randomDate, verbosity.get(randomVerbosity), "component" + i, "details " + i);
 //            System.out.println(l);
-            logList.add(l);
+            //logList.add(l);
         }
 
         verbositySet(logList);

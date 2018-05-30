@@ -1,6 +1,7 @@
 package tests;
 
 import classes.Log;
+import classes.LogTest;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -39,7 +40,7 @@ public class Test_Filters extends Application {
     private VBox filterOptionsContainer;
     private VBox componentSearchboxContainer;
     private VBox searchBoxContainer;
-    private TableView<Log> logTable;
+    private TableView<LogTest> logTable;
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
     private TextField startTimeTxtFld;
@@ -58,7 +59,7 @@ public class Test_Filters extends Application {
     private final static String[] sources = new String[]{"ECS","IISNode","PrismWebServer"};
 
     // State
-    private ObservableList<Log> logs = FXCollections.observableArrayList();
+    private ObservableList<LogTest> logs = FXCollections.observableArrayList();
     private Set<String> verbosityOptions;
 
     // TODO menu item to configure log paths
@@ -153,6 +154,7 @@ public class Test_Filters extends Application {
         // Create table
         VBox centerLogViewerContainer = new VBox(0);
         logTable = new TableView();
+        logTable.setItems(logs);
 
         // Add columns
         TableColumn sourceColumn = new TableColumn("Source");
@@ -169,11 +171,11 @@ public class Test_Filters extends Application {
         detailsColumn.setSortable(false);
         detailsColumn.setMinWidth(400);
 
-        sourceColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("source"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<Log, Date>("time"));
-        verbosityColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("verbosity"));
-        componentColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("component"));
-        detailsColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("details"));
+        sourceColumn.setCellValueFactory(new PropertyValueFactory<LogTest, String>("source"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<LogTest, Date>("time"));
+        verbosityColumn.setCellValueFactory(new PropertyValueFactory<LogTest, String>("verbosity"));
+        componentColumn.setCellValueFactory(new PropertyValueFactory<LogTest, String>("component"));
+        detailsColumn.setCellValueFactory(new PropertyValueFactory<LogTest, String>("details"));
         logTable.getColumns().addAll(sourceColumn, timeColumn, verbosityColumn, componentColumn, detailsColumn);
 
         centerLogViewerContainer.getChildren().add(logTable);
@@ -216,9 +218,9 @@ public class Test_Filters extends Application {
     }
 
     // Log loaders
-    private List<Log> ecsLogs() {
+    private List<LogTest> ecsLogs() {
 
-        List<Log> logs = new ArrayList<>();
+        List<LogTest> logs = new ArrayList<>();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
         File[] fls = new File(Paths.get(ECS_LOG_PATH).normalize().toString()).listFiles();
         List<String> allLogLines = new ArrayList<>();
@@ -251,7 +253,7 @@ public class Test_Filters extends Application {
 
         for (String logStr: allLogLines){
 
-            Log log = ecsLogParser(logStr);
+            LogTest log = ecsLogParser(logStr);
 
             // Check if log time is in selected range and filter empty detail logs
             try {
@@ -267,9 +269,9 @@ public class Test_Filters extends Application {
         return logs;
     }
 
-    private List<Log> iisNodeLogs(){
+    private List<LogTest> iisNodeLogs(){
 
-        List<Log> logs = new ArrayList<>();
+        List<LogTest> logs = new ArrayList<>();
         File[] fls = new File(Paths.get(IIS_NODE_PATH).normalize().toString()).listFiles();
         List<String> allLogLines = new ArrayList<>();
         List<String> currentLogLines;
@@ -296,7 +298,7 @@ public class Test_Filters extends Application {
 
         for (String logStr: allLogLines){
 
-            Log log = iisNodeLogParse(logStr);
+            LogTest log = iisNodeLogParse(logStr);
 
             // Check if log time is in selected range
             try {
@@ -312,9 +314,9 @@ public class Test_Filters extends Application {
 
     }
 
-    private List<Log> prismWebLogs(){
+    private List<LogTest> prismWebLogs(){
 
-        List<Log> logs = new ArrayList<>();
+        List<LogTest> logs = new ArrayList<>();
         File[] fls = new File(Paths.get(PRISMWEB_LOGS_PATH).normalize().toString()).listFiles();
         List<String> allLogLines = new ArrayList<>();
         List<String> logLines;
@@ -342,7 +344,7 @@ public class Test_Filters extends Application {
 
         for (String logStr: allLogLines){
 
-            Log log = prismWebLogParser(logStr);
+            LogTest log = prismWebLogParser(logStr);
 
             // Check if log time is in selected range
             try {
@@ -361,9 +363,9 @@ public class Test_Filters extends Application {
     }
 
     // Log Parsers
-    private static Log iisNodeLogParse(String log){
+    private static LogTest iisNodeLogParse(String log){
 
-        Log l = new Log();
+        LogTest l = new LogTest();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
         Pattern pattern = Pattern.compile("\\[(.*?)]");
         Matcher matcher = pattern.matcher(log);
@@ -399,13 +401,9 @@ public class Test_Filters extends Application {
         return l;
     }
 
-    private static Log ecsLogParser(String log){
+    private static LogTest ecsLogParser(String log){
 
-        if (log.trim().startsWith("at") || log.startsWith("]") || log.startsWith("A")){
-            return null;
-        }
-
-        Log l = new Log();
+        LogTest l = new LogTest();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
 
@@ -438,13 +436,9 @@ public class Test_Filters extends Application {
         return l;
     }
 
-    private static Log prismWebLogParser(String log){
+    private static LogTest prismWebLogParser(String log){
 
-        if (log.startsWith("Exception") || log.trim().startsWith("at") || log.startsWith("Sisense") || log.startsWith("System")){
-            return null;
-        }
-
-        Log l = new Log();
+        LogTest l = new LogTest();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
         Pattern pattern = Pattern.compile("\\[(.*?)]");
@@ -507,24 +501,21 @@ public class Test_Filters extends Application {
             }
             else {
 
-                // TODO add progressBar
-                /*tests.ProgressBarScene.display();*/
                 setDatesBtn.setDisable(true);
-                if (logTable.getItems().size() > 0){
-                    logTable.getItems().clear();
+
+                if (logs.size() > 0){
                     logs.clear();
                 }
 
                 Thread backgroundThread = new Thread(() -> {
-
 
                     logs.addAll(iisNodeLogs());
                     logs.addAll(prismWebLogs());
                     logs.addAll(ecsLogs());
 
                     if (logs.size() > 0){
+
                         Collections.sort(logs);
-                        logTable.getItems().addAll(logs);
 
                         verbosityOptions = verbositySet(logs);
 
@@ -570,7 +561,9 @@ public class Test_Filters extends Application {
                 checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
 
                     if (newValue){
+//                        logTable.remo
                         logs.filtered(log -> !log.getSource().equals(checkBox.getText()));
+
                     }
 
                 });
@@ -648,11 +641,11 @@ public class Test_Filters extends Application {
     }
 
     // Helper methods
-    private static Set<String> verbositySet(List<Log> logs){
+    private static Set<String> verbositySet(List<LogTest> logs){
 
         List<String> list = new ArrayList<>();
 
-        for (Log l : logs) {
+        for (LogTest l : logs) {
             list.add(l.getVerbosity());
         }
 

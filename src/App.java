@@ -145,6 +145,7 @@ public class App extends Application {
         // Create table
         VBox centerLogViewerContainer = new VBox(0);
         logTable = new TableView();
+        logTable.setItems(logs);
 
         // Add columns
         TableColumn sourceColumn = new TableColumn("Source");
@@ -500,24 +501,21 @@ public class App extends Application {
             }
             else {
 
-                // TODO add progressBar
-                /*tests.ProgressBarScene.display();*/
                 setDatesBtn.setDisable(true);
-                if (logTable.getItems().size() > 0){
-                    logTable.getItems().clear();
+
+                if (logs.size() > 0){
                     logs.clear();
                 }
 
                 Thread backgroundThread = new Thread(() -> {
-
 
                     logs.addAll(iisNodeLogs());
                     logs.addAll(prismWebLogs());
                     logs.addAll(ecsLogs());
 
                     if (logs.size() > 0){
+
                         Collections.sort(logs);
-                        logTable.getItems().addAll(logs);
 
                         verbosityOptions = verbositySet(logs);
 
