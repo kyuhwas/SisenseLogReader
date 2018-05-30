@@ -48,6 +48,7 @@ public class Test_Filters extends Application {
     private CheckBox verbosityFilterCkBx;
     private CheckBox componentFilterChBx;
     private CheckBox detailsSeachFilterChBx;
+    private Button setDatesBtn;
 
     // Java classes
     private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -130,7 +131,7 @@ public class Test_Filters extends Application {
         endDatePicker.setMinSize(50, 10);
         endDatePicker.setPromptText("MM/DD/YYYY");
         topMenuContainer.add(endDatePicker, 1,1);
-        Button setDatesBtn = new Button("Submit");
+        setDatesBtn = new Button("Submit");
         setDatesBtn.setOnAction(event ->  handleSubmit());
 
         startTimeTxtFld = new TextField();
@@ -508,7 +509,7 @@ public class Test_Filters extends Application {
 
                 // TODO add progressBar
                 /*tests.ProgressBarScene.display();*/
-
+                setDatesBtn.setDisable(true);
                 if (logTable.getItems().size() > 0){
                     logTable.getItems().clear();
                     logs.clear();
@@ -516,28 +517,36 @@ public class Test_Filters extends Application {
 
                 Thread backgroundThread = new Thread(() -> {
 
+
                     logs.addAll(iisNodeLogs());
                     logs.addAll(prismWebLogs());
                     logs.addAll(ecsLogs());
-                    Collections.sort(logs);
-                    logTable.getItems().addAll(logs);
 
-                    verbosityOptions = verbositySet(logs);
+                    if (logs.size() > 0){
+                        Collections.sort(logs);
+                        logTable.getItems().addAll(logs);
 
-                    Platform.runLater(() -> {
-                        sourceFilterCkBz.setDisable(false);
-                        verbosityFilterCkBx.setDisable(false);
-                        componentFilterChBx.setDisable(false);
-                        detailsSeachFilterChBx.setDisable(false);
-                    });
+                        verbosityOptions = verbositySet(logs);
 
+                        Platform.runLater(() -> {
+                            sourceFilterCkBz.setDisable(false);
+                            verbosityFilterCkBx.setDisable(false);
+                            componentFilterChBx.setDisable(false);
+                            detailsSeachFilterChBx.setDisable(false);
+                            setDatesBtn.setDisable(false);
+                        });
+                    }
+
+                    else {
+                        Platform.runLater(() -> {
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION, "No logs were found for the selected dates", ButtonType.OK);
+                            alert.showAndWait();
+                        });
+                    }
                 });
 
                 backgroundThread.setDaemon(true);
                 backgroundThread.start();
-
-
-//                logTable.setColumnResizePolicy(param -> true);
 
             }
         }
