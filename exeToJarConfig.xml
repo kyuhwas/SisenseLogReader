@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\kobbi.gal.CORP\IdeaProjects\SisenseLogReader\out\artifacts\SisenseLogReader_jar\SisenseLogReader.jar</jar>
+  <outfile>C:\Users\kobbi.gal.CORP\IdeaProjects\SisenseLogReader\out\artifacts\SisenseLogReader_jar\SisenseLogReader.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon></icon>
+  <jre>
+    <path>C:\Program Files\Java\jre1.8.0_171</path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion></minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <versionInfo>
+    <fileVersion>0.1.1.1</fileVersion>
+    <txtFileVersion>0.1.1.1</txtFileVersion>
+    <fileDescription>Sisense Log Reader Beta</fileDescription>
+    <copyright>Kobbi Gal</copyright>
+    <productVersion>0.1.1.1</productVersion>
+    <txtProductVersion>0.1</txtProductVersion>
+    <productName>Sisense Log Reader</productName>
+    <companyName></companyName>
+    <internalName>Log Reader</internalName>
+    <originalFilename>LogReader.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>

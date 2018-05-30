@@ -6,12 +6,16 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/App.java" line="74" mnemonic="0" />
+    <bookmark url="file://$PROJECT_DIR$/src/App.java" line="73" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42c68390-d28f-498c-90b2-e0b67048447b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/Log.java" afterPath="$PROJECT_DIR$/src/classes/Log.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/Test_Filters.java" afterPath="$PROJECT_DIR$/src/tests/Test_Filters.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/Test_ProgressBar$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/Test_ProgressBar$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/Test_Filters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/Test_Filters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/Test_Filters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/Test_Filters.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -27,26 +31,31 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="62" column="53" lean-forward="true" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
+            <state relative-caret-position="186">
+              <caret line="354" column="18" lean-forward="true" selection-end-line="640" />
               <folding>
-                <element signature="e#1846#1886#0" expanded="false" />
-                <element signature="method#loadUI#0;class#App#0" expanded="false" />
-                <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-                <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-                <element signature="e#5190#5199#0" expanded="false" />
-                <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-                <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-                <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-                <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-                <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-                <element signature="e#14810#14844#0" expanded="false" />
-                <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-                <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-                <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-                <element signature="e#21289#21680#0" expanded="false" />
-                <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-                <element signature="e#22389#22765#0" expanded="false" />
+                <element signature="e#2702#2703#0" expanded="true" />
+                <element signature="e#2730#2731#0" expanded="true" />
+                <element signature="e#2801#2802#0" expanded="true" />
+                <element signature="e#2837#2838#0" expanded="true" />
+                <element signature="e#2902#3581#0" />
+                <element signature="e#3587#5141#0" />
+                <element signature="e#5147#6676#0" />
+                <element signature="e#5190#5199#0" />
+                <element signature="e#8930#10989#0" />
+                <element signature="e#10995#12601#0" />
+                <element signature="e#12607#14465#0" />
+                <element signature="e#14471#15558#0" />
+                <element signature="e#14810#14844#0" />
+                <element signature="e#15564#16648#0" />
+                <element signature="e#16654#17861#0" />
+                <element signature="e#17867#20221#0" />
+                <element signature="e#20227#20849#0" />
+                <element signature="e#20855#21977#0" />
+                <element signature="e#21289#21680#0" />
+                <element signature="e#21983#23034#0" />
+                <element signature="e#22389#22765#0" />
+                <element signature="method#verbositySet#0;class#App#0" />
               </folding>
             </state>
           </provider>
@@ -55,30 +64,29 @@
       <file leaf-file-name="Test_Filters.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tests/Test_Filters.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="297" column="0" lean-forward="true" selection-start-line="297" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
+            <state relative-caret-position="322">
+              <caret line="554" column="24" lean-forward="true" selection-start-line="554" selection-start-column="24" selection-end-line="554" selection-end-column="24" />
               <folding>
-                <element signature="method#start#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#initializeFilters#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#addFilterOptions#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#verbositySet#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#addComponentTextBox#0;class#Test_Filters#0" expanded="false" />
-                <element signature="e#6524#6915#0" expanded="false" />
-                <element signature="method#addDetailsTextBox#0;class#Test_Filters#0" expanded="false" />
-                <element signature="e#7624#8000#0" expanded="false" />
-                <element signature="method#initializeLogTable#0;class#Test_Filters#0" expanded="false" />
-                <element signature="e#8318#8327#0" expanded="false" />
-                <element signature="method#initializeDateMenu#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#handleSubmit#0;class#Test_Filters#0" expanded="false" />
-                <element signature="e#12822#13413#0" expanded="false" />
-                <element signature="e#13109#13392#0" expanded="false" />
-                <element signature="method#iisNodeLogParse#0;class#Test_Filters#0" expanded="false" />
-                <element signature="e#14091#14125#0" expanded="false" />
-                <element signature="method#ecsLogParser#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#prismWebLogParser#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#ecsLogs#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#iisNodeLogs#0;class#Test_Filters#0" expanded="false" />
-                <element signature="method#prismWebLogs#0;class#Test_Filters#0" expanded="false" />
+                <element signature="method#loadUI#0;class#App#0" />
+                <element signature="method#initializeDateMenu#0;class#App#0" />
+                <element signature="method#initializeLogTable#0;class#App#0" />
+                <element signature="e#5186#5195#0" />
+                <element signature="method#initializeFilters#0;class#Test_Filters#0" />
+                <element signature="method#ecsLogs#0;class#App#0" />
+                <element signature="method#iisNodeLogs#0;class#App#0" />
+                <element signature="method#prismWebLogs#0;class#App#0" />
+                <element signature="method#iisNodeLogParse#0;class#App#0" />
+                <element signature="e#14532#14566#0" />
+                <element signature="method#ecsLogParser#0;class#App#0" />
+                <element signature="method#prismWebLogParser#0;class#App#0" />
+                <element signature="method#handleSubmit#0;class#App#0" />
+                <element signature="e#18946#19595#0" />
+                <element signature="e#19293#19574#0" />
+                <element signature="method#addComponentTextBox#0;class#App#0" />
+                <element signature="e#21089#21480#0" />
+                <element signature="method#addDetailsTextBox#0;class#App#0" />
+                <element signature="e#22189#22565#0" />
+                <element signature="method#verbositySet#0;class#App#0" />
               </folding>
             </state>
           </provider>
@@ -87,8 +95,8 @@
       <file leaf-file-name="UniqueValuesForFilter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tests/UniqueValuesForFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="46" column="4" lean-forward="true" selection-start-line="46" selection-start-column="4" selection-end-line="60" selection-end-column="5" />
+            <state relative-caret-position="458">
+              <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,9 +107,8 @@
       <file leaf-file-name="Log.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/Log.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
-              <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="1105">
+              <caret line="85" selection-start-line="85" selection-end-line="85" />
             </state>
           </provider>
         </entry>
@@ -109,14 +116,12 @@
       <file leaf-file-name="UpdateProgessTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tests/UpdateProgessTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="58" column="55" lean-forward="false" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+            <state relative-caret-position="799">
+              <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#436#437#0" expanded="true" />
                 <element signature="e#464#465#0" expanded="true" />
-                <element signature="e#1135#1508#0" expanded="true" />
-                <element signature="e#1507#1508#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,6 +155,7 @@
       <find>handleSubmit</find>
       <find>filters</find>
       <find>backgroundThread</find>
+      <find>verbosity</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -157,11 +163,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -180,9 +181,9 @@
         <option value="$PROJECT_DIR$/src/tests/Indicators.java" />
         <option value="$PROJECT_DIR$/src/tests/UpdateProgessTes.java" />
         <option value="$PROJECT_DIR$/src/tests/UpdateProgessTest.java" />
-        <option value="$PROJECT_DIR$/src/App.java" />
         <option value="$PROJECT_DIR$/src/classes/Log.java" />
         <option value="$PROJECT_DIR$/src/tests/UniqueValuesForFilter.java" />
+        <option value="$PROJECT_DIR$/src/App.java" />
         <option value="$PROJECT_DIR$/src/tests/Test_Filters.java" />
       </list>
     </option>
@@ -197,22 +198,10 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -242,14 +231,19 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="Errors" />
-    <property name="project.structure.last.edited" value="Problems" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="sisenselogreader" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -273,109 +267,54 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UniqueValuesForFilter">
+  <component name="RunManager" selected="Application.Test_Filters">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="App" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="SisenseLogReader" />
-      <envs />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
     <configuration name="Indicators" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="MAIN_CLASS_NAME" value="tests.Indicators" />
+      <module name="SisenseLogReader" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="tests.Indicators" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SisenseLogReader" />
-      <envs />
     </configuration>
     <configuration name="Test_Filters" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="tests.Test_Filters" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="SisenseLogReader" />
-      <envs />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
     <configuration name="UniqueValuesForFilter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="MAIN_CLASS_NAME" value="tests.UniqueValuesForFilter" />
+      <module name="SisenseLogReader" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="tests.UniqueValuesForFilter" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SisenseLogReader" />
-      <envs />
     </configuration>
     <configuration name="UpdateProgessTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="MAIN_CLASS_NAME" value="tests.UpdateProgessTest" />
+      <module name="SisenseLogReader" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="tests.UpdateProgessTest" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SisenseLogReader" />
-      <envs />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" />
@@ -385,17 +324,13 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <envs />
       <patterns />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
@@ -408,37 +343,31 @@
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
       <option name="USE_DEFAULT_REPORTERS" value="false" />
       <option name="PROPERTIES_FILE" />
-      <envs />
       <properties />
       <listeners />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.App" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Test_Filters" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Indicators" />
-      <item index="3" class="java.lang.String" itemvalue="Application.UpdateProgessTest" />
-      <item index="4" class="java.lang.String" itemvalue="Application.UniqueValuesForFilter" />
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="Application.Test_Filters" />
+      <item itemvalue="Application.Indicators" />
+      <item itemvalue="Application.UpdateProgessTest" />
+      <item itemvalue="Application.UniqueValuesForFilter" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.UniqueValuesForFilter" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Test_Filters" />
-        <item index="2" class="java.lang.String" itemvalue="Application.App" />
-        <item index="3" class="java.lang.String" itemvalue="Application.UpdateProgessTest" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Indicators" />
+      <list>
+        <item itemvalue="Application.Test_Filters" />
+        <item itemvalue="Application.App" />
+        <item itemvalue="Application.UniqueValuesForFilter" />
+        <item itemvalue="Application.UpdateProgessTest" />
+        <item itemvalue="Application.Indicators" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -463,35 +392,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="804" extended-state="6" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.50277776" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.49722221" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329235" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.329235" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.329235" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50277776" side_tool="true" weight="0.329235" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49722221" weight="0.329235" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3282365" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.329235" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497309" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329235" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -504,115 +433,80 @@
     <breakpoint-manager>
       <option name="time" value="5" />
     </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java" />
+    <entry file="file://$PROJECT_DIR$/src/style/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state>
           <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
+            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
+            <element signature="e#5147#6676#0" />
+            <element signature="e#5190#5199#0" />
+            <element signature="e#8930#10989#0" />
+            <element signature="e#10995#12601#0" />
+            <element signature="e#12607#14465#0" />
+            <element signature="e#14471#15558#0" />
+            <element signature="e#14810#14844#0" />
+            <element signature="e#15564#16648#0" />
+            <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#20227#20849#0" />
+            <element signature="e#20855#21977#0" />
+            <element signature="e#21289#21680#0" />
+            <element signature="e#21983#23034#0" />
+            <element signature="e#22389#22765#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java" />
     <entry file="file://$PROJECT_DIR$/src/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state>
           <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/style/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
+            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
+            <element signature="e#5147#6676#0" />
+            <element signature="e#5190#5199#0" />
+            <element signature="e#8930#10989#0" />
+            <element signature="e#10995#12601#0" />
+            <element signature="e#12607#14465#0" />
+            <element signature="e#14471#15558#0" />
+            <element signature="e#14810#14844#0" />
+            <element signature="e#15564#16648#0" />
+            <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#20227#20849#0" />
+            <element signature="e#20855#21977#0" />
+            <element signature="e#21289#21680#0" />
+            <element signature="e#21983#23034#0" />
+            <element signature="e#22389#22765#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -621,32 +515,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state>
           <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
+            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
+            <element signature="e#5147#6676#0" />
+            <element signature="e#5190#5199#0" />
+            <element signature="e#8930#10989#0" />
+            <element signature="e#10995#12601#0" />
+            <element signature="e#12607#14465#0" />
+            <element signature="e#14471#15558#0" />
+            <element signature="e#14810#14844#0" />
+            <element signature="e#15564#16648#0" />
+            <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#20227#20849#0" />
+            <element signature="e#20855#21977#0" />
+            <element signature="e#21289#21680#0" />
+            <element signature="e#21983#23034#0" />
+            <element signature="e#22389#22765#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -655,32 +552,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
           <caret line="78" column="48" lean-forward="true" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3420">
-          <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+          <caret line="289" selection-start-line="289" selection-end-line="289" />
           <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
+            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
+            <element signature="e#5147#6676#0" />
+            <element signature="e#5190#5199#0" />
+            <element signature="e#8930#10989#0" />
+            <element signature="e#10995#12601#0" />
+            <element signature="e#12607#14465#0" />
+            <element signature="e#14471#15558#0" />
+            <element signature="e#14810#14844#0" />
+            <element signature="e#15564#16648#0" />
+            <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#20227#20849#0" />
+            <element signature="e#20855#21977#0" />
+            <element signature="e#21289#21680#0" />
+            <element signature="e#21983#23034#0" />
+            <element signature="e#22389#22765#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -688,82 +589,55 @@
     <entry file="file://$PROJECT_DIR$/src/classes/Log.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/nio/file/Files.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7620">
-          <caret line="508" column="66" lean-forward="false" selection-start-line="508" selection-start-column="66" selection-end-line="508" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/text/SimpleDateFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="611" column="20" lean-forward="false" selection-start-line="611" selection-start-column="14" selection-end-line="611" selection-end-column="20" />
-          <folding>
-            <element signature="e#23443#23444#0" expanded="false" />
-            <element signature="e#23515#23516#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/nio/file/Files.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="508" column="66" lean-forward="false" selection-start-line="508" selection-start-column="66" selection-end-line="508" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/nio/file/Files.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/text/SimpleDateFormat.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/nio/file/Files.java" />
     <entry file="file://$PROJECT_DIR$/src/classes/Log.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java" />
     <entry file="file://$PROJECT_DIR$/src/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="66" column="41" lean-forward="false" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+          <caret line="66" column="41" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
           <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
+            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
+            <element signature="e#5147#6676#0" />
+            <element signature="e#5190#5199#0" />
+            <element signature="e#8930#10989#0" />
+            <element signature="e#10995#12601#0" />
+            <element signature="e#12607#14465#0" />
+            <element signature="e#14471#15558#0" />
+            <element signature="e#14810#14844#0" />
+            <element signature="e#15564#16648#0" />
+            <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#20227#20849#0" />
+            <element signature="e#20855#21977#0" />
+            <element signature="e#21289#21680#0" />
+            <element signature="e#21983#23034#0" />
+            <element signature="e#22389#22765#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -773,39 +647,37 @@
         <state relative-caret-position="4573">
           <caret line="269" column="85" lean-forward="true" selection-start-line="269" selection-start-column="85" selection-end-line="269" selection-end-column="85" />
           <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
+            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
+            <element signature="e#5147#6676#0" />
+            <element signature="e#5190#5199#0" />
+            <element signature="e#8930#10989#0" />
+            <element signature="e#10995#12601#0" />
+            <element signature="e#12607#14465#0" />
+            <element signature="e#14471#15558#0" />
+            <element signature="e#14810#14844#0" />
+            <element signature="e#15564#16648#0" />
+            <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#20227#20849#0" />
+            <element signature="e#20855#21977#0" />
+            <element signature="e#21289#21680#0" />
+            <element signature="e#21983#23034#0" />
+            <element signature="e#22389#22765#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java" />
     <entry file="file://$PROJECT_DIR$/src/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -815,64 +687,66 @@
         <state relative-caret-position="612">
           <caret line="66" column="41" lean-forward="true" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
           <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
+            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
+            <element signature="e#5147#6676#0" />
+            <element signature="e#5190#5199#0" />
+            <element signature="e#8930#10989#0" />
+            <element signature="e#10995#12601#0" />
+            <element signature="e#12607#14465#0" />
+            <element signature="e#14471#15558#0" />
+            <element signature="e#14810#14844#0" />
+            <element signature="e#15564#16648#0" />
+            <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#20227#20849#0" />
+            <element signature="e#20855#21977#0" />
+            <element signature="e#21289#21680#0" />
+            <element signature="e#21983#23034#0" />
+            <element signature="e#22389#22765#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java" />
     <entry file="file://$PROJECT_DIR$/src/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state>
           <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
+            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
+            <element signature="e#5147#6676#0" />
+            <element signature="e#5190#5199#0" />
+            <element signature="e#8930#10989#0" />
+            <element signature="e#10995#12601#0" />
+            <element signature="e#12607#14465#0" />
+            <element signature="e#14471#15558#0" />
+            <element signature="e#14810#14844#0" />
+            <element signature="e#15564#16648#0" />
+            <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#20227#20849#0" />
+            <element signature="e#20855#21977#0" />
+            <element signature="e#21289#21680#0" />
+            <element signature="e#21983#23034#0" />
+            <element signature="e#22389#22765#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -886,26 +760,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state>
           <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
+            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
+            <element signature="e#5147#6676#0" />
+            <element signature="e#5190#5199#0" />
+            <element signature="e#8930#10989#0" />
+            <element signature="e#10995#12601#0" />
+            <element signature="e#12607#14465#0" />
+            <element signature="e#14471#15558#0" />
+            <element signature="e#14810#14844#0" />
+            <element signature="e#15564#16648#0" />
+            <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#20227#20849#0" />
+            <element signature="e#20855#21977#0" />
+            <element signature="e#21289#21680#0" />
+            <element signature="e#21983#23034#0" />
+            <element signature="e#22389#22765#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -920,25 +798,30 @@
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3420">
-          <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+          <caret line="289" selection-start-line="289" selection-end-line="289" />
           <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
+            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
+            <element signature="e#5147#6676#0" />
+            <element signature="e#5190#5199#0" />
+            <element signature="e#8930#10989#0" />
+            <element signature="e#10995#12601#0" />
+            <element signature="e#12607#14465#0" />
+            <element signature="e#14471#15558#0" />
+            <element signature="e#14810#14844#0" />
+            <element signature="e#15564#16648#0" />
+            <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#20227#20849#0" />
+            <element signature="e#20855#21977#0" />
+            <element signature="e#21289#21680#0" />
+            <element signature="e#21983#23034#0" />
+            <element signature="e#22389#22765#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -946,7 +829,7 @@
     <entry file="file://$PROJECT_DIR$/src/classes/Log.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -954,26 +837,12 @@
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/text/SimpleDateFormat.java" />
     <entry file="file://$PROJECT_DIR$/src/Test.java" />
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="15">
-            <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -981,23 +850,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java" />
     <entry file="file://$PROJECT_DIR$/src/tests/Test_ProgressBar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1005,37 +865,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="44" lean-forward="true" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/nio/file/Files.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="2904" column="8" lean-forward="false" selection-start-line="2904" selection-start-column="8" selection-end-line="2911" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/concurrent/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="777" column="7" lean-forward="true" selection-start-line="777" selection-start-column="7" selection-end-line="777" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/nio/file/Files.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/concurrent/Task.java" />
     <entry file="file://$PROJECT_DIR$/src/tests/Indicators.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
           <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#375#376#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1043,108 +881,102 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="63" column="45" lean-forward="true" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
-          <folding>
-            <element signature="e#2646#2647#0" expanded="true" />
-            <element signature="e#2707#2708#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/UpdateProgessTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="58" column="55" lean-forward="false" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+        <state relative-caret-position="799">
+          <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#436#437#0" expanded="true" />
             <element signature="e#464#465#0" expanded="true" />
-            <element signature="e#1135#1508#0" expanded="true" />
-            <element signature="e#1507#1508#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/application/Platform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="81" column="23" lean-forward="false" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
-          <folding>
-            <element signature="e#2657#2658#0" expanded="false" />
-            <element signature="e#2704#2705#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="62" column="53" lean-forward="true" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
-          <folding>
-            <element signature="e#1846#1886#0" expanded="false" />
-            <element signature="method#loadUI#0;class#App#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#App#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#App#0" expanded="false" />
-            <element signature="e#5190#5199#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#App#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#App#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" expanded="false" />
-            <element signature="e#14810#14844#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#App#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#App#0" expanded="false" />
-            <element signature="e#21289#21680#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#App#0" expanded="false" />
-            <element signature="e#22389#22765#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/application/Platform.java" />
     <entry file="file://$PROJECT_DIR$/src/classes/Log.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1105">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/UniqueValuesForFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="46" column="4" lean-forward="true" selection-start-line="46" selection-start-column="4" selection-end-line="60" selection-end-column="5" />
+        <state relative-caret-position="458">
+          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/event/EventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="44" column="25" lean-forward="true" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="354" column="18" lean-forward="true" selection-end-line="640" />
+          <folding>
+            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2902#3581#0" />
+            <element signature="e#3587#5141#0" />
+            <element signature="e#5147#6676#0" />
+            <element signature="e#5190#5199#0" />
+            <element signature="e#8930#10989#0" />
+            <element signature="e#10995#12601#0" />
+            <element signature="e#12607#14465#0" />
+            <element signature="e#14471#15558#0" />
+            <element signature="e#14810#14844#0" />
+            <element signature="e#15564#16648#0" />
+            <element signature="e#16654#17861#0" />
+            <element signature="e#17867#20221#0" />
+            <element signature="e#20227#20849#0" />
+            <element signature="e#20855#21977#0" />
+            <element signature="e#21289#21680#0" />
+            <element signature="e#21983#23034#0" />
+            <element signature="e#22389#22765#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/Test_Filters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="297" column="0" lean-forward="true" selection-start-line="297" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
+        <state relative-caret-position="322">
+          <caret line="554" column="24" lean-forward="true" selection-start-line="554" selection-start-column="24" selection-end-line="554" selection-end-column="24" />
           <folding>
-            <element signature="method#start#0;class#Test_Filters#0" expanded="false" />
-            <element signature="method#initializeFilters#0;class#Test_Filters#0" expanded="false" />
-            <element signature="method#addFilterOptions#0;class#Test_Filters#0" expanded="false" />
-            <element signature="method#verbositySet#0;class#Test_Filters#0" expanded="false" />
-            <element signature="method#addComponentTextBox#0;class#Test_Filters#0" expanded="false" />
-            <element signature="e#6524#6915#0" expanded="false" />
-            <element signature="method#addDetailsTextBox#0;class#Test_Filters#0" expanded="false" />
-            <element signature="e#7624#8000#0" expanded="false" />
-            <element signature="method#initializeLogTable#0;class#Test_Filters#0" expanded="false" />
-            <element signature="e#8318#8327#0" expanded="false" />
-            <element signature="method#initializeDateMenu#0;class#Test_Filters#0" expanded="false" />
-            <element signature="method#handleSubmit#0;class#Test_Filters#0" expanded="false" />
-            <element signature="e#12822#13413#0" expanded="false" />
-            <element signature="e#13109#13392#0" expanded="false" />
-            <element signature="method#iisNodeLogParse#0;class#Test_Filters#0" expanded="false" />
-            <element signature="e#14091#14125#0" expanded="false" />
-            <element signature="method#ecsLogParser#0;class#Test_Filters#0" expanded="false" />
-            <element signature="method#prismWebLogParser#0;class#Test_Filters#0" expanded="false" />
-            <element signature="method#ecsLogs#0;class#Test_Filters#0" expanded="false" />
-            <element signature="method#iisNodeLogs#0;class#Test_Filters#0" expanded="false" />
-            <element signature="method#prismWebLogs#0;class#Test_Filters#0" expanded="false" />
+            <element signature="method#loadUI#0;class#App#0" />
+            <element signature="method#initializeDateMenu#0;class#App#0" />
+            <element signature="method#initializeLogTable#0;class#App#0" />
+            <element signature="e#5186#5195#0" />
+            <element signature="method#initializeFilters#0;class#Test_Filters#0" />
+            <element signature="method#ecsLogs#0;class#App#0" />
+            <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
+            <element signature="method#iisNodeLogParse#0;class#App#0" />
+            <element signature="e#14532#14566#0" />
+            <element signature="method#ecsLogParser#0;class#App#0" />
+            <element signature="method#prismWebLogParser#0;class#App#0" />
+            <element signature="method#handleSubmit#0;class#App#0" />
+            <element signature="e#18946#19595#0" />
+            <element signature="e#19293#19574#0" />
+            <element signature="method#addComponentTextBox#0;class#App#0" />
+            <element signature="e#21089#21480#0" />
+            <element signature="method#addDetailsTextBox#0;class#App#0" />
+            <element signature="e#22189#22565#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
           </folding>
         </state>
       </provider>
@@ -1207,7 +1039,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
