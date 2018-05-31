@@ -22,10 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -50,21 +47,24 @@ public class App extends Application {
     private CheckBox verbosityFilterCkBx;
     private CheckBox componentFilterChBx;
     private CheckBox detailsSeachFilterChBx;
-    private Thread backgroundThread;
+    private Button setDatesBtn;
+
+    private Set<String> verbosityOptions;
+
+    private final static String[] sources = new String[]{"ECS","IISNode","PrismWebServer"};
 
     // TODO menu item to configure log paths
     // WINDOWS
-//    private final String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
-//    private final String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\";
-//    private final String ECS_LOG_PATH = "C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\";
+    private final String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
+    private final String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\";
+    private final String ECS_LOG_PATH = "C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\";
+
 
     // MAC
-    private final String IIS_NODE_PATH = "/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/";
-    private final String ECS_LOG_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismServerLogs/";
-    private final String PRISMWEB_LOGS_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismWebServer/";
+//    private final String IIS_NODE_PATH = "/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/";
+//    private final String ECS_LOG_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismServerLogs/";
+//    private final String PRISMWEB_LOGS_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismWebServer/";
     private final String IMAGE_URL = "file:" + String.valueOf(Paths.get(System.getProperty("user.dir"),"res","logo.png"));
-    private final int WINDOW_WIDTH = 1400;
-    private final int WINDOW_HEIGHT = 600;
 
     public static void main(String[] args) {
         launch(args);
@@ -81,7 +81,9 @@ public class App extends Application {
         Stage window = primaryStage;
         window.getIcons().add(new Image(IMAGE_URL));
         window.setTitle("Sisense Log Reader");
+        int WINDOW_WIDTH = 1400;
         window.setMinWidth(WINDOW_WIDTH);
+        int WINDOW_HEIGHT = 600;
         window.setMinHeight(WINDOW_HEIGHT);
 
         BorderPane rootLayout = new BorderPane();
@@ -121,7 +123,7 @@ public class App extends Application {
         endDatePicker.setMinSize(50, 10);
         endDatePicker.setPromptText("MM/DD/YYYY");
         topMenuContainer.add(endDatePicker, 1,1);
-        Button setDatesBtn = new Button("Submit");
+        setDatesBtn = new Button("Submit");
         setDatesBtn.setOnAction(event ->  handleSubmit());
 
         startTimeTxtFld = new TextField();
@@ -143,6 +145,7 @@ public class App extends Application {
         // Create table
         VBox centerLogViewerContainer = new VBox(0);
         logTable = new TableView();
+        logTable.setItems(logs);
 
         // Add columns
         TableColumn sourceColumn = new TableColumn("Source");
@@ -180,20 +183,11 @@ public class App extends Application {
         sourceFilterCkBz = new CheckBox("Source");
         sourceFilterCkBz.setFont(Font.font("Agency FB", 15));
         // TODO use loaded Logs, filter for unique values then create ArrayList with values
-        List<String> sourceOptions = new ArrayList<>();
-        sourceOptions.add("ECS");
-        sourceOptions.add("IISNode");
-        sourceOptions.add("PrismWebServer");
+        Set<String> sourceOptions = new HashSet<>();
+        Collections.addAll(sourceOptions, sources);
 
         sourceFilterCkBz.setDisable(true);
         sourceFilterCkBz.setOnAction(e -> addFilterOptions(sourceFilterCkBz.isSelected(), sourceOptions, filtersContainer.getChildren().indexOf(e.getSource())));
-
-
-        List<String> verbosityOptions = new ArrayList<>();
-        verbosityOptions.add("INFO");
-        verbosityOptions.add("ERROR");
-        verbosityOptions.add("WARNING");
-        verbosityOptions.add("TRACE");
 
         verbosityFilterCkBx = new CheckBox("Verbosity");
         verbosityFilterCkBx.setDisable(true);
@@ -215,6 +209,7 @@ public class App extends Application {
         return filtersContainer;
     }
 
+    // Log loaders
     private List<Log> ecsLogs() {
 
         List<Log> logs = new ArrayList<>();
@@ -359,7 +354,7 @@ public class App extends Application {
 
     }
 
-    // classes.Log Parsers
+    // Log Parsers
     private static Log iisNodeLogParse(String log){
 
         Log l = new Log();
@@ -367,7 +362,7 @@ public class App extends Application {
         Pattern pattern = Pattern.compile("\\[(.*?)]");
         Matcher matcher = pattern.matcher(log);
 
-        l.setSource("IISNode");
+        l.setSource(sources[1]);
         int i = 0;
 //        if (!matcher.matches()){
 //            l = null;
@@ -414,7 +409,7 @@ public class App extends Application {
         int i = 0;
 
         while (matcher.find()){
-            l.setSource("ECS");
+            l.setSource(sources[0]);
             switch (i){
                 case 0:
                     try {
@@ -437,7 +432,7 @@ public class App extends Application {
          return l;
     }
 
-    private Log prismWebLogParser(String log){
+    private static Log prismWebLogParser(String log){
 
         if (log.startsWith("Exception") || log.trim().startsWith("at") || log.startsWith("Sisense") || log.startsWith("System")){
             return null;
@@ -449,7 +444,7 @@ public class App extends Application {
         Pattern pattern = Pattern.compile("\\[(.*?)]");
         Matcher matcher = pattern.matcher(log);
 
-        l.setSource("PrismWeb");
+        l.setSource(sources[2]);
         int i = 0;
         while (matcher.find()){
 
@@ -506,36 +501,43 @@ public class App extends Application {
             }
             else {
 
-                // TODO add progressBar
-                /*tests.ProgressBarScene.display();*/
+                setDatesBtn.setDisable(true);
 
-                if (logTable.getItems().size() > 0){
-                    logTable.getItems().clear();
+                if (logs.size() > 0){
                     logs.clear();
                 }
 
-                backgroundThread = new Thread(() -> {
+                Thread backgroundThread = new Thread(() -> {
 
                     logs.addAll(iisNodeLogs());
                     logs.addAll(prismWebLogs());
                     logs.addAll(ecsLogs());
-                    Collections.sort(logs);
-                    logTable.getItems().addAll(logs);
 
-                    Platform.runLater(() -> {
-                        sourceFilterCkBz.setDisable(false);
-                        verbosityFilterCkBx.setDisable(false);
-                        componentFilterChBx.setDisable(false);
-                        detailsSeachFilterChBx.setDisable(false);
-                    });
+                    if (logs.size() > 0){
 
+                        Collections.sort(logs);
+
+                        verbosityOptions = verbositySet(logs);
+
+                        Platform.runLater(() -> {
+                            sourceFilterCkBz.setDisable(false);
+                            verbosityFilterCkBx.setDisable(false);
+                            componentFilterChBx.setDisable(false);
+                            detailsSeachFilterChBx.setDisable(false);
+                            setDatesBtn.setDisable(false);
+                        });
+                    }
+
+                    else {
+                        Platform.runLater(() -> {
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION, "No logs were found for the selected dates", ButtonType.OK);
+                            alert.showAndWait();
+                        });
+                    }
                 });
 
                 backgroundThread.setDaemon(true);
                 backgroundThread.start();
-
-
-//                logTable.setColumnResizePolicy(param -> true);
 
             }
         }
@@ -548,7 +550,7 @@ public class App extends Application {
         }
     }
 
-    private void addFilterOptions(boolean isSelected, List<String> values, int index){
+    private void addFilterOptions(boolean isSelected, Set<String> values, int index){
 
         if (isSelected){
             filterOptionsContainer = new VBox(1);
@@ -629,4 +631,17 @@ public class App extends Application {
         }
     }
 
+    // Helper methods
+    private static Set<String> verbositySet(List<Log> logs){
+
+        List<String> list = new ArrayList<>();
+
+        for (Log l : logs) {
+            list.add(l.getVerbosity());
+        }
+
+        Set<String> set = new HashSet<>(list);
+        return set;
+
+    }
 }
