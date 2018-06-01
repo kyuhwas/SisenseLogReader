@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="SisenseLogReader:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/SisenseLogReader_jar</output-path>
-    <root id="archive" name="SisenseLogReader.jar">
-      <element id="module-output" name="SisenseLogReader" />
-    </root>
-  </artifact>
-</component>

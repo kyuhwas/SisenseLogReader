@@ -1,11 +1,8 @@
 package tests;
 
-import classes.Log;
 import classes.LogTest;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -37,6 +34,7 @@ public class Test_Filters extends Application {
 
     // UI Components
     private VBox filtersContainer;
+    private VBox filterOptionsContainer2;
     private VBox filterOptionsContainer;
     private VBox componentSearchboxContainer;
     private VBox searchBoxContainer;
@@ -64,15 +62,15 @@ public class Test_Filters extends Application {
 
     // TODO menu item to configure log paths
     // WINDOWS
-    private final String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
-    private final String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\";
-    private final String ECS_LOG_PATH = "C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\";
+//    private final String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
+//    private final String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\";
+//    private final String ECS_LOG_PATH = "C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\";
 
 
     // MAC
-//    private final String IIS_NODE_PATH = "/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/";
-//    private final String ECS_LOG_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismServerLogs/";
-//    private final String PRISMWEB_LOGS_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismWebServer/";
+    private final String IIS_NODE_PATH = "/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/";
+    private final String ECS_LOG_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismServerLogs/";
+    private final String PRISMWEB_LOGS_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismWebServer/";
     private final String IMAGE_URL = "file:" + String.valueOf(Paths.get(System.getProperty("user.dir"),"res","logo.png"));
 
     public static void main(String[] args) {
@@ -195,7 +193,17 @@ public class Test_Filters extends Application {
         Set<String> sourceOptions = new HashSet<>(Arrays.asList(sources));
 
         sourceFilterCkBz.setDisable(true);
-        sourceFilterCkBz.setOnAction(e -> addFilterOptions(sourceFilterCkBz.isSelected(), sourceOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+        sourceFilterCkBz.selectedProperty().addListener((observable, oldValue, newValue) -> {
+
+            System.out.println("new value " + newValue);
+            if (newValue){
+                addSourceOptions(sourceOptions, filtersContainer.getChildren().indexOf(sourceFilterCkBz));
+            }
+            else {
+                filtersContainer.getChildren().remove(filterOptionsContainer2);
+            }
+
+        });
 
         verbosityFilterCkBx = new CheckBox("Verbosity");
         verbosityFilterCkBx.setDisable(true);
@@ -501,6 +509,8 @@ public class Test_Filters extends Application {
             }
             else {
 
+
+                AlertProgressBar.display();
                 setDatesBtn.setDisable(true);
 
                 if (logs.size() > 0){
@@ -561,8 +571,9 @@ public class Test_Filters extends Application {
                 checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
 
                     if (newValue){
-//                        logTable.remo
-                        logs.filtered(log -> !log.getSource().equals(checkBox.getText()));
+
+//                        logs.filtered(log -> !log. getSource().equals(checkBox.getText()));
+
 
                     }
 
@@ -577,6 +588,27 @@ public class Test_Filters extends Application {
 
         }
 
+    }
+
+    private void addSourceOptions(Set<String> values, int index){
+
+            filterOptionsContainer2 = new VBox(1);
+            filterOptionsContainer2.setPadding(new Insets(0, 0, 0, 15));
+
+            for (String option : values) {
+                CheckBox checkBox = new CheckBox(option);
+                checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+
+                    if (newValue){
+//                        logTable.remo
+                        logs.filtered(log -> !log.getSource().equals(checkBox.getText()));
+
+                    }
+
+                });
+                filterOptionsContainer2.getChildren().add(checkBox);
+            }
+            filtersContainer.getChildren().add(index+1, filterOptionsContainer2);
     }
 
     private void addComponentTextBox(boolean isSelected, int index){
@@ -639,6 +671,8 @@ public class Test_Filters extends Application {
             filtersContainer.getChildren().remove(searchBoxContainer);
         }
     }
+
+
 
     // Helper methods
     private static Set<String> verbositySet(List<LogTest> logs){
