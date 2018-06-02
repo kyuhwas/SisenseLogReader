@@ -1,14 +1,21 @@
 package tests;
 
 import classes.LogTest;
+import com.sun.tools.javac.comp.Check;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -17,6 +24,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -25,6 +34,7 @@ import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -33,9 +43,10 @@ import java.util.stream.Stream;
 public class Test_Filters extends Application {
 
     // UI Components
+    private BorderPane rootLayout;
     private VBox filtersContainer;
-    private VBox filterOptionsContainer2;
-    private VBox filterOptionsContainer;
+    private VBox SourceOptionsContainer;
+    private VBox verbosityOptionsContainer;
     private VBox componentSearchboxContainer;
     private VBox searchBoxContainer;
     private TableView<LogTest> logTable;
@@ -47,6 +58,7 @@ public class Test_Filters extends Application {
     private CheckBox verbosityFilterCkBx;
     private CheckBox componentFilterChBx;
     private CheckBox detailsSeachFilterChBx;
+    private List<CheckBox> filterCheckBoxList = new ArrayList<>();
     private Button setDatesBtn;
 
     // Java classes
@@ -93,7 +105,7 @@ public class Test_Filters extends Application {
         int WINDOW_HEIGHT = 600;
         window.setMinHeight(WINDOW_HEIGHT);
 
-        BorderPane rootLayout = new BorderPane();
+        rootLayout = new BorderPane();
 
         // UI binding
         rootLayout.setTop(initializeDateMenu());
@@ -181,6 +193,7 @@ public class Test_Filters extends Application {
         return centerLogViewerContainer;
     }
 
+    // TODO: 6/1/18 add logic for disabled parent filter -> bind to tableview to logs
     private VBox initializeFilters(){
         filtersContainer = new VBox(10);
         filtersContainer.setPadding(new Insets(15));
@@ -195,12 +208,12 @@ public class Test_Filters extends Application {
         sourceFilterCkBz.setDisable(true);
         sourceFilterCkBz.selectedProperty().addListener((observable, oldValue, newValue) -> {
 
-            System.out.println("new value " + newValue);
             if (newValue){
                 addSourceOptions(sourceOptions, filtersContainer.getChildren().indexOf(sourceFilterCkBz));
             }
             else {
-                filtersContainer.getChildren().remove(filterOptionsContainer2);
+                filtersContainer.getChildren().remove(SourceOptionsContainer);
+
             }
 
         });
@@ -208,7 +221,17 @@ public class Test_Filters extends Application {
         verbosityFilterCkBx = new CheckBox("Verbosity");
         verbosityFilterCkBx.setDisable(true);
         verbosityFilterCkBx.setFont(Font.font("Agency FB", 15));
-        verbosityFilterCkBx.setOnAction(e -> addFilterOptions(verbosityFilterCkBx.isSelected(), verbosityOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+//        verbosityFilterCkBx.setOnAction(e -> addVerbosityOptions(verbosityFilterCkBx.isSelected(), verbosityOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+        verbosityFilterCkBx.selectedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue){
+                addVerbosityOptions(verbosityOptions, filtersContainer.getChildren().indexOf(verbosityFilterCkBx));
+            }
+            else {
+                filtersContainer.getChildren().remove(verbosityOptionsContainer);
+            }
+
+        });
 
         componentFilterChBx = new CheckBox("Component");
         componentFilterChBx.setDisable(true);
@@ -509,8 +532,6 @@ public class Test_Filters extends Application {
             }
             else {
 
-
-                AlertProgressBar.display();
                 setDatesBtn.setDisable(true);
 
                 if (logs.size() > 0){
@@ -518,6 +539,7 @@ public class Test_Filters extends Application {
                 }
 
                 Thread backgroundThread = new Thread(() -> {
+
 
                     logs.addAll(iisNodeLogs());
                     logs.addAll(prismWebLogs());
@@ -531,10 +553,13 @@ public class Test_Filters extends Application {
 
                         Platform.runLater(() -> {
                             sourceFilterCkBz.setDisable(false);
+                            sourceFilterCkBz.setSelected(true);
                             verbosityFilterCkBx.setDisable(false);
+                            verbosityFilterCkBx.setSelected(true);
                             componentFilterChBx.setDisable(false);
                             detailsSeachFilterChBx.setDisable(false);
                             setDatesBtn.setDisable(false);
+//                            rootLayout.setBottom(null);
                         });
                     }
 
@@ -560,55 +585,43 @@ public class Test_Filters extends Application {
         }
     }
 
-    private void addFilterOptions(boolean isSelected, Set<String> values, int index){
+    private void addVerbosityOptions(Set<String> values, int index){
 
-        if (isSelected){
-            filterOptionsContainer = new VBox(1);
-            filterOptionsContainer.setPadding(new Insets(0, 0, 0, 15));
+            verbosityOptionsContainer = new VBox(1);
+            verbosityOptionsContainer.setPadding(new Insets(0, 0, 0, 15));
 
             for (String option : values) {
                 CheckBox checkBox = new CheckBox(option);
+                checkBox.setSelected(true);
                 checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
 
-                    if (newValue){
 
-//                        logs.filtered(log -> !log. getSource().equals(checkBox.getText()));
-
-
-                    }
 
                 });
-                filterOptionsContainer.getChildren().add(checkBox);
+
+                filterCheckBoxList.add(checkBox);
+                verbosityOptionsContainer.getChildren().add(checkBox);
             }
-            filtersContainer.getChildren().add(index+1, filterOptionsContainer);
-        }
-        else {
-
-            filtersContainer.getChildren().remove(filterOptionsContainer);
-
-        }
+            filtersContainer.getChildren().add(index + 1, verbosityOptionsContainer);
 
     }
 
     private void addSourceOptions(Set<String> values, int index){
 
-            filterOptionsContainer2 = new VBox(1);
-            filterOptionsContainer2.setPadding(new Insets(0, 0, 0, 15));
+            SourceOptionsContainer = new VBox(1);
+            SourceOptionsContainer.setPadding(new Insets(0, 0, 0, 15));
 
             for (String option : values) {
                 CheckBox checkBox = new CheckBox(option);
-                checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-
-                    if (newValue){
-//                        logTable.remo
-                        logs.filtered(log -> !log.getSource().equals(checkBox.getText()));
-
-                    }
+                checkBox.setSelected(true);
+                checkBox.selectedProperty().addListener((observable, oldState, newState) -> {
 
                 });
-                filterOptionsContainer2.getChildren().add(checkBox);
+
+                filterCheckBoxList.add(checkBox);
+                SourceOptionsContainer.getChildren().add(checkBox);
             }
-            filtersContainer.getChildren().add(index+1, filterOptionsContainer2);
+            filtersContainer.getChildren().add(index+1, SourceOptionsContainer);
     }
 
     private void addComponentTextBox(boolean isSelected, int index){
@@ -673,7 +686,6 @@ public class Test_Filters extends Application {
     }
 
 
-
     // Helper methods
     private static Set<String> verbositySet(List<LogTest> logs){
 
@@ -683,8 +695,7 @@ public class Test_Filters extends Application {
             list.add(l.getVerbosity());
         }
 
-        Set<String> set = new HashSet<>(list);
-        return set;
+        return new HashSet<>(list);
 
     }
 

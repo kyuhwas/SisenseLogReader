@@ -22,6 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -31,12 +32,15 @@ import java.util.stream.Stream;
 public class App extends Application {
 
     private VBox filtersContainer;
-    private VBox filterOptionsContainer;
+    private VBox SourceOptionsContainer;
+    private VBox verbosityOptionsContainer;
     private VBox componentSearchboxContainer;
     private VBox searchBoxContainer;
     private TableView<Log> logTable;
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
+    private LocalDate startDate = LocalDate.of(2018, 5, 10);
+    private LocalDate endDate = LocalDate.of(2018, 5, 11);;
     private Date startTime;
     private Date endTime;
     private TextField startTimeTxtFld;
@@ -50,6 +54,7 @@ public class App extends Application {
     private Button setDatesBtn;
 
     private Set<String> verbosityOptions;
+    private List<CheckBox> filterCheckBoxList;
 
     private final static String[] sources = new String[]{"ECS","IISNode","PrismWebServer"};
 
@@ -87,6 +92,7 @@ public class App extends Application {
         window.setMinHeight(WINDOW_HEIGHT);
 
         BorderPane rootLayout = new BorderPane();
+        filterCheckBoxList = new ArrayList<>();
 
         // UI binding
         rootLayout.setTop(initializeDateMenu());
@@ -118,20 +124,26 @@ public class App extends Application {
         startDatePicker = new DatePicker();
         startDatePicker.setMinSize(50, 10);
         startDatePicker.setPromptText("MM/DD/YYYY");
+        startDatePicker.setValue(startDate);
+
         topMenuContainer.add(startDatePicker, 0,1);
         endDatePicker = new DatePicker();
         endDatePicker.setMinSize(50, 10);
         endDatePicker.setPromptText("MM/DD/YYYY");
+        endDatePicker.setValue(endDate);
+
         topMenuContainer.add(endDatePicker, 1,1);
         setDatesBtn = new Button("Submit");
         setDatesBtn.setOnAction(event ->  handleSubmit());
 
         startTimeTxtFld = new TextField();
         startTimeTxtFld.setPromptText("HH:mm");
+        startTimeTxtFld.setText("12:00");
         topMenuContainer.add(startTimeTxtFld, 0, 2);
 
         endTimeTxtFld = new TextField();
         endTimeTxtFld.setPromptText("HH:mm");
+        endTimeTxtFld.setText("12:00");
         topMenuContainer.add(endTimeTxtFld, 1, 2 );
 
         topMenuContainer.add(setDatesBtn, 2,1);
@@ -183,16 +195,34 @@ public class App extends Application {
         sourceFilterCkBz = new CheckBox("Source");
         sourceFilterCkBz.setFont(Font.font("Agency FB", 15));
         // TODO use loaded Logs, filter for unique values then create ArrayList with values
-        Set<String> sourceOptions = new HashSet<>();
-        Collections.addAll(sourceOptions, sources);
+        Set<String> sourceOptions = new HashSet<>(Arrays.asList(sources));
 
         sourceFilterCkBz.setDisable(true);
-        sourceFilterCkBz.setOnAction(e -> addFilterOptions(sourceFilterCkBz.isSelected(), sourceOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+        sourceFilterCkBz.selectedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue){
+                addSourceOptions(sourceOptions, filtersContainer.getChildren().indexOf(sourceFilterCkBz));
+            }
+            else {
+                filtersContainer.getChildren().remove(SourceOptionsContainer);
+
+            }
+
+        });
 
         verbosityFilterCkBx = new CheckBox("Verbosity");
         verbosityFilterCkBx.setDisable(true);
         verbosityFilterCkBx.setFont(Font.font("Agency FB", 15));
-        verbosityFilterCkBx.setOnAction(e -> addFilterOptions(verbosityFilterCkBx.isSelected(), verbosityOptions, filtersContainer.getChildren().indexOf(e.getSource())));
+        verbosityFilterCkBx.selectedProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue){
+                addVerbosityOptions(verbosityOptions, filtersContainer.getChildren().indexOf(verbosityFilterCkBx));
+            }
+            else {
+                filtersContainer.getChildren().remove(verbosityOptionsContainer);
+            }
+
+        });
 
         componentFilterChBx = new CheckBox("Component");
         componentFilterChBx.setDisable(true);
@@ -501,6 +531,8 @@ public class App extends Application {
             }
             else {
 
+
+//                AlertProgressBar.display();
                 setDatesBtn.setDisable(true);
 
                 if (logs.size() > 0){
@@ -521,7 +553,9 @@ public class App extends Application {
 
                         Platform.runLater(() -> {
                             sourceFilterCkBz.setDisable(false);
+                            sourceFilterCkBz.setSelected(true);
                             verbosityFilterCkBx.setDisable(false);
+                            verbosityFilterCkBx.setSelected(true);
                             componentFilterChBx.setDisable(false);
                             detailsSeachFilterChBx.setDisable(false);
                             setDatesBtn.setDisable(false);
@@ -550,24 +584,43 @@ public class App extends Application {
         }
     }
 
-    private void addFilterOptions(boolean isSelected, Set<String> values, int index){
+    private void addVerbosityOptions(Set<String> values, int index){
 
-        if (isSelected){
-            filterOptionsContainer = new VBox(1);
-            filterOptionsContainer.setPadding(new Insets(0, 0, 0, 15));
+        verbosityOptionsContainer = new VBox(1);
+        verbosityOptionsContainer.setPadding(new Insets(0, 0, 0, 15));
 
-            for (String option : values) {
-                CheckBox sourceChkBox = new CheckBox(option);
-                filterOptionsContainer.getChildren().add(sourceChkBox);
-            }
-            filtersContainer.getChildren().add(index+1, filterOptionsContainer);
+        for (String option : values) {
+            CheckBox checkBox = new CheckBox(option);
+            checkBox.setSelected(true);
+            checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+
+                System.out.println();
+
+            });
+
+            filterCheckBoxList.add(checkBox);
+            verbosityOptionsContainer.getChildren().add(checkBox);
         }
-        else {
+        filtersContainer.getChildren().add(index + 1, verbosityOptionsContainer);
 
-            filtersContainer.getChildren().remove(filterOptionsContainer);
+    }
 
+    private void addSourceOptions(Set<String> values, int index){
+
+        SourceOptionsContainer = new VBox(1);
+        SourceOptionsContainer.setPadding(new Insets(0, 0, 0, 15));
+
+        for (String option : values) {
+            CheckBox checkBox = new CheckBox(option);
+            checkBox.setSelected(true);
+            checkBox.selectedProperty().addListener((observable, oldState, newState) -> {
+
+            });
+
+            filterCheckBoxList.add(checkBox);
+            SourceOptionsContainer.getChildren().add(checkBox);
         }
-
+        filtersContainer.getChildren().add(index+1, SourceOptionsContainer);
     }
 
     private void addComponentTextBox(boolean isSelected, int index){
@@ -640,8 +693,7 @@ public class App extends Application {
             list.add(l.getVerbosity());
         }
 
-        Set<String> set = new HashSet<>(list);
-        return set;
+        return new HashSet<>(list);
 
     }
 }

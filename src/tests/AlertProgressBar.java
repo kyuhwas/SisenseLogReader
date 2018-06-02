@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 public class AlertProgressBar{
 
 public static void display(){
+
+
         Stage window = new Stage();
         Scene scene;
         VBox layout;

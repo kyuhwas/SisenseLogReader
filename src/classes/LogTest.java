@@ -1,5 +1,7 @@
 package classes;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -12,6 +14,7 @@ public class LogTest implements Comparable<LogTest>{
     private StringProperty verbosity;
     private StringProperty component;
     private StringProperty details;
+    private boolean filtered;
 
     public LogTest() {
     }
@@ -72,8 +75,17 @@ public class LogTest implements Comparable<LogTest>{
         return details;
     }
 
+
     public void setDetails(String details) {
         detailsProperty().set(details);
+    }
+
+    public boolean isFiltered() {
+        return filtered;
+    }
+
+    public void setFiltered(boolean filtered) {
+        this.filtered = filtered;
     }
 
     @Override
@@ -82,5 +94,6 @@ public class LogTest implements Comparable<LogTest>{
             return 0;
         return getTime().compareTo(o.getTime());
     }
+
 
 }
