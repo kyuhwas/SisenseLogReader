@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -25,6 +26,7 @@ public class TestFilterState extends Application{
     private VBox SourceOptionsContainer;
     private Set<String> verbosityOptions;
     private List<CheckBox> filterCheckBoxList = new ArrayList<>();
+    private FilteredList<Log> filteredList = new FilteredList<Log>(logs);
 
     public static void main(String[] args) {
         launch(args);
@@ -37,7 +39,7 @@ public class TestFilterState extends Application{
         rootLayout.setLeft(initializeFilters());
         rootLayout.setCenter(initializeLogTable());
 
-        Scene scene = new Scene(rootLayout, 800,400);
+        Scene scene = new Scene(rootLayout, 1000,400);
 
         primaryStage.setTitle(this.getClass().getName());
         primaryStage.setScene(scene);
@@ -169,6 +171,7 @@ public class TestFilterState extends Application{
             checkBox.setSelected(true);
             checkBox.selectedProperty().addListener((observable, oldState, newState) -> {
                 System.out.println("checkbox value: " + checkBox.getText() + "old state: " + oldState + "\tnew state: " + newState);
+                System.out.println("Filters enabled: " + filtersEnabled());
             });
 
             filterCheckBoxList.add(checkBox);
@@ -186,9 +189,7 @@ public class TestFilterState extends Application{
             CheckBox checkBox = new CheckBox(option);
             checkBox.setSelected(true);
             checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-
-                System.out.println();
-
+                System.out.println("Filters enabled: " + filtersEnabled());
             });
 
             filterCheckBoxList.add(checkBox);
@@ -243,6 +244,26 @@ public class TestFilterState extends Application{
         centerLogViewerContainer.getChildren().add(logTable);
 
         return centerLogViewerContainer;
+    }
+
+    private void setTableLogList(){
+
+        if (filtersEnabled()) logTable.setItems(logs);
+        else logTable.setItems(filteredList);
+
+    }
+
+    private boolean filtersEnabled(){
+
+        for (CheckBox cb : filterCheckBoxList) {
+
+            if (!cb.isSelected()){
+                return false;
+            }
+
+        }
+
+        return true;
     }
 
 }

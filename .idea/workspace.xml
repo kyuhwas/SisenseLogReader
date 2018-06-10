@@ -10,49 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42c68390-d28f-498c-90b2-e0b67048447b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/AlertProgressBar.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/App.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/classes/Log.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/classes/LogTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/components/ProgressAlert.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/style/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/AlertProgressBar.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/DownloaderApp$DownloadTask.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/DownloaderApp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/Indicators.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/LoadingAlertStage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/LogUploadProgress.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/Playground.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/Test_Filters.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/Test_Parsing.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/Test_ProgressBar$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/Test_ProgressBar$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/Test_ProgressBar.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/UniqueValuesForFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/UpdateProgessTest$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SisenseLogReader/tests/UpdateProgessTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/tests/AlertProgressBar.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/App.java" afterPath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/classes/Log.java" afterPath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/classes/Log.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/classes/LogTest.java" afterPath="$PROJECT_DIR$/src/test/java/LogTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/ProgressAlert.java" afterPath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/classes/ProgressAlert.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/style/style.css" afterPath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/style.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tests/DownloaderApp.java" afterPath="$PROJECT_DIR$/src/test/java/DownloaderApp.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tests/Indicators.java" afterPath="$PROJECT_DIR$/src/test/java/Indicators.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tests/LoadingAlertStage.java" afterPath="$PROJECT_DIR$/src/test/java/LoadingAlertStage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tests/LogUploadProgress.java" afterPath="$PROJECT_DIR$/src/test/java/LogUploadProgress.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tests/Playground.java" afterPath="$PROJECT_DIR$/src/test/java/Playground.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tests/Test_Filters.java" afterPath="$PROJECT_DIR$/src/test/java/Test_Filters.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tests/Test_Parsing.java" afterPath="$PROJECT_DIR$/src/test/java/Test_Parsing.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tests/Test_ProgressBar.java" afterPath="$PROJECT_DIR$/src/test/java/Test_ProgressBar.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tests/UniqueValuesForFilter.java" afterPath="$PROJECT_DIR$/src/test/java/UniqueValuesForFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tests/UpdateProgessTest.java" afterPath="$PROJECT_DIR$/src/test/java/UpdateProgessTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SisenseLogReader.iml" afterPath="$PROJECT_DIR$/SisenseLogReader.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/TestFilterState.java" afterPath="$PROJECT_DIR$/src/test/java/TestFilterState.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -82,7 +40,7 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="677">
+            <state relative-caret-position="844">
               <caret line="561" column="24" lean-forward="false" selection-start-line="561" selection-start-column="24" selection-end-line="561" selection-end-column="62" />
               <folding>
                 <element signature="e#2225#2265#0" expanded="false" />
@@ -128,20 +86,20 @@
       <file leaf-file-name="TestFilterState.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestFilterState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-789">
-              <caret line="78" column="115" lean-forward="true" selection-start-line="78" selection-start-column="115" selection-end-line="78" selection-end-column="115" />
+            <state relative-caret-position="103">
+              <caret line="182" column="45" lean-forward="false" selection-start-line="182" selection-start-column="45" selection-end-line="182" selection-end-column="45" />
               <folding>
-                <element signature="e#1091#1092#0" expanded="true" />
-                <element signature="e#1119#1120#0" expanded="true" />
-                <element signature="e#2146#2456#0" expanded="false" />
+                <element signature="method#start#0;class#TestFilterState#0" expanded="false" />
+                <element signature="method#initializeFilters#0;class#TestFilterState#0" expanded="false" />
+                <element signature="e#2276#2586#0" expanded="false" />
+                <element signature="e#2875#3196#0" expanded="false" />
                 <element signature="method#addComponentTextBox#0;class#TestFilterState#0" expanded="false" />
-                <element signature="e#4327#4718#0" expanded="false" />
+                <element signature="e#4457#4848#0" expanded="false" />
                 <element signature="method#addDetailsTextBox#0;class#TestFilterState#0" expanded="false" />
-                <element signature="e#5427#5803#0" expanded="false" />
-                <element signature="method#addSourceOptions#0;class#TestFilterState#0" expanded="false" />
-                <element signature="e#7209#7300#0" expanded="false" />
+                <element signature="e#5557#5933#0" expanded="false" />
                 <element signature="method#verbositySet#0;class#TestFilterState#0" expanded="false" />
-                <element signature="e#7798#7807#0" expanded="false" />
+                <element signature="method#initializeLogTable#0;class#TestFilterState#0" expanded="false" />
+                <element signature="e#8040#8049#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -208,8 +166,8 @@
       <find>componentSearchboxContainer</find>
       <find>verbosityOptions</find>
       <find>logs</find>
-      <find>verbosityoptions</find>
       <find>addVerbosityOptions</find>
+      <find>verbosityoptions</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -718,19 +676,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1442,7 +1387,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="677">
+        <state relative-caret-position="844">
           <caret line="561" column="24" lean-forward="false" selection-start-line="561" selection-start-column="24" selection-end-line="561" selection-end-column="62" />
           <folding>
             <element signature="e#2225#2265#0" expanded="false" />
@@ -1473,20 +1418,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestFilterState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-789">
-          <caret line="78" column="115" lean-forward="true" selection-start-line="78" selection-start-column="115" selection-end-line="78" selection-end-column="115" />
+        <state relative-caret-position="103">
+          <caret line="182" column="45" lean-forward="false" selection-start-line="182" selection-start-column="45" selection-end-line="182" selection-end-column="45" />
           <folding>
-            <element signature="e#1091#1092#0" expanded="true" />
-            <element signature="e#1119#1120#0" expanded="true" />
-            <element signature="e#2146#2456#0" expanded="false" />
+            <element signature="method#start#0;class#TestFilterState#0" expanded="false" />
+            <element signature="method#initializeFilters#0;class#TestFilterState#0" expanded="false" />
+            <element signature="e#2276#2586#0" expanded="false" />
+            <element signature="e#2875#3196#0" expanded="false" />
             <element signature="method#addComponentTextBox#0;class#TestFilterState#0" expanded="false" />
-            <element signature="e#4327#4718#0" expanded="false" />
+            <element signature="e#4457#4848#0" expanded="false" />
             <element signature="method#addDetailsTextBox#0;class#TestFilterState#0" expanded="false" />
-            <element signature="e#5427#5803#0" expanded="false" />
-            <element signature="method#addSourceOptions#0;class#TestFilterState#0" expanded="false" />
-            <element signature="e#7209#7300#0" expanded="false" />
+            <element signature="e#5557#5933#0" expanded="false" />
             <element signature="method#verbositySet#0;class#TestFilterState#0" expanded="false" />
-            <element signature="e#7798#7807#0" expanded="false" />
+            <element signature="method#initializeLogTable#0;class#TestFilterState#0" expanded="false" />
+            <element signature="e#8040#8049#0" expanded="false" />
           </folding>
         </state>
       </provider>
