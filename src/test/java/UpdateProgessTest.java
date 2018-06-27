@@ -1,5 +1,3 @@
-package test.java;
-
 import javafx.application.Application;
 import javafx.concurrent.Task;
 import javafx.geometry.Pos;
