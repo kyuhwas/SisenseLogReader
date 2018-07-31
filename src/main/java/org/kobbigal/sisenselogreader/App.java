@@ -20,7 +20,6 @@ import org.kobbigal.sisenselogreader.classes.Log;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -54,7 +53,7 @@ public class App extends Application {
     private CheckBox sourceFilterCkBz;
     private CheckBox verbosityFilterCkBx;
     private CheckBox componentFilterChBx;
-    private CheckBox detailsSeachFilterChBx;
+    private CheckBox detailsSearchFilterChBx;
     private Button setDatesBtn;
 
     private Set<String> verbosityOptions;
@@ -64,15 +63,14 @@ public class App extends Application {
 
     // TODO menu item to configure log paths
     // WINDOWS
-//    private final String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
-//    private final String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\";
-//    private final String ECS_LOG_PATH = "C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\";
-
+    private final String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
+    private final String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\";
+    private final String ECS_LOG_PATH = "C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\";
 
     // MAC
-    private final String IIS_NODE_PATH = "/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/";
-    private final String ECS_LOG_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismServerLogs/";
-    private final String PRISMWEB_LOGS_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismWebServer/";
+//    private final String IIS_NODE_PATH = "/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/";
+//    private final String ECS_LOG_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismServerLogs/";
+//    private final String PRISMWEB_LOGS_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismWebServer/";
     private final String IMAGE_URL = "file:" + String.valueOf(Paths.get(System.getProperty("user.dir"),"res","logo.png"));
 
     public static void main(String[] args) {
@@ -239,12 +237,12 @@ public class App extends Application {
         componentFilterChBx.setFont(Font.font("Agency FB", 15));
         componentFilterChBx.setOnAction(e -> addComponentTextBox(componentFilterChBx.isSelected(), filtersContainer.getChildren().indexOf(e.getSource())));
 
-        detailsSeachFilterChBx = new CheckBox("Details");
-        detailsSeachFilterChBx.setDisable(true);
-        detailsSeachFilterChBx.setFont(Font.font("Agency FB", 15));
-        detailsSeachFilterChBx.setOnAction(e -> addDetailsTextBox(detailsSeachFilterChBx.isSelected(), filtersContainer.getChildren().indexOf(e.getSource())));
+        detailsSearchFilterChBx = new CheckBox("Details");
+        detailsSearchFilterChBx.setDisable(true);
+        detailsSearchFilterChBx.setFont(Font.font("Agency FB", 15));
+        detailsSearchFilterChBx.setOnAction(e -> addDetailsTextBox(detailsSearchFilterChBx.isSelected(), filtersContainer.getChildren().indexOf(e.getSource())));
 
-        filtersContainer.getChildren().addAll(filtersLabel, sourceFilterCkBz, verbosityFilterCkBx,componentFilterChBx, detailsSeachFilterChBx);
+        filtersContainer.getChildren().addAll(filtersLabel, sourceFilterCkBz, verbosityFilterCkBx,componentFilterChBx, detailsSearchFilterChBx);
 
         return filtersContainer;
     }
@@ -540,9 +538,6 @@ public class App extends Application {
                 alert.showAndWait();
             }
             else {
-
-
-//                AlertProgressBar.display();
                 setDatesBtn.setDisable(true);
 
                 if (logs.size() > 0){
@@ -567,7 +562,7 @@ public class App extends Application {
                             verbosityFilterCkBx.setDisable(false);
                             verbosityFilterCkBx.setSelected(true);
                             componentFilterChBx.setDisable(false);
-                            detailsSeachFilterChBx.setDisable(false);
+                            detailsSearchFilterChBx.setDisable(false);
                             setDatesBtn.setDisable(false);
                         });
                     }
@@ -576,6 +571,7 @@ public class App extends Application {
                         Platform.runLater(() -> {
                             Alert alert = new Alert(Alert.AlertType.INFORMATION, "No logs were found for the selected dates", ButtonType.OK);
                             alert.showAndWait();
+                            setDatesBtn.setDisable(false);
                         });
                     }
                 });

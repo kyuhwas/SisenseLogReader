@@ -20,7 +20,7 @@ public class Log implements Comparable<Log>{
         return sourceProperty().get();
     }
 
-    public StringProperty sourceProperty() {
+    private StringProperty sourceProperty() {
         if (source == null) source = new SimpleStringProperty(this, "source");
         return source;
     }
@@ -41,7 +41,7 @@ public class Log implements Comparable<Log>{
         return verbosityProperty().get();
     }
 
-    public StringProperty verbosityProperty() {
+    private StringProperty verbosityProperty() {
         if (verbosity == null) verbosity = new SimpleStringProperty(this, "verbosity");
         return verbosity;
     }

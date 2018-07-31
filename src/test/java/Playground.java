@@ -33,7 +33,7 @@ public class Playground extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
 
         BorderPane rootLayout = new BorderPane();
 
@@ -105,8 +105,7 @@ public class Playground extends Application {
 
             } else {
 
-                filteredList.getPredicate().
-                logTable.setItems(originalList);
+                filteredList.setPredicate(null);
 
             }
 
@@ -123,7 +122,7 @@ public class Playground extends Application {
 
             } else {
 
-                logTable.setItems(originalList);
+
 
             }
 
