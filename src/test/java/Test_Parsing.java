@@ -1,4 +1,4 @@
-import org.kobbigal.sisenselogreader.classes.Log;
+import org.kobbigal.sisenselogreader.model.Log;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -32,7 +32,7 @@ public class Test_Parsing {
 //        startDate.setTime(1508774481000L);
 //        endDate.setTime(1514044881000L);
 
-//        List<classes.Log> logs = ecsLogs(startDate, endDate);
+//        List<model.Log> logs = ecsLogs(startDate, endDate);
 //        System.out.println("Number of logs to add to UI: " + logs.size());
 //        iisNodeLogs(startDate, endDate);
 

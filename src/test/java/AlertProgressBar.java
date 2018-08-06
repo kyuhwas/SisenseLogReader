@@ -1,6 +1,6 @@
 //package tests;
 //
-//import classes.LogTest;
+//import model.LogTest;
 //import javafx.geometry.Pos;
 //import javafx.scene.Scene;
 //import javafx.scene.control.*;

@@ -1,4 +1,4 @@
-package org.kobbigal.sisenselogreader.classes;
+package org.kobbigal.sisenselogreader.model;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -14,6 +14,11 @@ public class Log implements Comparable<Log>{
     private StringProperty details;
 
     public Log() {
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 
     public String getSource() {
@@ -54,7 +59,7 @@ public class Log implements Comparable<Log>{
         return componentProperty().get();
     }
 
-    public StringProperty componentProperty() {
+    private StringProperty componentProperty() {
         if (component == null) component = new SimpleStringProperty(this, "component");
         return component;
     }
@@ -67,7 +72,7 @@ public class Log implements Comparable<Log>{
         return detailsProperty().get();
     }
 
-    public StringProperty detailsProperty() {
+    private StringProperty detailsProperty() {
         if (details == null) details = new SimpleStringProperty(this, "details");
         return details;
     }

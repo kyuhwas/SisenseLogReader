@@ -52,7 +52,7 @@ public class Test_Filters extends Application {
     private List<CheckBox> filterCheckBoxList = new ArrayList<>();
     private Button setDatesBtn;
 
-    // Java classes
+    // Java model
     private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private Date startTime;
     private Date endTime;

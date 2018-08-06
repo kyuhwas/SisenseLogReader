@@ -1,6 +1,6 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.kobbigal.sisenselogreader.classes.Log;
+import org.kobbigal.sisenselogreader.model.Log;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;

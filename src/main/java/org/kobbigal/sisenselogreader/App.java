@@ -16,7 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import org.kobbigal.sisenselogreader.classes.Log;
+import org.kobbigal.sisenselogreader.model.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,8 +42,8 @@ public class App extends Application {
     private TableView<Log> logTable;
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
-    private LocalDate startDate = LocalDate.of(2018, 5, 10);
-    private LocalDate endDate = LocalDate.of(2018, 5, 11);;
+    private LocalDate startDate = LocalDate.of(2018, 6, 1);
+    private LocalDate endDate = LocalDate.of(2018, 6, 30);
     private Date startTime;
     private Date endTime;
     private TextField startTimeTxtFld;
@@ -83,9 +83,8 @@ public class App extends Application {
         loadUI(primaryStage);
     }
 
-    private void loadUI(Stage primaryStage){
+    private void loadUI(Stage window){
 
-        Stage window = primaryStage;
         window.getIcons().add(new Image(IMAGE_URL));
         window.setTitle("Sisense Log Reader");
         int WINDOW_WIDTH = 1400;
@@ -104,10 +103,9 @@ public class App extends Application {
         Scene scene = new Scene(rootLayout, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         // TODO: 6/9/18 fix style
-        //scene.getStylesheets().add("style.css");
-//        URL url = this.getClass().getResource("style.css");
-//        String css = url.toExternalForm();
-//        scene.getStylesheets().add(css);
+        scene.getStylesheets().add("style.css");
+        String css = String.valueOf(Paths.get(System.getProperty("user.dir"),"res","style.css"));
+        scene.getStylesheets().add(css);
 
         window.setScene(scene);
         window.show();
@@ -251,7 +249,6 @@ public class App extends Application {
     private List<Log> ecsLogs() {
 
         List<Log> logs = new ArrayList<>();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
         File[] fls = new File(Paths.get(ECS_LOG_PATH).normalize().toString()).listFiles();
         List<String> allLogLines = new ArrayList<>();
         List<String> logLines;
@@ -296,7 +293,7 @@ public class App extends Application {
         }
 
         System.out.println("Total number of ECS logs: " + logs.size());
-        return logs;
+        return removeDuplicates(logs);
     }
 
     private List<Log> iisNodeLogs(){
@@ -340,7 +337,7 @@ public class App extends Application {
             }
         }
         System.out.println("Total number of IISNode logs: " + logs.size());
-        return logs;
+        return removeDuplicates(logs);
 
     }
 
@@ -388,7 +385,7 @@ public class App extends Application {
         }
 
         System.out.println("Total number of PrismWeb logs: " + logs.size());
-        return logs;
+        return removeDuplicates(logs);
 
     }
 
@@ -701,5 +698,13 @@ public class App extends Application {
 
         return new HashSet<>(list);
 
+    }
+
+    private static List<Log> removeDuplicates(List<Log> logs){
+
+        Set<Log> s = new HashSet<>(logs);
+        logs = new ArrayList<>();
+        logs.addAll(s);
+        return logs;
     }
 }
