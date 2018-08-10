@@ -2,8 +2,12 @@ package org.kobbigal.sisenselogreader;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,6 +21,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.kobbigal.sisenselogreader.model.Log;
+import org.kobbigal.sisenselogreader.test.LogGenerator;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,18 +32,17 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+//TODO add logic to filtering source and verbosity listview
+
 public class App extends Application {
 
-    private VBox filtersContainer;
-    private VBox SourceOptionsContainer;
-    private VBox verbosityOptionsContainer;
-    private VBox componentSearchboxContainer;
-    private VBox searchBoxContainer;
+
     private TableView<Log> logTable;
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
@@ -50,14 +54,14 @@ public class App extends Application {
     private TextField endTimeTxtFld;
     private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private ObservableList<Log> logs = FXCollections.observableArrayList();
-    private CheckBox sourceFilterCkBz;
-    private CheckBox verbosityFilterCkBx;
-    private CheckBox componentFilterChBx;
-    private CheckBox detailsSearchFilterChBx;
+    private FilteredList<Log> logFilteredList = new FilteredList<>(logs);
     private Button setDatesBtn;
 
-    private Set<String> verbosityOptions;
-    private List<CheckBox> filterCheckBoxList;
+    private ObservableList<String> verbosityObsList;
+    private ListView<String> verbosityListView;
+
+//    private ObjectProperty<Predicate<Log>> componentSearchFilter;
+//    private ObjectProperty<Predicate<Log>> detailsSearchFilter;
 
     private final static String[] sources = new String[]{"ECS","IISNode","PrismWebServer"};
 
@@ -80,6 +84,7 @@ public class App extends Application {
     //   UI
     @Override
     public void start(Stage primaryStage) {
+
         loadUI(primaryStage);
     }
 
@@ -87,25 +92,22 @@ public class App extends Application {
 
         window.getIcons().add(new Image(IMAGE_URL));
         window.setTitle("Sisense Log Reader");
-        int WINDOW_WIDTH = 1400;
+        int WINDOW_WIDTH = 1600;
         window.setMinWidth(WINDOW_WIDTH);
         int WINDOW_HEIGHT = 600;
         window.setMinHeight(WINDOW_HEIGHT);
 
         BorderPane rootLayout = new BorderPane();
-        filterCheckBoxList = new ArrayList<>();
 
         // UI binding
         rootLayout.setTop(initializeDateMenu());
         rootLayout.setCenter(initializeLogTable());
-        rootLayout.setLeft(initializeFilters());
+        rootLayout.setLeft(getFiltersContainer());
 
         Scene scene = new Scene(rootLayout, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         // TODO: 6/9/18 fix style
         scene.getStylesheets().add("style.css");
-        String css = String.valueOf(Paths.get(System.getProperty("user.dir"),"res","style.css"));
-        scene.getStylesheets().add(css);
 
         window.setScene(scene);
         window.show();
@@ -163,7 +165,8 @@ public class App extends Application {
         // Create table
         VBox centerLogViewerContainer = new VBox(0);
         logTable = new TableView();
-        logTable.setItems(logs);
+        logTable.setItems(logFilteredList);
+        logTable.setPrefHeight(400);
 
         // Add columns
         TableColumn sourceColumn = new TableColumn("Source");
@@ -172,13 +175,14 @@ public class App extends Application {
         TableColumn componentColumn = new TableColumn("Component");
         TableColumn detailsColumn = new TableColumn("Details");
         sourceColumn.setSortable(false);
-        timeColumn.setMinWidth(190);
+        sourceColumn.setMinWidth(80);
+        timeColumn.setMinWidth(180);
         verbosityColumn.setSortable(false);
         verbosityColumn.setMinWidth(60);
         componentColumn.setSortable(false);
         componentColumn.setMinWidth(200);
         detailsColumn.setSortable(false);
-        detailsColumn.setMinWidth(400);
+        detailsColumn.setMinWidth(575);
 
         sourceColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("source"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<Log, Date>("time"));
@@ -192,57 +196,76 @@ public class App extends Application {
         return centerLogViewerContainer;
     }
 
-    private VBox initializeFilters(){
-        filtersContainer = new VBox(10);
-        filtersContainer.setPadding(new Insets(15));
-        Label filtersLabel = new Label("Filters");
-        filtersLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
+    private VBox getFiltersContainer(){
 
-        sourceFilterCkBz = new CheckBox("Source");
-        sourceFilterCkBz.setFont(Font.font("Agency FB", 15));
-        // TODO use loaded Logs, filter for unique values then create ArrayList with values
-        Set<String> sourceOptions = new HashSet<>(Arrays.asList(sources));
+        VBox container = new VBox(10);
+        VBox sourceListContainer = new VBox(5);
+        VBox verbosityCheckBoxContainer = new VBox(5);
+        VBox detailsSearchContainer = new VBox(5);
+        VBox componentSearchContainer = new VBox(5);
 
-        sourceFilterCkBz.setDisable(true);
-        sourceFilterCkBz.selectedProperty().addListener((observable, oldValue, newValue) -> {
+        ObjectProperty<Predicate<Log>> sourceFilter = new SimpleObjectProperty<>();
+        ObjectProperty<Predicate<Log>> verbosityFilter = new SimpleObjectProperty<>();
+        ObjectProperty<Predicate<Log>> detailsSearchFilter = new SimpleObjectProperty<>();
+        ObjectProperty<Predicate<Log>> componentSearchFilter = new SimpleObjectProperty<>();
 
-            if (newValue){
-                addSourceOptions(sourceOptions, filtersContainer.getChildren().indexOf(sourceFilterCkBz));
-            }
-            else {
-                filtersContainer.getChildren().remove(SourceOptionsContainer);
+        Label sourceLabel = new Label("Sources");
+        sourceLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
+        ListView<String> sourceList = new ListView<>();
+        ObservableList sourceItems = FXCollections.observableArrayList(sources);
 
-            }
-
+        sourceList.setPrefHeight(sourceItems.size() * 26);
+        sourceList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        sourceList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            ListView<String> selected = new ListView<>();
+            selected.setItems(sourceList.getSelectionModel().getSelectedItems());
+            System.out.println(Arrays.toString(selected.getItems().toArray()));
         });
+        sourceList.getItems().addAll(sources);
 
-        verbosityFilterCkBx = new CheckBox("Verbosity");
-        verbosityFilterCkBx.setDisable(true);
-        verbosityFilterCkBx.setFont(Font.font("Agency FB", 15));
-        verbosityFilterCkBx.selectedProperty().addListener((observable, oldValue, newValue) -> {
+        Label verbosityLabel = new Label("Verbosity");
+        verbosityLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
+        verbosityListView = new ListView<>();
+        verbosityListView.setPrefHeight(verbosityListView.getItems().size() * 26);
 
-            if (newValue){
-                addVerbosityOptions(verbosityOptions, filtersContainer.getChildren().indexOf(verbosityFilterCkBx));
-            }
-            else {
-                filtersContainer.getChildren().remove(verbosityOptionsContainer);
-            }
+        Label detailsLabel = new Label("Details");
+        detailsLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
 
-        });
+        TextField detailsSearchField = new TextField();
+        detailsSearchField.setPromptText("e.g. finished initializing");
+        detailsSearchFilter.bind(Bindings.createObjectBinding(() ->
 
-        componentFilterChBx = new CheckBox("Component");
-        componentFilterChBx.setDisable(true);
-        componentFilterChBx.setFont(Font.font("Agency FB", 15));
-        componentFilterChBx.setOnAction(e -> addComponentTextBox(componentFilterChBx.isSelected(), filtersContainer.getChildren().indexOf(e.getSource())));
+                        log -> log.getDetails().toLowerCase().contains(detailsSearchField.getText().toLowerCase()),
+                detailsSearchField.textProperty()
+        ));
 
-        detailsSearchFilterChBx = new CheckBox("Details");
-        detailsSearchFilterChBx.setDisable(true);
-        detailsSearchFilterChBx.setFont(Font.font("Agency FB", 15));
-        detailsSearchFilterChBx.setOnAction(e -> addDetailsTextBox(detailsSearchFilterChBx.isSelected(), filtersContainer.getChildren().indexOf(e.getSource())));
+        Label componentLabel = new Label("Components");
+        componentLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
 
-        filtersContainer.getChildren().addAll(filtersLabel, sourceFilterCkBz, verbosityFilterCkBx,componentFilterChBx, detailsSearchFilterChBx);
+        TextField componentSearchField = new TextField();
+        componentSearchField.setPromptText("e.g. Application.ElastiCubeManager");
+        componentSearchFilter.bind(Bindings.createObjectBinding(() ->
 
-        return filtersContainer;
+                        log -> log.getComponent().toLowerCase().contains(componentSearchField.getText().toLowerCase()),
+                componentSearchField.textProperty()
+        ));
+
+        logFilteredList.predicateProperty().bind(Bindings.createObjectBinding(() ->
+
+                        detailsSearchFilter.get().and(componentSearchFilter.get()),
+                detailsSearchFilter, componentSearchFilter
+        ));
+
+
+        detailsSearchContainer.getChildren().addAll(detailsLabel, detailsSearchField);
+        componentSearchContainer.getChildren().addAll(componentLabel, componentSearchField);
+        sourceListContainer.getChildren().addAll(sourceLabel, sourceList);
+        verbosityCheckBoxContainer.getChildren().addAll(verbosityLabel, verbosityListView);
+
+        container.getChildren().addAll(sourceListContainer, verbosityCheckBoxContainer,componentSearchContainer, detailsSearchContainer);
+        container.setPadding(new Insets(5,5,5,5));
+
+        return container;
     }
 
     // Log loaders
@@ -265,7 +288,7 @@ public class App extends Application {
                                 .filter(line -> Character.isDigit(line.charAt(0)))
                                 .collect(Collectors.toList());
 
-    //                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
+                        //                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
                         allLogLines.addAll(logLines);
 
                     } catch (IOException e) {
@@ -358,7 +381,7 @@ public class App extends Application {
                                 .filter(line -> Character.isDigit(line.charAt(0)))
                                 .collect(Collectors.toList());
 
-    //                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
+                        //                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
                         allLogLines.addAll(logLines);
 
                     } catch (IOException e) {
@@ -462,9 +485,9 @@ public class App extends Application {
                     l.setDetails(matcher.group(1));
                     break;
             }
-        i++;
+            i++;
         }
-         return l;
+        return l;
     }
 
     private static Log prismWebLogParser(String log){
@@ -539,31 +562,41 @@ public class App extends Application {
 
                 if (logs.size() > 0){
                     logs.clear();
+                    verbosityListView.getItems().clear();
                 }
 
                 Thread backgroundThread = new Thread(() -> {
+                    // todo bind back
+//                    logs.addAll(iisNodeLogs());
+//                    logs.addAll(prismWebLogs());
+//                    logs.addAll(ecsLogs());
 
-                    logs.addAll(iisNodeLogs());
-                    logs.addAll(prismWebLogs());
-                    logs.addAll(ecsLogs());
+                     //testing
+                    LogGenerator logGenerator = new LogGenerator();
+                    logs.addAll(logGenerator.getLogs());
 
                     if (logs.size() > 0){
 
                         Collections.sort(logs);
 
-                        verbosityOptions = verbositySet(logs);
+                        verbosityObsList = FXCollections.observableArrayList(verbositySet(logs));
 
+                        verbosityListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+                        verbosityListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                            ListView<String> selected = new ListView<>();
+                            selected.setItems(verbosityListView.getSelectionModel().getSelectedItems());
+                            System.out.println(Arrays.toString(selected.getItems().toArray()));
+                        });
+
+                        // disable submission while log loading occurs
                         Platform.runLater(() -> {
-                            sourceFilterCkBz.setDisable(false);
-                            sourceFilterCkBz.setSelected(true);
-                            verbosityFilterCkBx.setDisable(false);
-                            verbosityFilterCkBx.setSelected(true);
-                            componentFilterChBx.setDisable(false);
-                            detailsSearchFilterChBx.setDisable(false);
                             setDatesBtn.setDisable(false);
+                            verbosityListView.getItems().addAll(verbosityObsList);
+                            verbosityListView.setPrefHeight(verbosityListView.getItems().size() * 26);
                         });
                     }
 
+                    // no logs found
                     else {
                         Platform.runLater(() -> {
                             Alert alert = new Alert(Alert.AlertType.INFORMATION, "No logs were found for the selected dates", ButtonType.OK);
@@ -584,106 +617,6 @@ public class App extends Application {
         catch (ParseException e){
             Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect time syntax", ButtonType.OK);
             alert.showAndWait();
-        }
-    }
-
-    private void addVerbosityOptions(Set<String> values, int index){
-
-        verbosityOptionsContainer = new VBox(1);
-        verbosityOptionsContainer.setPadding(new Insets(0, 0, 0, 15));
-
-        for (String option : values) {
-            CheckBox checkBox = new CheckBox(option);
-            checkBox.setSelected(true);
-            checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-
-                System.out.println();
-
-            });
-
-            filterCheckBoxList.add(checkBox);
-            verbosityOptionsContainer.getChildren().add(checkBox);
-        }
-        filtersContainer.getChildren().add(index + 1, verbosityOptionsContainer);
-
-    }
-
-    private void addSourceOptions(Set<String> values, int index){
-
-        SourceOptionsContainer = new VBox(1);
-        SourceOptionsContainer.setPadding(new Insets(0, 0, 0, 15));
-
-        for (String option : values) {
-            CheckBox checkBox = new CheckBox(option);
-            checkBox.setSelected(true);
-            checkBox.selectedProperty().addListener((observable, oldState, newState) -> {
-
-            });
-
-            filterCheckBoxList.add(checkBox);
-            SourceOptionsContainer.getChildren().add(checkBox);
-        }
-        filtersContainer.getChildren().add(index+1, SourceOptionsContainer);
-    }
-
-    private void addComponentTextBox(boolean isSelected, int index){
-
-        if (isSelected){
-
-            componentSearchboxContainer = new VBox(5);
-            componentSearchboxContainer.setPadding(new Insets(0,0,0,15));
-
-            TextField searchField = new TextField();
-            searchField.setPromptText("e.g. Application.ElastiCubeManager");
-
-            Button submit = new Button("Search");
-            submit.setOnAction(event -> {
-                if (!searchField.getText().isEmpty()){
-                    System.out.println("Searched for component " + searchField.getText());
-                }
-                else {
-                    Alert alert  = new Alert(Alert.AlertType.WARNING, "Please enter text to search for", ButtonType.OK);
-                    alert.showAndWait();
-                }
-            });
-
-            componentSearchboxContainer.getChildren().addAll(searchField, submit);
-            filtersContainer.getChildren().add(index + 1, componentSearchboxContainer);
-        }
-
-        else {
-            filtersContainer.getChildren().remove(componentSearchboxContainer);
-        }
-
-    }
-
-    private void addDetailsTextBox(boolean isSelected, int index){
-
-        if (isSelected){
-
-            searchBoxContainer = new VBox(5);
-            searchBoxContainer.setPadding(new Insets(0,0,0,15));
-
-            TextField searchField = new TextField();
-            searchField.setPromptText("e.g. finished initializing");
-
-            Button submit = new Button("Search");
-            submit.setOnAction(e -> {
-                if (!searchField.getText().isEmpty()){
-                    System.out.println("Searched for " + searchField.getText());
-                }
-                else {
-                    Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter text to search for", ButtonType.OK);
-                    alert.showAndWait();
-                }
-            });
-
-            searchBoxContainer.getChildren().addAll(searchField, submit);
-            filtersContainer.getChildren().add(index + 1, searchBoxContainer);
-        }
-
-        else {
-            filtersContainer.getChildren().remove(searchBoxContainer);
         }
     }
 

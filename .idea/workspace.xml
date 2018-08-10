@@ -3,7 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="a1c38ed0-1487-45fb-a445-1676e463a323" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/org/kobbigal/sisenselogreader/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/org/kobbigal/sisenselogreader/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/Playground.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/Playground.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/TestFilterState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/TestFilterState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/Test_Parsing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/Test_Parsing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/UniqueValuesForFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/UniqueValuesForFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AlertProgressBar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DownloaderApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/FiltersTesting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Indicators.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LoadingAlertStage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LogTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LogUploadProgress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Playground.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestFilterState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Test_Filters.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Test_Parsing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Test_ProgressBar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UniqueValuesForFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UpdateProgessTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/VersionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/WinRegistry.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -23,135 +44,133 @@
     <session id="1529824941">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.33" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="208" />
+          <entry key="java" value="2312" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="208" />
+          <entry key="JAVA" value="2312" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="1" />
+          <entry key="java" value="13" />
           <entry key="md" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="1" />
+          <entry key="JAVA" value="13" />
           <entry key="Markdown" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-115">
-              <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
-              <folding>
-                <element signature="e#3175#4150#0" />
-                <element signature="e#4156#5873#0" />
-                <element signature="e#5879#7441#0" />
-                <element signature="e#5922#5931#0" />
-                <element signature="e#7447#9798#0" />
-                <element signature="e#8082#8392#0" />
-                <element signature="e#8623#8944#0" />
-                <element signature="e#9804#11882#0" />
-                <element signature="e#11888#13494#0" />
-                <element signature="e#13500#15358#0" />
-                <element signature="e#15364#16444#0" />
-                <element signature="e#15696#15730#0" />
-                <element signature="e#16450#17539#0" />
-                <element signature="e#17545#18759#0" />
-                <element signature="e#18765#21618#0" />
-                <element signature="e#19997#21258#0" />
-                <element signature="e#20346#20838#0" />
-                <element signature="e#20933#21216#0" />
-                <element signature="e#21624#22302#0" />
-                <element signature="e#21996#22087#0" />
-                <element signature="e#22308#22929#0" />
-                <element signature="e#22671#22723#0" />
-                <element signature="e#22935#24057#0" />
-                <element signature="e#23369#23760#0" />
-                <element signature="e#24063#25114#0" />
-                <element signature="e#24469#24845#0" />
-                <element signature="e#25120#25370#0" />
-                <element signature="e#25257#25352#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor>
-                <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/WinRegistry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/VersionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Playground.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="101" selection-start-line="101" selection-end-line="101" />
-              <folding>
-                <element signature="method#start#0;class#Playground#0" />
-                <element signature="method#initializeLogTable#0;class#Playground#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/model/Log.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-              <folding>
-                <element signature="e#452#453#0" expanded="true" />
-                <element signature="e#491#492#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="59">
+                  <caret line="564" column="57" lean-forward="true" selection-start-line="564" selection-start-column="57" selection-end-line="564" selection-end-column="57" />
+                  <folding>
+                    <element signature="e#2162#2229#0" />
+                    <element signature="method#start#0;class#App#0" />
+                    <element signature="method#loadUI#0;class#App#0" />
+                    <element signature="method#initializeDateMenu#0;class#App#0" />
+                    <element signature="method#initializeLogTable#0;class#App#0" />
+                    <element signature="e#5871#5880#0" />
+                    <element signature="e#8449#8716#0" />
+                    <element signature="method#ecsLogs#0;class#App#0" />
+                    <element signature="method#iisNodeLogs#0;class#App#0" />
+                    <element signature="method#prismWebLogs#0;class#App#0" />
+                    <element signature="method#iisNodeLogParse#0;class#App#0" />
+                    <element signature="e#16464#16498#0" />
+                    <element signature="method#ecsLogParser#0;class#App#0" />
+                    <element signature="method#prismWebLogParser#0;class#App#0" />
+                    <element signature="e#21756#22094#0" />
+                    <element signature="method#verbositySet#0;class#App#0" />
+                    <element signature="method#removeDuplicates#0;class#App#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/test/LogGenerator.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="119">
+                  <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#786#787#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/geometry/Insets.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="748">
+                  <caret line="67" selection-start-line="67" selection-end-line="67" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="298">
+                  <caret line="413" lean-forward="true" selection-start-line="413" selection-end-line="413" />
+                  <folding>
+                    <element signature="e#2162#2229#0" />
+                    <element signature="method#start#0;class#App#0" />
+                    <element signature="method#loadUI#0;class#App#0" />
+                    <element signature="method#initializeDateMenu#0;class#App#0" />
+                    <element signature="method#initializeLogTable#0;class#App#0" />
+                    <element signature="e#5871#5880#0" />
+                    <element signature="method#getFiltersContainer#0;class#App#0" />
+                    <element signature="e#8449#8716#0" />
+                    <element signature="method#ecsLogs#0;class#App#0" />
+                    <element signature="method#iisNodeLogs#0;class#App#0" />
+                    <element signature="method#prismWebLogs#0;class#App#0" />
+                    <element signature="method#iisNodeLogParse#0;class#App#0" />
+                    <element signature="e#16464#16498#0" />
+                    <element signature="method#ecsLogParser#0;class#App#0" />
+                    <element signature="method#prismWebLogParser#0;class#App#0" />
+                    <element signature="method#handleSubmit#0;class#App#0" />
+                    <element signature="e#20768#22760#0" />
+                    <element signature="e#21756#22094#0" />
+                    <element signature="e#22435#22718#0" />
+                    <element signature="method#verbositySet#0;class#App#0" />
+                    <element signature="method#removeDuplicates#0;class#App#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -165,6 +184,28 @@
       <find>addVerbosityOptions</find>
       <find>setDatesBtn</find>
       <find>IMAGE_URL</find>
+      <find>submit</find>
+      <find>filterCheckBoxList</find>
+      <find>initializeLogTable</find>
+      <find>setitems</find>
+      <find>logs</find>
+      <find>observableList</find>
+      <find>creat</find>
+      <find>filteredList</find>
+      <find>logTable</find>
+      <find>filteredlist</find>
+      <find>sourceFilter</find>
+      <find>ecsLogs</find>
+      <find>setitiem</find>
+      <find>style.css</find>
+      <find>getFiltersContainer</find>
+      <find>rootLayout</find>
+      <find>setItems</find>
+      <find>logFilteredList</find>
+      <find>system.out.</find>
+      <find>loggenera</find>
+      <find>font</find>
+      <find>setleft</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -560,8 +601,11 @@
         <option value="$PROJECT_DIR$/src/test/java/WinRegistry.java" />
         <option value="$PROJECT_DIR$/src/test/java/VersionTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/classes/Log.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/test/java/MultipleFilterTableExample.java" />
+        <option value="$PROJECT_DIR$/src/test/java/LogGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/test/LogGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" />
       </list>
     </option>
   </component>
@@ -571,76 +615,22 @@
     </ignored-facets>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="784" />
+    <option name="x" value="1975" />
+    <option name="width" value="943" />
+    <option name="height" value="1087" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sisenselogreader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sisenselogreader" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -671,6 +661,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MultipleFilterTableExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MultipleFilterTableExample" />
+      <module name="SisenseLogReader_test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -715,10 +713,12 @@
       <item itemvalue="Application.App" />
       <item itemvalue="Application.Playground" />
       <item itemvalue="Application.VersionTest" />
+      <item itemvalue="Application.MultipleFilterTableExample" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.MultipleFilterTableExample" />
         <item itemvalue="Application.VersionTest" />
         <item itemvalue="Application.Playground" />
       </list>
@@ -744,25 +744,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
+    <frame x="1974" y="-8" width="1874" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2541345" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16868798" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.25259876" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25467774" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2037422" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32925585" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32925585" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32848233" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.14449064" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.32925585" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32952183" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -784,85 +785,100 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/classes/ProgressAlert.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/WinRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/VersionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Playground.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
-          <folding>
-            <element signature="method#start#0;class#Playground#0" />
-            <element signature="method#initializeLogTable#0;class#Playground#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/model/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#491#492#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor>
-            <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
+            <caret column="20" selection-start-column="20" selection-end-column="20" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/MultipleFilterTableExample.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/WinRegistry.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/VersionTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/Playground.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/beans/property/StringPropertyBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="141" column="74" lean-forward="true" selection-start-line="141" selection-start-column="74" selection-end-line="141" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/model/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="45" column="41" lean-forward="true" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#972#973#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="304" column="24" selection-start-line="304" selection-start-column="24" selection-end-line="304" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/concurrent/Callable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="64" column="6" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/control/TextInputControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="280" column="51" selection-start-line="280" selection-start-column="51" selection-end-line="280" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/geometry/Insets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/test/LogGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+        <state relative-caret-position="59">
+          <caret line="564" column="57" lean-forward="true" selection-start-line="564" selection-start-column="57" selection-end-line="564" selection-end-column="57" />
           <folding>
-            <element signature="e#3175#4150#0" />
-            <element signature="e#4156#5873#0" />
-            <element signature="e#5879#7441#0" />
-            <element signature="e#5922#5931#0" />
-            <element signature="e#7447#9798#0" />
-            <element signature="e#8082#8392#0" />
-            <element signature="e#8623#8944#0" />
-            <element signature="e#9804#11882#0" />
-            <element signature="e#11888#13494#0" />
-            <element signature="e#13500#15358#0" />
-            <element signature="e#15364#16444#0" />
-            <element signature="e#15696#15730#0" />
-            <element signature="e#16450#17539#0" />
-            <element signature="e#17545#18759#0" />
-            <element signature="e#18765#21618#0" />
-            <element signature="e#19997#21258#0" />
-            <element signature="e#20346#20838#0" />
-            <element signature="e#20933#21216#0" />
-            <element signature="e#21624#22302#0" />
-            <element signature="e#21996#22087#0" />
-            <element signature="e#22308#22929#0" />
-            <element signature="e#22671#22723#0" />
-            <element signature="e#22935#24057#0" />
-            <element signature="e#23369#23760#0" />
-            <element signature="e#24063#25114#0" />
-            <element signature="e#24469#24845#0" />
-            <element signature="e#25120#25370#0" />
-            <element signature="e#25257#25352#0" />
+            <element signature="e#2162#2229#0" />
+            <element signature="method#start#0;class#App#0" />
+            <element signature="method#loadUI#0;class#App#0" />
+            <element signature="method#initializeDateMenu#0;class#App#0" />
+            <element signature="method#initializeLogTable#0;class#App#0" />
+            <element signature="e#5871#5880#0" />
+            <element signature="e#8449#8716#0" />
+            <element signature="method#ecsLogs#0;class#App#0" />
+            <element signature="method#iisNodeLogs#0;class#App#0" />
+            <element signature="method#prismWebLogs#0;class#App#0" />
+            <element signature="method#iisNodeLogParse#0;class#App#0" />
+            <element signature="e#16464#16498#0" />
+            <element signature="method#ecsLogParser#0;class#App#0" />
+            <element signature="method#prismWebLogParser#0;class#App#0" />
+            <element signature="e#21756#22094#0" />
+            <element signature="method#verbositySet#0;class#App#0" />
+            <element signature="method#removeDuplicates#0;class#App#0" />
           </folding>
         </state>
       </provider>
