@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a1c38ed0-1487-45fb-a445-1676e463a323" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/org/kobbigal/sisenselogreader/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/org/kobbigal/sisenselogreader/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -60,43 +59,53 @@
     <session id="-1712742944">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="522" />
+          <entry key="md" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="522" />
+          <entry key="Markdown" value="52" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="1" />
+          <entry key="md" value="1" />
+          <entry key="png" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="1" />
+          <entry key="Image" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="261" column="93" lean-forward="true" selection-start-line="261" selection-start-column="93" selection-end-line="261" selection-end-column="93" />
+            <state relative-caret-position="399">
+              <caret line="256" column="20" lean-forward="true" selection-start-line="256" selection-start-column="20" selection-end-line="256" selection-end-column="20" />
               <folding>
                 <element signature="e#2379#2446#0" />
                 <element signature="method#start#0;class#App#0" />
                 <element signature="method#loadUI#0;class#App#0" />
                 <element signature="method#initializeDateMenu#0;class#App#0" />
-                <element signature="class#8787:9855" />
-                <element signature="initializer##0;class#8787:9855" />
-                <element signature="e#9009#9663#0" />
-                <element signature="class#10260:11369" />
-                <element signature="initializer##0;class#10260:11369" />
-                <element signature="e#10493#11165#0" />
-                <element signature="method#computeValue#0;class#10260:11369" />
                 <element signature="method#numberOfLogsContainer#0;class#App#0" />
                 <element signature="method#ecsLogs#0;class#App#0" />
                 <element signature="method#iisNodeLogs#0;class#App#0" />
@@ -105,14 +114,22 @@
                 <element signature="method#ecsLogParser#0;class#App#0" />
                 <element signature="method#prismWebLogParser#0;class#App#0" />
                 <element signature="method#handleSubmit#0;class#App#0" />
-                <element signature="e#23946#26286#0" />
-                <element signature="e#23974#23991#0" />
-                <element signature="e#25049#25829#0" />
-                <element signature="e#25961#26244#0" />
                 <element signature="method#verbosityUniqueValues#0;class#App#0" />
                 <element signature="method#sourcesUniqueValues#0;class#App#0" />
                 <element signature="method#removeDuplicates#0;class#App#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="15">
+                <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -553,12 +570,12 @@
         <option value="$PROJECT_DIR$/src/test/java/WinRegistry.java" />
         <option value="$PROJECT_DIR$/src/test/java/VersionTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/classes/Log.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test/java/MultipleFilterTableExample.java" />
         <option value="$PROJECT_DIR$/src/test/java/LogGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/test/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/test/LogGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -622,8 +639,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -657,10 +672,19 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sisenselogreader" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -808,7 +832,7 @@
     <frame x="0" y="22" width="1918" height="1330" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1673774" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16897655" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -817,7 +841,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329235" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3263328" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3263328" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39882353" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -843,18 +867,6 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java</url>
-          <line>234</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/tests/ProgressBarScene.java" />
@@ -894,15 +906,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/views/DateMenuPane.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/LogTest.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/UniqueValuesForFilter.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/classes/ProgressAlert.java" />
-    <entry file="file://$PROJECT_DIR$/README.md" />
     <entry file="file://$PROJECT_DIR$/src/test/java/MultipleFilterTableExample.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/WinRegistry.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/VersionTest.java" />
@@ -939,22 +943,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="261" column="93" lean-forward="true" selection-start-line="261" selection-start-column="93" selection-end-line="261" selection-end-column="93" />
+        <state relative-caret-position="399">
+          <caret line="256" column="20" lean-forward="true" selection-start-line="256" selection-start-column="20" selection-end-line="256" selection-end-column="20" />
           <folding>
             <element signature="e#2379#2446#0" />
             <element signature="method#start#0;class#App#0" />
             <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
-            <element signature="class#8787:9855" />
-            <element signature="initializer##0;class#8787:9855" />
-            <element signature="e#9009#9663#0" />
-            <element signature="class#10260:11369" />
-            <element signature="initializer##0;class#10260:11369" />
-            <element signature="e#10493#11165#0" />
-            <element signature="method#computeValue#0;class#10260:11369" />
             <element signature="method#numberOfLogsContainer#0;class#App#0" />
             <element signature="method#ecsLogs#0;class#App#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
@@ -963,14 +970,21 @@
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
             <element signature="method#handleSubmit#0;class#App#0" />
-            <element signature="e#23946#26286#0" />
-            <element signature="e#23974#23991#0" />
-            <element signature="e#25049#25829#0" />
-            <element signature="e#25961#26244#0" />
             <element signature="method#verbosityUniqueValues#0;class#App#0" />
             <element signature="method#sourcesUniqueValues#0;class#App#0" />
             <element signature="method#removeDuplicates#0;class#App#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="15">
+            <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
