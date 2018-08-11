@@ -45,7 +45,6 @@ import java.util.stream.Stream;
 public class App extends Application {
 
 
-    private TableView<Log> logTable;
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
     private LocalDate startDate = LocalDate.of(2018, 6, 1);
@@ -112,7 +111,6 @@ public class App extends Application {
 
         Scene scene = new Scene(rootLayout, WINDOW_WIDTH, WINDOW_HEIGHT);
 
-        // TODO: 6/9/18 fix style
         scene.getStylesheets().add("style.css");
 
         window.setScene(scene);
@@ -167,14 +165,14 @@ public class App extends Application {
 
     private VBox initializeLogTable(){
         VBox centerLogViewerContainer = new VBox(0);
-        logTable = new TableView<>();
+        TableView<Log> logTable = new TableView<>();
         logTable.setItems(logFilteredList);
         logTable.setPrefHeight(400);
 
         TableColumn<Log, String> sourceColumn = new TableColumn<>("Source");
         TableColumn<Log, Date> timeColumn = new TableColumn<>("Time");
-        TableColumn<Log, String> verbosityColumn = new TableColumn<>("Verbosity");
-        TableColumn<Log, String> componentColumn = new TableColumn<>("Component");
+        TableColumn<Log, String> verbosityColumn = new TableColumn<>("Log Level");
+        TableColumn<Log, String> componentColumn = new TableColumn<>("Class");
         TableColumn<Log, String> detailsColumn = new TableColumn<>("Details");
         sourceColumn.setSortable(false);
         sourceColumn.setMinWidth(80);
@@ -224,6 +222,7 @@ public class App extends Application {
 
         sourcesListView = new ListView<>();
         sourcesListView.setPrefHeight(sourcesListView.getItems().size() * 26);
+        sourcesListView.setTooltip(new Tooltip("Hold CMD/CTRL to select multiple values"));
         ObjectBinding<Predicate<Log>> sourcesObjectBinding = new ObjectBinding<Predicate<Log>>() {
             private final Set<String> srcs = new HashSet<>();
             {
@@ -256,10 +255,11 @@ public class App extends Application {
 
 
         // Verbosity
-        Label verbosityLabel = new Label("Verbosity");
+        Label verbosityLabel = new Label("Log Level");
         verbosityLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
 
         verbosityListView = new ListView<>();
+        verbosityListView.setTooltip(new Tooltip("Hold CMD/CTRL to select multiple values"));
         verbosityListView.setPrefHeight(verbosityListView.getItems().size() * 26);
         ObjectBinding<Predicate<Log>> verbosityObjectBinding = new ObjectBinding<Predicate<Log>>() {
             private final Set<String> verbosityStrs = new HashSet<>();
@@ -306,7 +306,7 @@ public class App extends Application {
 
 
         // Component
-        Label componentLabel = new Label("Components");
+        Label componentLabel = new Label("Class");
         componentLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
 
         TextField componentSearchField = new TextField();

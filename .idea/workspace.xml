@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1c38ed0-1487-45fb-a445-1676e463a323" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/org/kobbigal/sisenselogreader/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/org/kobbigal/sisenselogreader/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" afterDir="false" />
@@ -61,18 +60,20 @@
     <session id="-1712742944">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="424" />
+          <entry key="java" value="522" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="424" />
+          <entry key="JAVA" value="522" />
         </counts>
       </usages-collector>
     </session>
@@ -82,21 +83,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="660" column="81" selection-start-line="660" selection-start-column="81" selection-end-line="660" selection-end-column="81" />
+            <state relative-caret-position="474">
+              <caret line="261" column="93" lean-forward="true" selection-start-line="261" selection-start-column="93" selection-end-line="261" selection-end-column="93" />
               <folding>
-                <element signature="e#2386#2453#0" />
+                <element signature="e#2379#2446#0" />
                 <element signature="method#start#0;class#App#0" />
                 <element signature="method#loadUI#0;class#App#0" />
                 <element signature="method#initializeDateMenu#0;class#App#0" />
-                <element signature="method#initializeLogTable#0;class#App#0" />
-                <element signature="class#9027:10090" />
-                <element signature="initializer##0;class#9027:10090" />
-                <element signature="e#9244#9898#0" />
-                <element signature="class#10492:11601" />
-                <element signature="initializer##0;class#10492:11601" />
-                <element signature="e#10725#11397#0" />
-                <element signature="method#computeValue#0;class#10492:11601" />
+                <element signature="class#8787:9855" />
+                <element signature="initializer##0;class#8787:9855" />
+                <element signature="e#9009#9663#0" />
+                <element signature="class#10260:11369" />
+                <element signature="initializer##0;class#10260:11369" />
+                <element signature="e#10493#11165#0" />
+                <element signature="method#computeValue#0;class#10260:11369" />
                 <element signature="method#numberOfLogsContainer#0;class#App#0" />
                 <element signature="method#ecsLogs#0;class#App#0" />
                 <element signature="method#iisNodeLogs#0;class#App#0" />
@@ -104,8 +104,13 @@
                 <element signature="method#iisNodeLogParse#0;class#App#0" />
                 <element signature="method#ecsLogParser#0;class#App#0" />
                 <element signature="method#prismWebLogParser#0;class#App#0" />
-                <element signature="e#24293#24310#0" />
-                <element signature="e#25758#26041#0" />
+                <element signature="method#handleSubmit#0;class#App#0" />
+                <element signature="e#23946#26286#0" />
+                <element signature="e#23974#23991#0" />
+                <element signature="e#25049#25829#0" />
+                <element signature="e#25961#26244#0" />
+                <element signature="method#verbosityUniqueValues#0;class#App#0" />
+                <element signature="method#sourcesUniqueValues#0;class#App#0" />
                 <element signature="method#removeDuplicates#0;class#App#0" />
               </folding>
             </state>
@@ -123,7 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addVerbosityOptions</find>
       <find>setDatesBtn</find>
       <find>IMAGE_URL</find>
       <find>submit</find>
@@ -153,6 +157,7 @@
       <find>font</find>
       <find>logs loadd</find>
       <find>SelectionMode.MULTIPLE</find>
+      <find>sources</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -617,6 +622,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -655,7 +661,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -803,14 +808,13 @@
     <frame x="0" y="22" width="1918" height="1330" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16577825" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1673774" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Image Layers" order="6" />
-      <window_info anchor="bottom" id="Build" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329235" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3263328" />
@@ -820,8 +824,9 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329235" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50555557" side_tool="true" weight="0.56427604" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32786885" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49444443" weight="0.32941177" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49444443" weight="0.32875606" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49722221" weight="0.329235" />
+      <window_info anchor="bottom" id="Build" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -844,7 +849,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java</url>
-          <line>235</line>
+          <line>234</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -936,21 +941,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="660" column="81" selection-start-line="660" selection-start-column="81" selection-end-line="660" selection-end-column="81" />
+        <state relative-caret-position="474">
+          <caret line="261" column="93" lean-forward="true" selection-start-line="261" selection-start-column="93" selection-end-line="261" selection-end-column="93" />
           <folding>
-            <element signature="e#2386#2453#0" />
+            <element signature="e#2379#2446#0" />
             <element signature="method#start#0;class#App#0" />
             <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
-            <element signature="method#initializeLogTable#0;class#App#0" />
-            <element signature="class#9027:10090" />
-            <element signature="initializer##0;class#9027:10090" />
-            <element signature="e#9244#9898#0" />
-            <element signature="class#10492:11601" />
-            <element signature="initializer##0;class#10492:11601" />
-            <element signature="e#10725#11397#0" />
-            <element signature="method#computeValue#0;class#10492:11601" />
+            <element signature="class#8787:9855" />
+            <element signature="initializer##0;class#8787:9855" />
+            <element signature="e#9009#9663#0" />
+            <element signature="class#10260:11369" />
+            <element signature="initializer##0;class#10260:11369" />
+            <element signature="e#10493#11165#0" />
+            <element signature="method#computeValue#0;class#10260:11369" />
             <element signature="method#numberOfLogsContainer#0;class#App#0" />
             <element signature="method#ecsLogs#0;class#App#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
@@ -958,8 +962,13 @@
             <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
-            <element signature="e#24293#24310#0" />
-            <element signature="e#25758#26041#0" />
+            <element signature="method#handleSubmit#0;class#App#0" />
+            <element signature="e#23946#26286#0" />
+            <element signature="e#23974#23991#0" />
+            <element signature="e#25049#25829#0" />
+            <element signature="e#25961#26244#0" />
+            <element signature="method#verbosityUniqueValues#0;class#App#0" />
+            <element signature="method#sourcesUniqueValues#0;class#App#0" />
             <element signature="method#removeDuplicates#0;class#App#0" />
           </folding>
         </state>
