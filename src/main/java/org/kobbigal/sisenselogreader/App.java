@@ -8,6 +8,8 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -56,6 +58,8 @@ public class App extends Application {
     private ObservableList<Log> logs = FXCollections.observableArrayList();
     private FilteredList<Log> logFilteredList = new FilteredList<>(logs);
     private Button setDatesBtn;
+    private Label numLogsLoaded;
+    private BorderPane rootLayout;
 
     private ObservableList<String> verbosityObsList;
     private ListView<String> verbosityListView;
@@ -97,7 +101,7 @@ public class App extends Application {
         int WINDOW_HEIGHT = 600;
         window.setMinHeight(WINDOW_HEIGHT);
 
-        BorderPane rootLayout = new BorderPane();
+        rootLayout = new BorderPane();
 
         // UI binding
         rootLayout.setTop(initializeDateMenu());
@@ -211,17 +215,27 @@ public class App extends Application {
 
         Label sourceLabel = new Label("Sources");
         sourceLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
-        ListView<String> sourceList = new ListView<>();
-        ObservableList sourceItems = FXCollections.observableArrayList(sources);
 
+        ListView<String> sourceList = new ListView<>();
+        ObservableList<String> sourceItems = FXCollections.observableArrayList(sources);
+        sourceList.getItems().addAll(sourceItems);
         sourceList.setPrefHeight(sourceItems.size() * 26);
         sourceList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        ListView<String> selected = new ListView<>();
         sourceList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            ListView<String> selected = new ListView<>();
+
             selected.setItems(sourceList.getSelectionModel().getSelectedItems());
-            System.out.println(Arrays.toString(selected.getItems().toArray()));
+            System.out.println(Arrays.toString(selected.getItems().toArray()));;
+
         });
-        sourceList.getItems().addAll(sources);
+
+//        sourceFilter.bind(Bindings.createObjectBinding(() ->
+//
+//            log -> log.getSource().contains(selected.getItems().get(0)),
+//                sourceList.itemsProperty()
+//
+//        ));
 
         Label verbosityLabel = new Label("Verbosity");
         verbosityLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
@@ -246,11 +260,14 @@ public class App extends Application {
         componentSearchField.setPromptText("e.g. Application.ElastiCubeManager");
         componentSearchFilter.bind(Bindings.createObjectBinding(() ->
 
-                        log -> log.getComponent().toLowerCase().contains(componentSearchField.getText().toLowerCase()),
-                componentSearchField.textProperty()
+                log -> log.getComponent().toLowerCase().contains(componentSearchField.getText().toLowerCase()),
+                    componentSearchField.textProperty()
         ));
 
         logFilteredList.predicateProperty().bind(Bindings.createObjectBinding(() ->
+
+//                        detailsSearchFilter.get().and(componentSearchFilter.get()).and(sourceFilter.get()).and(verbosityFilter.get()),
+//                detailsSearchFilter, componentSearchFilter, sourceFilter, verbosityFilter
 
                         detailsSearchFilter.get().and(componentSearchFilter.get()),
                 detailsSearchFilter, componentSearchFilter
@@ -265,6 +282,14 @@ public class App extends Application {
         container.getChildren().addAll(sourceListContainer, verbosityCheckBoxContainer,componentSearchContainer, detailsSearchContainer);
         container.setPadding(new Insets(5,5,5,5));
 
+        return container;
+    }
+
+    private VBox numberOfLogsContainer(){
+        VBox container = new VBox();
+        container.setAlignment(Pos.CENTER);
+        container.setPadding(new Insets(0,0,30,0));
+        container.getChildren().add(numLogsLoaded);
         return container;
     }
 
@@ -577,6 +602,9 @@ public class App extends Application {
 
                     if (logs.size() > 0){
 
+                        numLogsLoaded = new Label();
+                        numLogsLoaded .setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
+
                         Collections.sort(logs);
 
                         verbosityObsList = FXCollections.observableArrayList(verbositySet(logs));
@@ -590,6 +618,8 @@ public class App extends Application {
 
                         // disable submission while log loading occurs
                         Platform.runLater(() -> {
+                            numLogsLoaded.setText("Number of logs: " + String.valueOf(logs.size()));
+                            rootLayout.setBottom(numberOfLogsContainer());
                             setDatesBtn.setDisable(false);
                             verbosityListView.getItems().addAll(verbosityObsList);
                             verbosityListView.setPrefHeight(verbosityListView.getItems().size() * 26);
@@ -605,7 +635,6 @@ public class App extends Application {
                         });
                     }
                 });
-
                 backgroundThread.setDaemon(true);
                 backgroundThread.start();
 

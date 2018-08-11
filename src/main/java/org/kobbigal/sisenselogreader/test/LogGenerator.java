@@ -23,7 +23,7 @@ public class LogGenerator {
 
     private static List<Log> createLogs(){
 
-        int numberOfLogs = 50000;
+        int numberOfLogs = RANDOM.nextInt(500000);
 
         List<Log> logs = new ArrayList<>();
 
