@@ -166,20 +166,16 @@ public class App extends Application {
     }
 
     private VBox initializeLogTable(){
-        // Center
-
-        // Create table
         VBox centerLogViewerContainer = new VBox(0);
-        logTable = new TableView();
+        logTable = new TableView<>();
         logTable.setItems(logFilteredList);
         logTable.setPrefHeight(400);
 
-        // Add columns
-        TableColumn sourceColumn = new TableColumn("Source");
-        TableColumn timeColumn = new TableColumn("Time");
-        TableColumn verbosityColumn = new TableColumn("Verbosity");
-        TableColumn componentColumn = new TableColumn("Component");
-        TableColumn detailsColumn = new TableColumn("Details");
+        TableColumn<Log, String> sourceColumn = new TableColumn<>("Source");
+        TableColumn<Log, Date> timeColumn = new TableColumn<>("Time");
+        TableColumn<Log, String> verbosityColumn = new TableColumn<>("Verbosity");
+        TableColumn<Log, String> componentColumn = new TableColumn<>("Component");
+        TableColumn<Log, String> detailsColumn = new TableColumn<>("Details");
         sourceColumn.setSortable(false);
         sourceColumn.setMinWidth(80);
         timeColumn.setMinWidth(180);
@@ -190,12 +186,16 @@ public class App extends Application {
         detailsColumn.setSortable(false);
         detailsColumn.setMinWidth(575);
 
-        sourceColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("source"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<Log, Date>("time"));
-        verbosityColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("verbosity"));
-        componentColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("component"));
-        detailsColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("details"));
-        logTable.getColumns().addAll(sourceColumn, timeColumn, verbosityColumn, componentColumn, detailsColumn);
+        sourceColumn.setCellValueFactory(new PropertyValueFactory<>("source"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+        verbosityColumn.setCellValueFactory(new PropertyValueFactory<>("verbosity"));
+        componentColumn.setCellValueFactory(new PropertyValueFactory<>("component"));
+        detailsColumn.setCellValueFactory(new PropertyValueFactory<>("details"));
+        logTable.getColumns().add(sourceColumn);
+        logTable.getColumns().add(timeColumn);
+        logTable.getColumns().add(verbosityColumn);
+        logTable.getColumns().add(componentColumn);
+        logTable.getColumns().add(detailsColumn);
 
         centerLogViewerContainer.getChildren().add(logTable);
 
@@ -205,6 +205,8 @@ public class App extends Application {
     private VBox getFiltersContainer(){
 
         VBox container = new VBox(10);
+        container.setPadding(new Insets(5,5,5,5));
+
         VBox sourceListContainer = new VBox(5);
         VBox verbosityCheckBoxContainer = new VBox(5);
         VBox detailsSearchContainer = new VBox(5);
@@ -215,6 +217,8 @@ public class App extends Application {
         ObjectProperty<Predicate<Log>> detailsSearchFilter = new SimpleObjectProperty<>();
         ObjectProperty<Predicate<Log>> componentSearchFilter = new SimpleObjectProperty<>();
 
+
+        // Sources
         Label sourceLabel = new Label("Sources");
         sourceLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
 
@@ -226,31 +230,25 @@ public class App extends Application {
 
         ObjectBinding<Predicate<Log>> sourcesObjectBinding = new ObjectBinding<Predicate<Log>>() {
             private final Set<String> srcs = new HashSet<>();
-
             {
-                sourceList.getSelectionModel().getSelectedItems().addListener(new ListChangeListener<String>() {
-                    @Override
-                    public void onChanged(Change<? extends String> c) {
-                        boolean changed = false;
+                sourceList.getSelectionModel().getSelectedItems().addListener((ListChangeListener<String>) c -> {
+                    boolean changed = false;
 
-                        while (c.next()){
-                            if (c.wasRemoved()){
-                                changed = true;
-                                c.getRemoved().stream().map(String::toLowerCase).forEach(srcs::remove);
-                            }
-                            if (c.wasAdded()){
-                                changed = true;
-                                c.getAddedSubList().stream().map(String::toLowerCase).forEach(srcs::add);
-                            }
+                    while (c.next()){
+                        if (c.wasRemoved()){
+                            changed = true;
+                            c.getRemoved().stream().map(String::toLowerCase).forEach(srcs::remove);
                         }
-                        if (changed){
-                            invalidate();
+                        if (c.wasAdded()){
+                            changed = true;
+                            c.getAddedSubList().stream().map(String::toLowerCase).forEach(srcs::add);
                         }
+                    }
+                    if (changed){
+                        invalidate();
                     }
                 });
             }
-
-
             @Override
             protected Predicate<Log> computeValue() {
                 return log -> srcs.contains(log.getSource().toLowerCase());
@@ -259,19 +257,40 @@ public class App extends Application {
         sourceFilter.bind(sourcesObjectBinding);
 
 
-        ListView<String> selected = new ListView<>();
-        sourceList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-
-            selected.setItems(sourceList.getSelectionModel().getSelectedItems());
-            System.out.println(Arrays.toString(selected.getItems().toArray()));;
-
-        });
-
+        // Verbosity
         Label verbosityLabel = new Label("Verbosity");
         verbosityLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
         verbosityListView = new ListView<>();
         verbosityListView.setPrefHeight(verbosityListView.getItems().size() * 26);
+        ObjectBinding<Predicate<Log>> verbosityObjectBinding = new ObjectBinding<Predicate<Log>>() {
+            private final Set<String> verbosityStrs = new HashSet<>();
+            {
+                verbosityListView.getSelectionModel().getSelectedItems().addListener((ListChangeListener<String>) c -> {
+                    boolean changed = false;
 
+                    while (c.next()){
+                        if (c.wasRemoved()){
+                            changed = true;
+                            c.getRemoved().stream().map(String::toLowerCase).forEach(verbosityStrs::remove);
+                        }
+                        if (c.wasAdded()){
+                            changed = true;
+                            c.getAddedSubList().stream().map(String::toLowerCase).forEach(verbosityStrs::add);
+                        }
+                    }
+                    if (changed){
+                        invalidate();
+                    }
+                });
+            }
+            @Override
+            protected Predicate<Log> computeValue() {
+                return log -> verbosityStrs.contains(log.getVerbosity().toLowerCase());
+            }
+        };
+        verbosityFilter.bind(verbosityObjectBinding);
+
+        // Details
         Label detailsLabel = new Label("Details");
         detailsLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
 
@@ -283,6 +302,8 @@ public class App extends Application {
                 detailsSearchField.textProperty()
         ));
 
+
+        // Component
         Label componentLabel = new Label("Components");
         componentLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
 
@@ -294,19 +315,21 @@ public class App extends Application {
                     componentSearchField.textProperty()
         ));
 
+
+        // Bind filtered list to filter predicates
         logFilteredList.predicateProperty().bind(Bindings.createObjectBinding(() ->
-                        detailsSearchFilter.get().and(componentSearchFilter.get()).and(sourceFilter.get()),
-                detailsSearchFilter, componentSearchFilter, sourceFilter
+                        detailsSearchFilter.get().and(componentSearchFilter.get()).and(sourceFilter.get()).and(verbosityFilter.get()),
+                detailsSearchFilter, componentSearchFilter, sourceFilter, verbosityFilter
         ));
 
-
+        // add labels and lists/search fields to containers
         detailsSearchContainer.getChildren().addAll(detailsLabel, detailsSearchField);
         componentSearchContainer.getChildren().addAll(componentLabel, componentSearchField);
         sourceListContainer.getChildren().addAll(sourceLabel, sourceList);
         verbosityCheckBoxContainer.getChildren().addAll(verbosityLabel, verbosityListView);
 
+        // add filter containers to root container
         container.getChildren().addAll(sourceListContainer, verbosityCheckBoxContainer,componentSearchContainer, detailsSearchContainer);
-        container.setPadding(new Insets(5,5,5,5));
 
         return container;
     }
@@ -636,11 +659,6 @@ public class App extends Application {
                         verbosityObsList = FXCollections.observableArrayList(verbositySet(logs));
 
                         verbosityListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-                        verbosityListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                            ListView<String> selected = new ListView<>();
-                            selected.setItems(verbosityListView.getSelectionModel().getSelectedItems());
-                            System.out.println(Arrays.toString(selected.getItems().toArray()));
-                        });
 
                         // disable submission while log loading occurs
                         Platform.runLater(() -> {
