@@ -3,9 +3,11 @@ package org.kobbigal.sisenselogreader;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.beans.binding.ObjectBinding;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
@@ -222,6 +224,41 @@ public class App extends Application {
         sourceList.setPrefHeight(sourceItems.size() * 26);
         sourceList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
+        ObjectBinding<Predicate<Log>> sourcesObjectBinding = new ObjectBinding<Predicate<Log>>() {
+            private final Set<String> srcs = new HashSet<>();
+
+            {
+                sourceList.getSelectionModel().getSelectedItems().addListener(new ListChangeListener<String>() {
+                    @Override
+                    public void onChanged(Change<? extends String> c) {
+                        boolean changed = false;
+
+                        while (c.next()){
+                            if (c.wasRemoved()){
+                                changed = true;
+                                c.getRemoved().stream().map(String::toLowerCase).forEach(srcs::remove);
+                            }
+                            if (c.wasAdded()){
+                                changed = true;
+                                c.getAddedSubList().stream().map(String::toLowerCase).forEach(srcs::add);
+                            }
+                        }
+                        if (changed){
+                            invalidate();
+                        }
+                    }
+                });
+            }
+
+
+            @Override
+            protected Predicate<Log> computeValue() {
+                return log -> srcs.contains(log.getSource().toLowerCase());
+            }
+        };
+        sourceFilter.bind(sourcesObjectBinding);
+
+
         ListView<String> selected = new ListView<>();
         sourceList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 
@@ -229,13 +266,6 @@ public class App extends Application {
             System.out.println(Arrays.toString(selected.getItems().toArray()));;
 
         });
-
-//        sourceFilter.bind(Bindings.createObjectBinding(() ->
-//
-//            log -> log.getSource().contains(selected.getItems().get(0)),
-//                sourceList.itemsProperty()
-//
-//        ));
 
         Label verbosityLabel = new Label("Verbosity");
         verbosityLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
@@ -265,12 +295,8 @@ public class App extends Application {
         ));
 
         logFilteredList.predicateProperty().bind(Bindings.createObjectBinding(() ->
-
-//                        detailsSearchFilter.get().and(componentSearchFilter.get()).and(sourceFilter.get()).and(verbosityFilter.get()),
-//                detailsSearchFilter, componentSearchFilter, sourceFilter, verbosityFilter
-
-                        detailsSearchFilter.get().and(componentSearchFilter.get()),
-                detailsSearchFilter, componentSearchFilter
+                        detailsSearchFilter.get().and(componentSearchFilter.get()).and(sourceFilter.get()),
+                detailsSearchFilter, componentSearchFilter, sourceFilter
         ));
 
 
