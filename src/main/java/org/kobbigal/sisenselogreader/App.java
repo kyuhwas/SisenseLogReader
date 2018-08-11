@@ -10,8 +10,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -64,7 +62,9 @@ public class App extends Application {
     private BorderPane rootLayout;
 
     private ObservableList<String> verbosityObsList;
+    private ObservableList<String> sourcesObsList;
     private ListView<String> verbosityListView;
+    private ListView<String> sourcesListView;
 
 //    private ObjectProperty<Predicate<Log>> componentSearchFilter;
 //    private ObjectProperty<Predicate<Log>> detailsSearchFilter;
@@ -222,16 +222,12 @@ public class App extends Application {
         Label sourceLabel = new Label("Sources");
         sourceLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
 
-        ListView<String> sourceList = new ListView<>();
-        ObservableList<String> sourceItems = FXCollections.observableArrayList(sources);
-        sourceList.getItems().addAll(sourceItems);
-        sourceList.setPrefHeight(sourceItems.size() * 26);
-        sourceList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
+        sourcesListView = new ListView<>();
+        sourcesListView.setPrefHeight(sourcesListView.getItems().size() * 26);
         ObjectBinding<Predicate<Log>> sourcesObjectBinding = new ObjectBinding<Predicate<Log>>() {
             private final Set<String> srcs = new HashSet<>();
             {
-                sourceList.getSelectionModel().getSelectedItems().addListener((ListChangeListener<String>) c -> {
+                sourcesListView.getSelectionModel().getSelectedItems().addListener((ListChangeListener<String>) c -> {
                     boolean changed = false;
 
                     while (c.next()){
@@ -257,9 +253,12 @@ public class App extends Application {
         sourceFilter.bind(sourcesObjectBinding);
 
 
+
+
         // Verbosity
         Label verbosityLabel = new Label("Verbosity");
         verbosityLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
+
         verbosityListView = new ListView<>();
         verbosityListView.setPrefHeight(verbosityListView.getItems().size() * 26);
         ObjectBinding<Predicate<Log>> verbosityObjectBinding = new ObjectBinding<Predicate<Log>>() {
@@ -289,6 +288,9 @@ public class App extends Application {
             }
         };
         verbosityFilter.bind(verbosityObjectBinding);
+
+
+
 
         // Details
         Label detailsLabel = new Label("Details");
@@ -325,7 +327,7 @@ public class App extends Application {
         // add labels and lists/search fields to containers
         detailsSearchContainer.getChildren().addAll(detailsLabel, detailsSearchField);
         componentSearchContainer.getChildren().addAll(componentLabel, componentSearchField);
-        sourceListContainer.getChildren().addAll(sourceLabel, sourceList);
+        sourceListContainer.getChildren().addAll(sourceLabel, sourcesListView);
         verbosityCheckBoxContainer.getChildren().addAll(verbosityLabel, verbosityListView);
 
         // add filter containers to root container
@@ -496,10 +498,6 @@ public class App extends Application {
 
         l.setSource(sources[1]);
         int i = 0;
-//        if (!matcher.matches()){
-//            l = null;
-//            return l;
-//        }
         while (matcher.find()){
 
             switch (i){
@@ -656,17 +654,27 @@ public class App extends Application {
 
                         Collections.sort(logs);
 
-                        verbosityObsList = FXCollections.observableArrayList(verbositySet(logs));
+                        verbosityObsList = FXCollections.observableArrayList(verbosityUniqueValues(logs));
+                        sourcesObsList = FXCollections.observableArrayList(sourcesUniqueValues(logs));
 
                         verbosityListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+                        sourcesListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-                        // disable submission while log loading occurs
+                        // run after logs were added
                         Platform.runLater(() -> {
+
                             numLogsLoaded.setText("Number of logs: " + String.valueOf(logs.size()));
                             rootLayout.setBottom(numberOfLogsContainer());
+
                             setDatesBtn.setDisable(false);
+
                             verbosityListView.getItems().addAll(verbosityObsList);
                             verbosityListView.setPrefHeight(verbosityListView.getItems().size() * 26);
+                            verbosityListView.getSelectionModel().selectAll();
+
+                            sourcesListView.getItems().addAll(sourcesObsList);
+                            sourcesListView.setPrefHeight(sourcesObsList.size() * 26);
+                            sourcesListView.getSelectionModel().selectAll();
                         });
                     }
 
@@ -694,12 +702,23 @@ public class App extends Application {
     }
 
     // Helper methods
-    private static Set<String> verbositySet(List<Log> logs){
+    private static Set<String> verbosityUniqueValues(List<Log> logs){
 
         List<String> list = new ArrayList<>();
 
         for (Log l : logs) {
             list.add(l.getVerbosity());
+        }
+
+        return new HashSet<>(list);
+
+    }
+
+    private static Set<String> sourcesUniqueValues(List<Log> logs){
+
+        List<String> list = new ArrayList<>();
+        for (Log l : logs){
+            list.add(l.getSource());
         }
 
         return new HashSet<>(list);
