@@ -4,7 +4,9 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.ObjectBinding;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -18,12 +20,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.kobbigal.sisenselogreader.model.Log;
-import org.kobbigal.sisenselogreader.test.LogGenerator;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,12 +49,13 @@ public class App extends Application {
 
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
-    private LocalDate startDate = LocalDate.of(2018, 7, 1);
-    private LocalDate endDate = LocalDate.of(2018, 7, 30);
+    private LocalDate startDate = LocalDate.now();
+    private LocalDate endDate = LocalDate.now();
     private Date startTime;
     private Date endTime;
     private TextField startTimeTxtFld;
     private TextField endTimeTxtFld;
+    private TableView<Log> logTable;
     private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private ObservableList<Log> logs = FXCollections.observableArrayList();
     private FilteredList<Log> logFilteredList = new FilteredList<>(logs);
@@ -105,6 +108,7 @@ public class App extends Application {
         rootLayout = new BorderPane();
 
         // UI binding
+        rootLayout.setTop(appMenuBar());
         rootLayout.setTop(initializeDateMenu());
         rootLayout.setCenter(initializeLogTable());
         rootLayout.setLeft(getFiltersContainer());
@@ -112,6 +116,8 @@ public class App extends Application {
         Scene scene = new Scene(rootLayout, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         scene.getStylesheets().add("style.css");
+
+
 
         window.setScene(scene);
         window.show();
@@ -150,7 +156,7 @@ public class App extends Application {
 
         startTimeTxtFld = new TextField();
         startTimeTxtFld.setPromptText("HH:mm");
-        startTimeTxtFld.setText("12:00");
+        startTimeTxtFld.setText("11:50");
         topMenuContainer.add(startTimeTxtFld, 0, 2);
 
         endTimeTxtFld = new TextField();
@@ -165,7 +171,7 @@ public class App extends Application {
 
     private VBox initializeLogTable(){
         VBox centerLogViewerContainer = new VBox(0);
-        TableView<Log> logTable = new TableView<>();
+        logTable = new TableView<>();
         logTable.setItems(logFilteredList);
         logTable.setPrefHeight(400);
 
@@ -336,12 +342,33 @@ public class App extends Application {
         return container;
     }
 
-    private VBox numberOfLogsContainer(){
-        VBox container = new VBox();
+    private HBox numberOfLogsContainer(){
+        HBox container = new HBox();
+        Label numLogs = new Label("Number of logs: ");
+        numLogs.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
+        numLogsLoaded.textProperty().bind(Bindings.size((logTable.getItems())).asString());
+        numLogsLoaded.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
         container.setAlignment(Pos.CENTER);
         container.setPadding(new Insets(0,0,30,0));
-        container.getChildren().add(numLogsLoaded);
+        container.getChildren().addAll(numLogs, numLogsLoaded);
         return container;
+    }
+
+    private MenuBar appMenuBar(){
+
+        MenuBar menuBar = new MenuBar();
+
+        Menu fileMenu = new Menu("File");
+        Menu settingMenu = new Menu("Settings");
+        Menu helpMenu = new Menu("Help");
+
+
+        MenuItem about = new MenuItem("About");
+        helpMenu.getItems().add(about);
+
+        menuBar.getMenus().addAll(fileMenu, settingMenu, helpMenu);
+
+        return menuBar;
     }
 
     // Log loaders
@@ -650,7 +677,6 @@ public class App extends Application {
                     if (logs.size() > 0){
 
                         numLogsLoaded = new Label();
-                        numLogsLoaded .setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
 
                         Collections.sort(logs);
 
@@ -663,7 +689,7 @@ public class App extends Application {
                         // run after logs were added
                         Platform.runLater(() -> {
 
-                            numLogsLoaded.setText("Number of logs: " + String.valueOf(logs.size()));
+//                            numLogsLoaded.setText("Number of logs: " + String.valueOf(logs.size()));
                             rootLayout.setBottom(numberOfLogsContainer());
 
                             setDatesBtn.setDisable(false);
