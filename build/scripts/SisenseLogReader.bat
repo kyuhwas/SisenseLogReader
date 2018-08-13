@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\SisenseLogReader.jar
+set CLASSPATH=%APP_HOME%\lib\SisenseLogReader.jar;%APP_HOME%\lib\slf4j-api-1.7.21.jar
 
 @rem Execute SisenseLogReader
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SISENSE_LOG_READER_OPTS%  -classpath "%CLASSPATH%" org.kobbigal.sisenselogreader.App %CMD_LINE_ARGS%

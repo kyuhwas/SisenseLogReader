@@ -47,8 +47,8 @@ public class App extends Application {
 
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
-    private LocalDate startDate = LocalDate.of(2018, 6, 1);
-    private LocalDate endDate = LocalDate.of(2018, 6, 30);
+    private LocalDate startDate = LocalDate.of(2018, 7, 1);
+    private LocalDate endDate = LocalDate.of(2018, 7, 30);
     private Date startTime;
     private Date endTime;
     private TextField startTimeTxtFld;
@@ -639,13 +639,13 @@ public class App extends Application {
 
                 Thread backgroundThread = new Thread(() -> {
                     // todo bind back
-//                    logs.addAll(iisNodeLogs());
-//                    logs.addAll(prismWebLogs());
-//                    logs.addAll(ecsLogs());
+                    logs.addAll(iisNodeLogs());
+                    logs.addAll(prismWebLogs());
+                    logs.addAll(ecsLogs());
 
                      //testing
-                    LogGenerator logGenerator = new LogGenerator();
-                    logs.addAll(logGenerator.getLogs());
+//                    LogGenerator logGenerator = new LogGenerator();
+//                    logs.addAll(logGenerator.getLogs());
 
                     if (logs.size() > 0){
 

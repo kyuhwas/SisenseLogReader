@@ -2,16 +2,150 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1c38ed0-1487-45fb-a445-1676e463a323" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.gradle/4.2.1/fileContent/annotation-processors.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/kobbigal/sisenselogreader/App$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/kobbigal/sisenselogreader/App$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/kobbigal/sisenselogreader/model/Log.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/kobbigal/sisenselogreader/test/LogGenerator$LogLevel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/kobbigal/sisenselogreader/test/LogGenerator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/org/kobbigal/sisenselogreader/test/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/launch4j/SisenseLogReader.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/launch4j/lib/SisenseLogReader.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/launch4j/lib/slf4j-api-1.7.21.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/bin/COPYING" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/bin/ld.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/bin/windres.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/head/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/head/consolehead.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/head/guihead.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/head/head.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/head_jni_BETA/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/head_jni_BETA/head.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/head_jni_BETA/jniconsolehead.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/head_jni_BETA/jniguihead.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/head_jni_BETA/jnihead.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api/MinGW.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api/crt2.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api/libadvapi32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api/libgcc.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api/libkernel32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api/libmingw32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api/libmsvcrt.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api/libshell32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api/libuser32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api_jni/MinGW.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api_jni/crt2.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api_jni/libadvapi32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api_jni/libgcc.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api_jni/libkernel32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api_jni/libmingw32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api_jni/libmingwex.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api_jni/libmoldname.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api_jni/libmsvcrt.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api_jni/libshell32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/expandedArchives/launch4j-3.12-workdir-win32.jar_60zjd1sj82gpww7b81bpozhla/launch4j-3.12-workdir-win32/w32api_jni/libuser32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/bin/COPYING" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/bin/ld.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/bin/windres.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/created" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/head/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/head/consolehead.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/head/guihead.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/head/head.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/head_jni_BETA/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/head_jni_BETA/head.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/head_jni_BETA/jniconsolehead.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/head_jni_BETA/jniguihead.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/head_jni_BETA/jnihead.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api/MinGW.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api/crt2.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api/libadvapi32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api/libgcc.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api/libkernel32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api/libmingw32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api/libmsvcrt.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api/libshell32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api/libuser32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api_jni/MinGW.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api_jni/crt2.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api_jni/libadvapi32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api_jni/libgcc.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api_jni/libkernel32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api_jni/libmingw32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api_jni/libmingwex.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api_jni/libmoldname.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api_jni/libmsvcrt.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api_jni/libshell32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/launch4j/bin-launch4j-3.12/w32api_jni/libuser32.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/logoico.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/fileSnapshots.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.2.1/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/kobbigal/sisenselogreader/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/kobbigal/sisenselogreader/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/kobbigal/sisenselogreader/classes/Log.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/kobbigal/sisenselogreader/classes/ProgressAlert.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/LogTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/TestFilterState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/Test_Filters.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/Test_Parsing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/UniqueValuesForFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/DownloaderApp$DownloadTask.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/DownloaderApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/FiltersTesting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/Indicators.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/LoadingAlertStage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/LogUploadProgress.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/Playground.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/Test_ProgressBar$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/Test_ProgressBar$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/Test_ProgressBar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/UpdateProgessTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/test/java/UpdateProgessTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/org/kobbigal/sisenselogreader/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/org/kobbigal/sisenselogreader/App$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/org/kobbigal/sisenselogreader/App$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/org/kobbigal/sisenselogreader/App$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/main/org/kobbigal/sisenselogreader/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/org/kobbigal/sisenselogreader/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/org/kobbigal/sisenselogreader/test/LogGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/org/kobbigal/sisenselogreader/test/LogGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/distributions/SisenseLogReader.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/SisenseLogReader.tar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/distributions/SisenseLogReader.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/SisenseLogReader.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/SisenseLogReader.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/SisenseLogReader.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/SisenseLogReader" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/SisenseLogReader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/SisenseLogReader.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/SisenseLogReader.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SisenseLogReader_jar/SisenseLogReader.exe" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SisenseLogReader_jar/SisenseLogReader.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/org/kobbigal/sisenselogreader/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/org/kobbigal/sisenselogreader/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/LogTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/MultipleFilterTableExample$Person$Gender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/MultipleFilterTableExample$Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/MultipleFilterTableExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/Playground.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/TestFilterState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/Test_Filters.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/Test_Parsing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/UniqueValuesForFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/UpdateProgessTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/UpdateProgessTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/VersionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/WinRegistry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test/java/DownloaderApp$DownloadTask.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test/java/DownloaderApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test/java/FiltersTesting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test/java/Indicators.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test/java/LoadingAlertStage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test/java/LogUploadProgress.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test/java/Test_ProgressBar$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test/java/Test_ProgressBar$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test/java/Test_ProgressBar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -55,6 +189,18 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="SisenseLogReader" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="distribution" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SisenseLogReader" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="launch4j" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SisenseLogReader" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="other" type="c8890929:TasksNode$1" />
               </path>
             </expand>
@@ -80,24 +226,33 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2312" />
+          <entry key="gradle" value="150" />
+          <entry key="java" value="2345" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2312" />
+          <entry key="Groovy" value="150" />
+          <entry key="JAVA" value="2345" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="MF" value="1" />
+          <entry key="bat" value="1" />
+          <entry key="gradle" value="3" />
+          <entry key="gradlew" value="1" />
           <entry key="java" value="13" />
           <entry key="md" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Groovy" value="3" />
           <entry key="JAVA" value="13" />
+          <entry key="Manifest" value="1" />
           <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -147,24 +302,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2325">
-              <caret line="267" column="44" lean-forward="true" selection-start-line="267" selection-start-column="44" selection-end-line="267" selection-end-column="44" />
+            <state relative-caret-position="494">
+              <caret line="97" column="49" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="49" />
               <folding>
                 <element signature="e#2379#2446#0" />
                 <element signature="method#start#0;class#App#0" />
-                <element signature="method#loadUI#0;class#App#0" />
                 <element signature="method#initializeDateMenu#0;class#App#0" />
+                <element signature="method#initializeLogTable#0;class#App#0" />
+                <element signature="method#getFiltersContainer#0;class#App#0" />
+                <element signature="class#8875:9943" />
+                <element signature="initializer##0;class#8875:9943" />
+                <element signature="e#9097#9751#0" />
+                <element signature="class#10442:11551" />
+                <element signature="initializer##0;class#10442:11551" />
+                <element signature="e#10675#11347#0" />
+                <element signature="method#computeValue#0;class#10442:11551" />
                 <element signature="method#numberOfLogsContainer#0;class#App#0" />
-                <element signature="method#ecsLogs#0;class#App#0" />
                 <element signature="method#iisNodeLogs#0;class#App#0" />
                 <element signature="method#prismWebLogs#0;class#App#0" />
-                <element signature="method#iisNodeLogParse#0;class#App#0" />
                 <element signature="method#ecsLogParser#0;class#App#0" />
                 <element signature="method#prismWebLogParser#0;class#App#0" />
                 <element signature="method#handleSubmit#0;class#App#0" />
+                <element signature="e#24123#26463#0" />
+                <element signature="e#24332#24341#0" />
+                <element signature="e#25226#26006#0" />
+                <element signature="e#26138#26421#0" />
                 <element signature="method#verbosityUniqueValues#0;class#App#0" />
                 <element signature="method#sourcesUniqueValues#0;class#App#0" />
                 <element signature="method#removeDuplicates#0;class#App#0" />
@@ -173,14 +338,32 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="15">
-                <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -196,9 +379,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setDatesBtn</find>
-      <find>IMAGE_URL</find>
-      <find>submit</find>
       <find>filterCheckBoxList</find>
       <find>initializeLogTable</find>
       <find>setitems</find>
@@ -226,6 +406,9 @@
       <find>logs loadd</find>
       <find>SelectionMode.MULTIPLE</find>
       <find>sources</find>
+      <find>handlesu</find>
+      <find>submit</find>
+      <find>icon</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -234,7 +417,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="$USER_HOME$/.gradle/wrapper/dists/gradle-3.3-all/55gk2rcmfc6p2dg9u9ohc3hw9/gradle-3.3" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\kobbi.gal.CORP\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -308,6 +491,11 @@
                 <option name="name" value="wrapper" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Runs all tasks that implements DefaultLaunch4jTask" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="createAllExecutables" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles test classes." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="testClasses" />
@@ -351,6 +539,11 @@
                 <option name="description" value="Assembles the main distributions" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="assembleDist" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs the launch4j jar to generate an .exe file" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="createExe" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Initializes a new Gradle build. [incubating]" />
@@ -418,6 +611,11 @@
                 <option name="name" value="buildNeeded" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Deprecated placeholder task to run launch4j to generate an .exe file" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="launch4j" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Bundles the project as a distribution." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="distTar" />
@@ -439,9 +637,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6135039620000" />
+        <entry key="$PROJECT_DIR$" value="6120561198251" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="12964020" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="2472706889" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="829777938" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="2327282023" />
       </map>
@@ -456,6 +654,23 @@
                   <entry key="$PROJECT_DIR$">
                     <value>
                       <ExternalModuleBuildClasspathPojo>
+                        <option name="entries">
+                          <list>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/gradle.plugin.edu.sc.seis.gradle/launch4j/2.4.4/bf537cf150510b64d3c5fcdc1d2995de260c25ef/launch4j-2.4.4-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thoughtworks.xstream/xstream/1.4.10/24b0de5fa33b368f5fe8f9eb5242343bb39d3abb/xstream-1.4.10-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.launch4j/launch4j/3.12/49f67d301a1b548e207ed6e7b9e1ba7afe639b3/launch4j-3.12-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/xpp3/xpp3_min/1.1.4c/fffe25ec1f20ec1cfdc0edd41c6e0d55bc0dbaf5/xpp3_min-1.1.4c-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.7.0/b68c4fc66026e8c08df7fb57c7dc1e94a6ed8cbb/commons-beanutils-1.7.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/ecf26c7507d67782a3bbd148d170b31dfad001aa/commons-logging-1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/gradle.plugin.edu.sc.seis.gradle/launch4j/2.4.4/cc7507f35ec77b44c3c74928bf0897ec92d3d42a/launch4j-2.4.4.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thoughtworks.xstream/xstream/1.4.10/dfecae23647abc9d9fd0416629a4213a3882b101/xstream-1.4.10.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.launch4j/launch4j/3.12/520b173d15601bd2336265d08a32b4b67c15df89/launch4j-3.12.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/xmlpull/xmlpull/1.1.3.1/2b8e230d2ab644e4ecaa94db7cdedbc40c805dfa/xmlpull-1.1.3.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/xpp3/xpp3_min/1.1.4c/19d4e90b43059058f6e056f794f0ea4030d60b86/xpp3_min-1.1.4c.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.7.0/5675fd96b29656504b86029551973d60fb41339b/commons-beanutils-1.7.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar" />
+                          </list>
+                        </option>
                         <option name="path" value="$PROJECT_DIR$" />
                       </ExternalModuleBuildClasspathPojo>
                     </value>
@@ -624,9 +839,10 @@
         <option value="$PROJECT_DIR$/src/test/java/MultipleFilterTableExample.java" />
         <option value="$PROJECT_DIR$/src/test/java/LogGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/test/Main.java" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/test/LogGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java" />
-        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
@@ -635,10 +851,17 @@
       <facet id="SisenseLogReader/invalid/Java-Gradle" />
     </ignored-facets>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1918" />
-    <option name="height" value="1330" />
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="339" />
+    <option name="y" value="-8" />
+    <option name="width" value="943" />
+    <option name="height" value="1087" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -690,8 +913,43 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="gradle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SisenseLogReader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SisenseLogReader" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -708,11 +966,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="searchBoxContainer&#9;PSI&#9;JAVA://org.kobbigal.sisenselogreader.App#searchBoxContainer&#10;componentSearchboxContainer&#9;PSI&#9;JAVA://org.kobbigal.sisenselogreader.App#componentSearchboxContainer&#10;verbosityOptionsContainer&#9;PSI&#9;JAVA://org.kobbigal.sisenselogreader.App#verbosityOptionsContainer&#10;addVerbosityOptions&#9;PSI&#9;JAVA://org.kobbigal.sisenselogreader.App#addVerbosityOptions&#10;filterCheckBoxList&#9;PSI&#9;JAVA://org.kobbigal.sisenselogreader.App#filterCheckBoxList&#10;addDetailsTextBox&#9;PSI&#9;JAVA://org.kobbigal.sisenselogreader.App#addDetailsTextBox" />
+    <property name="last.edited.regexp" value="[[]]" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -737,7 +995,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.SisenseLogReader [build]">
+  <component name="RunManager" selected="Gradle.SisenseLogReader [createExe]">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.kobbigal.sisenselogreader.App" />
       <module name="SisenseLogReader_main" />
@@ -762,14 +1020,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MultipleFilterTableExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MultipleFilterTableExample" />
-      <module name="SisenseLogReader_test" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -806,6 +1056,24 @@
       </ExternalSystemSettings>
       <method v="2" />
     </configuration>
+    <configuration name="SisenseLogReader [createExe]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="createExe" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="VM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -823,19 +1091,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.MultipleFilterTableExample" />
       <item itemvalue="Application.VersionTest" />
       <item itemvalue="Application.App" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.SisenseLogReader [build]" />
+      <item itemvalue="Gradle.SisenseLogReader [createExe]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.SisenseLogReader [build]" />
+        <item itemvalue="Gradle.SisenseLogReader [createExe]" />
         <item itemvalue="Application.App" />
+        <item itemvalue="Gradle.SisenseLogReader [build]" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.VersionTest" />
-        <item itemvalue="Application.MultipleFilterTableExample" />
       </list>
     </recent_temporary>
   </component>
@@ -862,10 +1130,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1918" height="1330" extended-state="0" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1705757" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17034179" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -874,24 +1142,24 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329235" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3263328" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4966924" weight="0.3253638" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39882353" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329235" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50555557" side_tool="true" weight="0.56427604" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5022051" side_tool="true" weight="0.32952183" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32786885" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49444443" weight="0.32875606" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49444443" visible="true" weight="0.32848233" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49722221" weight="0.329235" />
-      <window_info anchor="bottom" id="Build" order="11" />
+      <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49779493" weight="0.32952183" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="4" weight="0.3296582" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Gradle" order="7" weight="0.32995737" />
+      <window_info anchor="right" id="Gradle" order="7" visible="true" weight="0.238699" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
   </component>
@@ -945,17 +1213,16 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/List.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/concurrent/Callable.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/control/TextInputControl.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/geometry/Insets.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/beans/property/SimpleObjectProperty.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/ListView.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/beans/binding/ObjectExpression.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/test/LogGenerator.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/geometry/Insets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="748">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/beans/property/SimpleObjectProperty.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/ListView.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/beans/binding/ObjectExpression.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/test/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -976,33 +1243,6 @@
     <entry file="file://$PROJECT_DIR$/SisenseLogReader.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="32" column="2" lean-forward="true" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradlew.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradlew">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1014,27 +1254,83 @@
       </provider>
       <provider editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/test/LogGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="25" column="50" lean-forward="true" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradlew.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradlew">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/kobbigal/sisenselogreader/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2325">
-          <caret line="267" column="44" lean-forward="true" selection-start-line="267" selection-start-column="44" selection-end-line="267" selection-end-column="44" />
+        <state relative-caret-position="494">
+          <caret line="97" column="49" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="49" />
           <folding>
             <element signature="e#2379#2446#0" />
             <element signature="method#start#0;class#App#0" />
-            <element signature="method#loadUI#0;class#App#0" />
             <element signature="method#initializeDateMenu#0;class#App#0" />
+            <element signature="method#initializeLogTable#0;class#App#0" />
+            <element signature="method#getFiltersContainer#0;class#App#0" />
+            <element signature="class#8875:9943" />
+            <element signature="initializer##0;class#8875:9943" />
+            <element signature="e#9097#9751#0" />
+            <element signature="class#10442:11551" />
+            <element signature="initializer##0;class#10442:11551" />
+            <element signature="e#10675#11347#0" />
+            <element signature="method#computeValue#0;class#10442:11551" />
             <element signature="method#numberOfLogsContainer#0;class#App#0" />
-            <element signature="method#ecsLogs#0;class#App#0" />
             <element signature="method#iisNodeLogs#0;class#App#0" />
             <element signature="method#prismWebLogs#0;class#App#0" />
-            <element signature="method#iisNodeLogParse#0;class#App#0" />
             <element signature="method#ecsLogParser#0;class#App#0" />
             <element signature="method#prismWebLogParser#0;class#App#0" />
             <element signature="method#handleSubmit#0;class#App#0" />
+            <element signature="e#24123#26463#0" />
+            <element signature="e#24332#24341#0" />
+            <element signature="e#25226#26006#0" />
+            <element signature="e#26138#26421#0" />
             <element signature="method#verbosityUniqueValues#0;class#App#0" />
             <element signature="method#sourcesUniqueValues#0;class#App#0" />
             <element signature="method#removeDuplicates#0;class#App#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
