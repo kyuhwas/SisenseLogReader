@@ -11,5 +11,4 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="SisenseLogReader_main" />
   </component>
-  <component name="TestModuleProperties" production-module="SisenseLogReader_main" />
 </module>

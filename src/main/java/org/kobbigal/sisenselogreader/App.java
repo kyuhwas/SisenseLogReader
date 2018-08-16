@@ -12,6 +12,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -109,8 +111,9 @@ public class App extends Application {
 
         // UI binding
         rootLayout.setTop(appMenuBar());
-        rootLayout.setTop(initializeDateMenu());
-        rootLayout.setCenter(initializeLogTable());
+        //rootLayout.setTop(initializeDateMenu());
+//        rootLayout.setCenter(initializeLogTable());
+        rootLayout.setCenter(centerLayoutDateSelectionAndTable(initializeDateMenu(), initializeLogTable()));
         rootLayout.setLeft(getFiltersContainer());
 
         Scene scene = new Scene(rootLayout, WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -183,6 +186,7 @@ public class App extends Application {
         sourceColumn.setSortable(false);
         sourceColumn.setMinWidth(80);
         timeColumn.setMinWidth(180);
+        timeColumn.setSortable(true);
         verbosityColumn.setSortable(false);
         verbosityColumn.setMinWidth(60);
         componentColumn.setSortable(false);
@@ -280,7 +284,13 @@ public class App extends Application {
                         }
                         if (c.wasAdded()){
                             changed = true;
-                            c.getAddedSubList().stream().map(String::toLowerCase).forEach(verbosityStrs::add);
+
+                            try {
+                                c.getAddedSubList().stream().map(String::toLowerCase).forEach(verbosityStrs::add);
+                            }
+                            catch (IndexOutOfBoundsException ignored){
+
+                            }
                         }
                     }
                     if (changed){
@@ -342,6 +352,14 @@ public class App extends Application {
         return container;
     }
 
+    private VBox centerLayoutDateSelectionAndTable(GridPane dateContainer, VBox table){
+
+        VBox container = new VBox(5);
+        container.getChildren().addAll(dateContainer, table);
+        return container;
+
+    }
+
     private HBox numberOfLogsContainer(){
         HBox container = new HBox();
         Label numLogs = new Label("Number of logs: ");
@@ -359,9 +377,18 @@ public class App extends Application {
         MenuBar menuBar = new MenuBar();
 
         Menu fileMenu = new Menu("File");
-        Menu settingMenu = new Menu("Settings");
-        Menu helpMenu = new Menu("Help");
 
+
+        Menu settingMenu = new Menu("Settings");
+        MenuItem logLocationMenuItem = new MenuItem("Change log locations");
+        logLocationMenuItem.setOnAction(event -> {
+
+            System.out.println("clicked");
+
+        });
+        settingMenu.getItems().add(logLocationMenuItem);
+
+        Menu helpMenu = new Menu("Help");
 
         MenuItem about = new MenuItem("About");
         helpMenu.getItems().add(about);
@@ -669,10 +696,6 @@ public class App extends Application {
                     logs.addAll(iisNodeLogs());
                     logs.addAll(prismWebLogs());
                     logs.addAll(ecsLogs());
-
-                     //testing
-//                    LogGenerator logGenerator = new LogGenerator();
-//                    logs.addAll(logGenerator.getLogs());
 
                     if (logs.size() > 0){
 
