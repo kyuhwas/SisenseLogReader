@@ -9,7 +9,7 @@ launch4j{
     downloadUrl = "http://java.com/download"
     icon = "${projectDir}/res/logoico.ico"
     outfile = 'SisenseLogReader.exe'
-    bundledJrePath = "${projectDir}/dist/bin/javaw.exe"
+    bundledJrePath = "C:\\Program Files\\Sisense\\Infra\\jre"
 }
 
 repositories {
