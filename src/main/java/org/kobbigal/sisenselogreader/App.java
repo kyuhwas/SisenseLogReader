@@ -4,16 +4,12 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.ObjectBinding;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -28,6 +24,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.kobbigal.sisenselogreader.model.Log;
+import org.kobbigal.sisenselogreader.views.LogLocationModal;
 
 import java.io.File;
 import java.io.IOException;
@@ -119,9 +116,6 @@ public class App extends Application {
         Scene scene = new Scene(rootLayout, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         scene.getStylesheets().add("style.css");
-
-
-
         window.setScene(scene);
         window.show();
     }
@@ -381,11 +375,7 @@ public class App extends Application {
 
         Menu settingMenu = new Menu("Settings");
         MenuItem logLocationMenuItem = new MenuItem("Change log locations");
-        logLocationMenuItem.setOnAction(event -> {
-
-            System.out.println("clicked");
-
-        });
+        logLocationMenuItem.setOnAction(event -> new LogLocationModal());
         settingMenu.getItems().add(logLocationMenuItem);
 
         Menu helpMenu = new Menu("Help");
