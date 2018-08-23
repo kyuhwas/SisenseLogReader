@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 public class LogLocationModal extends Stage{
 
-    private final String title = "Title";
+    private final String title = "Choose log paths";
     private Stage stage;
     private Scene scene;
     private BorderPane rootLayout;

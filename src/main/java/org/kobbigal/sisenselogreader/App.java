@@ -24,6 +24,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.kobbigal.sisenselogreader.model.Log;
+import org.kobbigal.sisenselogreader.views.AppMenuBar;
+import org.kobbigal.sisenselogreader.views.LogCountContainer;
 import org.kobbigal.sisenselogreader.views.LogLocationModal;
 
 import java.io.File;
@@ -44,7 +46,6 @@ import java.util.stream.Stream;
 //TODO add logic to filtering source and verbosity listview
 
 public class App extends Application {
-
 
     private DatePicker startDatePicker;
     private DatePicker endDatePicker;
@@ -78,10 +79,6 @@ public class App extends Application {
     private final String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\";
     private final String ECS_LOG_PATH = "C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\";
 
-    // MAC
-//    private final String IIS_NODE_PATH = "/Users/kobbigal/Downloads/sample_logs/IISNodeLogs/";
-//    private final String ECS_LOG_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismServerLogs/";
-//    private final String PRISMWEB_LOGS_PATH = "/Users/kobbigal/Downloads/sample_logs/PrismWebServer/";
     private final String IMAGE_URL = "file:" + String.valueOf(Paths.get(System.getProperty("user.dir"),"res","logo.png"));
 
     public static void main(String[] args) {
@@ -107,7 +104,8 @@ public class App extends Application {
         rootLayout = new BorderPane();
 
         // UI binding
-        rootLayout.setTop(appMenuBar());
+//        rootLayout.setTop(appMenuBar());
+        rootLayout.setTop(new AppMenuBar());
         //rootLayout.setTop(initializeDateMenu());
 //        rootLayout.setCenter(initializeLogTable());
         rootLayout.setCenter(centerLayoutDateSelectionAndTable(initializeDateMenu(), initializeLogTable()));
@@ -240,7 +238,12 @@ public class App extends Application {
                         }
                         if (c.wasAdded()){
                             changed = true;
-                            c.getAddedSubList().stream().map(String::toLowerCase).forEach(srcs::add);
+                            try {
+                                c.getAddedSubList().stream().map(String::toLowerCase).forEach(srcs::add);
+                            }
+                            catch (IndexOutOfBoundsException ignored){
+
+                            }
                         }
                     }
                     if (changed){
@@ -352,40 +355,6 @@ public class App extends Application {
         container.getChildren().addAll(dateContainer, table);
         return container;
 
-    }
-
-    private HBox numberOfLogsContainer(){
-        HBox container = new HBox();
-        Label numLogs = new Label("Number of logs: ");
-        numLogs.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
-        numLogsLoaded.textProperty().bind(Bindings.size((logTable.getItems())).asString());
-        numLogsLoaded.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
-        container.setAlignment(Pos.CENTER);
-        container.setPadding(new Insets(0,0,30,0));
-        container.getChildren().addAll(numLogs, numLogsLoaded);
-        return container;
-    }
-
-    private MenuBar appMenuBar(){
-
-        MenuBar menuBar = new MenuBar();
-
-        Menu fileMenu = new Menu("File");
-
-
-        Menu settingMenu = new Menu("Settings");
-        MenuItem logLocationMenuItem = new MenuItem("Change log locations");
-        logLocationMenuItem.setOnAction(event -> new LogLocationModal());
-        settingMenu.getItems().add(logLocationMenuItem);
-
-        Menu helpMenu = new Menu("Help");
-
-        MenuItem about = new MenuItem("About");
-        helpMenu.getItems().add(about);
-
-        menuBar.getMenus().addAll(fileMenu, settingMenu, helpMenu);
-
-        return menuBar;
     }
 
     // Log loaders
@@ -702,8 +671,7 @@ public class App extends Application {
                         // run after logs were added
                         Platform.runLater(() -> {
 
-//                            numLogsLoaded.setText("Number of logs: " + String.valueOf(logs.size()));
-                            rootLayout.setBottom(numberOfLogsContainer());
+                            rootLayout.setBottom(new LogCountContainer(numLogsLoaded, logTable));
 
                             setDatesBtn.setDisable(false);
 
