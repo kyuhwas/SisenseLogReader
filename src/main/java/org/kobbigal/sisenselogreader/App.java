@@ -25,6 +25,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.kobbigal.sisenselogreader.model.Log;
 import org.kobbigal.sisenselogreader.views.AppMenuBar;
+import org.kobbigal.sisenselogreader.views.DateMenu;
 import org.kobbigal.sisenselogreader.views.LogCountContainer;
 import org.kobbigal.sisenselogreader.views.LogLocationModal;
 
@@ -47,26 +48,26 @@ import java.util.stream.Stream;
 
 public class App extends Application {
 
-    private DatePicker startDatePicker;
-    private DatePicker endDatePicker;
+    private static DatePicker startDatePicker;
+    private static DatePicker endDatePicker;
     private LocalDate startDate = LocalDate.now();
     private LocalDate endDate = LocalDate.now();
-    private Date startTime;
-    private Date endTime;
-    private TextField startTimeTxtFld;
-    private TextField endTimeTxtFld;
-    private TableView<Log> logTable;
-    private SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    private ObservableList<Log> logs = FXCollections.observableArrayList();
+    private static Date startTime;
+    private static Date endTime;
+    private static TextField startTimeTxtFld;
+    private static TextField endTimeTxtFld;
+    private static TableView<Log> logTable;
+    private static SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static ObservableList<Log> logs = FXCollections.observableArrayList();
     private FilteredList<Log> logFilteredList = new FilteredList<>(logs);
-    private Button setDatesBtn;
-    private Label numLogsLoaded;
-    private BorderPane rootLayout;
+    private static Button setDatesBtn;
+    private static Label numLogsLoaded;
+    private static BorderPane rootLayout;
 
-    private ObservableList<String> verbosityObsList;
-    private ObservableList<String> sourcesObsList;
-    private ListView<String> verbosityListView;
-    private ListView<String> sourcesListView;
+    private static ObservableList<String> verbosityObsList;
+    private static ObservableList<String> sourcesObsList;
+    private static ListView<String> verbosityListView;
+    private static ListView<String> sourcesListView;
 
 //    private ObjectProperty<Predicate<Log>> componentSearchFilter;
 //    private ObjectProperty<Predicate<Log>> detailsSearchFilter;
@@ -75,9 +76,9 @@ public class App extends Application {
 
     // TODO menu item to configure log paths
     // WINDOWS
-    private final String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
-    private final String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\";
-    private final String ECS_LOG_PATH = "C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\";
+    private final static String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
+    private final static String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\";
+    private final static String ECS_LOG_PATH = "C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\";
 
     private final String IMAGE_URL = "file:" + String.valueOf(Paths.get(System.getProperty("user.dir"),"res","logo.png"));
 
@@ -104,11 +105,9 @@ public class App extends Application {
         rootLayout = new BorderPane();
 
         // UI binding
-//        rootLayout.setTop(appMenuBar());
         rootLayout.setTop(new AppMenuBar());
-        //rootLayout.setTop(initializeDateMenu());
-//        rootLayout.setCenter(initializeLogTable());
         rootLayout.setCenter(centerLayoutDateSelectionAndTable(initializeDateMenu(), initializeLogTable()));
+//        rootLayout.setCenter(centerLayoutDateSelectionAndTable(new DateMenu(startDatePicker, endDatePicker, startTimeTxtFld, endTimeTxtFld, this), initializeLogTable()));
         rootLayout.setLeft(getFiltersContainer());
 
         Scene scene = new Scene(rootLayout, WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -358,7 +357,7 @@ public class App extends Application {
     }
 
     // Log loaders
-    private List<Log> ecsLogs() {
+    static private List<Log> ecsLogs() {
 
         List<Log> logs = new ArrayList<>();
         File[] fls = new File(Paths.get(ECS_LOG_PATH).normalize().toString()).listFiles();
@@ -408,7 +407,7 @@ public class App extends Application {
         return removeDuplicates(logs);
     }
 
-    private List<Log> iisNodeLogs(){
+    static private List<Log> iisNodeLogs(){
 
         List<Log> logs = new ArrayList<>();
         File[] fls = new File(Paths.get(IIS_NODE_PATH).normalize().toString()).listFiles();
@@ -453,7 +452,7 @@ public class App extends Application {
 
     }
 
-    private List<Log> prismWebLogs(){
+    static private List<Log> prismWebLogs(){
 
         List<Log> logs = new ArrayList<>();
         File[] fls = new File(Paths.get(PRISMWEB_LOGS_PATH).normalize().toString()).listFiles();
@@ -680,7 +679,7 @@ public class App extends Application {
                             verbosityListView.getSelectionModel().selectAll();
 
                             sourcesListView.getItems().addAll(sourcesObsList);
-                            sourcesListView.setPrefHeight(sourcesObsList.size() * 26);
+                            sourcesListView.setPrefHeight(sourcesListView.getItems().size() * 26);
                             sourcesListView.getSelectionModel().selectAll();
                         });
                     }
