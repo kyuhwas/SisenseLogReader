@@ -18,16 +18,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.kobbigal.sisenselogreader.model.Log;
 import org.kobbigal.sisenselogreader.views.AppMenuBar;
-import org.kobbigal.sisenselogreader.views.DateMenu;
 import org.kobbigal.sisenselogreader.views.LogCountContainer;
-import org.kobbigal.sisenselogreader.views.LogLocationModal;
 
 import java.io.File;
 import java.io.IOException;
@@ -59,13 +56,13 @@ public class App extends Application {
     private static TableView<Log> logTable;
     private static SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private static ObservableList<Log> logs = FXCollections.observableArrayList();
-    private FilteredList<Log> logFilteredList = new FilteredList<>(logs);
+    private static FilteredList<Log> logFilteredList = new FilteredList<>(logs);
     private static Button setDatesBtn;
     private static Label numLogsLoaded;
     private static BorderPane rootLayout;
 
-    private static ObservableList<String> verbosityObsList;
-    private static ObservableList<String> sourcesObsList;
+    private static ObservableList<String> verbosityObsList = FXCollections.observableArrayList();
+    private static ObservableList<String> sourcesObsList = FXCollections.observableArrayList();
     private static ListView<String> verbosityListView;
     private static ListView<String> sourcesListView;
 
@@ -258,8 +255,6 @@ public class App extends Application {
         sourceFilter.bind(sourcesObjectBinding);
 
 
-
-
         // Verbosity
         Label verbosityLabel = new Label("Log Level");
         verbosityLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
@@ -301,9 +296,6 @@ public class App extends Application {
         };
         verbosityFilter.bind(verbosityObjectBinding);
 
-
-
-
         // Details
         Label detailsLabel = new Label("Details");
         detailsLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
@@ -316,7 +308,6 @@ public class App extends Application {
                 detailsSearchField.textProperty()
         ));
 
-
         // Component
         Label componentLabel = new Label("Class");
         componentLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
@@ -325,14 +316,13 @@ public class App extends Application {
         componentSearchField.setPromptText("e.g. Application.ElastiCubeManager");
         componentSearchFilter.bind(Bindings.createObjectBinding(() ->
 
-                log -> log.getComponent().toLowerCase().contains(componentSearchField.getText().toLowerCase()),
+                            log -> log.getComponent().toLowerCase().contains(componentSearchField.getText().toLowerCase()),
                     componentSearchField.textProperty()
-        ));
-
+            ));
 
         // Bind filtered list to filter predicates
         logFilteredList.predicateProperty().bind(Bindings.createObjectBinding(() ->
-                        detailsSearchFilter.get().and(componentSearchFilter.get()).and(sourceFilter.get()).and(verbosityFilter.get()),
+                        sourceFilter.get().and(componentSearchFilter.get()).and(detailsSearchFilter.get()).and(verbosityFilter.get()),
                 detailsSearchFilter, componentSearchFilter, sourceFilter, verbosityFilter
         ));
 
@@ -375,8 +365,6 @@ public class App extends Application {
                         logLines = stream.filter(line -> !line.isEmpty())
                                 .filter(line -> Character.isDigit(line.charAt(0)))
                                 .collect(Collectors.toList());
-
-                        //                    System.out.println("Number of logs added from " + f.getName() + ": " + logLines.size());
                         allLogLines.addAll(logLines);
 
                     } catch (IOException e) {
@@ -387,7 +375,6 @@ public class App extends Application {
             }
         }
 
-//        System.out.println("Total number of ECS logs: " + allLogLines.size());
 
         for (String logStr: allLogLines){
 
@@ -647,10 +634,10 @@ public class App extends Application {
                 if (logs.size() > 0){
                     logs.clear();
                     verbosityListView.getItems().clear();
+                    sourcesListView.getItems().clear();
                 }
 
                 Thread backgroundThread = new Thread(() -> {
-                    // todo bind back
                     logs.addAll(iisNodeLogs());
                     logs.addAll(prismWebLogs());
                     logs.addAll(ecsLogs());
