@@ -4,19 +4,22 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import org.kobbigal.sisenselogreader.model.Log;
 import javafx.beans.binding.Bindings;
+import org.kobbigal.sisenselogreader.version.VersionRetriever;
 
-public class LogCountContainer extends HBox {
+import java.io.IOException;
 
-    private final String NUMBER_OF_LOGS_STR = "Number of logs: ";
-    private final Label numLogs = new Label(NUMBER_OF_LOGS_STR);
+public class LogCountContainer extends VBox {
 
     public LogCountContainer(Label numberOfLogsLabel, TableView<Log> logTable) {
         super();
+
+        String NUMBER_OF_LOGS_STR = "Number of logs: ";
+        Label numLogs = new Label(NUMBER_OF_LOGS_STR);
 
         numLogs.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
         numberOfLogsLabel.textProperty().bind(Bindings.size((logTable.getItems())).asString());

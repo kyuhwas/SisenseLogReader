@@ -23,9 +23,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.kobbigal.sisenselogreader.model.Log;
+import org.kobbigal.sisenselogreader.version.VersionRetriever;
 import org.kobbigal.sisenselogreader.views.AppMenuBar;
 import org.kobbigal.sisenselogreader.views.LogCountContainer;
 
+import java.beans.VetoableChangeListener;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -45,6 +47,7 @@ import java.util.stream.Stream;
 
 public class App extends Application {
 
+    private static Stage appWindow;
     private static DatePicker startDatePicker;
     private static DatePicker endDatePicker;
     private LocalDate startDate = LocalDate.now();
@@ -65,9 +68,6 @@ public class App extends Application {
     private static ObservableList<String> sourcesObsList = FXCollections.observableArrayList();
     private static ListView<String> verbosityListView;
     private static ListView<String> sourcesListView;
-
-//    private ObjectProperty<Predicate<Log>> componentSearchFilter;
-//    private ObjectProperty<Predicate<Log>> detailsSearchFilter;
 
     private final static String[] sources = new String[]{"ECS","IISNode","PrismWebServer"};
 
@@ -92,26 +92,26 @@ public class App extends Application {
 
     private void loadUI(Stage window){
 
-        window.getIcons().add(new Image(IMAGE_URL));
-        window.setTitle("Sisense Log Reader");
+        appWindow = window;
+        appWindow.getIcons().add(new Image(IMAGE_URL));
+        appWindow.setTitle("Sisense Log Reader");
         int WINDOW_WIDTH = 1600;
-        window.setMinWidth(WINDOW_WIDTH);
+        appWindow.setMinWidth(WINDOW_WIDTH);
         int WINDOW_HEIGHT = 600;
-        window.setMinHeight(WINDOW_HEIGHT);
+        appWindow.setMinHeight(WINDOW_HEIGHT);
 
         rootLayout = new BorderPane();
 
         // UI binding
         rootLayout.setTop(new AppMenuBar());
         rootLayout.setCenter(centerLayoutDateSelectionAndTable(initializeDateMenu(), initializeLogTable()));
-//        rootLayout.setCenter(centerLayoutDateSelectionAndTable(new DateMenu(startDatePicker, endDatePicker, startTimeTxtFld, endTimeTxtFld, this), initializeLogTable()));
         rootLayout.setLeft(getFiltersContainer());
 
         Scene scene = new Scene(rootLayout, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         scene.getStylesheets().add("style.css");
-        window.setScene(scene);
-        window.show();
+        appWindow.setScene(scene);
+        appWindow.show();
     }
 
     private GridPane initializeDateMenu(){
@@ -658,6 +658,11 @@ public class App extends Application {
                         Platform.runLater(() -> {
 
                             rootLayout.setBottom(new LogCountContainer(numLogsLoaded, logTable));
+                            try {
+                                appWindow.setTitle("Sisense Log Reader - version detected: " + VersionRetriever.getVersion());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
 
                             setDatesBtn.setDisable(false);
 
