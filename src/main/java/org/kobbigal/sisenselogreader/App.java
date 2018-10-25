@@ -661,7 +661,7 @@ public class App extends Application {
                             try {
                                 appWindow.setTitle("Sisense Log Reader - version detected: " + VersionRetriever.getVersion());
                             } catch (IOException e) {
-                                e.printStackTrace();
+                                appWindow.setTitle("Sisense Log Reader - No Sisense installation detected");
                             }
 
                             setDatesBtn.setDisable(false);
