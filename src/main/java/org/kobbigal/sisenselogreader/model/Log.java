@@ -88,4 +88,15 @@ public class Log implements Comparable<Log>{
         return getTime().compareTo(o.getTime());
     }
 
+    @Override
+    public String toString() {
+        return "Log: {\n" +
+                "\n\tSource: " + source.get() +
+                "\n\tTime: " + time +
+                "\n\tLog Level: " + verbosity.get() +
+                "\n\tClass: " + component.get() +
+                "\n\tDetails: " + details.get() +
+                "\n}"
+                ;
+    }
 }

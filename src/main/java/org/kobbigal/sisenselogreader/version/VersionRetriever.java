@@ -1,12 +1,8 @@
 package org.kobbigal.sisenselogreader.version;
 
-import javax.xml.stream.util.StreamReaderDelegate;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.StringWriter;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class VersionRetriever {
 
@@ -26,7 +22,7 @@ public class VersionRetriever {
             stringWriter.write(c);
         }
         is.close();
-        return extractVersionFromRegistry(stringWriter.toString());
+        return extractVersionFromRegistry(stringWriter.toString().trim());
     }
 
     private static String extractVersionFromRegistry(String s){

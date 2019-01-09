@@ -23,15 +23,17 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.kobbigal.sisenselogreader.model.Log;
+import org.kobbigal.sisenselogreader.model.LogPaths;
 import org.kobbigal.sisenselogreader.version.VersionRetriever;
 import org.kobbigal.sisenselogreader.views.AppMenuBar;
+import org.kobbigal.sisenselogreader.views.DateMenu;
 import org.kobbigal.sisenselogreader.views.LogCountContainer;
 
-import java.beans.VetoableChangeListener;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -48,19 +50,11 @@ import java.util.stream.Stream;
 public class App extends Application {
 
     private static Stage appWindow;
-    private static DatePicker startDatePicker;
-    private static DatePicker endDatePicker;
-    private LocalDate startDate = LocalDate.now();
-    private LocalDate endDate = LocalDate.now();
-    private static Date startTime;
-    private static Date endTime;
-    private static TextField startTimeTxtFld;
-    private static TextField endTimeTxtFld;
+    private static DateMenu dateMenu = DateMenu.getInstance();
+    private static DateMenuController dateMenuController = new DateMenuController(dateMenu);
     private static TableView<Log> logTable;
-    private static SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private static ObservableList<Log> logs = FXCollections.observableArrayList();
     private static FilteredList<Log> logFilteredList = new FilteredList<>(logs);
-    private static Button setDatesBtn;
     private static Label numLogsLoaded;
     private static BorderPane rootLayout;
 
@@ -70,14 +64,13 @@ public class App extends Application {
     private static ListView<String> sourcesListView;
 
     private final static String[] sources = new String[]{"ECS","IISNode","PrismWebServer"};
-
-    // TODO menu item to configure log paths
-    // WINDOWS
     private final static String IIS_NODE_PATH = "C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\";
+    private final static String GALAXY_PATH = "C:\\ProgramData\\Sisense\\application-logs\\galaxy\\";
     private final static String PRISMWEB_LOGS_PATH = "C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\";
     private final static String ECS_LOG_PATH = "C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\";
+    private List<Path> logPaths;
 
-    private final String IMAGE_URL = "file:" + String.valueOf(Paths.get(System.getProperty("user.dir"),"res","logo.png"));
+    private final String IMAGE_URL = "file:" + Paths.get(System.getProperty("user.dir"), "res", "logo.png");
 
     public static void main(String[] args) {
         launch(args);
@@ -86,7 +79,18 @@ public class App extends Application {
     //   UI
     @Override
     public void start(Stage primaryStage) {
+        try {
+            LogPaths logPathsInstance = new LogPaths(VersionRetriever.getVersion());
+            logPaths = logPathsInstance.returnListOfLogPaths();
 
+            System.out.println("Log paths by version " + VersionRetriever.getVersion() + ":");
+            for(Path path: logPaths){
+                System.out.println(path);
+            }
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Couldn't retrieve Sisense version. Please run application as an Administrator", ButtonType.OK);
+            alert.show();
+        }
         loadUI(primaryStage);
     }
 
@@ -104,7 +108,11 @@ public class App extends Application {
 
         // UI binding
         rootLayout.setTop(new AppMenuBar());
-        rootLayout.setCenter(centerLayoutDateSelectionAndTable(initializeDateMenu(), initializeLogTable()));
+//        rootLayout.setCenter(centerLayoutDateSelectionAndTable(initializeDateMenu(), initializeLogTable()));
+
+        rootLayout.setCenter(centerLayoutDateSelectionAndTable(dateMenu.load(), initializeLogTable()));
+        dateMenu.getSetDatesBtn().setOnAction(event -> dateMenuController.handleSubmit());
+
         rootLayout.setLeft(getFiltersContainer());
 
         Scene scene = new Scene(rootLayout, WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -114,51 +122,52 @@ public class App extends Application {
         appWindow.show();
     }
 
-    private GridPane initializeDateMenu(){
-        GridPane topMenuContainer = new GridPane();
-        topMenuContainer.setHgap(10);
-        topMenuContainer.setVgap(2);
-        topMenuContainer.setAlignment(Pos.CENTER);
-        topMenuContainer.setPadding(new Insets(10));
-
-        // Row 1 - Labels
-        Label startTimeLabel = new Label("Start");
-        startTimeLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
-        topMenuContainer.add(startTimeLabel, 0, 0);
-        Label endTimeLabel = new Label("End");
-        endTimeLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
-        topMenuContainer.add(endTimeLabel, 1, 0);
-
-        // Row 2 - DatePickers  and Submit
-        startDatePicker = new DatePicker();
-        startDatePicker.setMinSize(50, 10);
-        startDatePicker.setPromptText("MM/DD/YYYY");
-        startDatePicker.setValue(startDate);
-
-        topMenuContainer.add(startDatePicker, 0,1);
-        endDatePicker = new DatePicker();
-        endDatePicker.setMinSize(50, 10);
-        endDatePicker.setPromptText("MM/DD/YYYY");
-        endDatePicker.setValue(endDate);
-
-        topMenuContainer.add(endDatePicker, 1,1);
-        setDatesBtn = new Button("Submit");
-        setDatesBtn.setOnAction(event ->  handleSubmit());
-
-        startTimeTxtFld = new TextField();
-        startTimeTxtFld.setPromptText("HH:mm");
-        startTimeTxtFld.setText("11:50");
-        topMenuContainer.add(startTimeTxtFld, 0, 2);
-
-        endTimeTxtFld = new TextField();
-        endTimeTxtFld.setPromptText("HH:mm");
-        endTimeTxtFld.setText("12:00");
-        topMenuContainer.add(endTimeTxtFld, 1, 2 );
-
-        topMenuContainer.add(setDatesBtn, 2,1);
-
-        return topMenuContainer;
-    }
+//    private GridPane initializeDateMenu(){
+//        GridPane topMenuContainer = new GridPane();
+//        topMenuContainer.setHgap(10);
+//        topMenuContainer.setVgap(2);
+//        topMenuContainer.setAlignment(Pos.CENTER);
+//        topMenuContainer.setPadding(new Insets(10));
+//
+//        // Row 1 - Labels
+//        Label startTimeLabel = new Label("Start");
+//        startTimeLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
+//        topMenuContainer.add(startTimeLabel, 0, 0);
+//        Label endTimeLabel = new Label("End");
+//        endTimeLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
+//        topMenuContainer.add(endTimeLabel, 1, 0);
+//
+//        // Row 2 - DatePickers  and Submit
+//        startDatePicker = new DatePicker();
+//        startDatePicker.setMinSize(50, 10);
+//        startDatePicker.setPromptText("MM/DD/YYYY");
+//        startDatePicker.setValue(startDate);
+//
+//        topMenuContainer.add(startDatePicker, 0,1);
+//        endDatePicker = new DatePicker();
+//        endDatePicker.setMinSize(50, 10);
+//        endDatePicker.setPromptText("MM/DD/YYYY");
+//        endDatePicker.setValue(endDate);
+//
+//        topMenuContainer.add(endDatePicker, 1,1);
+//        setDatesBtn = new Button("Submit");
+//        setDatesBtn.setOnAction(event ->  handleSubmit());
+//        setDatesBtn.setOnAction(event -> dateMenuController.handleSubmit());
+//
+//        startTimeTxtFld = new TextField();
+//        startTimeTxtFld.setPromptText("HH:mm");
+//        startTimeTxtFld.setText("11:50");
+//        topMenuContainer.add(startTimeTxtFld, 0, 2);
+//
+//        endTimeTxtFld = new TextField();
+//        endTimeTxtFld.setPromptText("HH:mm");
+//        endTimeTxtFld.setText("12:00");
+//        topMenuContainer.add(endTimeTxtFld, 1, 2 );
+//
+//        topMenuContainer.add(setDatesBtn, 2,1);
+//
+//        return topMenuContainer;
+//    }
 
     private VBox initializeLogTable(){
         VBox centerLogViewerContainer = new VBox(0);
@@ -303,7 +312,6 @@ public class App extends Application {
         TextField detailsSearchField = new TextField();
         detailsSearchField.setPromptText("e.g. finished initializing");
         detailsSearchFilter.bind(Bindings.createObjectBinding(() ->
-
                         log -> log.getDetails().toLowerCase().contains(detailsSearchField.getText().toLowerCase()),
                 detailsSearchField.textProperty()
         ));
@@ -383,7 +391,7 @@ public class App extends Application {
             // Check if log time is in selected range and filter empty detail logs
             try {
                 if (log != null && log.getTime() != null && !log.getDetails().isEmpty()) {
-                    if (log.getTime().after(startTime) && log.getTime().before(endTime)) logs.add(log);
+                    if (log.getTime().after(dateMenuController.getStartTime()) && log.getTime().before(dateMenuController.getEndTime())) logs.add(log);
                 }
             }
             catch (NullPointerException ignored){
@@ -403,8 +411,9 @@ public class App extends Application {
 
         if (fls != null) {
             for (File f : fls){
-
+//                if(f.getName().contains("log") && !f.getName().contains("errors")){
                 if(f.getName().contains("txt")){
+                    System.out.println(f.getName());
                     try (Stream<String> stream = Files.lines(Paths.get(f.getAbsolutePath()), StandardCharsets.ISO_8859_1)) {
 
                         currentLogLines = stream.filter(line -> !line.isEmpty())
@@ -428,7 +437,7 @@ public class App extends Application {
             // Check if log time is in selected range
             try {
                 if (log.getTime() != null){
-                    if (log.getTime().after(startTime) && log.getTime().before(endTime)) logs.add(log);
+                    if (log.getTime().after(dateMenuController.getStartTime()) && log.getTime().before(dateMenuController.getEndTime())) logs.add(log);
                 }
             }
             catch (NullPointerException ignored){
@@ -474,7 +483,7 @@ public class App extends Application {
             // Check if log time is in selected range
             try {
                 if (log != null && log.getTime() != null) {
-                    if (log.getTime().after(startTime) && log.getTime().before(endTime)) logs.add(log);
+                    if (log.getTime().after(dateMenuController.getStartTime()) && log.getTime().before(dateMenuController.getEndTime())) logs.add(log);
                 }
             }
             catch (NullPointerException e){
@@ -490,15 +499,18 @@ public class App extends Application {
     // Log Parsers
     private static Log iisNodeLogParse(String log){
 
-        Log l = new Log();
+        Log l = null;
+
+        // TODO handling issues where there are no details
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
         Pattern pattern = Pattern.compile("\\[(.*?)]");
         Matcher matcher = pattern.matcher(log);
 
-        l.setSource(sources[1]);
         int i = 0;
         while (matcher.find()){
-
+            l = new Log();
+            l.setSource(sources[1]);
             switch (i){
                 case 0:
                     try {
@@ -514,13 +526,20 @@ public class App extends Application {
                     l.setComponent(matcher.group(1));
                     break;
                 case 4:
+//                    System.out.println("details: " + matcher.group(1));
                     l.setDetails(matcher.group(1));
                     break;
             }
             i++;
         }
-        return l;
+
+        if (l != null){
+            return l;
+        }
+
+        return null;
     }
+
 
     private static Log ecsLogParser(String log){
 
@@ -560,6 +579,7 @@ public class App extends Application {
         }
         return l;
     }
+
 
     private static Log prismWebLogParser(String log){
 
@@ -602,102 +622,100 @@ public class App extends Application {
     }
 
     // Event handlers
-    private void handleSubmit(){
-
-        try {
-
-            if  (   startDatePicker.getValue() != null &&
-                    startTimeTxtFld.getText() != null &&
-                    endDatePicker.getValue() != null &&
-                    endTimeTxtFld.getText() != null){
-
-                startTime = sdt.parse(startDatePicker.getValue() + " " + startTimeTxtFld.getText());
-                endTime = sdt.parse(endDatePicker.getValue() + " " + endTimeTxtFld.getText());
-
-            }
-            else{
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Please set both dates", ButtonType.OK);
-                alert.showAndWait();
-            }
-
-            if (startTime.after(endTime)){
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid range", ButtonType.OK);
-                startTimeTxtFld.setText("");
-                startTime = null;
-                endTime = null;
-                endTimeTxtFld.setText("");
-                alert.showAndWait();
-            }
-            else {
-                setDatesBtn.setDisable(true);
-
-                if (logs.size() > 0){
-                    logs.clear();
-                    verbosityListView.getItems().clear();
-                    sourcesListView.getItems().clear();
-                }
-
-                Thread backgroundThread = new Thread(() -> {
-                    logs.addAll(iisNodeLogs());
-                    logs.addAll(prismWebLogs());
-                    logs.addAll(ecsLogs());
-
-                    if (logs.size() > 0){
-
-                        numLogsLoaded = new Label();
-
-                        Collections.sort(logs);
-
-                        verbosityObsList = FXCollections.observableArrayList(verbosityUniqueValues(logs));
-                        sourcesObsList = FXCollections.observableArrayList(sourcesUniqueValues(logs));
-
-                        verbosityListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-                        sourcesListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-                        // run after logs were added
-                        Platform.runLater(() -> {
-
-                            rootLayout.setBottom(new LogCountContainer(numLogsLoaded, logTable));
-                            try {
-                                appWindow.setTitle("Sisense Log Reader - version detected: " + VersionRetriever.getVersion());
-                            } catch (IOException e) {
-                                appWindow.setTitle("Sisense Log Reader - No Sisense installation detected");
-                            }
-
-                            setDatesBtn.setDisable(false);
-
-                            verbosityListView.getItems().addAll(verbosityObsList);
-                            verbosityListView.setPrefHeight(verbosityListView.getItems().size() * 26);
-                            verbosityListView.getSelectionModel().selectAll();
-
-                            sourcesListView.getItems().addAll(sourcesObsList);
-                            sourcesListView.setPrefHeight(sourcesListView.getItems().size() * 26);
-                            sourcesListView.getSelectionModel().selectAll();
-                        });
-                    }
-
-                    // no logs found
-                    else {
-                        Platform.runLater(() -> {
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION, "No logs were found for the selected dates", ButtonType.OK);
-                            alert.showAndWait();
-                            setDatesBtn.setDisable(false);
-                        });
-                    }
-                });
-                backgroundThread.setDaemon(true);
-                backgroundThread.start();
-
-            }
-        }
-        catch (NullPointerException ignored){
-
-        }
-        catch (ParseException e){
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect time syntax", ButtonType.OK);
-            alert.showAndWait();
-        }
-    }
+//    private void handleSubmit(){
+//
+//        try {
+//
+//            if  (   startDatePicker.getValue() != null &&
+//                    startTimeTxtFld.getText() != null &&
+//                    endDatePicker.getValue() != null &&
+//                    endTimeTxtFld.getText() != null){
+//
+//                startTime = sdt.parse(startDatePicker.getValue() + " " + startTimeTxtFld.getText());
+//                endTime = sdt.parse(endDatePicker.getValue() + " " + endTimeTxtFld.getText());
+//
+//            }
+//            else{
+//                Alert alert = new Alert(Alert.AlertType.ERROR, "Please set both dates", ButtonType.OK);
+//                alert.showAndWait();
+//            }
+//
+//            if (startTime.after(endTime)){
+//                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid range", ButtonType.OK);
+//                startTimeTxtFld.setText("");
+//                startTime = null;
+//                endTime = null;
+//                endTimeTxtFld.setText("");
+//                alert.showAndWait();
+//            }
+//            else {
+//                setDatesBtn.setDisable(true);
+//
+//                if (logs.size() > 0){
+//                    logs.clear();
+//                    verbosityListView.getItems().clear();
+//                    sourcesListView.getItems().clear();
+//                }
+//
+//                Thread backgroundThread = new Thread(() -> {
+//                    logs.addAll(iisNodeLogs());
+//                    logs.addAll(prismWebLogs());
+//                    logs.addAll(ecsLogs());
+//
+//                    if (logs.size() > 0){
+////                        logs.filtered(log -> log.getSource().equals("Galaxy")).forEach(log -> System.out.println(log.toString()));
+//                        numLogsLoaded = new Label();
+//
+//                        Collections.sort(logs);
+//
+//                        verbosityObsList = FXCollections.observableArrayList(verbosityUniqueValues(logs));
+//                        sourcesObsList = FXCollections.observableArrayList(sourcesUniqueValues(logs));
+//
+//                        verbosityListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+//                        sourcesListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+//
+//                        // run after logs were added
+//                        Platform.runLater(() -> {
+//
+//                            rootLayout.setBottom(new LogCountContainer(numLogsLoaded, logTable));
+//
+//                            if (appVersion != null) appWindow.setTitle("Sisense Log Reader - version detected: " + appVersion);
+//
+//
+//                            setDatesBtn.setDisable(false);
+//
+//                            verbosityListView.getItems().addAll(verbosityObsList);
+//                            verbosityListView.setPrefHeight(verbosityListView.getItems().size() * 26);
+//                            verbosityListView.getSelectionModel().selectAll();
+//
+//                            sourcesListView.getItems().addAll(sourcesObsList);
+//                            sourcesListView.setPrefHeight(sourcesListView.getItems().size() * 26);
+//                            sourcesListView.getSelectionModel().selectAll();
+//                        });
+//                    }
+//
+//                    // no logs found
+//                    else {
+//                        Platform.runLater(() -> {
+//                            Alert alert = new Alert(Alert.AlertType.INFORMATION, "No logs were found for the selected dates", ButtonType.OK);
+//                            alert.showAndWait();
+//                            setDatesBtn.setDisable(false);
+//                        });
+//                    }
+//                });
+//                backgroundThread.setDaemon(true);
+//                backgroundThread.start();
+//
+//            }
+//        }
+//        catch (NullPointerException ignored){
+//
+//        }
+//        catch (ParseException e){
+//            Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect time syntax", ButtonType.OK);
+//            alert.showAndWait();
+//        }
+//    }
 
     // Helper methods
     private static Set<String> verbosityUniqueValues(List<Log> logs){
@@ -730,4 +748,5 @@ public class App extends Application {
         logs.addAll(s);
         return logs;
     }
+
 }
