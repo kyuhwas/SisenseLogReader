@@ -5,6 +5,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tooltip;
@@ -33,7 +34,26 @@ public class SourceListContainer extends VBox {
         label.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
 
         valueList = new ListView<>();
-        valueList.setPrefHeight(valueList.getItems().size() * 26);
+        valueList.setPrefHeight(valueList.getItems().size() * 24);
+
+        this.getChildren().addAll(label, valueList);
+    }
+
+    Predicate<Log> getFilter() {
+        return filter.get();
+    }
+
+    void setList(FilteredList<Log> logList) {
+        List<String> l = new ArrayList<>();
+
+        for (Log log : logList){
+            l.add(log.getSource());
+        }
+
+        System.out.println("Sources values: " + new HashSet<>(l));
+
+        valueList.getItems().addAll(new HashSet<>(l));
+        valueList.setPrefHeight(valueList.getItems().size() * 24);
         valueList.setTooltip(new Tooltip("Hold CMD/CTRL to select multiple values"));
 
         ObjectBinding<Predicate<Log>> binding = new ObjectBinding<Predicate<Log>>() {
@@ -71,25 +91,6 @@ public class SourceListContainer extends VBox {
             }
         };
         filter.bind(binding);
-
-        this.getChildren().addAll(label, valueList);
-    }
-
-    Predicate<Log> getFilter() {
-        return filter.get();
-    }
-
-    void setList(ObservableList<Log> logList) {
-
-        List<String> l = new ArrayList<>();
-
-        for (Log log : logList){
-            l.add(log.getSource());
-        }
-
-        System.out.println(new HashSet<>(l));
-
-        valueList.getItems().addAll(new HashSet<>(l));
 
     }
 

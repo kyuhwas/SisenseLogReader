@@ -49,13 +49,10 @@ public class RootLayout extends BorderPane {
     }
 
     public void setLogFilteredList(FilteredList<Log> logFilteredList) {
-        for (Log l: logFilteredList){
-            System.out.println(l);
-        }
-        filtersContainer.setFilteredList(logFilteredList);
         logTableContainer.setTableItems(logFilteredList);
         setLogCount(logFilteredList.size());
         enableLogCount();
+        filtersContainer.setFilteredList(logFilteredList);
     }
 
     private void setLogCount(int numberOfLogs) {

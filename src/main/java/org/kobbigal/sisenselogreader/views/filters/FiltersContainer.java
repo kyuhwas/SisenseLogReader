@@ -8,7 +8,6 @@ import org.kobbigal.sisenselogreader.model.Log;
 
 public class FiltersContainer extends VBox {
 
-    private FilteredList<Log> filteredList;
     private SourceListContainer sourceListContainer = new SourceListContainer();
     private VerbosityListContainer verbosityListContainer = new VerbosityListContainer();
     private ComponentSearchboxContainer componentSearchboxContainer = new ComponentSearchboxContainer();
@@ -18,7 +17,6 @@ public class FiltersContainer extends VBox {
 
         this.setSpacing(0);
         this.setPadding(new Insets(5));
-
 
         this.getChildren().addAll(
                 sourceListContainer,
@@ -30,11 +28,12 @@ public class FiltersContainer extends VBox {
     }
 
     public void setFilteredList(FilteredList<Log> filteredList) {
-        this.filteredList = filteredList;
-        bindFilteredList();
+        setVerbosityList(filteredList);
+        setSourcesList(filteredList);
+//        bindFilteredList(filteredList);
     }
 
-    private void bindFilteredList(){
+    private void bindFilteredList(FilteredList<Log> filteredList){
         filteredList.predicateProperty().bind(Bindings.createObjectBinding(() ->
                 sourceListContainer.getFilter()
                         .and(verbosityListContainer.getFilter())
@@ -43,11 +42,11 @@ public class FiltersContainer extends VBox {
         ));
     }
 
-    public void setVerbosityList() {
+    private void setVerbosityList(FilteredList<Log> filteredList) {
         verbosityListContainer.setList(filteredList);
     }
 
-    public void setSourcesList(){
+    private void setSourcesList(FilteredList<Log> filteredList){
         sourceListContainer.setList(filteredList);
     }
 }

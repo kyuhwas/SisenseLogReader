@@ -19,13 +19,14 @@ import java.util.*;
 public class DateSelectionController {
 
     private RootLayout rootLayout;
+
     private static Date startTime;
     private static Date endTime;
+    private final static SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     private static ObservableList<Log> logs = FXCollections.observableArrayList();
     private static FilteredList<Log> logFilteredList = new FilteredList<>(logs);
 
-    private final static SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     public DateSelectionController(RootLayout rootLayout) {
 
@@ -60,7 +61,6 @@ public class DateSelectionController {
                 rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(true);
                 logs.addAll(LogGenerator.getLogs(startTime));
                 rootLayout.setLogFilteredList(logFilteredList);
-
             }
 
         }

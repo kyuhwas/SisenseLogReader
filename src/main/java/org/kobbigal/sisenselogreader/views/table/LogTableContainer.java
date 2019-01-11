@@ -49,6 +49,6 @@ public class LogTableContainer extends VBox {
     }
 
     public void setTableItems(FilteredList<Log> logs){
-        this.table.setItems(logs);
+        this.table.getItems().addAll(logs);
     }
 }
