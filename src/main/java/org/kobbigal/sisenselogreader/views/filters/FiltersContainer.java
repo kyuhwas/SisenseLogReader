@@ -30,7 +30,7 @@ public class FiltersContainer extends VBox {
     public void setFilteredList(FilteredList<Log> filteredList) {
         setVerbosityList(filteredList);
         setSourcesList(filteredList);
-//        bindFilteredList(filteredList);
+        bindFilteredList(filteredList);
     }
 
     private void bindFilteredList(FilteredList<Log> filteredList){

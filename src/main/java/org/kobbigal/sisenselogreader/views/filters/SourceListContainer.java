@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -54,6 +55,8 @@ public class SourceListContainer extends VBox {
 
         valueList.getItems().addAll(new HashSet<>(l));
         valueList.setPrefHeight(valueList.getItems().size() * 24);
+        valueList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        valueList.getSelectionModel().selectAll();
         valueList.setTooltip(new Tooltip("Hold CMD/CTRL to select multiple values"));
 
         ObjectBinding<Predicate<Log>> binding = new ObjectBinding<Predicate<Log>>() {
