@@ -9,8 +9,8 @@ import org.kobbigal.sisenselogreader.model.Log;
 import org.kobbigal.sisenselogreader.views.count.LogCountContainer;
 import org.kobbigal.sisenselogreader.views.filters.FiltersContainer;
 import org.kobbigal.sisenselogreader.views.menu.AppMenuBar;
-import org.kobbigal.sisenselogreader.views.table.DateSelectionContainer;
-import org.kobbigal.sisenselogreader.views.table.LogTableContainer;
+import org.kobbigal.sisenselogreader.views.center.DateSelectionContainer;
+import org.kobbigal.sisenselogreader.views.center.LogTableContainer;
 
 public class RootLayout extends BorderPane {
 
@@ -53,6 +53,11 @@ public class RootLayout extends BorderPane {
         setLogCount(logFilteredList.size());
         enableLogCount();
         filtersContainer.setFilteredList(logFilteredList);
+    }
+
+    public void clearList(){
+        logTableContainer.clearTable();
+        filtersContainer.clearFilters();
     }
 
     private void setLogCount(int numberOfLogs) {

@@ -1,4 +1,4 @@
-package org.kobbigal.sisenselogreader.views.table;
+package org.kobbigal.sisenselogreader.views.center;
 
 import javafx.collections.transformation.FilteredList;
 import javafx.scene.control.TableColumn;
@@ -50,5 +50,9 @@ public class LogTableContainer extends VBox {
 
     public void setTableItems(FilteredList<Log> logs){
         this.table.getItems().addAll(logs);
+    }
+
+    public void clearTable() {
+        this.table.getItems().clear();
     }
 }

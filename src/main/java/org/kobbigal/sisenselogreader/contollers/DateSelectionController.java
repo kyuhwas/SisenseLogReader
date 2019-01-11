@@ -7,10 +7,6 @@ import javafx.scene.control.*;
 import org.kobbigal.sisenselogreader.LogGenerator;
 import org.kobbigal.sisenselogreader.model.Log;
 import org.kobbigal.sisenselogreader.views.RootLayout;
-import org.kobbigal.sisenselogreader.views.count.LogCountContainer;
-import org.kobbigal.sisenselogreader.views.filters.FiltersContainer;
-import org.kobbigal.sisenselogreader.views.table.DateSelectionContainer;
-import org.kobbigal.sisenselogreader.views.table.LogTableContainer;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -58,9 +54,20 @@ public class DateSelectionController {
                 alert.showAndWait();
             }
             else {
+
+                System.out.println("logs size: " + logs.size());
+                System.out.println("filtered logs size: " + logFilteredList.size());
+
+                if (logs.size() > 0){
+                    logs.clear();
+                    logFilteredList.clear();
+                    rootLayout.clearList();
+                }
+
                 rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(true);
                 logs.addAll(LogGenerator.getLogs(startTime));
                 rootLayout.setLogFilteredList(logFilteredList);
+                rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(false);
             }
 
         }

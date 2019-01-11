@@ -1,4 +1,4 @@
-package org.kobbigal.sisenselogreader.views.table;
+package org.kobbigal.sisenselogreader.views.center;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
