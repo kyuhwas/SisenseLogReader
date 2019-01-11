@@ -14,21 +14,11 @@ public class FiltersContainer extends VBox {
     private ComponentSearchboxContainer componentSearchboxContainer = new ComponentSearchboxContainer();
     private DetailsSearchboxContainer detailsSearchboxContainer = new DetailsSearchboxContainer();
 
-    public FiltersContainer(FilteredList<Log> filteredList) {
+    public FiltersContainer() {
 
         this.setSpacing(0);
         this.setPadding(new Insets(5));
-        this.filteredList = filteredList;
 
-        sourceListContainer.setList(filteredList);
-        verbosityListContainer.setList(filteredList);
-
-        filteredList.predicateProperty().bind(Bindings.createObjectBinding(() ->
-                sourceListContainer.getFilter()
-                        .and(verbosityListContainer.getFilter())
-                        .and(detailsSearchboxContainer.getFilter())
-                        .and(componentSearchboxContainer.getFilter())
-                ));
 
         this.getChildren().addAll(
                 sourceListContainer,
@@ -37,6 +27,20 @@ public class FiltersContainer extends VBox {
                 detailsSearchboxContainer
         );
 
+    }
+
+    public void setFilteredList(FilteredList<Log> filteredList) {
+        this.filteredList = filteredList;
+        bindFilteredList();
+    }
+
+    private void bindFilteredList(){
+        filteredList.predicateProperty().bind(Bindings.createObjectBinding(() ->
+                sourceListContainer.getFilter()
+                        .and(verbosityListContainer.getFilter())
+                        .and(detailsSearchboxContainer.getFilter())
+                        .and(componentSearchboxContainer.getFilter())
+        ));
     }
 
     public void setVerbosityList() {
