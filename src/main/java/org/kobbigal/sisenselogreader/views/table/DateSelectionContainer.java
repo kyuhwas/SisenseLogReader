@@ -1,4 +1,4 @@
-package org.kobbigal.sisenselogreader.views;
+package org.kobbigal.sisenselogreader.views.table;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -12,20 +12,15 @@ import javafx.scene.text.FontWeight;
 
 import java.time.LocalDate;
 
-public class DateMenu{
+public class DateSelectionContainer extends GridPane{
 
-    private static DateMenu instance;
-    private static GridPane container;
     private static Label startTimeLabel;
     private static Label endTimeLabel;
-
     private static DatePicker startDatePicker;
     private static DatePicker endDatePicker;
-
-
-    private static Button setDatesBtn;
     private static TextField startTimeTxtField;
     private static TextField endTimeTxtField;
+    private static Button setDatesBtn;
 
     private static final String FONT_FAMILY = "Agency FB";
     private static final int FONT_SIZE = 20;
@@ -35,16 +30,13 @@ public class DateMenu{
     private static final LocalDate today = LocalDate.now();
     private static final String TIME_PROMPT_TEXT = "HH:mm";
 
-    public static DateMenu getInstance(){
-        if (instance == null){
-            instance = new DateMenu();
-        }
+    public DateSelectionContainer(){
 
-        return instance;
-    }
+        this.setHgap(10);
+        this.setVgap(2);
+        this.setAlignment(Pos.CENTER);
+        this.setPadding(new Insets(10));
 
-    private DateMenu(){
-        container = new GridPane();
         startTimeLabel = new Label("Start");
         endTimeLabel = new Label("End");
         startDatePicker = new DatePicker();
@@ -52,62 +44,49 @@ public class DateMenu{
         setDatesBtn = new Button("Submit");
         startTimeTxtField  = new TextField();
         endTimeTxtField = new TextField();
-    }
-
-    public GridPane load(){
-
-        initiateContainer();
         initiateStartTimeLabel();
         initiateEndTimeLabel();
         initiateStartDatePicker();
         initiateEndDatePicker();
         initiateStartTextField();
         initiateEndTextField();
-        container.add(setDatesBtn, 2,1);
-        return container;
+        this.add(setDatesBtn, 2,1);
     }
 
-    private static void initiateContainer(){
-        container.setHgap(10);
-        container.setVgap(2);
-        container.setAlignment(Pos.CENTER);
-        container.setPadding(new Insets(10));
-    }
-
-    private static void initiateStartTimeLabel(){
+    private void initiateStartTimeLabel(){
         startTimeLabel.setFont(Font.font(FONT_FAMILY, FontWeight.BOLD, FONT_SIZE));
-        container.add(startTimeLabel, 0, 0);
+        this.add(startTimeLabel, 0, 0);
     }
 
-    private static void initiateEndTimeLabel(){
+    private void initiateEndTimeLabel(){
         endTimeLabel.setFont(Font.font(FONT_FAMILY, FontWeight.BOLD, FONT_SIZE));
-        container.add(endTimeLabel, 1, 0);
+        this.add(endTimeLabel, 1, 0);
     }
 
-    private static void initiateStartDatePicker(){
+    private void initiateStartDatePicker(){
         startDatePicker.setMinSize(DATEPICKER_WIDTH, DATEPICKER_HEIGHT);
         startDatePicker.setPromptText(DATEPICKER_PROMPT_TEXT);
         startDatePicker.setValue(today);
-        container.add(startDatePicker, 0, 1);
+        this.add(startDatePicker, 0, 1);
     }
 
-    private static void initiateEndDatePicker(){
+    private void initiateEndDatePicker(){
         endDatePicker.setMinSize(DATEPICKER_WIDTH, DATEPICKER_HEIGHT);
         endDatePicker.setPromptText(DATEPICKER_PROMPT_TEXT);
         endDatePicker.setValue(today);
-        container.add(endDatePicker, 1,1 );
+        this.add(endDatePicker, 1,1 );
     }
 
-    private static void initiateStartTextField(){
+    private void initiateStartTextField(){
         startTimeTxtField.setPromptText(TIME_PROMPT_TEXT);
         startTimeTxtField.setText("00:30");
-        container.add(startTimeTxtField, 0, 2);
+        this.add(startTimeTxtField, 0, 2);
     }
 
-    private static void initiateEndTextField(){
+    private void initiateEndTextField(){
         endTimeTxtField.setPromptText(TIME_PROMPT_TEXT);
         endTimeTxtField.setText("00:40");
-        container.add(endTimeTxtField, 1,2);
+        this.add(endTimeTxtField, 1,2);
     }
 
     public DatePicker getStartDatePicker() {
@@ -129,6 +108,5 @@ public class DateMenu{
     public Button getSetDatesBtn() {
         return setDatesBtn;
     }
-
 
 }

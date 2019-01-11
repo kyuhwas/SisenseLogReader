@@ -1,4 +1,4 @@
-package org.kobbigal.sisenselogreader.views;
+package org.kobbigal.sisenselogreader.views.modals;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

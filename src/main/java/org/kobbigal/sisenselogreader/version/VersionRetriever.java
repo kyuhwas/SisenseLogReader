@@ -6,7 +6,7 @@ import java.io.StringWriter;
 
 public class VersionRetriever {
 
-    public static String getVersion() throws IOException {
+    public static String getVersion(){
 
         Process process = null;
         try {
@@ -16,12 +16,18 @@ public class VersionRetriever {
         }
         StringWriter stringWriter = new StringWriter();
 
-        InputStream is = process.getInputStream();
+
         int c;
-        while((c = is.read()) != -1){
-            stringWriter.write(c);
+        if (process != null) {
+            try (InputStream is = process.getInputStream()) {
+                while((c = is.read()) != -1){
+                    stringWriter.write(c);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        is.close();
+
         return extractVersionFromRegistry(stringWriter.toString().trim());
     }
 

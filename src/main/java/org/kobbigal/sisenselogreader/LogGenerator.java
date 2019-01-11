@@ -1,4 +1,4 @@
-package org.kobbigal.sisenselogreader.test;
+package org.kobbigal.sisenselogreader;
 
 import org.kobbigal.sisenselogreader.model.Log;
 
@@ -7,7 +7,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class LogGenerator {
 
-    private List<Log> logs;
     private static Date startDate;
     public enum LogLevel {DEBUG, INFO, WARN, ERROR, FATAL}
     private final static String[] sources = new String[]{"ECS","IISNode","PrismWebServer"};
@@ -17,11 +16,12 @@ public class LogGenerator {
     private static final int SOURCES = sources.length;
     private static final Random RANDOM = new Random();
 
-    public LogGenerator(Date startDate){
-        this.startDate = startDate;
+    public LogGenerator(){
+
     }
 
-    public static List<Log> getLogs() {
+    public static List<Log> getLogs(Date startDate) {
+        LogGenerator.startDate = startDate;
         return createLogs();
     }
 

@@ -1,8 +1,9 @@
-package org.kobbigal.sisenselogreader.views;
+package org.kobbigal.sisenselogreader.views.menu;
 
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import org.kobbigal.sisenselogreader.views.modals.LogLocationModal;
 
 public class AppMenuBar extends MenuBar {
 

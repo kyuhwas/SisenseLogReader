@@ -1,5 +1,6 @@
 package org.kobbigal.sisenselogreader.views;
 
+import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -8,10 +9,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import org.kobbigal.sisenselogreader.model.Log;
-import javafx.beans.binding.Bindings;
-import org.kobbigal.sisenselogreader.version.VersionRetriever;
-
-import java.io.IOException;
 
 public class LogCountContainer extends VBox {
 
