@@ -1,51 +1,86 @@
 package org.kobbigal.sisenselogreader.model;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LogPaths {
 
     private String sisenseVersion;
-    private static final Path PRISMWEB_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\");
-    private static final Path ECS_LOG_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\");
+    private List<LogFile> logFileList;
+//    private static final Path PRISMWEB_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\");
+//    private static final Path ECS_LOG_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\");
+//    private static final Path APPLICATION_LOGS = Paths.get("C:\\ProgramData\\Sisense\\application-logs");
 
-    // v 7.2-
-    private static final Path IIS_NODE_PATH = Paths.get("C:\\Program Files\\Sisense\\PrismWeb\\vnext\\iisnode\\");
-
-    // v 7.2+
-    private static final Path APPLICATION_LOGS = Paths.get("C:\\ProgramData\\Sisense\\application-logs");
-
+    private static final File webserverFolder = new File("/Users/kobbigal/temp/SNS-12621/PrismWeb/Logs");
+    private static final File microservicersFolder = new File("/Users/kobbigal/temp/SNS-12621/application-logs");
+    private static final File ecsFolder = new File("/Users/kobbigal/temp/SNS-12621/PrismServer/PrismServerLogs");
 
     public LogPaths(String sisenseVersion) {
         this.sisenseVersion = sisenseVersion;
+        this.logFileList = new ArrayList<>();
+        setLogPaths();
     }
 
-    public List<Path> returnListOfLogPaths(){
+    public LogPaths(){
+        this.logFileList = new ArrayList<>();
+        setLogPaths();
+    }
 
-        List<Path> logPaths = new ArrayList<>();
-        logPaths.add(PRISMWEB_LOGS_PATH);
-        logPaths.add(ECS_LOG_PATH);
+    public List<LogFile> getLogFileList() {
+        return logFileList;
+    }
 
-        if (this.sisenseVersion.startsWith("7.2")){
-            File file = APPLICATION_LOGS.toFile();
-            String[] directories = file.list((dir, name) -> new File(dir, name).isDirectory());
+    private void addToLogFileList(LogFile logFile){
+        logFileList.add(logFile);
+    }
 
-            assert directories != null;
-            for (String directory : directories) logPaths.add(Paths.get(String.valueOf(Paths.get(APPLICATION_LOGS.toString(), directory))));
+    private void setLogPaths() {
 
+        // IIS
+        File[] listOfWebServerLogs = webserverFolder.listFiles((dir, name) -> name.startsWith("PrismWebServer"));
+        if (listOfWebServerLogs != null) {
+            for (File file : listOfWebServerLogs){
+                if (!file.getName().toLowerCase().contains("error") && !file.getName().toLowerCase().contains("whitebox")){
+                    addToLogFileList(new LogFile("IIS", file));
+                }
+            }
         }
-        else {
-            logPaths.add(IIS_NODE_PATH);
+
+        // Pre-7.2 nodejs process logs
+        File[] listOfNodeLogs = webserverFolder.listFiles(((dir, name) -> name.startsWith("node")));
+        if (listOfNodeLogs != null){
+            for (File file : listOfNodeLogs){
+                addToLogFileList(new LogFile("Web Application", file));
+            }
         }
 
-        return logPaths;
-    }
+        // microservices logs
+        File[] listOfMicroserviceFolders = microservicersFolder.listFiles();
+        if (listOfMicroserviceFolders != null) {
+            for (File folder : listOfMicroserviceFolders){
+                File[] microserviceLogs = folder.listFiles(((dir, name) -> !name.toLowerCase().contains("error")));
+                if (microserviceLogs != null) {
+                    for (File file : microserviceLogs){
+                        addToLogFileList(new LogFile(file.getName().split(".log")[0].replaceAll("[0-9]", ""), file));
+                    }
+                }
+            }
+        }
 
-    public Path returnLogSource(Path logPath){
-        return returnListOfLogPaths().get(returnListOfLogPaths().indexOf(logPath));
-    }
+        File[] listOfECSLogs = ecsFolder.listFiles();
+        if (listOfECSLogs != null){
+            for (File file : listOfECSLogs){
+                if (file.getName().contains("ECS.log")){
+                    addToLogFileList(new LogFile("ECS", file));
+                }
+            }
+        }
 
+    }
 }

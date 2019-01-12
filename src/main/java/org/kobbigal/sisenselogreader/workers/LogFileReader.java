@@ -18,7 +18,7 @@ public class LogFileReader {
     private File file;
     private List<String> content;
 
-    public LogFileReader(File file) throws IOException {
+    public LogFileReader(File file) {
 
         this.file = file;
         read();
@@ -27,15 +27,13 @@ public class LogFileReader {
 
     private void read(){
 
-        try(
-                Stream<String> stream = Files.lines(this.file.toPath(), StandardCharsets.ISO_8859_1))
+        try(Stream<String> stream = Files.lines(this.file.toPath(), StandardCharsets.ISO_8859_1)) {
 
-        {
-
-            content = stream
-                    .filter(line -> !line.isEmpty())
-                    .filter(line -> Character.isDigit(line.charAt(0)))
-                    .collect(Collectors.toList());
+            setContent(
+                    stream
+                        .filter(line -> !line.isEmpty())
+                        .filter(line -> Character.isDigit(line.charAt(0)))
+                        .collect(Collectors.toList()));
 
         } catch(IOException e){
             e.printStackTrace();
@@ -45,6 +43,10 @@ public class LogFileReader {
             });
         }
 
+    }
+
+    public void setContent(List<String> content) {
+        this.content = content;
     }
 
     public List<String> getContent() {
