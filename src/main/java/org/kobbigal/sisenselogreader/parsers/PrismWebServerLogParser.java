@@ -36,7 +36,7 @@ public class PrismWebServerLogParser implements ILogParser {
                         Log log = new Log();
                         log.setSource("IIS");
 //                    log.setTimeRunning(Integer.parseInt(matcher.group(1)));
-                        log.setTime(dateFormat.parse(matcher.group(2)));
+                        log.setTime(logTime);
                         log.setVerbosity(matcher.group(5));
                         log.setComponent(matcher.group(6));
                         log.setDetails(matcher.group(7));

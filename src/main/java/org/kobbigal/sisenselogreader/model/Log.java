@@ -37,7 +37,8 @@ public class Log implements Comparable<Log>{
         sourceProperty().set(source);
     }
 
-    private Date getTime() {
+    // neds to be public for tableview bind
+    public Date getTime() {
         return time;
     }
 

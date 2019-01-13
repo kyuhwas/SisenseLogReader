@@ -44,7 +44,7 @@ public class MicroServicesLogParser implements ILogParser {
                         Log log = new Log();
                         log.setSource(microservice);
 //                    log.setTimeRunning(Math.round(Float.parseFloat(matcher.group(1))));
-                        log.setTime(dateFormat.parse(matcher.group(2)));
+                        log.setTime(logTime);
                         log.setVerbosity(matcher.group(4));
                         log.setComponent(matcher.group(5));
                         log.setDetails(matcher.group(6));

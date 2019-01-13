@@ -93,6 +93,7 @@ public class DateSelectionController {
                     logs.addAll(logList);
                 }
 
+                Collections.sort(logs);
                 System.out.println("Total logs added: " + logs.size());
 
                 rootLayout.setLogFilteredList(logFilteredList);
