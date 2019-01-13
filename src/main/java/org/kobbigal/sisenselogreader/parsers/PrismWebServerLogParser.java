@@ -5,6 +5,7 @@ import org.kobbigal.sisenselogreader.model.Log;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,12 +16,12 @@ public class PrismWebServerLogParser implements ILogParser {
     private Pattern logPattern = Pattern.compile("(\\d+) \\[(.*?)] \\[(.*?)]:\\[(.*?)],\\[(.*?)] \\[(.*?)]: \\[(.*)]");
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
 
-    public PrismWebServerLogParser(List<String> logLines){
+    public PrismWebServerLogParser(List<String> logLines, Date start, Date end){
         logs = new ArrayList<>();
-        parse(logLines);
+        parse(logLines, start, end);
     }
 
-    private void parse(List<String> logLines) {
+    private void parse(List<String> logLines, Date start, Date end) {
 
         System.out.println("Started parsing...");
 
@@ -30,15 +31,20 @@ public class PrismWebServerLogParser implements ILogParser {
 
             while (matcher.find()){
                 try {
-                    Log log = new Log();
-                    log.setSource("IIS");
-                    log.setTimeRunning(Integer.parseInt(matcher.group(1)));
-                    log.setTime(dateFormat.parse(matcher.group(2)));
-                    log.setVerbosity(matcher.group(5));
-                    log.setComponent(matcher.group(6));
-                    log.setDetails(matcher.group(7));
+                    Date logTime = dateFormat.parse(matcher.group(2));
+                    if (logTime.after(start) && logTime.before(end)){
+                        Log log = new Log();
+                        log.setSource("IIS");
+//                    log.setTimeRunning(Integer.parseInt(matcher.group(1)));
+                        log.setTime(dateFormat.parse(matcher.group(2)));
+                        log.setVerbosity(matcher.group(5));
+                        log.setComponent(matcher.group(6));
+                        log.setDetails(matcher.group(7));
+
 //                    System.out.println(log);
-                    addToListOfLogs(log);
+                        addToListOfLogs(log);
+                    }
+
                 } catch (ParseException | NullPointerException e){
                     e.printStackTrace();
                 }

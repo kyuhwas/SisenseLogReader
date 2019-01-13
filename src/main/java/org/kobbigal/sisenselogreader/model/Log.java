@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class Log implements Comparable<Log>{
 
-    private IntegerProperty timeRunning;
+//    private IntegerProperty timeRunning;
     private StringProperty source;
     private Date time;
     private StringProperty verbosity;
@@ -94,7 +94,7 @@ public class Log implements Comparable<Log>{
     @Override
     public String toString() {
         return "Log: {\n" +
-                "\n\ttimeRunning: " + (timeRunning != null ? timeRunning.get() : "") +
+//                "\n\ttimeRunning: " + (timeRunning != null ? timeRunning.get() : "") +
                 "\n\tSource: " + (source != null ? source.get() : "") +
                 "\n\tTime: " + (time != null ? time : "") +
                 "\n\tLog Level: " + (verbosity != null ? verbosity.get() : "") +
@@ -104,16 +104,16 @@ public class Log implements Comparable<Log>{
                 ;
     }
 
-    public int getTimeRunning() {
-        return timeRunning.get();
-    }
-
-    public IntegerProperty timeRunningProperty() {
-        if (timeRunning == null) timeRunning = new SimpleIntegerProperty(this, "timeRunning");
-        return timeRunning;
-    }
-
-    public void setTimeRunning(int timeRunning) {
-        timeRunningProperty().set(timeRunning);
-    }
+//    public int getTimeRunning() {
+//        return timeRunning.get();
+//    }
+//
+//    public IntegerProperty timeRunningProperty() {
+//        if (timeRunning == null) timeRunning = new SimpleIntegerProperty(this, "timeRunning");
+//        return timeRunning;
+//    }
+//
+//    public void setTimeRunning(int timeRunning) {
+//        timeRunningProperty().set(timeRunning);
+//    }
 }

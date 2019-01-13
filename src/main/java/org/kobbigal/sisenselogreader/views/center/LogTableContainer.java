@@ -43,7 +43,13 @@ public class LogTableContainer extends VBox {
         componentColumn.setCellValueFactory(new PropertyValueFactory<>("component"));
         detailsColumn.setCellValueFactory(new PropertyValueFactory<>("details"));
 
-        table.getColumns().addAll(sourceColumn, timeColumn, verbosityColumn, componentColumn, detailsColumn);
+        table.getColumns().add(sourceColumn);
+        table.getColumns().add(timeColumn);
+        table.getColumns().add(verbosityColumn);
+        table.getColumns().add(componentColumn);
+        table.getColumns().add(detailsColumn);
+
+//        table.getColumns().addAll(sourceColumn, timeColumn, verbosityColumn, componentColumn, detailsColumn);
         this.getChildren().add(table);
 
     }

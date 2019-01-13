@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,27 +23,33 @@ public class MainTest {
 
     public static void main(String[] args) {
 
-        LogPaths logPaths = new LogPaths();
+        List<Log> totalLogList = new ArrayList<>();
+        Date start = new Date(1546732800000L);
+        Date end = new Date();
+
+        LogPaths logPaths = new LogPaths(start, end);
         for (LogFile logFile : logPaths.getLogFileList()){
             LogFileReader logFileReader = new LogFileReader(logFile.getFile());
             List<Log> logList = new ArrayList<>();
+
             if (logFile.getSource().equals("ECS")){
-                ECSLogParser ecsLogParser = new ECSLogParser(logFileReader.getContent());
-                logList = ecsLogParser.logList();
+                ECSLogParser ecsLogParser = new ECSLogParser(logFileReader.getContent(), start, end);
+                logList.addAll(ecsLogParser.logList());
             }
             if (logFile.getSource().equals("IIS")){
                 PrismWebServerLogParser prismWebServerLogParser = new PrismWebServerLogParser(logFileReader.getContent());
-                logList = prismWebServerLogParser.logList();
+                logList.addAll(prismWebServerLogParser.logList());
             }
-            if (logFile.getSource().equals("galaxy")){
-                MicroServicesLogParser microServicesLogParser = new MicroServicesLogParser(logFileReader.getContent(), logFile.getSource());
-                logList = microServicesLogParser.logList();
+            else  {
+                MicroServicesLogParser microServicesLogParser = new MicroServicesLogParser(logFileReader.getContent(), start, end, logFile.getSource());
+                logList.addAll(microServicesLogParser.logList());
             }
 
             System.out.println("Logs parsed successfully for " + logFile.getFile().getName() + ": " + logList.size());
-
-
+            totalLogList.addAll(logList);
         }
+
+        System.out.println("Total logs parsed: " + totalLogList.size());
 
 
         // TODO parse errors with stack traces

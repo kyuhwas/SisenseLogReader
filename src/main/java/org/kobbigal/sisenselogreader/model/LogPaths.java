@@ -4,14 +4,10 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LogPaths {
 
-    private String sisenseVersion;
     private List<LogFile> logFileList;
 //    private static final Path PRISMWEB_LOGS_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\");
 //    private static final Path ECS_LOG_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\");
@@ -21,15 +17,10 @@ public class LogPaths {
     private static final File microservicersFolder = new File("/Users/kobbigal/temp/SNS-12621/application-logs");
     private static final File ecsFolder = new File("/Users/kobbigal/temp/SNS-12621/PrismServer/PrismServerLogs");
 
-    public LogPaths(String sisenseVersion) {
-        this.sisenseVersion = sisenseVersion;
+    public LogPaths(Date startTime, Date endTime){
+        System.out.println("Logs between " + startTime.toString() + " - " + endTime.toString());
         this.logFileList = new ArrayList<>();
-        setLogPaths();
-    }
-
-    public LogPaths(){
-        this.logFileList = new ArrayList<>();
-        setLogPaths();
+        setLogPaths(startTime, endTime);
     }
 
     public List<LogFile> getLogFileList() {
@@ -37,16 +28,23 @@ public class LogPaths {
     }
 
     private void addToLogFileList(LogFile logFile){
+        System.out.println("File " + logFile.getFile().getName() + " to be read");
         logFileList.add(logFile);
     }
 
-    private void setLogPaths() {
+    private boolean logInSelectedRange(Date start, Date end, Date modified){
+
+        return modified.after(start) && modified.before(end);
+
+    }
+
+    private void setLogPaths(Date start, Date end) {
 
         // IIS
         File[] listOfWebServerLogs = webserverFolder.listFiles((dir, name) -> name.startsWith("PrismWebServer"));
         if (listOfWebServerLogs != null) {
             for (File file : listOfWebServerLogs){
-                if (!file.getName().toLowerCase().contains("error") && !file.getName().toLowerCase().contains("whitebox")){
+                if (!file.getName().toLowerCase().contains("error") && !file.getName().toLowerCase().contains("whitebox") && logInSelectedRange(start, end, new Date(file.lastModified()))){
                     addToLogFileList(new LogFile("IIS", file));
                 }
             }
@@ -56,7 +54,9 @@ public class LogPaths {
         File[] listOfNodeLogs = webserverFolder.listFiles(((dir, name) -> name.startsWith("node")));
         if (listOfNodeLogs != null){
             for (File file : listOfNodeLogs){
-                addToLogFileList(new LogFile("Web Application", file));
+                if (logInSelectedRange(start, end, new Date(file.lastModified()))){
+                    addToLogFileList(new LogFile("Web Application", file));
+                }
             }
         }
 
@@ -67,16 +67,19 @@ public class LogPaths {
                 File[] microserviceLogs = folder.listFiles(((dir, name) -> !name.toLowerCase().contains("error")));
                 if (microserviceLogs != null) {
                     for (File file : microserviceLogs){
-                        addToLogFileList(new LogFile(file.getName().split(".log")[0].replaceAll("[0-9]", ""), file));
+                        if (logInSelectedRange(start, end, new Date(file.lastModified()))){
+                            addToLogFileList(new LogFile(file.getName().split(".log")[0].replaceAll("[0-9]", ""), file));
+                        }
                     }
                 }
             }
         }
 
+        // ECS
         File[] listOfECSLogs = ecsFolder.listFiles();
         if (listOfECSLogs != null){
             for (File file : listOfECSLogs){
-                if (file.getName().contains("ECS.log")){
+                if (file.getName().contains("ECS.log") && logInSelectedRange(start, end, new Date(file.lastModified()))){
                     addToLogFileList(new LogFile("ECS", file));
                 }
             }

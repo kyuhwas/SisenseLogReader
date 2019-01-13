@@ -6,7 +6,13 @@ import javafx.collections.transformation.FilteredList;
 import javafx.scene.control.*;
 import org.kobbigal.sisenselogreader.LogGenerator;
 import org.kobbigal.sisenselogreader.model.Log;
+import org.kobbigal.sisenselogreader.model.LogFile;
+import org.kobbigal.sisenselogreader.model.LogPaths;
+import org.kobbigal.sisenselogreader.parsers.ECSLogParser;
+import org.kobbigal.sisenselogreader.parsers.MicroServicesLogParser;
+import org.kobbigal.sisenselogreader.parsers.PrismWebServerLogParser;
 import org.kobbigal.sisenselogreader.views.RootLayout;
+import org.kobbigal.sisenselogreader.workers.LogFileReader;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -55,9 +61,6 @@ public class DateSelectionController {
             }
             else {
 
-                System.out.println("logs size: " + logs.size());
-                System.out.println("filtered logs size: " + logFilteredList.size());
-
                 if (logs.size() > 0){
                     logs.clear();
                     logFilteredList.clear();
@@ -65,7 +68,33 @@ public class DateSelectionController {
                 }
 
                 rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(true);
-                logs.addAll(LogGenerator.getLogs(startTime));
+//                logs.addAll(LogGenerator.getLogs(startTime));
+                LogPaths logPaths = new LogPaths(startTime, endTime);
+//                LogPaths logPaths = new LogPaths(new Date(1546732800000L), new Date());
+                for (LogFile logFile : logPaths.getLogFileList()){
+                    System.out.println("log file: " + logFile.getFile().getName());
+                    LogFileReader logFileReader = new LogFileReader(logFile.getFile());
+                    List<Log> logList = new ArrayList<>();
+
+                    if (logFile.getSource().equals("ECS")){
+                        ECSLogParser ecsLogParser = new ECSLogParser(logFileReader.getContent(), startTime, endTime);
+                        logList.addAll(ecsLogParser.logList());
+                    }
+                    if (logFile.getSource().equals("IIS")){
+                        PrismWebServerLogParser prismWebServerLogParser = new PrismWebServerLogParser(logFileReader.getContent(), startTime, endTime);
+                        logList.addAll(prismWebServerLogParser.logList());
+                    }
+                    else {
+                        MicroServicesLogParser microServicesLogParser = new MicroServicesLogParser(logFileReader.getContent(), startTime, endTime, logFile.getSource());
+                        logList.addAll(microServicesLogParser.logList());
+                    }
+
+                    System.out.println("Logs parsed successfully for " + logFile.getFile().getName() + ": " + logList.size());
+                    logs.addAll(logList);
+                }
+
+                System.out.println("Total logs added: " + logs.size());
+
                 rootLayout.setLogFilteredList(logFilteredList);
                 rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(false);
             }
