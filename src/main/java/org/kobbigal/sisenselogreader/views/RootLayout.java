@@ -4,7 +4,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import org.kobbigal.sisenselogreader.contollers.DateSelectionController;
+import org.kobbigal.sisenselogreader.controllers.DateSelectionController;
 import org.kobbigal.sisenselogreader.model.Log;
 import org.kobbigal.sisenselogreader.views.count.LogCountContainer;
 import org.kobbigal.sisenselogreader.views.filters.FiltersContainer;

@@ -1,5 +1,7 @@
 package org.kobbigal.sisenselogreader.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -7,6 +9,7 @@ import java.util.Date;
 
 public class Log implements Comparable<Log>{
 
+    private IntegerProperty timeRunning;
     private StringProperty source;
     private Date time;
     private StringProperty verbosity;
@@ -34,7 +37,7 @@ public class Log implements Comparable<Log>{
         sourceProperty().set(source);
     }
 
-    public Date getTime() {
+    private Date getTime() {
         return time;
     }
 
@@ -91,12 +94,26 @@ public class Log implements Comparable<Log>{
     @Override
     public String toString() {
         return "Log: {\n" +
-                "\n\tSource: " + source.get() +
-                "\n\tTime: " + time +
-                "\n\tLog Level: " + verbosity.get() +
-                "\n\tClass: " + component.get() +
-                "\n\tDetails: " + details.get() +
+                "\n\ttimeRunning: " + (timeRunning != null ? timeRunning.get() : "") +
+                "\n\tSource: " + (source != null ? source.get() : "") +
+                "\n\tTime: " + (time != null ? time : "") +
+                "\n\tLog Level: " + (verbosity != null ? verbosity.get() : "") +
+                "\n\tClass: " + (component != null ? component.get() : "") +
+                "\n\tDetails: " + (details != null ? details.get() : "") +
                 "\n}"
                 ;
+    }
+
+    public int getTimeRunning() {
+        return timeRunning.get();
+    }
+
+    public IntegerProperty timeRunningProperty() {
+        if (timeRunning == null) timeRunning = new SimpleIntegerProperty(this, "timeRunning");
+        return timeRunning;
+    }
+
+    public void setTimeRunning(int timeRunning) {
+        timeRunningProperty().set(timeRunning);
     }
 }

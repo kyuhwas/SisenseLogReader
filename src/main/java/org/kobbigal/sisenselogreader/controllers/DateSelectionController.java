@@ -1,4 +1,4 @@
-package org.kobbigal.sisenselogreader.contollers;
+package org.kobbigal.sisenselogreader.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

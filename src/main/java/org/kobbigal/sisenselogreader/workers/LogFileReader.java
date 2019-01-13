@@ -27,6 +27,7 @@ public class LogFileReader {
 
     private void read(){
 
+        System.out.println("Started reading file " + file.getName());
         try(Stream<String> stream = Files.lines(this.file.toPath(), StandardCharsets.ISO_8859_1)) {
 
             setContent(
@@ -35,6 +36,8 @@ public class LogFileReader {
                         .filter(line -> Character.isDigit(line.charAt(0)))
                         .collect(Collectors.toList()));
 
+            System.out.println("Finished reading file");
+
         } catch(IOException e){
             e.printStackTrace();
             Platform.runLater(() -> {
@@ -42,18 +45,15 @@ public class LogFileReader {
                 alert.showAndWait();
             });
         }
-
     }
 
-    public void setContent(List<String> content) {
+    private void setContent(List<String> content) {
         this.content = content;
     }
 
     public List<String> getContent() {
 
-        for (String line : content){
-            System.out.println(line);
-        }
+        System.out.println("Number of logs returned " + content.size());
         return content;
     }
 }

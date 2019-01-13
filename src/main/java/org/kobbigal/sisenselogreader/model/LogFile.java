@@ -7,9 +7,17 @@ public class LogFile {
     private String source;
     private File file;
 
-    public LogFile(String source, File file){
+    LogFile(String source, File file){
         this.source = source;
         this.file = file;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public File getFile() {
+        return file;
     }
 
     @Override
