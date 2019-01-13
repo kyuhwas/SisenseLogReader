@@ -12,9 +12,8 @@ import java.util.regex.Pattern;
 public class ECSLogParser implements ILogParser {
 
     private List<Log> logs;
-    private final int groupCount = 7;
     private Pattern logPatternNewLine = Pattern.compile("(\\d+) \\[(.*?)] \\[(.*?)]:\\[(.*?)],\\[(.*?)] \\[(.*?)]: \\[(.*?)\\n]");
-    private Pattern logPattern = Pattern.compile("(\\d+) \\[(.*?)] \\[(.*?)]:\\[(.*?)],\\[(.*?)] \\[(.*?)]: \\[(.*?)]");
+    private Pattern logPattern = Pattern.compile("(\\d+) \\[(.*?)] \\[(.*?)]:\\[(.*?)],\\[(.*?)] \\[(.*?)]: \\[(.*)]");
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
 
     public ECSLogParser(List<String> logLines){
@@ -60,10 +59,9 @@ public class ECSLogParser implements ILogParser {
                     e.printStackTrace();
                 }
             }
-
-
-
         }
+
+        System.out.println("finished parsing");
     }
 
 }

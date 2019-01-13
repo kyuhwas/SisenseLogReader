@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -28,13 +29,15 @@ public class LogFileReader {
     private void read(){
 
         System.out.println("Started reading file " + file.getName());
+
         try(Stream<String> stream = Files.lines(this.file.toPath(), StandardCharsets.ISO_8859_1)) {
 
             setContent(
                     stream
                         .filter(line -> !line.isEmpty())
-                        .filter(line -> Character.isDigit(line.charAt(0)))
+//                        .filter(line -> Character.isDigit(line.charAt(0)))
                         .collect(Collectors.toList()));
+
 
             System.out.println("Finished reading file");
 
