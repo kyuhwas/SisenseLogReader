@@ -97,7 +97,11 @@ public class SourceListContainer extends VBox {
 
     }
 
-    public void clearList() {
+    void clearList() {
         valueList.getItems().clear();
+    }
+
+    public ObservableList<String> getList() {
+        return valueList.getSelectionModel().getSelectedItems();
     }
 }

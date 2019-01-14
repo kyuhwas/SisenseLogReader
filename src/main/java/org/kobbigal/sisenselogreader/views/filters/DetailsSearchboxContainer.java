@@ -14,6 +14,7 @@ import java.util.function.Predicate;
 
 class DetailsSearchboxContainer extends VBox {
 
+    TextField searchField;
     private ObjectProperty<Predicate<Log>> filter;
 
     DetailsSearchboxContainer(){
@@ -24,7 +25,7 @@ class DetailsSearchboxContainer extends VBox {
         Label label = new Label("Details");
         label.setFont(Font.font("Agency FB", FontWeight.BOLD, 16));
 
-        TextField searchField = new TextField();
+        searchField = new TextField();
         searchField.setPromptText("e.g. finished initializing");
         filter.bind(Bindings.createObjectBinding(() ->
                 log -> log.getDetails().toLowerCase().contains(searchField.getText().toLowerCase()),
@@ -36,5 +37,9 @@ class DetailsSearchboxContainer extends VBox {
 
     Predicate<Log> getFilter() {
         return filter.get();
+    }
+
+    public String getText() {
+        return searchField.getText();
     }
 }

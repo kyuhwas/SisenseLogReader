@@ -13,9 +13,9 @@ public class LogPaths {
 //    private static final Path ECS_LOG_PATH = Paths.get("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\");
 //    private static final Path APPLICATION_LOGS = Paths.get("C:\\ProgramData\\Sisense\\application-logs");
 
-    private static final File webserverFolder = new File("/Users/kobbigal/temp/SNS-12621/PrismWeb/Logs");
-    private static final File microservicersFolder = new File("/Users/kobbigal/temp/SNS-12621/application-logs");
-    private static final File ecsFolder = new File("/Users/kobbigal/temp/SNS-12621/PrismServer/PrismServerLogs");
+    private static final File webserverFolder = new File("C:\\ProgramData\\Sisense\\PrismWeb\\Logs\\");
+    private static final File microservicersFolder = new File("C:\\ProgramData\\Sisense\\application-logs");
+    private static final File ecsFolder = new File("C:\\ProgramData\\Sisense\\PrismServer\\PrismServerLogs\\");
 
     public LogPaths(Date startTime, Date endTime){
         System.out.println("Logs between " + startTime.toString() + " - " + endTime.toString());
