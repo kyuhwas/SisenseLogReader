@@ -97,6 +97,7 @@ public class DateSelectionController {
                 System.out.println("Total logs added: " + logs.size());
 
                 rootLayout.setLogFilteredList(logFilteredList);
+                rootLayout.setNumberOfFiles(logPaths.getLogFileList().size());
                 rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(false);
             }
 

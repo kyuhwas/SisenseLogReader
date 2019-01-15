@@ -64,6 +64,10 @@ public class RootLayout extends BorderPane {
         this.logCountContainer.setNumberOfLogs(numberOfLogs);
     }
 
+    public void setNumberOfFiles(int numberOfFiles){
+        this.logCountContainer.setNumberOfFilesRead(numberOfFiles);
+    }
+
     private void enableLogCount(){
         this.setBottom(logCountContainer);
     }

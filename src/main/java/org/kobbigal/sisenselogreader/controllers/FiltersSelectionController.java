@@ -1,12 +1,9 @@
 package org.kobbigal.sisenselogreader.controllers;
 
-import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import org.kobbigal.sisenselogreader.model.Log;
 import org.kobbigal.sisenselogreader.views.filters.FiltersContainer;
-
-import java.util.function.Predicate;
 
 public class FiltersSelectionController {
 
@@ -27,6 +24,11 @@ public class FiltersSelectionController {
         System.out.println("Verbosity list values: " + verbosityListContainerList);
         System.out.println("Component search value: " + componentSearchboxContainerText);
         System.out.println("Details search value: " + detailsSearchboxContainerText);
+
+        logFilteredList.setPredicate(log ->
+                log.getComponent().contains(componentSearchboxContainerText) &&
+                        log.getDetails().contains(detailsSearchboxContainerText)
+        );
 
     }
 

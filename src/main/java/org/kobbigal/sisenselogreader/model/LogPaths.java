@@ -1,10 +1,9 @@
 package org.kobbigal.sisenselogreader.model;
 
 import java.io.File;
-import java.io.FilenameFilter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class LogPaths {
 
