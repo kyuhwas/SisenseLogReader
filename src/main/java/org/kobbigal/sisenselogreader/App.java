@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.kobbigal.sisenselogreader.version.VersionRetriever;
 import org.kobbigal.sisenselogreader.views.RootLayout;
 
 import java.nio.file.Paths;
@@ -30,8 +31,8 @@ public class App extends Application {
     private void loadUI(Stage window){
 
         window.getIcons().add(new Image(IMAGE_URL));
-//        window.setTitle("Sisense Log Reader - " + VersionRetriever.getVersion());
-        window.setTitle("Sisense Log Reader");
+        window.setTitle("Sisense Log Reader - " + VersionRetriever.getVersion());
+//        window.setTitle("Sisense Log Reader");
         window.setMinWidth(1600);
         window.setMinHeight(600);
 

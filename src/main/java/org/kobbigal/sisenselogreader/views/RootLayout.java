@@ -11,6 +11,7 @@ import org.kobbigal.sisenselogreader.views.filters.FiltersContainer;
 import org.kobbigal.sisenselogreader.views.menu.AppMenuBar;
 import org.kobbigal.sisenselogreader.views.center.DateSelectionContainer;
 import org.kobbigal.sisenselogreader.views.center.LogTableContainer;
+import org.kobbigal.sisenselogreader.views.status.AppStatusContainer;
 
 public class RootLayout extends BorderPane {
 
@@ -19,6 +20,7 @@ public class RootLayout extends BorderPane {
     private LogTableContainer logTableContainer;
     private LogCountContainer logCountContainer;
     private FiltersContainer filtersContainer;
+    private AppStatusContainer appStatusContainer;
     private DateSelectionController controller;
 
     public static RootLayout getInstance() {
@@ -37,11 +39,17 @@ public class RootLayout extends BorderPane {
         this.filtersContainer = new FiltersContainer();
         this.logCountContainer = new LogCountContainer();
         this.controller = new DateSelectionController(this);
+        this.appStatusContainer = AppStatusContainer.getInstance();
 
         this.setTop(appMenuBar);
         this.setCenter(centerLayoutDateSelectionAndTable(dateSelectionContainer, logTableContainer));
         dateSelectionContainer.getSetDatesBtn().setOnAction(event -> controller.handleSubmit());
         this.setLeft(filtersContainer);
+        this.setRight(appStatusContainer);
+    }
+
+    public AppStatusContainer getAppStatusContainer() {
+        return appStatusContainer;
     }
 
     public DateSelectionContainer getDateSelectionContainer() {
