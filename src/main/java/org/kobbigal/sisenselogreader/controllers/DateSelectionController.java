@@ -1,5 +1,6 @@
 package org.kobbigal.sisenselogreader.controllers;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -69,6 +70,7 @@ public class DateSelectionController {
 
                 rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(true);
                 FiltersContainer.getInstance().disableFilterButton();
+                FiltersContainer.getInstance().disableClearButton();
                 ReadParseLogTask readParseLogTask = new ReadParseLogTask(startTime, endTime);
                 rootLayout.setRight(AppStatusContainer.getInstance());
                 rootLayout.getAppStatusContainer().bindProgressBar(readParseLogTask.progressProperty());
@@ -78,7 +80,6 @@ public class DateSelectionController {
                         event -> {
 
                             System.out.println("Number of logs in logs: " + logs.size());
-                            System.out.println("Number of logs in logFilteredList: " + logFilteredList.size());
                             rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(false);
 
                             if (readParseLogTask.getValue().size() > 0){
@@ -88,6 +89,14 @@ public class DateSelectionController {
 
                                 FiltersContainer.getInstance().enableFilterButton();
                                 FiltersContainer.getInstance().enableClearButton();
+                            }
+
+                            else {
+                                Platform.runLater(() -> {
+                                    RootLayout.getInstance().setRight(null);
+                                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "No logs were found between " + startTime + " and  " + endTime, ButtonType.OK);
+                                    alert.showAndWait();
+                                });
                             }
                         });
                 thread.setDaemon(true);

@@ -31,6 +31,7 @@ public class FiltersSelectionController {
                 log.getDetails().toLowerCase().contains(detailsSearchboxContainerText.toLowerCase())
         );
 
+
         LogCountContainer.getInstance().setNumberOfLogs(logFilteredList.size());
 
     }

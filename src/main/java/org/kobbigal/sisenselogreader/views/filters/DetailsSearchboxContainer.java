@@ -1,16 +1,10 @@
 package org.kobbigal.sisenselogreader.views.filters;
 
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import org.kobbigal.sisenselogreader.model.Log;
-
-import java.util.function.Predicate;
 
 class DetailsSearchboxContainer extends VBox {
 
@@ -28,7 +22,7 @@ class DetailsSearchboxContainer extends VBox {
         this.getChildren().addAll(label, searchField);
     }
 
-    public void clearSearchFieldText(){
+    void clearSearchFieldText(){
         searchField.clear();
     }
 

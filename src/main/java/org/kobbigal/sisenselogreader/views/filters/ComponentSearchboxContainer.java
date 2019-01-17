@@ -22,7 +22,7 @@ class ComponentSearchboxContainer extends VBox {
         this.getChildren().addAll(label, searchField);
     }
 
-    public void clearSearchFieldText(){
+    void clearSearchFieldText(){
         searchField.clear();
     }
 
