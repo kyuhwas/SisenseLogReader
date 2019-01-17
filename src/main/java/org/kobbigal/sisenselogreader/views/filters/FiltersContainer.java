@@ -39,16 +39,6 @@ public class FiltersContainer extends VBox {
         setVerbosityList(filteredList);
         setSourcesList(filteredList);
         filtersSelectionController.setLogFilteredList(filteredList);
-        bindFilteredList(filteredList);
-    }
-
-    private void bindFilteredList(FilteredList<Log> filteredList){
-        filteredList.predicateProperty().bind(Bindings.createObjectBinding(() ->
-                sourceListContainer.getFilter()
-                        .and(verbosityListContainer.getFilter())
-                        .and(detailsSearchboxContainer.getFilter())
-                        .and(componentSearchboxContainer.getFilter())
-        ));
     }
 
     private void setVerbosityList(FilteredList<Log> filteredList) {

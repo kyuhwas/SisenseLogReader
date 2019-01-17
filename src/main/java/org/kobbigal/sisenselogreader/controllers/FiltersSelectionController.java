@@ -5,6 +5,8 @@ import javafx.collections.transformation.FilteredList;
 import org.kobbigal.sisenselogreader.model.Log;
 import org.kobbigal.sisenselogreader.views.filters.FiltersContainer;
 
+import java.util.function.Predicate;
+
 public class FiltersSelectionController {
 
     private FiltersContainer filtersContainer;
@@ -26,8 +28,8 @@ public class FiltersSelectionController {
         System.out.println("Details search value: " + detailsSearchboxContainerText);
 
         logFilteredList.setPredicate(log ->
-                log.getComponent().contains(componentSearchboxContainerText) &&
-                        log.getDetails().contains(detailsSearchboxContainerText)
+                log.getComponent().toLowerCase().contains(componentSearchboxContainerText.toLowerCase()) &&
+                log.getDetails().toLowerCase().contains(detailsSearchboxContainerText.toLowerCase())
         );
 
     }

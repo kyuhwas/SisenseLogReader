@@ -15,7 +15,7 @@ public class LogTableContainer extends VBox {
 
     public LogTableContainer(){
         this.setSpacing(0);
-        table.setPrefHeight(400);
+        table.setPrefHeight(500);
 
         TableColumn<Log, String> sourceColumn = new TableColumn<>("Source");
         sourceColumn.setSortable(false);
@@ -49,13 +49,12 @@ public class LogTableContainer extends VBox {
         table.getColumns().add(componentColumn);
         table.getColumns().add(detailsColumn);
 
-//        table.getColumns().addAll(sourceColumn, timeColumn, verbosityColumn, componentColumn, detailsColumn);
         this.getChildren().add(table);
 
     }
 
     public void setTableItems(FilteredList<Log> logs){
-        this.table.getItems().addAll(logs);
+        this.table.setItems(logs);
     }
 
     public void clearTable() {
