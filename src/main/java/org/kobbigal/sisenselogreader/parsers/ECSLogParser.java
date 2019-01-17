@@ -55,7 +55,11 @@ public class ECSLogParser implements ILogParser {
                         log.setComponent(matcher.group(6));
                         log.setDetails(matcher.group(7));
 //                    System.out.println(log);
-                        addToListOfLogs(log);
+
+                        // TODO will need to parse all files
+                        if (!log.getDetails().isEmpty() && log.getDetails() != null){
+                            addToListOfLogs(log);
+                        }
                     }
 
                 } catch (ParseException | NullPointerException e) {

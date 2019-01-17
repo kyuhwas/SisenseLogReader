@@ -76,14 +76,19 @@ public class DateSelectionController {
                 Thread thread = new Thread(readParseLogTask);
                 readParseLogTask.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED,
                         event -> {
-                            logs.addAll(readParseLogTask.getValue());
+
                             System.out.println("Number of logs in logs: " + logs.size());
                             System.out.println("Number of logs in logFilteredList: " + logFilteredList.size());
-                            rootLayout.setLogFilteredList(logFilteredList);
-                            rootLayout.setNumberOfFiles(readParseLogTask.getNumberOfLogs());
                             rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(false);
-                            FiltersContainer.getInstance().enableFilterButton();
-                            FiltersContainer.getInstance().enableClearButton();
+
+                            if (readParseLogTask.getValue().size() > 0){
+                                logs.addAll(readParseLogTask.getValue());
+                                rootLayout.setLogFilteredList(logFilteredList);
+                                rootLayout.setNumberOfFiles(readParseLogTask.getNumberOfLogs());
+
+                                FiltersContainer.getInstance().enableFilterButton();
+                                FiltersContainer.getInstance().enableClearButton();
+                            }
                         });
                 thread.setDaemon(true);
                 thread.start();

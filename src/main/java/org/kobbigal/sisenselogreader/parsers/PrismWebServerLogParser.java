@@ -42,7 +42,9 @@ public class PrismWebServerLogParser implements ILogParser {
                         log.setDetails(matcher.group(7));
 
 //                    System.out.println(log);
-                        addToListOfLogs(log);
+                        if (!log.getDetails().isEmpty() && log.getDetails() != null){
+                            addToListOfLogs(log);
+                        }
                     }
 
                 } catch (ParseException | NullPointerException e){
