@@ -36,8 +36,8 @@ public class RootLayout extends BorderPane {
         AppMenuBar appMenuBar = new AppMenuBar();
         this.dateSelectionContainer = new DateSelectionContainer();
         this.logTableContainer = new LogTableContainer();
-        this.filtersContainer = new FiltersContainer();
-        this.logCountContainer = new LogCountContainer();
+        this.filtersContainer = FiltersContainer.getInstance();
+        this.logCountContainer = LogCountContainer.getInstance();
         this.controller = new DateSelectionController(this);
         this.appStatusContainer = AppStatusContainer.getInstance();
 

@@ -9,10 +9,18 @@ import javafx.scene.text.FontWeight;
 
 public class LogCountContainer extends VBox {
 
+    private static LogCountContainer instance;
     private Label numberOfLogsLabel;
     private Label numberOfFilesRead;
 
-    public LogCountContainer() {
+    public static LogCountContainer getInstance() {
+        if (instance == null){
+            instance = new LogCountContainer();
+        }
+        return instance;
+    }
+
+    private LogCountContainer() {
 
         numberOfLogsLabel = new Label();
         numberOfLogsLabel.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));

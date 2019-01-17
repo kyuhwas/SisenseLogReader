@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import org.kobbigal.sisenselogreader.model.Log;
 import org.kobbigal.sisenselogreader.views.RootLayout;
+import org.kobbigal.sisenselogreader.views.filters.FiltersContainer;
 import org.kobbigal.sisenselogreader.views.status.AppStatusContainer;
 import org.kobbigal.sisenselogreader.workers.ReadParseLogTask;
 
@@ -67,29 +68,22 @@ public class DateSelectionController {
                 }
 
                 rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(true);
+                FiltersContainer.getInstance().disableFilterButton();
                 ReadParseLogTask readParseLogTask = new ReadParseLogTask(startTime, endTime);
                 rootLayout.setRight(AppStatusContainer.getInstance());
                 rootLayout.getAppStatusContainer().bindProgressBar(readParseLogTask.progressProperty());
 
                 Thread thread = new Thread(readParseLogTask);
-//                readParseLogTask.setOnSucceeded(event -> {
-//
-//                    logs.addAll(readParseLogTask.getValue());
-//                    rootLayout.setLogFilteredList(logFilteredList);
-//                    rootLayout.setNumberOfFiles(readParseLogTask.getNumberOfLogs());
-//                    rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(false);
-//
-//                });
-
                 readParseLogTask.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED,
                         event -> {
-//                            System.out.println("Read and parse task finished. Number of files returned: " + readParseLogTask.getValue().size());
                             logs.addAll(readParseLogTask.getValue());
                             System.out.println("Number of logs in logs: " + logs.size());
                             System.out.println("Number of logs in logFilteredList: " + logFilteredList.size());
                             rootLayout.setLogFilteredList(logFilteredList);
                             rootLayout.setNumberOfFiles(readParseLogTask.getNumberOfLogs());
                             rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(false);
+                            FiltersContainer.getInstance().enableFilterButton();
+                            FiltersContainer.getInstance().enableClearButton();
                         });
                 thread.setDaemon(true);
                 thread.start();

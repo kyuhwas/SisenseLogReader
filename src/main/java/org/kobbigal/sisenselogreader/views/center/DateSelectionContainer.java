@@ -42,6 +42,7 @@ public class DateSelectionContainer extends GridPane{
         startDatePicker = new DatePicker();
         endDatePicker = new DatePicker();
         setDatesBtn = new Button("Submit");
+        setDatesBtn.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
         startTimeTxtField  = new TextField();
         endTimeTxtField = new TextField();
         initiateStartTimeLabel();

@@ -3,9 +3,8 @@ package org.kobbigal.sisenselogreader.controllers;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import org.kobbigal.sisenselogreader.model.Log;
+import org.kobbigal.sisenselogreader.views.count.LogCountContainer;
 import org.kobbigal.sisenselogreader.views.filters.FiltersContainer;
-
-import java.util.function.Predicate;
 
 public class FiltersSelectionController {
 
@@ -31,6 +30,8 @@ public class FiltersSelectionController {
                 log.getComponent().toLowerCase().contains(componentSearchboxContainerText.toLowerCase()) &&
                 log.getDetails().toLowerCase().contains(detailsSearchboxContainerText.toLowerCase())
         );
+
+        LogCountContainer.getInstance().setNumberOfLogs(logFilteredList.size());
 
     }
 
