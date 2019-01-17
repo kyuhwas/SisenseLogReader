@@ -38,7 +38,7 @@ public class FiltersContainer extends VBox {
     public void setFilteredList(FilteredList<Log> filteredList) {
         setVerbosityList(filteredList);
         setSourcesList(filteredList);
-//        filtersSelectionController.setLogFilteredList(filteredList);
+        filtersSelectionController.setLogFilteredList(filteredList);
         bindFilteredList(filteredList);
     }
 

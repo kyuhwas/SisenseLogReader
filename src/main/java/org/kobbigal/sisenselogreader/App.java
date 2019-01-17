@@ -14,15 +14,12 @@ import java.nio.file.Paths;
 
 public class App extends Application {
 
-    //    private List<Path> logPaths;
-
     private final String IMAGE_URL = "file:" + Paths.get(System.getProperty("user.dir"), "res", "logo.png");
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    //   UI
     @Override
     public void start(Stage primaryStage) {
         loadUI(primaryStage);
@@ -32,7 +29,6 @@ public class App extends Application {
 
         window.getIcons().add(new Image(IMAGE_URL));
         window.setTitle("Sisense Log Reader - " + VersionRetriever.getVersion());
-//        window.setTitle("Sisense Log Reader");
         window.setMinWidth(1600);
         window.setMinHeight(600);
 
@@ -42,5 +38,4 @@ public class App extends Application {
         window.setScene(scene);
         window.show();
     }
-
 }

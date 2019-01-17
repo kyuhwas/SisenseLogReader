@@ -44,12 +44,12 @@ public class ReadParseLogTask extends Task<List<Log>> {
 
         Platform.runLater(() -> AppStatusContainer.getInstance().setAppRunHistory("Found " + numberOfFiles + " files in chosen range."));
 
-        int currentFileRead = 1;
+        int currentFileRead = 0;
         for (LogFile logFile : logPaths.getLogFileList()) {
 
             currentFileRead++;
 
-            Platform.runLater(() -> AppStatusContainer.getInstance().setAppRunHistory("Reading file and parsing " + logFile.getFile().getName() + "..."));
+            Platform.runLater(() -> AppStatusContainer.getInstance().setAppRunHistory("Reading and parsing file " + logFile.getFile().getName() + "..."));
 
             LogFileReader logFileReader = new LogFileReader(logFile.getFile());
             List<Log> logList = new ArrayList<>();

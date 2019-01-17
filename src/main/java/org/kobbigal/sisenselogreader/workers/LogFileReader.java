@@ -19,7 +19,7 @@ public class LogFileReader {
     private File file;
     private List<String> content;
 
-    public LogFileReader(File file) {
+    LogFileReader(File file) {
 
         this.file = file;
         read();
@@ -54,7 +54,7 @@ public class LogFileReader {
         this.content = content;
     }
 
-    public List<String> getContent() {
+    List<String> getContent() {
 
         System.out.println("Number of logs returned " + content.size());
         return content;

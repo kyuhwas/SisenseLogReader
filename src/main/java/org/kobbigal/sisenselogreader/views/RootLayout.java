@@ -45,7 +45,6 @@ public class RootLayout extends BorderPane {
         this.setCenter(centerLayoutDateSelectionAndTable(dateSelectionContainer, logTableContainer));
         dateSelectionContainer.getSetDatesBtn().setOnAction(event -> controller.handleSubmit());
         this.setLeft(filtersContainer);
-        this.setRight(appStatusContainer);
     }
 
     public AppStatusContainer getAppStatusContainer() {

@@ -29,7 +29,9 @@ public class AppStatusContainer extends VBox {
         appRunHistory.setPrefWidth(300);
 
         this.setAlignment(Pos.CENTER);
-        Label statusLabel = new Label("Status");
+        this.setPrefHeight(900);
+        this.setPrefWidth(320);
+        Label statusLabel = new Label("Progress");
         this.getChildren().addAll(statusLabel, progressBar, appRunHistory);
     }
 

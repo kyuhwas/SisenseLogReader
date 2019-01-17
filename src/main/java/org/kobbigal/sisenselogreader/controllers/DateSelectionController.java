@@ -4,22 +4,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.concurrent.WorkerStateEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.*;
-import org.kobbigal.sisenselogreader.LogGenerator;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import org.kobbigal.sisenselogreader.model.Log;
-import org.kobbigal.sisenselogreader.model.LogFile;
-import org.kobbigal.sisenselogreader.model.LogPaths;
-import org.kobbigal.sisenselogreader.parsers.ECSLogParser;
-import org.kobbigal.sisenselogreader.parsers.MicroServicesLogParser;
-import org.kobbigal.sisenselogreader.parsers.PrismWebServerLogParser;
 import org.kobbigal.sisenselogreader.views.RootLayout;
-import org.kobbigal.sisenselogreader.workers.LogFileReader;
+import org.kobbigal.sisenselogreader.views.status.AppStatusContainer;
 import org.kobbigal.sisenselogreader.workers.ReadParseLogTask;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
 
 public class DateSelectionController {
 
@@ -65,24 +59,41 @@ public class DateSelectionController {
             else {
 
                 if (logs.size() > 0){
+                    System.out.println("Number of logs: " + logs.size());
                     logs.clear();
-                    logFilteredList.clear();
+                    logFilteredList = new FilteredList<>(logs);
                     rootLayout.clearList();
+                    System.out.println("Logs cleared");
                 }
 
                 rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(true);
                 ReadParseLogTask readParseLogTask = new ReadParseLogTask(startTime, endTime);
+                rootLayout.setRight(AppStatusContainer.getInstance());
                 rootLayout.getAppStatusContainer().bindProgressBar(readParseLogTask.progressProperty());
 
                 Thread thread = new Thread(readParseLogTask);
+//                readParseLogTask.setOnSucceeded(event -> {
+//
+//                    logs.addAll(readParseLogTask.getValue());
+//                    rootLayout.setLogFilteredList(logFilteredList);
+//                    rootLayout.setNumberOfFiles(readParseLogTask.getNumberOfLogs());
+//                    rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(false);
+//
+//                });
+
+                readParseLogTask.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED,
+                        event -> {
+//                            System.out.println("Read and parse task finished. Number of files returned: " + readParseLogTask.getValue().size());
+                            logs.addAll(readParseLogTask.getValue());
+                            System.out.println("Number of logs in logs: " + logs.size());
+                            System.out.println("Number of logs in logFilteredList: " + logFilteredList.size());
+                            rootLayout.setLogFilteredList(logFilteredList);
+                            rootLayout.setNumberOfFiles(readParseLogTask.getNumberOfLogs());
+                            rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(false);
+                        });
                 thread.setDaemon(true);
                 thread.start();
-                readParseLogTask.setOnSucceeded(event -> {
-                    logs.addAll(readParseLogTask.getValue());
-                    rootLayout.setLogFilteredList(logFilteredList);
-                    rootLayout.setNumberOfFiles(readParseLogTask.getNumberOfLogs());
-                    rootLayout.getDateSelectionContainer().getSetDatesBtn().setDisable(false);
-                });
+
             }
 
         }

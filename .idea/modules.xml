@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SisenseLogReader.iml" filepath="$PROJECT_DIR$/SisenseLogReader.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SisenseLogReader.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SisenseLogReader.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SisenseLogReader.test.iml" filepath="$PROJECT_DIR$/.idea/modules/SisenseLogReader.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SisenseLogReader_main.iml" filepath="$PROJECT_DIR$/.idea/modules/SisenseLogReader_main.iml" group="SisenseLogReader" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SisenseLogReader_test.iml" filepath="$PROJECT_DIR$/.idea/modules/SisenseLogReader_test.iml" group="SisenseLogReader" />
     </modules>
   </component>
 </project>
