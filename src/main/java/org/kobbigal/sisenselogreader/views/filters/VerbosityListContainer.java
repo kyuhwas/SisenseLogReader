@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class VerbosityListContainer extends VBox {
+public class VerbosityListContainer extends VBox implements IListFilter {
 
     private ListView<String> valueList;
 
@@ -31,7 +31,8 @@ public class VerbosityListContainer extends VBox {
         this.getChildren().addAll(label, valueList);
     }
 
-    void setList(FilteredList<Log> logList) {
+    @Override
+    public void setList(FilteredList<Log> logList) {
 
         List<String> l = new ArrayList<>();
 
@@ -49,14 +50,17 @@ public class VerbosityListContainer extends VBox {
 
     }
 
-    void selectAll(){
+    @Override
+    public void selectAll() {
         valueList.getSelectionModel().selectAll();
     }
 
-    void clearList() {
+    @Override
+    public void clearList() {
         valueList.getItems().clear();
     }
 
+    @Override
     public ObservableList<String> getList() {
         return valueList.getSelectionModel().getSelectedItems();
     }

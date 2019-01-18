@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class SourceListContainer extends VBox {
+public class SourceListContainer extends VBox implements IListFilter{
 
     private ListView<String> valueList;
 
@@ -31,8 +31,9 @@ public class SourceListContainer extends VBox {
         this.getChildren().addAll(label, valueList);
     }
 
+    @Override
+    public void setList(FilteredList<Log> logList) {
 
-    void setList(FilteredList<Log> logList) {
         List<String> l = new ArrayList<>();
 
         for (Log log : logList){
@@ -46,17 +47,19 @@ public class SourceListContainer extends VBox {
         valueList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         valueList.getSelectionModel().selectAll();
         valueList.setTooltip(new Tooltip("Hold CMD/CTRL to select multiple values"));
-
     }
 
-    void selectAll(){
+    @Override
+    public void selectAll() {
         valueList.getSelectionModel().selectAll();
     }
 
-    void clearList() {
+    @Override
+    public void clearList() {
         valueList.getItems().clear();
     }
 
+    @Override
     public ObservableList<String> getList() {
         return valueList.getSelectionModel().getSelectedItems();
     }

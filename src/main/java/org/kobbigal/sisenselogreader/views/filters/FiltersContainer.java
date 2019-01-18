@@ -110,7 +110,7 @@ public class FiltersContainer extends VBox {
     }
 
     public String getDetailsSearchboxContainerText() {
-        return detailsSearchboxContainer.getText();
+        return detailsSearchboxContainer.getSearchText();
     }
 
 }

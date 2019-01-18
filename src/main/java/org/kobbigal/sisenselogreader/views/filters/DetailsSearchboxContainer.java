@@ -6,7 +6,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-class DetailsSearchboxContainer extends VBox {
+class DetailsSearchboxContainer extends VBox implements ISearchBox{
 
     private TextField searchField;
 
@@ -22,11 +22,14 @@ class DetailsSearchboxContainer extends VBox {
         this.getChildren().addAll(label, searchField);
     }
 
-    void clearSearchFieldText(){
+    @Override
+    public void clearSearchFieldText() {
         searchField.clear();
     }
 
-    public String getText() {
+    @Override
+    public String getSearchText() {
         return searchField.getText();
     }
+
 }
