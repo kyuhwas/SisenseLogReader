@@ -3,10 +3,7 @@ package org.kobbigal.sisenselogreader.views.filters;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import org.kobbigal.sisenselogreader.controllers.FiltersSelectionController;
 import org.kobbigal.sisenselogreader.model.Log;
 
@@ -18,8 +15,7 @@ public class FiltersContainer extends VBox {
     private ComponentSearchboxContainer componentSearchboxContainer = new ComponentSearchboxContainer();
     private DetailsSearchboxContainer detailsSearchboxContainer = new DetailsSearchboxContainer();
     private FiltersSelectionController filtersSelectionController = new FiltersSelectionController(this);
-    private Button filterBtn = new Button("Apply");
-    private Button clearSearchFieldsBtn = new Button("Clear");
+    private FilterButtonsContainer filterButtonsContainer = FilterButtonsContainer.getInstance();
 
     public static FiltersContainer getInstance() {
         if (instance == null){
@@ -34,43 +30,42 @@ public class FiltersContainer extends VBox {
         this.setPadding(new Insets(5));
 
 
-        filterBtn.setOnAction(event -> filtersSelectionController.filter());
-        filterBtn.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
-        filterBtn.setDisable(true);
-
-        clearSearchFieldsBtn.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
-        clearSearchFieldsBtn.setDisable(true);
-        clearSearchFieldsBtn.setOnAction(event -> {
-            componentSearchboxContainer.clearSearchFieldText();
-            detailsSearchboxContainer.clearSearchFieldText();
-            filtersSelectionController.filter();
-        });
-
         this.getChildren().addAll(
                 sourceListContainer,
                 verbosityListContainer,
                 componentSearchboxContainer,
                 detailsSearchboxContainer,
-                filterBtn,
-                clearSearchFieldsBtn
+                filterButtonsContainer
         );
 
     }
 
-    public void enableClearButton(){
-        clearSearchFieldsBtn.setDisable(false);
+    FiltersSelectionController getFiltersSelectionController() {
+        return filtersSelectionController;
     }
 
-    public void disableClearButton(){
-        clearSearchFieldsBtn.setDisable(true);
+    ComponentSearchboxContainer getComponentSearchboxContainer() {
+        return componentSearchboxContainer;
+    }
+
+    DetailsSearchboxContainer getDetailsSearchboxContainer() {
+        return detailsSearchboxContainer;
     }
 
     public void enableFilterButton(){
-        filterBtn.setDisable(false);
+        filterButtonsContainer.enableApplyFiltersButton();
     }
 
     public void disableFilterButton(){
-        filterBtn.setDisable(true);
+        filterButtonsContainer.disableApplyFiltersButton();
+    }
+
+    public void disableClearButton(){
+        filterButtonsContainer.disableClearFiltersButton();
+    }
+
+    public void enableClearButton(){
+        filterButtonsContainer.enableClearFiltersButton();
     }
 
     public void setFilteredList(FilteredList<Log> filteredList) {
@@ -107,4 +102,5 @@ public class FiltersContainer extends VBox {
     public String getDetailsSearchboxContainerText() {
         return detailsSearchboxContainer.getText();
     }
+
 }

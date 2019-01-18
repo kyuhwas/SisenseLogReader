@@ -87,8 +87,10 @@ public class DateSelectionController {
                                 rootLayout.setLogFilteredList(logFilteredList);
                                 rootLayout.setNumberOfFiles(readParseLogTask.getNumberOfLogs());
 
-                                FiltersContainer.getInstance().enableFilterButton();
-                                FiltersContainer.getInstance().enableClearButton();
+                                Platform.runLater(() -> {
+                                    FiltersContainer.getInstance().enableFilterButton();
+                                    FiltersContainer.getInstance().enableClearButton();
+                                });
                             }
 
                             else {

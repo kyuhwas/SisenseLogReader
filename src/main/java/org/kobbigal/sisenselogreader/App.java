@@ -30,9 +30,9 @@ public class App extends Application {
         window.getIcons().add(new Image(IMAGE_URL));
         window.setTitle("Sisense Log Reader - " + VersionRetriever.getVersion());
         window.setMinWidth(1600);
-        window.setMinHeight(600);
+        window.setMinHeight(800);
 
-        Scene scene = new Scene(RootLayout.getInstance(), 1600, 600);
+        Scene scene = new Scene(RootLayout.getInstance(), 1600, 800);
         scene.getStylesheets().add("style.css");
 
         window.setScene(scene);
