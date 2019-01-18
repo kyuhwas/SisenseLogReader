@@ -28,8 +28,11 @@ public class FiltersSelectionController {
 
         logFilteredList.setPredicate(log ->
                 log.getComponent().toLowerCase().contains(componentSearchboxContainerText.toLowerCase()) &&
-                log.getDetails().toLowerCase().contains(detailsSearchboxContainerText.toLowerCase())
+                log.getDetails().toLowerCase().contains(detailsSearchboxContainerText.toLowerCase()) &&
+                sourceListContainerList.contains(log.getSource()) &&
+                verbosityListContainerList.contains(log.getVerbosity())
         );
+
 
 
         LogCountContainer.getInstance().setNumberOfLogs(logFilteredList.size());
