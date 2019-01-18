@@ -52,6 +52,14 @@ public class FiltersContainer extends VBox {
         return detailsSearchboxContainer;
     }
 
+    SourceListContainer getSourceListContainer() {
+        return sourceListContainer;
+    }
+
+    VerbosityListContainer getVerbosityListContainer() {
+        return verbosityListContainer;
+    }
+
     public void enableFilterButton(){
         filterButtonsContainer.enableApplyFiltersButton();
     }
@@ -86,6 +94,8 @@ public class FiltersContainer extends VBox {
         verbosityListContainer.clearList();
         sourceListContainer.clearList();
     }
+
+
 
     public ObservableList<String> getSourceListContainerList() {
         return sourceListContainer.getList();

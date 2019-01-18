@@ -21,13 +21,15 @@ public class FilterButtonsContainer extends HBox {
     private FilterButtonsContainer(){
 
         applyFilters = new Button("Apply");
-        clearFilters = new Button("Clear");
+        clearFilters = new Button("Reset");
 
         applyFilters.setOnAction(event -> FiltersContainer.getInstance().getFiltersSelectionController().filter());
         applyFilters.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
         applyFilters.setDisable(true);
 
         clearFilters.setOnAction(event -> {
+            FiltersContainer.getInstance().getSourceListContainer().selectAll();
+            FiltersContainer.getInstance().getVerbosityListContainer().selectAll();
             FiltersContainer.getInstance().getComponentSearchboxContainer().clearSearchFieldText();
             FiltersContainer.getInstance().getDetailsSearchboxContainer().clearSearchFieldText();
             FiltersContainer.getInstance().getFiltersSelectionController().filter();

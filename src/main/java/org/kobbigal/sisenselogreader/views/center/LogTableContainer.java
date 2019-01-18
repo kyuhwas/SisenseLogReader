@@ -15,7 +15,7 @@ public class LogTableContainer extends VBox {
 
     public LogTableContainer(){
         this.setSpacing(0);
-        table.setPrefHeight(500);
+        table.setPrefHeight(600);
 
         TableColumn<Log, String> sourceColumn = new TableColumn<>("Source");
         sourceColumn.setSortable(false);

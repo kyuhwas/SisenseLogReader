@@ -49,6 +49,10 @@ public class VerbosityListContainer extends VBox {
 
     }
 
+    void selectAll(){
+        valueList.getSelectionModel().selectAll();
+    }
+
     void clearList() {
         valueList.getItems().clear();
     }
